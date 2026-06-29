@@ -515,6 +515,7 @@ function render() {
           If this guide has you picturing life in the Coachella Valley, Darcey can help with the
           homes, neighborhoods and next steps.
         </p>
+        <p class="dre-line">Darcey Deetz · CA DRE 01374659</p>
         <a class="button dark" href="https://darceydeetz.com" target="_blank" rel="noreferrer">
           ${icon("heart")} Visit Darcey's Website
         </a>
@@ -624,10 +625,20 @@ function render() {
       </section>
 
       <section class="section contact" id="contact">
-        <div>
-          <p class="eyebrow">Send us a favorite</p>
-          <h2>Have a restaurant, hidden gem or golf course Darcey should know about?</h2>
-          <p>Send us the name, location and what makes it special. We love hearing what clients and friends are discovering around the desert.</p>
+        <div class="contact-main">
+          <img class="contact-photo" src="./assets/people/darcey-headshot-web.jpg" alt="Darcey Deetz" />
+          <div>
+            <p class="eyebrow">Contact Darcey</p>
+            <h2>Have a local favorite Darcey should know about?</h2>
+            <p>Send the name, location and what makes it special. For real estate help, Darcey is always happy to point you in the right direction.</p>
+            <div class="darcey-contact-card">
+              <h3>Darcey Deetz</h3>
+              <p>CA DRE 01374659</p>
+              <a href="mailto:darcey@darceydeetz.com">darcey@darceydeetz.com</a>
+              <a href="tel:17608081449">760-808-1449</a>
+              <a href="https://darceydeetz.com" target="_blank" rel="noreferrer">darceydeetz.com</a>
+            </div>
+          </div>
         </div>
         <div class="contact-links">
           <a href="mailto:john@darceydeetz.com?subject=My%20Desert%20Guide%20Recommendation&body=Hi%20John%2C%0A%0AI%20have%20a%20recommendation%20for%20My%20Desert%20Guide.%0A%0AName%3A%0ALocation%3A%0ACategory%20%28restaurant%2C%20hidden%20gem%2C%20golf%20course%2C%20etc.%29%3A%0AWhat%20makes%20it%20special%3A%0AWebsite%20or%20Instagram%20%28if%20available%29%3A%0A%0AThank%20you!" class="submit-link">Submit a Recommendation</a>

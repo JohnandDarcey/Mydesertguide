@@ -331,6 +331,14 @@ h1 {
   margin-bottom: 0;
 }
 
+.real-estate-cta .dre-line {
+  color: var(--charcoal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  grid-column: 3;
+  text-transform: uppercase;
+}
+
 .section-heading h2,
 .contact h2 {
   font-size: clamp(2.2rem, 5vw, 5.2rem);
@@ -915,9 +923,52 @@ dd {
   grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
 }
 
+.contact-main {
+  align-items: start;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(110px, 170px) minmax(0, 1fr);
+}
+
+.contact-photo {
+  aspect-ratio: 4 / 5;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center top;
+  width: 100%;
+}
+
 .contact .eyebrow,
 .contact p {
   color: rgba(255, 255, 255, 0.76);
+}
+
+.darcey-contact-card {
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  display: grid;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 20px;
+}
+
+.darcey-contact-card h3 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin-bottom: 0;
+}
+
+.darcey-contact-card p {
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.darcey-contact-card a {
+  color: var(--white);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.36);
+  text-underline-offset: 4px;
 }
 
 .contact-links {
@@ -1019,6 +1070,7 @@ dd {
 
   .intro,
   .real-estate-cta,
+  .contact-main,
   .feature-grid,
   .section-heading,
   .guide-tools,
@@ -1057,6 +1109,10 @@ dd {
   .real-estate-cta .button {
     justify-content: center;
     width: 100%;
+  }
+
+  .real-estate-cta .dre-line {
+    grid-column: auto;
   }
 
   .welcome-copy {
@@ -1108,6 +1164,10 @@ dd {
 
   .services-cta .button {
     justify-content: center;
+  }
+
+  .contact-photo {
+    max-width: 150px;
   }
 }
 
