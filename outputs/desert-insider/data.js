@@ -397,6 +397,51 @@ export const thingsToDo = [
     image: "./assets/things-to-do/the-living-desert.png",
     isNew: true,
   },
+  {
+    name: "Palm Springs Aerial Tramway",
+    location: "Palm Springs",
+    category: "Mountain Experience",
+    rating: 5,
+    bestFor: "Big views and a completely different desert perspective",
+    detail: "A rotating tram car climbs from the desert floor to the mountain station near Mt. San Jacinto.",
+    website: "https://pstramway.com/",
+    maps: "https://maps.google.com/?q=Palm+Springs+Aerial+Tramway",
+    description:
+      "One of the most iconic Palm Springs experiences, with dramatic views, cooler mountain air, hiking, dining and that unforgettable ride up the canyon.",
+    tip: "Bring a light layer even when it is warm in town. The temperature at the top can feel like a totally different season.",
+    image: "./assets/things-to-do/palm-springs-aerial-tram.png",
+    isNew: true,
+  },
+  {
+    name: "Sunnylands",
+    location: "Rancho Mirage",
+    category: "Gardens & Culture",
+    rating: 5,
+    bestFor: "Architecture, gardens and a peaceful desert outing",
+    detail: "Historic estate, visitor center, gardens, tours and rotating programming.",
+    website: "https://sunnylands.org/",
+    maps: "https://maps.google.com/?q=Sunnylands+Rancho+Mirage",
+    description:
+      "A beautifully designed Rancho Mirage landmark with modern architecture, desert gardens and a calm, polished setting that feels special without feeling fussy.",
+    tip: "Check the tour schedule before you go, then leave time to wander the gardens and take in the mountain views.",
+    image: "./assets/things-to-do/sunnylands.png",
+    isNew: true,
+  },
+  {
+    name: "Coachella Valley Firebirds",
+    location: "Palm Desert",
+    category: "Sports & Entertainment",
+    rating: 5,
+    bestFor: "A high-energy night out with family or friends",
+    detail: "Professional hockey at Acrisure Arena with a fun local fan atmosphere.",
+    website: "https://cvfirebirds.com/",
+    maps: "https://maps.google.com/?q=Coachella+Valley+Firebirds+Acrisure+Arena",
+    description:
+      "A fun, lively way to spend an evening in the desert, with great crowd energy and a true local-team feel.",
+    tip: "Make a night of it and arrive early so parking, food and getting to your seats all feel easy.",
+    image: "./assets/things-to-do/coachella-valley-firebirds.png",
+    isNew: true,
+  },
 ];
 
 export const golfCourses = [

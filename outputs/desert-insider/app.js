@@ -21,6 +21,8 @@ const state = {
 const dateNightNames = ["Spencer's", "Giuseppe's", "Mitch's", "California Bistro"];
 const happyHourNames = ["Giuseppe's", "Cactus Jack's", "California Bistro", "Bubba's Bones & Brews"];
 const featuredRestaurantNames = ["Spencer's", "Lulu"];
+const featuredGolfNames = ["Indian Canyons Golf Resort", "The Classic Club"];
+const featuredThingsNames = ["The Living Desert", "Palm Springs Aerial Tramway"];
 const featuredRestaurantsByFilter = {
   American: ["Lulu", "Tony's Grill and Bar"],
   "Date Night": ["Spencer's", "California Bistro"],
@@ -93,6 +95,18 @@ function mapPlaces() {
 function pickRestaurants(names) {
   return names
     .map((name) => restaurants.find((restaurant) => restaurant.name === name))
+    .filter(Boolean);
+}
+
+function pickGolfCourses(names) {
+  return names
+    .map((name) => golfCourses.find((course) => course.name === name))
+    .filter(Boolean);
+}
+
+function pickThingsToDo(names) {
+  return names
+    .map((name) => thingsToDo.find((thing) => thing.name === name))
     .filter(Boolean);
 }
 
@@ -262,9 +276,23 @@ function thingToDoCard(item) {
 function featuredLinkRow(item) {
   return `
     <div class="featured-link-row">
+      ${item.teeTime ? `<a href="${item.teeTime}" target="_blank" rel="noreferrer">Book Tee Time</a>` : ""}
       ${item.website ? `<a href="${item.website}" target="_blank" rel="noreferrer">Website</a>` : ""}
       ${item.menu ? `<a href="${item.menu}" target="_blank" rel="noreferrer">Menu</a>` : ""}
       ${item.maps ? `<a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>` : ""}
+    </div>
+  `;
+}
+
+function expandableFeaturedNote(text) {
+  if (text.length < 180) {
+    return `<p class="featured-note">${text}</p>`;
+  }
+
+  return `
+    <div class="featured-note-wrap">
+      <p class="featured-note">${text}</p>
+      <button class="featured-note-toggle" type="button" aria-expanded="false">Read more</button>
     </div>
   `;
 }
@@ -284,7 +312,7 @@ function featuredSpotlightCard(item, label, why, actionLabel = "View Details") {
         <h3>${item.name}</h3>
         <div class="featured-why">
           <span>Why Darcey picked it</span>
-          <p>${why}</p>
+          ${expandableFeaturedNote(why)}
         </div>
         ${featuredLinkRow(item)}
       </div>
@@ -323,20 +351,23 @@ function restaurantFeaturedListings() {
 }
 
 function thingsFeaturedListings() {
-  const livingDesert = thingsToDo.find((thing) => thing.name === "The Living Desert");
+  const featured = pickThingsToDo(featuredThingsNames);
   return `
     <div class="featured-listings" aria-label="Featured Things To Do listings">
-      ${
-        livingDesert
-          ? featuredSpotlightCard(livingDesert, "Featured Thing To Do", livingDesert.tip, "Visit Website")
-          : ""
-      }
-      <article class="featured-placeholder-card">
-        <div class="placeholder-seal">Featured</div>
-        <p class="eyebrow">Things To Do Spotlight</p>
-        <h3>Premium feature 2</h3>
-        <p>Reserved for a standout desert experience with a larger image, Darcey note and direct action link.</p>
-      </article>
+      ${featured
+        .map((thing) => featuredSpotlightCard(thing, "Featured Thing To Do", thing.tip))
+        .join("")}
+    </div>
+  `;
+}
+
+function golfFeaturedListings() {
+  const featured = pickGolfCourses(featuredGolfNames);
+  return `
+    <div class="featured-listings" aria-label="Featured Golf listings">
+      ${featured
+        .map((course) => featuredSpotlightCard(course, "Featured Golf", course.tip))
+        .join("")}
     </div>
   `;
 }
@@ -357,7 +388,7 @@ function categoryFeaturedShelf() {
               <strong>${starRating(item.rating)}</strong>
             </div>
             <h3>${item.name}</h3>
-            <p>${item.tip}</p>
+            ${expandableFeaturedNote(item.tip)}
             ${featuredLinkRow(item)}
           </div>
         </article>
@@ -443,6 +474,7 @@ function happyHourSection() {
 }
 
 function thingsToDoSection() {
+  const featured = new Set(featuredThingsNames);
   return `
     <section class="section spotlight-section things-section" id="things-to-do">
       <div class="section-heading">
@@ -456,7 +488,7 @@ function thingsToDoSection() {
       </div>
       ${thingsFeaturedListings()}
       <div class="listing-grid">
-        ${thingsToDo.map(thingToDoCard).join("")}
+        ${thingsToDo.filter((thing) => !featured.has(thing.name)).map(thingToDoCard).join("")}
       </div>
     </section>
   `;
@@ -737,9 +769,9 @@ function render() {
             A few favorite courses for beautiful views, strong conditions, great restaurants and the kind of round worth recommending.
           </p>
         </div>
-        ${featuredPlaceholders("Golf")}
+        ${golfFeaturedListings()}
         <div class="listing-grid golf-grid">
-          ${golfCourses.map(golfCard).join("")}
+          ${golfCourses.filter((course) => !featuredGolfNames.includes(course.name)).map(golfCard).join("")}
         </div>
       </section>
 
@@ -839,6 +871,16 @@ function render() {
       button.classList.add("active");
       renderListings();
     });
+  });
+
+  document.addEventListener("click", (event) => {
+    const toggle = event.target.closest(".featured-note-toggle");
+    if (!toggle) return;
+
+    const wrap = toggle.closest(".featured-note-wrap");
+    const isExpanded = wrap.classList.toggle("expanded");
+    toggle.setAttribute("aria-expanded", String(isExpanded));
+    toggle.textContent = isExpanded ? "Show less" : "Read more";
   });
 
   document.querySelector(".signup-form").addEventListener("submit", (event) => {
