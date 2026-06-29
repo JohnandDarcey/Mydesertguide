@@ -466,10 +466,9 @@ function render() {
           <div class="hero-title-wrap">
             <h1>
               <span class="hero-title-line hero-title-my">My</span>
-              <span class="hero-title-line">Desert</span>
+              <span class="hero-title-line hero-title-desert">Desert<span class="hero-heart" aria-hidden="true">${icon("heart")}</span></span>
               <span class="hero-title-line">Guide</span>
             </h1>
-            <div class="hero-heart" aria-hidden="true">${icon("heart")}</div>
           </div>
           <p class="hero-brand-tagline">Darcey's favorites all in one place</p>
           <p>Restaurants, happy hours, golf, things to do, local utilities, trusted professionals and desert favorites curated by Darcey.</p>
