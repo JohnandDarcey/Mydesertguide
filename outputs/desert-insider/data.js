@@ -344,6 +344,24 @@ export const restaurants = [
   },
 ];
 
+export const services = [
+  {
+    name: "Southern California Edison",
+    location: "Coachella Valley",
+    category: "Electric",
+    rating: 5,
+    bestFor: "Setting up electric service",
+    detail: "Primary electricity provider for many Coachella Valley homes.",
+    website: "https://www.sce.com/",
+    maps: "https://maps.google.com/?q=Southern+California+Edison+Coachella+Valley",
+    description:
+      "The electric utility clients will usually need when setting up or managing home service in the desert.",
+    tip: "Start service before your move-in date so the home is ready when you arrive.",
+    image: "./assets/services/southern-california-edison.png",
+    isNew: true,
+  },
+];
+
 export const golfCourses = [
   {
     name: "Indian Canyons Golf Resort",

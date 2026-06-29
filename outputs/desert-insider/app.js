@@ -4,6 +4,7 @@ import {
   filters,
   golfCourses,
   restaurants,
+  services,
 } from "./data.js";
 
 const app = document.querySelector("#app");
@@ -17,24 +18,6 @@ const state = {
 
 const dateNightNames = ["Spencer's", "Giuseppe's", "Mitch's", "California Bistro"];
 const happyHourNames = ["Giuseppe's", "Cactus Jack's", "California Bistro", "Bubba's Bones & Brews"];
-const serviceGroups = [
-  {
-    title: "Utilities",
-    description: "Power, gas, water, trash, internet and other setup essentials for desert living.",
-    examples: "Electric, gas, water, trash, internet",
-  },
-  {
-    title: "Insurance",
-    description: "Trusted contacts for home, auto, flood, umbrella and short-term rental coverage questions.",
-    examples: "Home, auto, umbrella, rental property",
-  },
-  {
-    title: "Services",
-    description: "Local help for the everyday things that make a home easier to enjoy and maintain.",
-    examples: "Pool, landscaping, HVAC, cleaners, handyman",
-  },
-];
-
 function starRating(value) {
   const full = Math.floor(value);
   const half = value % 1 >= 0.5;
@@ -73,6 +56,7 @@ function allSearchablePlaces() {
   return [
     ...restaurants.map((item) => ({ ...item, type: "Restaurant" })),
     ...golfCourses.map((item) => ({ ...item, type: "Golf" })),
+    ...services.map((item) => ({ ...item, type: "Service" })),
   ];
 }
 
@@ -184,6 +168,38 @@ function golfCard(item) {
   `;
 }
 
+function serviceCard(item) {
+  return `
+    <article class="listing-card service-listing-card">
+      <div class="listing-image service-image">
+        <img src="${item.image}" alt="${item.name} logo" loading="lazy" />
+        <div class="listing-badges">
+          ${item.isNew ? '<span class="badge">New</span>' : ""}
+        </div>
+      </div>
+      <div class="listing-body">
+        <div class="eyebrow">${item.location} · ${item.category}</div>
+        <div class="card-title-row">
+          <h3>${item.name}</h3>
+          <div class="stars" aria-label="Darcey Usefulness Rating ${item.rating} out of 5">${starRating(
+            item.rating,
+          )}</div>
+        </div>
+        <p>${item.description}</p>
+        <dl class="meta-grid">
+          <div><dt>Best For</dt><dd>${item.bestFor}</dd></div>
+          <div><dt>Detail</dt><dd>${item.detail}</dd></div>
+        </dl>
+        <div class="tip"><strong>Darcey's Setup Tip</strong><span>${item.tip}</span></div>
+        <div class="link-row">
+          <a href="${item.website}" target="_blank" rel="noreferrer">Website</a>
+          <a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
 function dateNightSection() {
   const places = pickRestaurants(dateNightNames);
   return `
@@ -233,23 +249,12 @@ function servicesSection() {
           <h2>The practical desert list clients always need.</h2>
         </div>
         <p>
-          A home guide should include more than places to eat and play. This section will hold Darcey's trusted utility,
-          insurance and local service recommendations as they are added.
+          A home guide should include more than places to eat and play. This is where Darcey's trusted utility,
+          insurance and local service recommendations will live as they are added.
         </p>
       </div>
-      <div class="service-grid">
-        ${serviceGroups
-          .map(
-            (group) => `
-              <article class="service-card">
-                <p class="eyebrow">${group.title}</p>
-                <h3>${group.title}</h3>
-                <p>${group.description}</p>
-                <span>${group.examples}</span>
-              </article>
-            `,
-          )
-          .join("")}
+      <div class="listing-grid">
+        ${services.map(serviceCard).join("")}
       </div>
       <div class="services-cta">
         <p>Have a trusted utility, insurance contact or service provider Darcey should consider?</p>
@@ -459,33 +464,6 @@ function render() {
         <div id="listing-grid" class="listing-grid"></div>
       </section>
 
-      <section class="section map-section" id="map">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Explore by area</p>
-            <h2>Interactive Map</h2>
-          </div>
-          <p>
-            Choose a recommendation to see it on a real street map with city labels, nearby roads and a direct Google Maps link.
-          </p>
-        </div>
-        <div class="map-layout">
-          <div class="guide-map">
-            <iframe
-              id="map-frame"
-              title="Detailed map for selected Desert Insider recommendation"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src=""
-            ></iframe>
-          </div>
-          <aside class="map-side">
-            <div id="map-detail" class="map-detail"></div>
-            <div id="map-place-list" class="map-place-list" aria-label="Map locations"></div>
-          </aside>
-        </div>
-      </section>
-
       ${dateNightSection()}
 
       ${happyHourSection()}
@@ -539,6 +517,33 @@ function render() {
           <a href="mailto:john@darceydeetz.com?subject=Restaurant%20Recommendation%20for%20The%20Desert%20Insider">Restaurant</a>
           <a href="mailto:john@darceydeetz.com?subject=Hidden%20Gem%20for%20The%20Desert%20Insider">Hidden Gem</a>
           <a href="mailto:john@darceydeetz.com?subject=Golf%20Course%20Recommendation%20for%20The%20Desert%20Insider">Golf Course</a>
+        </div>
+      </section>
+
+      <section class="section map-section" id="map">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Explore by area</p>
+            <h2>Interactive Map</h2>
+          </div>
+          <p>
+            Choose a recommendation to see it on a real street map with city labels, nearby roads and a direct Google Maps link.
+          </p>
+        </div>
+        <div class="map-layout">
+          <div class="guide-map">
+            <iframe
+              id="map-frame"
+              title="Detailed map for selected Desert Insider recommendation"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src=""
+            ></iframe>
+          </div>
+          <aside class="map-side">
+            <div id="map-detail" class="map-detail"></div>
+            <div id="map-place-list" class="map-place-list" aria-label="Map locations"></div>
+          </aside>
         </div>
       </section>
     </main>
