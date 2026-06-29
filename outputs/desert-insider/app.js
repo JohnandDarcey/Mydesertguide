@@ -54,6 +54,15 @@ function filteredRestaurants() {
   });
 }
 
+function featuredRestaurantsForFilter(filter) {
+  if (filter === "All") return [];
+
+  return restaurants
+    .filter((item) => item.tags.includes(filter))
+    .sort((a, b) => Number(b.isPick) - Number(a.isPick) || b.rating - a.rating || a.name.localeCompare(b.name))
+    .slice(0, 4);
+}
+
 function allSearchablePlaces() {
   return [
     ...restaurants.map((item) => ({ ...item, type: "Restaurant" })),
@@ -321,6 +330,59 @@ function thingsFeaturedListings() {
   `;
 }
 
+function categoryFeaturedShelf() {
+  if (state.activeFilter === "All") return "";
+
+  const featured = featuredRestaurantsForFilter(state.activeFilter);
+  const cards = Array.from({ length: 4 }, (_, index) => {
+    const item = featured[index];
+    if (item) {
+      return `
+        <article class="category-featured-card">
+          <img src="${item.image}" alt="${item.name} featured restaurant" loading="lazy" />
+          <div class="category-featured-content">
+            <div class="category-featured-topline">
+              <span>Featured Partner</span>
+              <strong>${starRating(item.rating)}</strong>
+            </div>
+            <h3>${item.name}</h3>
+            <p>${item.tip}</p>
+            <a href="${item.maps}" target="_blank" rel="noreferrer">Get Directions</a>
+          </div>
+        </article>
+      `;
+    }
+
+    return `
+      <article class="category-featured-card empty">
+        <div class="category-featured-content">
+          <div class="category-featured-topline">
+            <span>Featured Partner</span>
+          </div>
+          <h3>Premium spot available</h3>
+          <p>Reserved for a standout ${state.activeFilter.toLowerCase()} recommendation or paid partner.</p>
+          <a href="mailto:john@darceydeetz.com?subject=Featured%20${encodeURIComponent(state.activeFilter)}%20Spot%20for%20My%20Desert%20Guide">Inquire</a>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  return `
+    <div class="category-featured-shelf" aria-label="Featured ${state.activeFilter} restaurants">
+      <div class="category-featured-heading">
+        <div>
+          <p class="eyebrow">Featured ${state.activeFilter}</p>
+          <h3>Premium partner picks</h3>
+        </div>
+        <p>Four spotlight placements for the restaurants Darcey wants clients to notice first in this category.</p>
+      </div>
+      <div class="category-featured-grid">
+        ${cards}
+      </div>
+    </div>
+  `;
+}
+
 function dateNightSection() {
   const places = pickRestaurants(dateNightNames);
   return `
@@ -435,6 +497,7 @@ function professionalsSection() {
 function renderListings() {
   const results = filteredRestaurants();
   document.querySelector("#results-count").textContent = `${results.length} curated places`;
+  document.querySelector("#category-featured").innerHTML = categoryFeaturedShelf();
   document.querySelector("#listing-grid").innerHTML = results.map(restaurantCard).join("");
 }
 
@@ -634,6 +697,7 @@ function render() {
           <button class="filter-chip active" data-filter="All">All</button>
           ${filters.map((filter) => `<button class="filter-chip" data-filter="${filter}">${filter}</button>`).join("")}
         </div>
+        <div id="category-featured"></div>
         <div class="results-line">
           <span id="results-count"></span>
           <span>★★★★★ = Darcey Rating, not Google or Yelp.</span>

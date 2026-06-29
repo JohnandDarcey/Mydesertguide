@@ -539,6 +539,120 @@ h1 {
   text-transform: uppercase;
 }
 
+.category-featured-shelf {
+  background: var(--charcoal);
+  border-radius: 8px;
+  color: var(--white);
+  margin: 22px 0 28px;
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.category-featured-heading {
+  align-items: end;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 0.8fr) minmax(260px, 0.6fr);
+  margin-bottom: 18px;
+}
+
+.category-featured-heading .eyebrow,
+.category-featured-heading p {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.category-featured-heading h3 {
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  margin-bottom: 0;
+}
+
+.category-featured-heading p {
+  margin-bottom: 0;
+}
+
+.category-featured-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.category-featured-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.category-featured-card img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.category-featured-card.empty {
+  align-content: center;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04)),
+    var(--charcoal);
+  border-style: dashed;
+  display: grid;
+}
+
+.category-featured-content {
+  display: grid;
+  gap: 9px;
+  padding: 16px;
+}
+
+.category-featured-topline {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.category-featured-topline span {
+  border: 1px solid rgba(205, 18, 46, 0.78);
+  border-radius: 999px;
+  color: var(--white);
+  font-size: 0.62rem;
+  font-weight: 900;
+  padding: 6px 8px;
+  text-transform: uppercase;
+}
+
+.category-featured-topline strong {
+  color: var(--gold);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.category-featured-card h3 {
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  margin-bottom: 0;
+}
+
+.category-featured-card p {
+  color: rgba(255, 255, 255, 0.72);
+  display: -webkit-box;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin-bottom: 0;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.category-featured-card a {
+  color: var(--white);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-underline-offset: 4px;
+}
+
 .feature-grid {
   display: grid;
   gap: 18px;
@@ -1153,6 +1267,10 @@ dd {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .category-featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .category-strip {
     display: flex;
     overflow-x: auto;
@@ -1230,6 +1348,7 @@ dd {
   .real-estate-cta,
   .contact-main,
   .feature-grid,
+  .category-featured-heading,
   .section-heading,
   .guide-tools,
   .map-layout,
@@ -1297,6 +1416,10 @@ dd {
   }
 
   .featured-pick-card {
+    grid-template-columns: 1fr;
+  }
+
+  .category-featured-grid {
     grid-template-columns: 1fr;
   }
 
