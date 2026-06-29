@@ -238,6 +238,24 @@ function thingToDoCard(item) {
   `;
 }
 
+function featuredPlaceholders(sectionName) {
+  return `
+    <div class="featured-listings" aria-label="Featured ${sectionName} listings">
+      ${[1, 2]
+        .map(
+          (number) => `
+            <article class="featured-placeholder-card">
+              <p class="eyebrow">Featured</p>
+              <h3>${sectionName} feature ${number}</h3>
+              <p>Placeholder for a spotlight recommendation Darcey can feature here.</p>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
 function dateNightSection() {
   const places = pickRestaurants(dateNightNames);
   return `
@@ -251,6 +269,7 @@ function dateNightSection() {
           Spencer's leads the list when the evening should feel special, with Giuseppe's, Mitch's and California Bistro close behind.
         </p>
       </div>
+      ${featuredPlaceholders("Date Night")}
       <div class="listing-grid">
         ${places.map(restaurantCard).join("")}
       </div>
@@ -271,6 +290,7 @@ function happyHourSection() {
           Places with the right mix of local energy, reliable drinks and a reason to linger a little longer.
         </p>
       </div>
+      ${featuredPlaceholders("Happy Hour")}
       <div class="listing-grid">
         ${places.map(restaurantCard).join("")}
       </div>
@@ -290,6 +310,7 @@ function thingsToDoSection() {
           Experiences, local outings and easy recommendations for clients, family and friends who want to enjoy the valley beyond dinner.
         </p>
       </div>
+      ${featuredPlaceholders("Things To Do")}
       <div class="listing-grid">
         ${thingsToDo.map(thingToDoCard).join("")}
       </div>
@@ -310,12 +331,13 @@ function utilitiesSection() {
           recommendations will live as they are added.
         </p>
       </div>
+      ${featuredPlaceholders("Local Utilities")}
       <div class="listing-grid">
         ${services.map(serviceCard).join("")}
       </div>
       <div class="services-cta">
         <p>Have a local utility Darcey should include?</p>
-        <a class="button dark" href="mailto:john@darceydeetz.com?subject=Utility%20Recommendation%20for%20The%20Desert%20Insider&body=Hi%20John%2C%0A%0AI%20have%20a%20local%20utility%20recommendation%20for%20The%20Desert%20Insider.%0A%0AName%3A%0ACategory%3A%0ALocation%20or%20service%20area%3A%0AWebsite%20or%20phone%3A%0AWhy%20you%20recommend%20them%3A%0A%0AThank%20you!">${icon("plus")} Submit a Utility</a>
+        <a class="button dark" href="mailto:john@darceydeetz.com?subject=Utility%20Recommendation%20for%20My%20Desert%20Guide&body=Hi%20John%2C%0A%0AI%20have%20a%20local%20utility%20recommendation%20for%20My%20Desert%20Guide.%0A%0AName%3A%0ACategory%3A%0ALocation%20or%20service%20area%3A%0AWebsite%20or%20phone%3A%0AWhy%20you%20recommend%20them%3A%0A%0AThank%20you!">${icon("plus")} Submit a Utility</a>
       </div>
     </section>
   `;
@@ -333,12 +355,13 @@ function professionalsSection() {
           Insurance contacts, home vendors and other trusted professionals clients may need as they settle into desert life.
         </p>
       </div>
+      ${featuredPlaceholders("Trusted Professionals")}
       <div class="listing-grid">
         ${professionals.map(serviceCard).join("")}
       </div>
       <div class="services-cta">
         <p>Have a trusted professional Darcey should consider?</p>
-        <a class="button dark" href="mailto:john@darceydeetz.com?subject=Trusted%20Professional%20Recommendation%20for%20The%20Desert%20Insider&body=Hi%20John%2C%0A%0AI%20have%20a%20trusted%20professional%20recommendation%20for%20The%20Desert%20Insider.%0A%0AName%3A%0ACategory%3A%0ALocation%20or%20service%20area%3A%0AWebsite%20or%20phone%3A%0AWhy%20you%20recommend%20them%3A%0A%0AThank%20you!">${icon("plus")} Submit a Pro</a>
+        <a class="button dark" href="mailto:john@darceydeetz.com?subject=Trusted%20Professional%20Recommendation%20for%20My%20Desert%20Guide&body=Hi%20John%2C%0A%0AI%20have%20a%20trusted%20professional%20recommendation%20for%20My%20Desert%20Guide.%0A%0AName%3A%0ACategory%3A%0ALocation%20or%20service%20area%3A%0AWebsite%20or%20phone%3A%0AWhy%20you%20recommend%20them%3A%0A%0AThank%20you!">${icon("plus")} Submit a Pro</a>
       </div>
     </section>
   `;
@@ -393,8 +416,8 @@ function handleAlertSignup(form) {
   if (!email) return;
 
   if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
-    const subject = encodeURIComponent("Please add me to Desert Insider alerts");
-    const body = encodeURIComponent(`Please add ${email} to the Desert Insider new recommendation alerts list.`);
+    const subject = encodeURIComponent("Please add me to My Desert Guide alerts");
+    const body = encodeURIComponent(`Please add ${email} to the My Desert Guide new recommendation alerts list.`);
     window.location.href = `mailto:john@darceydeetz.com?subject=${subject}&body=${body}`;
     return;
   }
@@ -419,14 +442,15 @@ function handleAlertSignup(form) {
 function render() {
   app.innerHTML = `
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="The Desert Insider home">
-        <span>The Desert Insider</span>
-        <small>by Darcey Deetz</small>
+      <a class="brand" href="#top" aria-label="My Desert Guide home">
+        <span>My Desert Guide</span>
+        <small>Darcey's favorites all in one place</small>
       </a>
       <nav aria-label="Primary navigation">
         <a href="#guide">Guide</a>
         <a href="#map">Map</a>
-        <a href="#services">Services</a>
+        <a href="#utilities">Utilities</a>
+        <a href="#professionals">Pros</a>
         <a href="#alerts">Alerts</a>
         <a href="#contact">Contact</a>
         <a class="nav-cta" href="https://darceydeetz.com" target="_blank" rel="noreferrer">Real Estate Help</a>
@@ -441,13 +465,14 @@ function render() {
           <p class="kicker">Darcey's personal Coachella Valley guide</p>
           <div class="hero-title-wrap">
             <h1>
-              <span class="hero-title-line hero-title-the">The</span>
+              <span class="hero-title-line hero-title-my">My</span>
               <span class="hero-title-line">Desert</span>
-              <span class="hero-title-line">Insider</span>
+              <span class="hero-title-line">Guide</span>
             </h1>
             <div class="hero-heart" aria-hidden="true">${icon("heart")}</div>
           </div>
-          <p>Darcey's Guide to Restaurants, Happy Hours, Things To Do, Local Utilities, Trusted Professionals & Local Favorites</p>
+          <p class="hero-brand-tagline">Darcey's favorites all in one place</p>
+          <p>Restaurants, happy hours, golf, things to do, local utilities, trusted professionals and desert favorites curated by Darcey.</p>
           <div class="hero-actions">
             <a class="button primary" href="#guide">${icon("compass")} Explore the Guide</a>
             <a class="button secondary" href="https://darceydeetz.com" target="_blank" rel="noreferrer">${icon("heart")} Visit Darcey's Website</a>
@@ -524,6 +549,7 @@ function render() {
             recommends, along with a few favorites shared by her clients.
           </p>
         </div>
+        ${featuredPlaceholders("Restaurant")}
 
         <div class="guide-tools">
           <label class="search-box">
@@ -566,6 +592,7 @@ function render() {
             A few favorite courses for beautiful views, strong conditions, great restaurants and the kind of round worth recommending.
           </p>
         </div>
+        ${featuredPlaceholders("Golf")}
         <div class="listing-grid golf-grid">
           ${golfCourses.map(golfCard).join("")}
         </div>
@@ -603,10 +630,10 @@ function render() {
           <p>Send us the name, location and what makes it special. We love hearing what clients and friends are discovering around the desert.</p>
         </div>
         <div class="contact-links">
-          <a href="mailto:john@darceydeetz.com?subject=Desert%20Insider%20Recommendation&body=Hi%20John%2C%0A%0AI%20have%20a%20recommendation%20for%20The%20Desert%20Insider.%0A%0AName%3A%0ALocation%3A%0ACategory%20%28restaurant%2C%20hidden%20gem%2C%20golf%20course%2C%20etc.%29%3A%0AWhat%20makes%20it%20special%3A%0AWebsite%20or%20Instagram%20%28if%20available%29%3A%0A%0AThank%20you!" class="submit-link">Submit a Recommendation</a>
-          <a href="mailto:john@darceydeetz.com?subject=Restaurant%20Recommendation%20for%20The%20Desert%20Insider">Restaurant</a>
-          <a href="mailto:john@darceydeetz.com?subject=Hidden%20Gem%20for%20The%20Desert%20Insider">Hidden Gem</a>
-          <a href="mailto:john@darceydeetz.com?subject=Golf%20Course%20Recommendation%20for%20The%20Desert%20Insider">Golf Course</a>
+          <a href="mailto:john@darceydeetz.com?subject=My%20Desert%20Guide%20Recommendation&body=Hi%20John%2C%0A%0AI%20have%20a%20recommendation%20for%20My%20Desert%20Guide.%0A%0AName%3A%0ALocation%3A%0ACategory%20%28restaurant%2C%20hidden%20gem%2C%20golf%20course%2C%20etc.%29%3A%0AWhat%20makes%20it%20special%3A%0AWebsite%20or%20Instagram%20%28if%20available%29%3A%0A%0AThank%20you!" class="submit-link">Submit a Recommendation</a>
+          <a href="mailto:john@darceydeetz.com?subject=Restaurant%20Recommendation%20for%20My%20Desert%20Guide">Restaurant</a>
+          <a href="mailto:john@darceydeetz.com?subject=Hidden%20Gem%20for%20My%20Desert%20Guide">Hidden Gem</a>
+          <a href="mailto:john@darceydeetz.com?subject=Golf%20Course%20Recommendation%20for%20My%20Desert%20Guide">Golf Course</a>
         </div>
       </section>
 
@@ -624,7 +651,7 @@ function render() {
           <div class="guide-map">
             <iframe
               id="map-frame"
-              title="Detailed map for selected Desert Insider recommendation"
+              title="Detailed map for selected My Desert Guide recommendation"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               src=""

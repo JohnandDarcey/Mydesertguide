@@ -190,8 +190,18 @@ h1 {
   display: block;
 }
 
-.hero-title-the {
+.hero-title-the,
+.hero-title-my {
   margin-left: 0.035em;
+}
+
+.hero-brand-tagline {
+  color: rgba(255, 253, 248, 0.9);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 800;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 3;
 }
 
 .hero-content > p:last-of-type {
@@ -349,8 +359,8 @@ h1 {
 .category-strip {
   display: grid;
   gap: 12px;
-  grid-template-columns: repeat(4, minmax(160px, 1fr));
-  overflow-x: auto;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  overflow: visible;
 }
 
 .category-tile {
@@ -362,15 +372,41 @@ h1 {
   display: grid;
   gap: 0;
   justify-items: center;
-  min-height: 132px;
-  padding: 18px;
+  min-height: 118px;
+  padding: 16px 12px;
   text-align: center;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .category-tile strong {
   align-self: center;
+  font-size: clamp(0.88rem, 1.2vw, 1rem);
   line-height: 1.25;
+}
+
+.featured-listings {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: -8px 0 28px;
+}
+
+.featured-placeholder-card {
+  background: var(--paper);
+  border: 1px dashed rgba(5, 5, 5, 0.22);
+  border-radius: 8px;
+  min-height: 150px;
+  padding: 22px;
+}
+
+.featured-placeholder-card h3 {
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  margin-bottom: 8px;
+}
+
+.featured-placeholder-card p:last-child {
+  color: var(--muted);
+  margin-bottom: 0;
 }
 
 .feature-grid {
@@ -907,6 +943,16 @@ dd {
   .listing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .category-strip {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .category-tile {
+    flex: 0 0 210px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1032,6 +1078,10 @@ dd {
     grid-template-columns: 1fr;
   }
 
+  .featured-listings {
+    grid-template-columns: 1fr;
+  }
+
   .guide-map {
     aspect-ratio: 4 / 5;
     min-height: 430px;
@@ -1078,10 +1128,10 @@ dd {
 
   .category-strip {
     gap: 10px;
-    grid-template-columns: repeat(4, minmax(132px, 1fr));
   }
 
   .category-tile {
+    flex-basis: 168px;
     min-height: 112px;
     padding: 14px;
   }

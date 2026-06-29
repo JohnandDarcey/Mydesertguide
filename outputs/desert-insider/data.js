@@ -198,7 +198,7 @@ export const restaurants = [
   },
   {
     name: "Tony's Grill and Bar",
-    location: "Cathedral City",
+    location: "Palm Springs",
     category: "American",
     tags: ["American", "Casual", "Hidden Gem"],
     rating: 4,
@@ -207,9 +207,9 @@ export const restaurants = [
     value: 4,
     favoriteDish: "Burger and classic bar favorites",
     happyHour: "Casual evening stop",
-    website: "https://maps.google.com/?q=Tony's+Grill+and+Bar+Cathedral+City",
-    menu: "https://maps.google.com/?q=Tony's+Grill+and+Bar+Cathedral+City+menu",
-    maps: "https://maps.google.com/?q=Tony's+Grill+and+Bar+Cathedral+City",
+    website: "https://tonysgrillandbar.com/",
+    menu: "https://tonysgrillandbar.com/",
+    maps: "https://maps.google.com/?q=Tony's+Grill+and+Bar+Palm+Springs",
     description:
       "A comfortable local American pick that works when you want something easy, familiar, and satisfying.",
     tip: "Keep it simple and split a few classics.",
