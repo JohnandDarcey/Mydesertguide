@@ -239,6 +239,31 @@ function thingToDoCard(item) {
   `;
 }
 
+function featuredSpotlightCard(item, label, why, actionLabel = "View Details") {
+  const href = item.maps || item.website;
+  const ratingLabel = item.rating ? `<span class="featured-rating">${starRating(item.rating)}</span>` : "";
+  return `
+    <article class="featured-pick-card">
+      <div class="featured-media">
+        <img src="${item.image}" alt="${item.name} featured image" loading="lazy" />
+        ${item.isPick ? '<span class="award-seal">Darcey’s Pick</span>' : ""}
+      </div>
+      <div class="featured-content">
+        <div class="featured-kicker-row">
+          <p class="eyebrow">${label}</p>
+          ${ratingLabel}
+        </div>
+        <h3>${item.name}</h3>
+        <div class="featured-why">
+          <span>Why Darcey picked it</span>
+          <p>${why}</p>
+        </div>
+        <a href="${href}" target="_blank" rel="noreferrer">${actionLabel}</a>
+      </div>
+    </article>
+  `;
+}
+
 function featuredPlaceholders(sectionName) {
   return `
     <div class="featured-listings" aria-label="Featured ${sectionName} listings">
@@ -246,9 +271,10 @@ function featuredPlaceholders(sectionName) {
         .map(
           (number) => `
             <article class="featured-placeholder-card">
-              <p class="eyebrow">Featured</p>
-              <h3>${sectionName} feature ${number}</h3>
-              <p>Placeholder for a spotlight recommendation Darcey can feature here.</p>
+              <div class="placeholder-seal">Featured</div>
+              <p class="eyebrow">${sectionName} Spotlight</p>
+              <h3>Premium feature ${number}</h3>
+              <p>Reserved for a standout recommendation with a larger image, Darcey note and direct action link.</p>
             </article>
           `,
         )
@@ -263,24 +289,33 @@ function restaurantFeaturedListings() {
     <div class="featured-listings" aria-label="Featured Restaurant listings">
       ${
         cactusJacks
-          ? `
-            <article class="featured-pick-card">
-              <img src="${cactusJacks.image}" alt="${cactusJacks.name} exterior" loading="lazy" />
-              <div>
-                <span class="award-seal">Darcey’s Pick</span>
-                <p class="eyebrow">Featured Restaurant</p>
-                <h3>${cactusJacks.name}</h3>
-                <p>${cactusJacks.tip}</p>
-                <a href="${cactusJacks.maps}" target="_blank" rel="noreferrer">Open in Google Maps</a>
-              </div>
-            </article>
-          `
+          ? featuredSpotlightCard(cactusJacks, "Featured Restaurant", cactusJacks.tip, "Open in Google Maps")
           : ""
       }
       <article class="featured-placeholder-card">
-        <p class="eyebrow">Featured</p>
-        <h3>Restaurant feature 2</h3>
-        <p>Placeholder for a spotlight recommendation Darcey can feature here.</p>
+        <div class="placeholder-seal">Featured</div>
+        <p class="eyebrow">Restaurant Spotlight</p>
+        <h3>Premium feature 2</h3>
+        <p>Reserved for a standout restaurant with a larger image, Darcey note and direct action link.</p>
+      </article>
+    </div>
+  `;
+}
+
+function thingsFeaturedListings() {
+  const livingDesert = thingsToDo.find((thing) => thing.name === "The Living Desert");
+  return `
+    <div class="featured-listings" aria-label="Featured Things To Do listings">
+      ${
+        livingDesert
+          ? featuredSpotlightCard(livingDesert, "Featured Thing To Do", livingDesert.tip, "Visit Website")
+          : ""
+      }
+      <article class="featured-placeholder-card">
+        <div class="placeholder-seal">Featured</div>
+        <p class="eyebrow">Things To Do Spotlight</p>
+        <h3>Premium feature 2</h3>
+        <p>Reserved for a standout desert experience with a larger image, Darcey note and direct action link.</p>
       </article>
     </div>
   `;
@@ -340,7 +375,7 @@ function thingsToDoSection() {
           Experiences, local outings and easy recommendations for clients, family and friends who want to enjoy the valley beyond dinner.
         </p>
       </div>
-      ${featuredPlaceholders("Things To Do")}
+      ${thingsFeaturedListings()}
       <div class="listing-grid">
         ${thingsToDo.map(thingToDoCard).join("")}
       </div>
