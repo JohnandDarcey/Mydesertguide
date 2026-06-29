@@ -12,7 +12,11 @@ const state = {
   query: "",
   activeFilter: "All",
   sort: "Highest Darcey Rating",
+  activeMapPlace: null,
 };
+
+const dateNightNames = ["Spencer's", "Giuseppe's", "Mitch's", "California Bistro"];
+const happyHourNames = ["Giuseppe's", "Cactus Jack's", "California Bistro", "Bubba's Bones & Brews"];
 
 function starRating(value) {
   const full = Math.floor(value);
@@ -48,6 +52,27 @@ function filteredRestaurants() {
   });
 }
 
+function allSearchablePlaces() {
+  return [
+    ...restaurants.map((item) => ({ ...item, type: "Restaurant" })),
+    ...golfCourses.map((item) => ({ ...item, type: "Golf" })),
+  ];
+}
+
+function mapPlaces() {
+  return allSearchablePlaces().sort((a, b) => a.location.localeCompare(b.location) || a.name.localeCompare(b.name));
+}
+
+function pickRestaurants(names) {
+  return names
+    .map((name) => restaurants.find((restaurant) => restaurant.name === name))
+    .filter(Boolean);
+}
+
+function googleMapEmbed(place) {
+  return `https://www.google.com/maps?q=${encodeURIComponent(`${place.name} ${place.location} CA`)}&output=embed`;
+}
+
 function icon(name) {
   const paths = {
     search:
@@ -60,6 +85,8 @@ function icon(name) {
     plus: '<path d="M12 5v14"></path><path d="M5 12h14"></path>',
     spark:
       '<path d="M12 3l1.8 5.1L19 10l-5.2 1.9L12 17l-1.8-5.1L5 10l5.2-1.9L12 3Z"></path><path d="M5 17l.8 2.2L8 20l-2.2.8L5 23l-.8-2.2L2 20l2.2-.8L5 17Z"></path>',
+    mail:
+      '<path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path>',
   };
   return `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths[name]}</svg>`;
 }
@@ -139,10 +166,116 @@ function golfCard(item) {
   `;
 }
 
+function dateNightSection() {
+  const places = pickRestaurants(dateNightNames);
+  return `
+    <section class="section spotlight-section" id="date-night">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Date Night</p>
+          <h2>Darcey's date-night shortlist.</h2>
+        </div>
+        <p>
+          Spencer's leads the list when the evening should feel special, with Giuseppe's, Mitch's and California Bistro close behind.
+        </p>
+      </div>
+      <div class="listing-grid">
+        ${places.map(restaurantCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function happyHourSection() {
+  const places = pickRestaurants(happyHourNames);
+  return `
+    <section class="section spotlight-section happy-hour-section" id="happy-hour">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Happy Hour</p>
+          <h2>A few easy happy-hour favorites.</h2>
+        </div>
+        <p>
+          Places with the right mix of local energy, reliable drinks and a reason to linger a little longer.
+        </p>
+      </div>
+      <div class="listing-grid">
+        ${places.map(restaurantCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderListings() {
   const results = filteredRestaurants();
   document.querySelector("#results-count").textContent = `${results.length} curated places`;
   document.querySelector("#listing-grid").innerHTML = results.map(restaurantCard).join("");
+}
+
+function renderMap() {
+  const places = mapPlaces();
+  if (!state.activeMapPlace) state.activeMapPlace = places[0].name;
+  const activePlace = places.find((place) => place.name === state.activeMapPlace) || places[0];
+
+  document.querySelector("#map-frame").src = googleMapEmbed(activePlace);
+
+  document.querySelector("#map-place-list").innerHTML = places
+    .map(
+      (place) => `
+        <button
+          class="map-place-button ${place.name === activePlace.name ? "active" : ""}"
+          data-map-place="${place.name}"
+          aria-label="Show ${place.name} on the guide map"
+        >
+          <span>${place.name}</span>
+          <small>${place.location} · ${place.type}</small>
+        </button>
+      `,
+    )
+    .join("");
+
+  document.querySelector("#map-detail").innerHTML = `
+    <p class="eyebrow">${activePlace.location} · ${activePlace.type}</p>
+    <h3>${activePlace.name}</h3>
+    <p>${activePlace.description}</p>
+    <a href="${activePlace.maps}" target="_blank" rel="noreferrer">Open in Google Maps</a>
+  `;
+
+  document.querySelectorAll(".map-place-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.activeMapPlace = button.dataset.mapPlace;
+      renderMap();
+    });
+  });
+}
+
+function handleAlertSignup(form) {
+  const emailInput = form.querySelector("input[name='email']");
+  const email = emailInput.value.trim();
+  if (!email) return;
+
+  if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
+    const subject = encodeURIComponent("Please add me to Desert Insider alerts");
+    const body = encodeURIComponent(`Please add ${email} to the Desert Insider new recommendation alerts list.`);
+    window.location.href = `mailto:john@darceydeetz.com?subject=${subject}&body=${body}`;
+    return;
+  }
+
+  const formData = new FormData(form);
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+    .then(() => {
+      form.reset();
+      document.querySelector("#signup-message").textContent =
+        "You are on the list. We will send a note when new recommendations are added.";
+    })
+    .catch(() => {
+      document.querySelector("#signup-message").textContent =
+        "Something did not go through. Please email john@darceydeetz.com and we will add you.";
+    });
 }
 
 function render() {
@@ -154,6 +287,8 @@ function render() {
       </a>
       <nav aria-label="Primary navigation">
         <a href="#guide">Guide</a>
+        <a href="#map">Map</a>
+        <a href="#alerts">Alerts</a>
         <a href="#contact">Contact</a>
         <a class="nav-cta" href="https://darceydeetz.com" target="_blank" rel="noreferrer">Real Estate Help</a>
       </nav>
@@ -173,7 +308,7 @@ function render() {
             </h1>
             <div class="hero-heart" aria-hidden="true">${icon("heart")}</div>
           </div>
-          <p>Darcey's Guide to Restaurants, Happy Hours & Local Favorites</p>
+          <p>Darcey's Guide to Restaurants, Happy Hours, Things To Do, Utilities, Services & Local Favorites</p>
           <div class="hero-actions">
             <a class="button primary" href="#guide">${icon("compass")} Explore the Guide</a>
             <a class="button secondary" href="https://darceydeetz.com" target="_blank" rel="noreferrer">${icon("heart")} Visit Darcey's Website</a>
@@ -187,12 +322,23 @@ function render() {
           <p class="eyebrow">A note from Darcey</p>
           <h2>A personal guide to the desert <span class="no-break">I love.</span></h2>
         </div>
-        <p>
-          This is a heartfelt collection of the restaurants, happy hours, neighborhood favorites
-          and little local gems my clients and I come back to again and again. I created it as a
-          personal welcome to the Coachella Valley, and as a love letter to the places that make
-          life in the desert feel warm, connected and special.
-        </p>
+        <div class="welcome-copy">
+          <p>
+            The Coachella Valley is so much more than beautiful weather and palm trees. It's the incredible people,
+            unforgettable restaurants, world-class golf, unique local businesses, and hidden gems that make living here
+            such a joy.
+          </p>
+          <p>
+            This guide is a collection of the places I genuinely recommend to my clients, friends, and family. From my
+            favorite restaurants and happy hours to golf courses, trusted local vendors, shopping, entertainment,
+            wellness, and neighborhood treasures, every recommendation has been chosen because it's somewhere I'd
+            happily send the people I care about most.
+          </p>
+          <p>
+            Consider this my personal welcome to the desert, a guide designed to help you experience the Coachella
+            Valley like a local and discover all the reasons so many of us are proud to call it home.
+          </p>
+        </div>
       </section>
 
       <section class="section real-estate-cta" aria-label="Real estate help from Darcey">
@@ -220,30 +366,6 @@ function render() {
             `,
           )
           .join("")}
-      </section>
-
-      <section class="section feature-grid">
-        <article class="feature large">
-          <img src="${assets.restaurants}" alt="Premium restaurant table in the desert" />
-          <div>
-            <p class="eyebrow">Restaurants</p>
-            <h2>Darcey's short list, with the details people actually ask for.</h2>
-          </div>
-        </article>
-        <article class="feature">
-          <img src="${assets.happyHour}" alt="Elegant desert happy hour cocktails" />
-          <div>
-            <p class="eyebrow">Happy Hours</p>
-            <h3>Where to go, what to order, and when to arrive.</h3>
-          </div>
-        </article>
-        <article class="feature">
-          <img src="${assets.neighborhoods}" alt="Palm Springs street and desert mountains" />
-          <div>
-            <p class="eyebrow">Hidden Gems</p>
-            <h3>Small local finds worth sharing.</h3>
-          </div>
-        </article>
       </section>
 
       <section class="section guide" id="guide">
@@ -283,6 +405,37 @@ function render() {
         <div id="listing-grid" class="listing-grid"></div>
       </section>
 
+      <section class="section map-section" id="map">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Explore by area</p>
+            <h2>Interactive Map</h2>
+          </div>
+          <p>
+            Choose a recommendation to see it on a real street map with city labels, nearby roads and a direct Google Maps link.
+          </p>
+        </div>
+        <div class="map-layout">
+          <div class="guide-map">
+            <iframe
+              id="map-frame"
+              title="Detailed map for selected Desert Insider recommendation"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src=""
+            ></iframe>
+          </div>
+          <aside class="map-side">
+            <div id="map-detail" class="map-detail"></div>
+            <div id="map-place-list" class="map-place-list" aria-label="Map locations"></div>
+          </aside>
+        </div>
+      </section>
+
+      ${dateNightSection()}
+
+      ${happyHourSection()}
+
       <section class="section golf-guide" id="golf">
         <div class="section-heading">
           <div>
@@ -296,6 +449,27 @@ function render() {
         <div class="listing-grid golf-grid">
           ${golfCourses.map(golfCard).join("")}
         </div>
+      </section>
+
+      <section class="section signup-section" id="alerts">
+        <div>
+          <p class="eyebrow">New recommendations</p>
+          <h2>Get an alert when Darcey adds a new favorite.</h2>
+          <p>Join the update list for fresh restaurants, golf picks and desert finds as the guide grows.</p>
+        </div>
+        <form class="signup-form" name="recommendation-alerts" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="recommendation-alerts" />
+          <label>
+            <span>First name</span>
+            <input type="text" name="first-name" autocomplete="given-name" placeholder="First name" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+          </label>
+          <button class="button dark" type="submit">${icon("mail")} Sign Up for Alerts</button>
+          <p id="signup-message" class="signup-message" aria-live="polite"></p>
+        </form>
       </section>
 
       <section class="section contact" id="contact">
@@ -333,7 +507,13 @@ function render() {
     });
   });
 
+  document.querySelector(".signup-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    handleAlertSignup(event.currentTarget);
+  });
+
   renderListings();
+  renderMap();
 }
 
 render();

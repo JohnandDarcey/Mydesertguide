@@ -164,19 +164,19 @@ h3 {
 }
 
 .hero-heart {
-  color: rgba(255, 169, 183, 0.3);
-  left: 49%;
+  color: rgba(255, 48, 92, 0.36);
+  left: 50%;
   pointer-events: none;
   position: absolute;
-  top: 48%;
-  transform: translate(-50%, -50%) rotate(-8deg);
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
   z-index: 2;
 }
 
 .hero-heart svg {
-  height: clamp(230px, 35vw, 520px);
-  stroke-width: 0.85;
-  width: clamp(230px, 35vw, 520px);
+  height: clamp(250px, 38vw, 560px);
+  stroke-width: 0.78;
+  width: clamp(250px, 38vw, 560px);
 }
 
 h1 {
@@ -191,7 +191,7 @@ h1 {
 }
 
 .hero-title-the {
-  margin-left: 0;
+  margin-left: 0.035em;
 }
 
 .hero-content > p:last-of-type {
@@ -271,13 +271,21 @@ h1 {
   max-width: 760px;
 }
 
-.welcome-note > p {
+.welcome-copy {
   align-self: center;
   border-left: 1px solid var(--line);
   color: var(--muted);
   font-size: clamp(1.03rem, 1.6vw, 1.28rem);
   max-width: 640px;
   padding-left: clamp(20px, 3vw, 38px);
+}
+
+.welcome-copy p {
+  margin-bottom: 1em;
+}
+
+.welcome-copy p:last-child {
+  margin-bottom: 0;
 }
 
 .real-estate-cta {
@@ -408,6 +416,11 @@ h1 {
 
 .golf-guide {
   background: var(--paper);
+  border-top: 1px solid var(--line);
+}
+
+.map-section {
+  background: var(--white);
   border-top: 1px solid var(--line);
 }
 
@@ -629,6 +642,183 @@ dd {
   font-weight: 800;
 }
 
+.map-layout {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 430px);
+}
+
+.guide-map {
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.guide-map iframe {
+  border: 0;
+  height: 100%;
+  min-height: 560px;
+  width: 100%;
+}
+
+.map-side {
+  display: grid;
+  gap: 14px;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 560px;
+}
+
+.map-detail {
+  background: var(--charcoal);
+  border-radius: 8px;
+  color: var(--white);
+  display: grid;
+  gap: 12px;
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.map-detail .eyebrow,
+.map-detail p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.map-detail h3 {
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  margin: 0;
+}
+
+.map-detail p {
+  margin: 0;
+}
+
+.map-detail a {
+  align-self: end;
+  background: var(--white);
+  border-radius: 999px;
+  color: var(--charcoal);
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+  margin-top: 12px;
+  padding: 13px 18px;
+}
+
+.map-place-list {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 8px;
+  max-height: 325px;
+  overflow: auto;
+  padding: 10px;
+}
+
+.map-place-button {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  display: grid;
+  gap: 2px;
+  padding: 12px;
+  text-align: left;
+}
+
+.map-place-button span {
+  color: var(--charcoal);
+  font-weight: 800;
+}
+
+.map-place-button small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.map-place-button.active {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+}
+
+.map-place-button.active span,
+.map-place-button.active small {
+  color: var(--white);
+}
+
+.spotlight-section {
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+}
+
+.happy-hour-section {
+  background: var(--white);
+}
+
+.signup-section {
+  align-items: center;
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: clamp(24px, 5vw, 70px);
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 520px);
+}
+
+.signup-section h2 {
+  font-size: clamp(2.2rem, 5vw, 4.7rem);
+}
+
+.signup-section p {
+  color: var(--muted);
+}
+
+.signup-form {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 14px;
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.signup-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.signup-form label span {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.signup-form input {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  min-height: 52px;
+  outline: 0;
+  padding: 0 14px;
+}
+
+.signup-form input:focus {
+  border-color: var(--charcoal);
+}
+
+.signup-form .button {
+  border: 0;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.signup-message {
+  font-size: 0.9rem;
+  margin: 0;
+  min-height: 1.4em;
+}
+
 .contact {
   background: var(--charcoal);
   color: var(--white);
@@ -734,6 +924,8 @@ dd {
   .feature-grid,
   .section-heading,
   .guide-tools,
+  .map-layout,
+  .signup-section,
   .contact {
     grid-template-columns: 1fr;
   }
@@ -769,7 +961,7 @@ dd {
     width: 100%;
   }
 
-  .welcome-note > p {
+  .welcome-copy {
     border-left: 0;
     border-top: 1px solid var(--line);
     padding-left: 0;
@@ -786,6 +978,11 @@ dd {
 
   .listing-grid {
     grid-template-columns: 1fr;
+  }
+
+  .guide-map {
+    aspect-ratio: 4 / 5;
+    min-height: 430px;
   }
 
   .results-line {
