@@ -20,6 +20,12 @@ const state = {
 
 const dateNightNames = ["Spencer's", "Giuseppe's", "Mitch's", "California Bistro"];
 const happyHourNames = ["Giuseppe's", "Cactus Jack's", "California Bistro", "Bubba's Bones & Brews"];
+const featuredRestaurantNames = ["Spencer's", "Lulu"];
+const featuredRestaurantsByFilter = {
+  American: ["Lulu", "Tony's Grill and Bar"],
+  "Date Night": ["Spencer's", "California Bistro"],
+  Patio: ["Lulu", "Spencer's"],
+};
 function starRating(value) {
   const full = Math.floor(value);
   const half = value % 1 >= 0.5;
@@ -29,7 +35,9 @@ function starRating(value) {
 
 function filteredRestaurants() {
   const term = state.query.trim().toLowerCase();
-  const featuredNames = new Set(featuredRestaurantsForFilter(state.activeFilter).map((item) => item.name));
+  const activeFeatured =
+    state.activeFilter === "All" ? pickRestaurants(featuredRestaurantNames) : featuredRestaurantsForFilter(state.activeFilter);
+  const featuredNames = new Set(activeFeatured.map((item) => item.name));
   const list = restaurants.filter((item) => {
     const haystack = [
       item.name,
@@ -45,8 +53,8 @@ function filteredRestaurants() {
     const matchesFilter =
       state.activeFilter === "All" ||
       item.tags.includes(state.activeFilter);
-    const isFeaturedInActiveCategory = state.activeFilter !== "All" && featuredNames.has(item.name);
-    return matchesSearch && matchesFilter && !isFeaturedInActiveCategory;
+    const isFeaturedInActiveView = featuredNames.has(item.name);
+    return matchesSearch && matchesFilter && !isFeaturedInActiveView;
   });
 
   return list.sort((a, b) => {
@@ -58,6 +66,9 @@ function filteredRestaurants() {
 
 function featuredRestaurantsForFilter(filter) {
   if (filter === "All") return [];
+  if (featuredRestaurantsByFilter[filter]) {
+    return pickRestaurants(featuredRestaurantsByFilter[filter]);
+  }
 
   return restaurants
     .filter((item) => item.tags.includes(filter))
@@ -304,20 +315,12 @@ function featuredPlaceholders(sectionName) {
 }
 
 function restaurantFeaturedListings() {
-  const cactusJacks = restaurants.find((restaurant) => restaurant.name === "Cactus Jack's");
+  const featured = pickRestaurants(featuredRestaurantNames);
   return `
     <div class="featured-listings" aria-label="Featured Restaurant listings">
-      ${
-        cactusJacks
-          ? featuredSpotlightCard(cactusJacks, "Featured Restaurant", cactusJacks.tip, "Open in Google Maps")
-          : ""
-      }
-      <article class="featured-placeholder-card">
-        <div class="placeholder-seal">Featured</div>
-        <p class="eyebrow">Restaurant Spotlight</p>
-        <h3>Premium feature 2</h3>
-        <p>Reserved for a standout restaurant with a larger image, Darcey note and direct action link.</p>
-      </article>
+      ${featured
+        .map((restaurant) => featuredSpotlightCard(restaurant, "Featured Restaurant", restaurant.tip))
+        .join("")}
     </div>
   `;
 }
@@ -353,7 +356,7 @@ function categoryFeaturedShelf() {
           <img src="${item.image}" alt="${item.name} featured restaurant" loading="lazy" />
           <div class="category-featured-content">
             <div class="category-featured-topline">
-              <span>Featured Partner</span>
+              <span>${item.isPick ? "Darcey's Pick" : "Featured Partner"}</span>
               <strong>${starRating(item.rating)}</strong>
             </div>
             <h3>${item.name}</h3>
@@ -394,6 +397,7 @@ function categoryFeaturedShelf() {
 
 function dateNightSection() {
   const places = pickRestaurants(dateNightNames);
+  const featured = pickRestaurants(featuredRestaurantsByFilter["Date Night"]);
   return `
     <section class="section spotlight-section" id="date-night">
       <div class="section-heading">
@@ -405,9 +409,16 @@ function dateNightSection() {
           Spencer's leads the list when the evening should feel special, with Giuseppe's, Mitch's and California Bistro close behind.
         </p>
       </div>
-      ${featuredPlaceholders("Date Night")}
+      <div class="featured-listings" aria-label="Featured Date Night listings">
+        ${featured
+          .map((restaurant) => featuredSpotlightCard(restaurant, "Featured Date Night", restaurant.tip))
+          .join("")}
+      </div>
       <div class="listing-grid">
-        ${places.map(restaurantCard).join("")}
+        ${places
+          .filter((restaurant) => !featured.some((item) => item.name === restaurant.name))
+          .map(restaurantCard)
+          .join("")}
       </div>
     </section>
   `;

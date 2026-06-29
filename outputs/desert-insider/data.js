@@ -32,7 +32,7 @@ export const restaurants = [
     name: "Lulu",
     location: "Palm Springs",
     category: "Modern American",
-    tags: ["Brunch", "Patio", "Casual", "Favorites"],
+    tags: ["American", "Brunch", "Patio", "Casual", "Favorites"],
     rating: 4.5,
     food: 4,
     atmosphere: 4.5,
@@ -48,6 +48,7 @@ export const restaurants = [
     image: "./assets/restaurants/lulu-california-bistro.png",
     isNew: false,
     isFavorite: true,
+    isPick: true,
   },
   {
     name: "Giuseppe's",
@@ -175,6 +176,7 @@ export const restaurants = [
     image: "./assets/restaurants/spencers-patio.png",
     isNew: false,
     isFavorite: true,
+    isPick: true,
   },
   {
     name: "Tyler's",
