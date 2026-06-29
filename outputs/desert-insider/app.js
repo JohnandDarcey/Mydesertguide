@@ -17,6 +17,23 @@ const state = {
 
 const dateNightNames = ["Spencer's", "Giuseppe's", "Mitch's", "California Bistro"];
 const happyHourNames = ["Giuseppe's", "Cactus Jack's", "California Bistro", "Bubba's Bones & Brews"];
+const serviceGroups = [
+  {
+    title: "Utilities",
+    description: "Power, gas, water, trash, internet and other setup essentials for desert living.",
+    examples: "Electric, gas, water, trash, internet",
+  },
+  {
+    title: "Insurance",
+    description: "Trusted contacts for home, auto, flood, umbrella and short-term rental coverage questions.",
+    examples: "Home, auto, umbrella, rental property",
+  },
+  {
+    title: "Services",
+    description: "Local help for the everyday things that make a home easier to enjoy and maintain.",
+    examples: "Pool, landscaping, HVAC, cleaners, handyman",
+  },
+];
 
 function starRating(value) {
   const full = Math.floor(value);
@@ -132,6 +149,7 @@ function restaurantCard(item) {
 
 function categoryHref(category) {
   if (category === "Golf") return "#golf";
+  if (category === "Utilities, Insurance & Services") return "#services";
   if (category === "Hidden Gems") return "#contact";
   return "#guide";
 }
@@ -201,6 +219,41 @@ function happyHourSection() {
       </div>
       <div class="listing-grid">
         ${places.map(restaurantCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function servicesSection() {
+  return `
+    <section class="section services-section" id="services">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Utilities, insurance & services</p>
+          <h2>The practical desert list clients always need.</h2>
+        </div>
+        <p>
+          A home guide should include more than places to eat and play. This section will hold Darcey's trusted utility,
+          insurance and local service recommendations as they are added.
+        </p>
+      </div>
+      <div class="service-grid">
+        ${serviceGroups
+          .map(
+            (group) => `
+              <article class="service-card">
+                <p class="eyebrow">${group.title}</p>
+                <h3>${group.title}</h3>
+                <p>${group.description}</p>
+                <span>${group.examples}</span>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+      <div class="services-cta">
+        <p>Have a trusted utility, insurance contact or service provider Darcey should consider?</p>
+        <a class="button dark" href="mailto:john@darceydeetz.com?subject=Service%20Recommendation%20for%20The%20Desert%20Insider&body=Hi%20John%2C%0A%0AI%20have%20a%20utility%2C%20insurance%20or%20service%20recommendation%20for%20The%20Desert%20Insider.%0A%0AName%3A%0ACategory%3A%0ALocation%20or%20service%20area%3A%0AWebsite%20or%20phone%3A%0AWhy%20you%20recommend%20them%3A%0A%0AThank%20you!">${icon("plus")} Submit a Service</a>
       </div>
     </section>
   `;
@@ -288,6 +341,7 @@ function render() {
       <nav aria-label="Primary navigation">
         <a href="#guide">Guide</a>
         <a href="#map">Map</a>
+        <a href="#services">Services</a>
         <a href="#alerts">Alerts</a>
         <a href="#contact">Contact</a>
         <a class="nav-cta" href="https://darceydeetz.com" target="_blank" rel="noreferrer">Real Estate Help</a>
@@ -450,6 +504,8 @@ function render() {
           ${golfCourses.map(golfCard).join("")}
         </div>
       </section>
+
+      ${servicesSection()}
 
       <section class="section signup-section" id="alerts">
         <div>

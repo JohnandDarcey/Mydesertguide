@@ -9,7 +9,7 @@ export const categories = [
   "Restaurants",
   "Golf",
   "Things To Do",
-  "Trusted Local Businesses",
+  "Utilities, Insurance & Services",
 ];
 
 export const filters = [
