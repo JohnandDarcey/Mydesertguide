@@ -29,6 +29,7 @@ function starRating(value) {
 
 function filteredRestaurants() {
   const term = state.query.trim().toLowerCase();
+  const featuredNames = new Set(featuredRestaurantsForFilter(state.activeFilter).map((item) => item.name));
   const list = restaurants.filter((item) => {
     const haystack = [
       item.name,
@@ -44,7 +45,8 @@ function filteredRestaurants() {
     const matchesFilter =
       state.activeFilter === "All" ||
       item.tags.includes(state.activeFilter);
-    return matchesSearch && matchesFilter;
+    const isFeaturedInActiveCategory = state.activeFilter !== "All" && featuredNames.has(item.name);
+    return matchesSearch && matchesFilter && !isFeaturedInActiveCategory;
   });
 
   return list.sort((a, b) => {
@@ -60,7 +62,7 @@ function featuredRestaurantsForFilter(filter) {
   return restaurants
     .filter((item) => item.tags.includes(filter))
     .sort((a, b) => Number(b.isPick) - Number(a.isPick) || b.rating - a.rating || a.name.localeCompare(b.name))
-    .slice(0, 4);
+    .slice(0, 2);
 }
 
 function allSearchablePlaces() {
@@ -248,8 +250,17 @@ function thingToDoCard(item) {
   `;
 }
 
+function featuredLinkRow(item) {
+  return `
+    <div class="featured-link-row">
+      ${item.website ? `<a href="${item.website}" target="_blank" rel="noreferrer">Website</a>` : ""}
+      ${item.menu ? `<a href="${item.menu}" target="_blank" rel="noreferrer">Menu</a>` : ""}
+      ${item.maps ? `<a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>` : ""}
+    </div>
+  `;
+}
+
 function featuredSpotlightCard(item, label, why, actionLabel = "View Details") {
-  const href = item.maps || item.website;
   const ratingLabel = item.rating ? `<span class="featured-rating">${starRating(item.rating)}</span>` : "";
   return `
     <article class="featured-pick-card">
@@ -267,7 +278,7 @@ function featuredSpotlightCard(item, label, why, actionLabel = "View Details") {
           <span>Why Darcey picked it</span>
           <p>${why}</p>
         </div>
-        <a href="${href}" target="_blank" rel="noreferrer">${actionLabel}</a>
+        ${featuredLinkRow(item)}
       </div>
     </article>
   `;
@@ -334,7 +345,7 @@ function categoryFeaturedShelf() {
   if (state.activeFilter === "All") return "";
 
   const featured = featuredRestaurantsForFilter(state.activeFilter);
-  const cards = Array.from({ length: 4 }, (_, index) => {
+  const cards = Array.from({ length: 2 }, (_, index) => {
     const item = featured[index];
     if (item) {
       return `
@@ -347,7 +358,7 @@ function categoryFeaturedShelf() {
             </div>
             <h3>${item.name}</h3>
             <p>${item.tip}</p>
-            <a href="${item.maps}" target="_blank" rel="noreferrer">Get Directions</a>
+            ${featuredLinkRow(item)}
           </div>
         </article>
       `;
@@ -371,10 +382,8 @@ function categoryFeaturedShelf() {
     <div class="category-featured-shelf" aria-label="Featured ${state.activeFilter} restaurants">
       <div class="category-featured-heading">
         <div>
-          <p class="eyebrow">Featured ${state.activeFilter}</p>
-          <h3>Premium partner picks</h3>
+          <h3>Featured ${state.activeFilter} Picks</h3>
         </div>
-        <p>Four spotlight placements for the restaurants Darcey wants clients to notice first in this category.</p>
       </div>
       <div class="category-featured-grid">
         ${cards}
@@ -458,7 +467,6 @@ function utilitiesSection() {
           recommendations will live as they are added.
         </p>
       </div>
-      ${featuredPlaceholders("Local Utilities")}
       <div class="listing-grid">
         ${services.map(serviceCard).join("")}
       </div>
@@ -476,7 +484,7 @@ function professionalsSection() {
       <div class="section-heading">
         <div>
           <p class="eyebrow">Darcey's Trusted Professionals</p>
-          <h2>Local pros Darcey is comfortable recommending.</h2>
+          <h2>Local Pros</h2>
         </div>
         <p>
           Insurance contacts, home vendors and other trusted professionals clients may need as they settle into desert life.
@@ -602,7 +610,7 @@ function render() {
           <p>Restaurants, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by Darcey.</p>
           <div class="hero-actions">
             <a class="button primary" href="#guide">${icon("compass")} Explore the Guide</a>
-            <a class="button secondary" href="https://darceydeetz.com" target="_blank" rel="noreferrer">${icon("heart")} Visit Darcey's Website</a>
+            <a class="button secondary" href="https://darceydeetz.com" target="_blank" rel="noreferrer">${icon("heart")} Visit Darcey's Real Estate Website</a>
           </div>
         </div>
       </section>
@@ -644,7 +652,7 @@ function render() {
         </p>
         <p class="dre-line">Darcey Deetz · CA DRE 01374659</p>
         <a class="button dark" href="https://darceydeetz.com" target="_blank" rel="noreferrer">
-          ${icon("heart")} Visit Darcey's Website
+          ${icon("heart")} Visit Darcey's Real Estate Website
         </a>
       </section>
 
@@ -731,6 +739,33 @@ function render() {
 
       ${professionalsSection()}
 
+      <section class="section map-section" id="map">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Explore by area</p>
+            <h2>Interactive Map</h2>
+          </div>
+          <p>
+            Choose a recommendation to see it on a real street map with city labels, nearby roads and a direct Google Maps link.
+          </p>
+        </div>
+        <div class="map-layout">
+          <div class="guide-map">
+            <iframe
+              id="map-frame"
+              title="Detailed map for selected My Desert Guide recommendation"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src=""
+            ></iframe>
+          </div>
+          <aside class="map-side">
+            <div id="map-detail" class="map-detail"></div>
+            <div id="map-place-list" class="map-place-list" aria-label="Map locations"></div>
+          </aside>
+        </div>
+      </section>
+
       <section class="section signup-section" id="alerts">
         <div>
           <p class="eyebrow">New recommendations</p>
@@ -776,32 +811,6 @@ function render() {
         </div>
       </section>
 
-      <section class="section map-section" id="map">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Explore by area</p>
-            <h2>Interactive Map</h2>
-          </div>
-          <p>
-            Choose a recommendation to see it on a real street map with city labels, nearby roads and a direct Google Maps link.
-          </p>
-        </div>
-        <div class="map-layout">
-          <div class="guide-map">
-            <iframe
-              id="map-frame"
-              title="Detailed map for selected My Desert Guide recommendation"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src=""
-            ></iframe>
-          </div>
-          <aside class="map-side">
-            <div id="map-detail" class="map-detail"></div>
-            <div id="map-place-list" class="map-place-list" aria-label="Map locations"></div>
-          </aside>
-        </div>
-      </section>
     </main>
   `;
 

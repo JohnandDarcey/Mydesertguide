@@ -65,7 +65,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Giuseppe's+Palm+Springs",
     description:
       "Warm, reliable Italian comfort with the kind of neighborhood feel that makes people come back again and again.",
-    tip: "Get there by 3:45 if you want a seat at the bar.",
+    tip: "In season, Get there by 3:45 if you want a seat at the bar. The happy hour pizza at the bar is a great value as is the ceasar salad!",
     image: "./assets/restaurants/giuseppes.png",
     isNew: false,
     isFavorite: true,
@@ -234,7 +234,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Bubba's+Bones+and+Brews+Cathedral+City",
     description:
       "A casual Cathedral City favorite for barbecue, cold drinks, and easygoing happy-hour energy.",
-    tip: "Do not miss the Jalapeno Sausage Wontons. YUM.",
+    tip: "Do not miss the Jalapeno Sausage Wontons. YUM, and the patio is dog friendly!!",
     image: "./assets/restaurants/bubbas-bones-and-brews.png",
     isNew: true,
     isFavorite: false,
