@@ -415,16 +415,22 @@ function render() {
         </a>
       </section>
 
-      <section class="section category-strip" aria-label="Guide categories">
-        ${categories
-          .map(
-            (category, index) => `
-              <a href="${categoryHref(category)}" class="category-tile">
-                <strong>${category}</strong>
-              </a>
-            `,
-          )
-          .join("")}
+      <section class="section guide-categories" aria-label="Guide categories">
+        <div class="category-heading">
+          <p class="eyebrow">Browse the guide</p>
+          <h2>Start with what you need.</h2>
+        </div>
+        <div class="category-strip">
+          ${categories
+            .map(
+              (category) => `
+                <a href="${categoryHref(category)}" class="category-tile">
+                  <strong>${category}</strong>
+                </a>
+              `,
+            )
+            .join("")}
+        </div>
       </section>
 
       <section class="section guide" id="guide">

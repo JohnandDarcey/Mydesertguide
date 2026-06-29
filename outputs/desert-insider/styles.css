@@ -333,12 +333,24 @@ h1 {
   font-size: 1.04rem;
 }
 
+.guide-categories {
+  padding-top: clamp(48px, 7vw, 86px);
+}
+
+.category-heading {
+  margin-bottom: 22px;
+}
+
+.category-heading h2 {
+  font-size: clamp(2.1rem, 4vw, 4rem);
+  margin-bottom: 0;
+}
+
 .category-strip {
   display: grid;
   gap: 12px;
   grid-template-columns: repeat(4, minmax(160px, 1fr));
   overflow-x: auto;
-  padding-top: 0;
 }
 
 .category-tile {
