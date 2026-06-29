@@ -360,6 +360,21 @@ export const services = [
     image: "./assets/services/southern-california-edison.png",
     isNew: true,
   },
+  {
+    name: "Foremost Insurance",
+    location: "Cathedral City",
+    category: "Insurance",
+    rating: 5,
+    bestFor: "Insurance questions and policy help",
+    detail: "Farmers Insurance broker contact through Gary Donovan's Cathedral City office.",
+    website: "https://agents.farmers.com/ca/cathedral-city/gary-donovan/",
+    maps: "https://maps.google.com/?q=Gary+Donovan+Farmers+Insurance+Cathedral+City",
+    description:
+      "An insurance contact for clients who need help with coverage questions, policy setup, or a local broker connection.",
+    tip: "Use the Farmers contact page to reach Gary Donovan's office and confirm the right coverage for your property.",
+    image: "./assets/services/foremost-insurance.png",
+    isNew: true,
+  },
 ];
 
 export const golfCourses = [
