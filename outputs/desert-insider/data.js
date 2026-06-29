@@ -44,7 +44,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Lulu+Palm+Springs",
     description:
       "A polished Palm Springs staple with a lively dining room, dependable brunch, and a great first-stop energy for guests arriving in town.",
-    tip: "Go early for brunch, then walk Palm Canyon while the town is still waking up.",
+    tip: "All Day Happy Hour in the bar is an insiders tip. Great salads and the chicken piccata is one of my all time favorites. Don't miss their chicken pot pie on the weekends!! Make sure you get a reservation so you get a great table for people watching!",
     image: "./assets/restaurants/lulu-california-bistro.png",
     isNew: false,
     isFavorite: true,
@@ -172,7 +172,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Spencer's+Palm+Springs",
     description:
       "Elegant, tucked against the mountain, and still one of the most reliable choices for a special desert meal.",
-    tip: "Request patio seating when the weather is on your side.",
+    tip: "The patio is magical and service is always spot on. Their calamari is famous for good reason. Don't miss it if you have room. In season reservations are a must!",
     image: "./assets/restaurants/spencers-patio.png",
     isNew: false,
     isFavorite: true,
