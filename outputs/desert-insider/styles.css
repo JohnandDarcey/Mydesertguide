@@ -167,18 +167,18 @@ h3 {
   color: rgba(205, 18, 46, 0.88);
   pointer-events: none;
   position: absolute;
-  right: -0.12em;
-  top: 0.08em;
-  transform: rotate(-14deg);
+  right: -0.54em;
+  top: -0.12em;
+  transform: rotate(-10deg);
   z-index: 2;
 }
 
 .hero-heart svg {
   fill: currentColor;
-  height: 0.58em;
+  height: 0.48em;
   stroke: rgba(255, 255, 255, 0.42);
   stroke-width: 0.45;
-  width: 0.58em;
+  width: 0.48em;
 }
 
 h1 {
