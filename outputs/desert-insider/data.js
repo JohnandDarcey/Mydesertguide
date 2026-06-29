@@ -48,7 +48,6 @@ export const restaurants = [
     image: "./assets/restaurants/lulu-california-bistro.png",
     isNew: false,
     isFavorite: true,
-    isPick: true,
   },
   {
     name: "Giuseppe's",
@@ -112,7 +111,6 @@ export const restaurants = [
     image: "./assets/restaurants/cactus-jacks.png",
     isNew: false,
     isFavorite: true,
-    isPick: true,
   },
   {
     name: "California Bistro",
@@ -176,7 +174,6 @@ export const restaurants = [
     image: "./assets/restaurants/spencers-patio.png",
     isNew: false,
     isFavorite: true,
-    isPick: true,
   },
   {
     name: "Tyler's",
@@ -399,7 +396,6 @@ export const thingsToDo = [
     tip: "Summer mornings are quieter and cooler, so go early. You can wander at an easy pace, then stop at the concessions for ice cream, a cold drink, beer or wine along the way.",
     image: "./assets/things-to-do/the-living-desert.png",
     isNew: true,
-    isPick: true,
   },
 ];
 

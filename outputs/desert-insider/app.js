@@ -72,7 +72,7 @@ function featuredRestaurantsForFilter(filter) {
 
   return restaurants
     .filter((item) => item.tags.includes(filter))
-    .sort((a, b) => Number(b.isPick) - Number(a.isPick) || b.rating - a.rating || a.name.localeCompare(b.name))
+    .sort((a, b) => b.rating - a.rating || a.name.localeCompare(b.name))
     .slice(0, 2);
 }
 
@@ -125,7 +125,6 @@ function restaurantCard(item) {
         <img src="${item.image}" alt="${item.name} dining atmosphere" loading="lazy" />
         <div class="listing-badges">
           ${item.isNew ? '<span class="badge">New</span>' : ""}
-          ${item.isPick ? '<span class="badge pick-seal">Darcey’s Pick</span>' : ""}
         </div>
       </div>
       <div class="listing-body">
@@ -235,7 +234,6 @@ function thingToDoCard(item) {
         <img src="${item.image}" alt="${item.name} entrance" loading="lazy" />
         <div class="listing-badges">
           ${item.isNew ? '<span class="badge">New</span>' : ""}
-          ${item.isPick ? '<span class="badge pick-seal">Darcey’s Pick</span>' : ""}
         </div>
       </div>
       <div class="listing-body">
@@ -277,7 +275,6 @@ function featuredSpotlightCard(item, label, why, actionLabel = "View Details") {
     <article class="featured-pick-card">
       <div class="featured-media">
         <img src="${item.image}" alt="${item.name} featured image" loading="lazy" />
-        ${item.isPick ? '<span class="award-seal">Darcey’s Pick</span>' : ""}
       </div>
       <div class="featured-content">
         <div class="featured-kicker-row">
@@ -356,7 +353,7 @@ function categoryFeaturedShelf() {
           <img src="${item.image}" alt="${item.name} featured restaurant" loading="lazy" />
           <div class="category-featured-content">
             <div class="category-featured-topline">
-              <span>${item.isPick ? "Darcey's Pick" : "Featured Partner"}</span>
+              <span>Featured Partner</span>
               <strong>${starRating(item.rating)}</strong>
             </div>
             <h3>${item.name}</h3>

@@ -839,42 +839,6 @@ h1 {
   color: var(--charcoal);
 }
 
-.pick-seal {
-  background: var(--charcoal);
-  border: 1px solid rgba(255, 255, 255, 0.78);
-  box-shadow: 0 0 0 2px rgba(205, 18, 46, 0.7), 0 8px 18px rgba(5, 5, 5, 0.22);
-  color: var(--white);
-  letter-spacing: 0;
-  padding: 8px 11px;
-  text-transform: uppercase;
-}
-
-.award-seal {
-  align-items: center;
-  aspect-ratio: 1;
-  background: var(--white);
-  border: 2px solid rgb(190, 16, 42);
-  border-radius: 50%;
-  box-shadow: 0 0 0 3px var(--charcoal), 0 0 0 5px rgba(255, 255, 255, 0.9);
-  color: rgb(160, 8, 30);
-  display: inline-flex;
-  font-size: 0.68rem;
-  font-weight: 900;
-  justify-content: center;
-  line-height: 1.05;
-  max-width: 82px;
-  padding: 11px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.featured-media .award-seal {
-  left: 18px;
-  position: absolute;
-  top: 18px;
-  z-index: 2;
-}
-
 .listing-body {
   display: grid;
   gap: 14px;
