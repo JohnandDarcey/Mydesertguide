@@ -5,6 +5,7 @@ import {
   golfCourses,
   restaurants,
   services,
+  thingsToDo,
 } from "./data.js";
 
 const app = document.querySelector("#app");
@@ -57,6 +58,7 @@ function allSearchablePlaces() {
     ...restaurants.map((item) => ({ ...item, type: "Restaurant" })),
     ...golfCourses.map((item) => ({ ...item, type: "Golf" })),
     ...services.map((item) => ({ ...item, type: "Service" })),
+    ...thingsToDo.map((item) => ({ ...item, type: "Thing To Do" })),
   ];
 }
 
@@ -133,6 +135,7 @@ function restaurantCard(item) {
 
 function categoryHref(category) {
   if (category === "Golf") return "#golf";
+  if (category === "Things To Do") return "#things-to-do";
   if (category === "Utilities, Insurance & Services") return "#services";
   if (category === "Hidden Gems") return "#contact";
   return "#guide";
@@ -200,6 +203,38 @@ function serviceCard(item) {
   `;
 }
 
+function thingToDoCard(item) {
+  return `
+    <article class="listing-card thing-card">
+      <div class="listing-image">
+        <img src="${item.image}" alt="${item.name} entrance" loading="lazy" />
+        <div class="listing-badges">
+          ${item.isNew ? '<span class="badge">New</span>' : ""}
+        </div>
+      </div>
+      <div class="listing-body">
+        <div class="eyebrow">${item.location} · ${item.category}</div>
+        <div class="card-title-row">
+          <h3>${item.name}</h3>
+          <div class="stars" aria-label="Darcey Rating ${item.rating} out of 5">${starRating(
+            item.rating,
+          )}</div>
+        </div>
+        <p>${item.description}</p>
+        <dl class="meta-grid">
+          <div><dt>Best For</dt><dd>${item.bestFor}</dd></div>
+          <div><dt>Detail</dt><dd>${item.detail}</dd></div>
+        </dl>
+        <div class="tip"><strong>Darcey's Pro Tip</strong><span>${item.tip}</span></div>
+        <div class="link-row">
+          <a href="${item.website}" target="_blank" rel="noreferrer">Website</a>
+          <a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
 function dateNightSection() {
   const places = pickRestaurants(dateNightNames);
   return `
@@ -235,6 +270,25 @@ function happyHourSection() {
       </div>
       <div class="listing-grid">
         ${places.map(restaurantCard).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function thingsToDoSection() {
+  return `
+    <section class="section spotlight-section things-section" id="things-to-do">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Things To Do</p>
+          <h2>Darcey's favorite ways to spend a desert day.</h2>
+        </div>
+        <p>
+          Experiences, local outings and easy recommendations for clients, family and friends who want to enjoy the valley beyond dinner.
+        </p>
+      </div>
+      <div class="listing-grid">
+        ${thingsToDo.map(thingToDoCard).join("")}
       </div>
     </section>
   `;
@@ -473,6 +527,8 @@ function render() {
       ${dateNightSection()}
 
       ${happyHourSection()}
+
+      ${thingsToDoSection()}
 
       <section class="section golf-guide" id="golf">
         <div class="section-heading">

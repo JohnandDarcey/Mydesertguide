@@ -377,6 +377,24 @@ export const services = [
   },
 ];
 
+export const thingsToDo = [
+  {
+    name: "The Living Desert",
+    location: "Palm Desert",
+    category: "Zoo & Gardens",
+    rating: 5,
+    bestFor: "A classic desert day with visitors or family",
+    detail: "Wildlife, gardens, trails, exhibits and a uniquely Coachella Valley setting.",
+    website: "https://www.livingdesert.org/",
+    maps: "https://maps.google.com/?q=The+Living+Desert+Zoo+and+Gardens+Palm+Desert",
+    description:
+      "A beloved Palm Desert destination with animals, gardens, walking paths and beautiful desert scenery that works for locals and visiting guests.",
+    tip: "Summer mornings are quieter and cooler, so go early. You can wander at an easy pace, then stop at the concessions for ice cream, a cold drink, beer or wine along the way.",
+    image: "./assets/things-to-do/the-living-desert.png",
+    isNew: true,
+  },
+];
+
 export const golfCourses = [
   {
     name: "Indian Canyons Golf Resort",

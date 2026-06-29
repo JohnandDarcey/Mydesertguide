@@ -768,6 +768,10 @@ dd {
   background: var(--white);
 }
 
+.things-section {
+  background: var(--paper);
+}
+
 .services-section {
   background: var(--paper);
   border-top: 1px solid var(--line);
