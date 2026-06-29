@@ -9,7 +9,8 @@ export const categories = [
   "Restaurants",
   "Golf",
   "Things To Do",
-  "Utilities, Insurance & Services",
+  "Local Utilities",
+  "Darcey's Trusted Professionals",
 ];
 
 export const filters = [
@@ -360,6 +361,9 @@ export const services = [
     image: "./assets/services/southern-california-edison.png",
     isNew: true,
   },
+];
+
+export const professionals = [
   {
     name: "Foremost Insurance",
     location: "Cathedral City",

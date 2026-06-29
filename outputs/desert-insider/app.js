@@ -3,6 +3,7 @@ import {
   categories,
   filters,
   golfCourses,
+  professionals,
   restaurants,
   services,
   thingsToDo,
@@ -57,7 +58,8 @@ function allSearchablePlaces() {
   return [
     ...restaurants.map((item) => ({ ...item, type: "Restaurant" })),
     ...golfCourses.map((item) => ({ ...item, type: "Golf" })),
-    ...services.map((item) => ({ ...item, type: "Service" })),
+    ...services.map((item) => ({ ...item, type: "Utility" })),
+    ...professionals.map((item) => ({ ...item, type: "Trusted Professional" })),
     ...thingsToDo.map((item) => ({ ...item, type: "Thing To Do" })),
   ];
 }
@@ -136,7 +138,8 @@ function restaurantCard(item) {
 function categoryHref(category) {
   if (category === "Golf") return "#golf";
   if (category === "Things To Do") return "#things-to-do";
-  if (category === "Utilities, Insurance & Services") return "#services";
+  if (category === "Local Utilities") return "#utilities";
+  if (category === "Darcey's Trusted Professionals") return "#professionals";
   if (category === "Hidden Gems") return "#contact";
   return "#guide";
 }
@@ -294,25 +297,48 @@ function thingsToDoSection() {
   `;
 }
 
-function servicesSection() {
+function utilitiesSection() {
   return `
-    <section class="section services-section" id="services">
+    <section class="section services-section" id="utilities">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Utilities, insurance & services</p>
+          <p class="eyebrow">Local Utilities</p>
           <h2>The practical desert list clients always need.</h2>
         </div>
         <p>
-          A home guide should include more than places to eat and play. This is where Darcey's trusted utility,
-          insurance and local service recommendations will live as they are added.
+          A home guide should include the practical setup links too. This is where Darcey's local utility
+          recommendations will live as they are added.
         </p>
       </div>
       <div class="listing-grid">
         ${services.map(serviceCard).join("")}
       </div>
       <div class="services-cta">
-        <p>Have a trusted utility, insurance contact or service provider Darcey should consider?</p>
-        <a class="button dark" href="mailto:john@darceydeetz.com?subject=Service%20Recommendation%20for%20The%20Desert%20Insider&body=Hi%20John%2C%0A%0AI%20have%20a%20utility%2C%20insurance%20or%20service%20recommendation%20for%20The%20Desert%20Insider.%0A%0AName%3A%0ACategory%3A%0ALocation%20or%20service%20area%3A%0AWebsite%20or%20phone%3A%0AWhy%20you%20recommend%20them%3A%0A%0AThank%20you!">${icon("plus")} Submit a Service</a>
+        <p>Have a local utility Darcey should include?</p>
+        <a class="button dark" href="mailto:john@darceydeetz.com?subject=Utility%20Recommendation%20for%20The%20Desert%20Insider&body=Hi%20John%2C%0A%0AI%20have%20a%20local%20utility%20recommendation%20for%20The%20Desert%20Insider.%0A%0AName%3A%0ACategory%3A%0ALocation%20or%20service%20area%3A%0AWebsite%20or%20phone%3A%0AWhy%20you%20recommend%20them%3A%0A%0AThank%20you!">${icon("plus")} Submit a Utility</a>
+      </div>
+    </section>
+  `;
+}
+
+function professionalsSection() {
+  return `
+    <section class="section professionals-section" id="professionals">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Darcey's Trusted Professionals</p>
+          <h2>Local pros Darcey is comfortable recommending.</h2>
+        </div>
+        <p>
+          Insurance contacts, home vendors and other trusted professionals clients may need as they settle into desert life.
+        </p>
+      </div>
+      <div class="listing-grid">
+        ${professionals.map(serviceCard).join("")}
+      </div>
+      <div class="services-cta">
+        <p>Have a trusted professional Darcey should consider?</p>
+        <a class="button dark" href="mailto:john@darceydeetz.com?subject=Trusted%20Professional%20Recommendation%20for%20The%20Desert%20Insider&body=Hi%20John%2C%0A%0AI%20have%20a%20trusted%20professional%20recommendation%20for%20The%20Desert%20Insider.%0A%0AName%3A%0ACategory%3A%0ALocation%20or%20service%20area%3A%0AWebsite%20or%20phone%3A%0AWhy%20you%20recommend%20them%3A%0A%0AThank%20you!">${icon("plus")} Submit a Pro</a>
       </div>
     </section>
   `;
@@ -421,7 +447,7 @@ function render() {
             </h1>
             <div class="hero-heart" aria-hidden="true">${icon("heart")}</div>
           </div>
-          <p>Darcey's Guide to Restaurants, Happy Hours, Things To Do, Utilities, Services & Local Favorites</p>
+          <p>Darcey's Guide to Restaurants, Happy Hours, Things To Do, Local Utilities, Trusted Professionals & Local Favorites</p>
           <div class="hero-actions">
             <a class="button primary" href="#guide">${icon("compass")} Explore the Guide</a>
             <a class="button secondary" href="https://darceydeetz.com" target="_blank" rel="noreferrer">${icon("heart")} Visit Darcey's Website</a>
@@ -545,7 +571,9 @@ function render() {
         </div>
       </section>
 
-      ${servicesSection()}
+      ${utilitiesSection()}
+
+      ${professionalsSection()}
 
       <section class="section signup-section" id="alerts">
         <div>
