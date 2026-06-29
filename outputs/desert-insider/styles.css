@@ -167,7 +167,7 @@ h3 {
   color: rgba(205, 18, 46, 0.88);
   pointer-events: none;
   position: absolute;
-  right: -0.54em;
+  right: -0.4em;
   top: -0.12em;
   transform: rotate(-10deg);
   z-index: 2;
@@ -424,6 +424,47 @@ h1 {
   margin-bottom: 0;
 }
 
+.featured-pick-card {
+  background: var(--charcoal);
+  border-radius: 8px;
+  color: var(--white);
+  display: grid;
+  grid-template-columns: minmax(120px, 0.45fr) minmax(0, 0.55fr);
+  min-height: 190px;
+  overflow: hidden;
+}
+
+.featured-pick-card img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.featured-pick-card > div {
+  align-content: center;
+  display: grid;
+  gap: 8px;
+  padding: 22px;
+}
+
+.featured-pick-card h3 {
+  font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+  margin-bottom: 0;
+}
+
+.featured-pick-card p:not(.eyebrow) {
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 4px;
+}
+
+.featured-pick-card a {
+  color: var(--white);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-underline-offset: 4px;
+}
+
 .feature-grid {
   display: grid;
   gap: 18px;
@@ -617,6 +658,35 @@ h1 {
 
 .badge.gold {
   color: var(--charcoal);
+}
+
+.pick-seal {
+  background: var(--charcoal);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow: 0 0 0 2px rgba(205, 18, 46, 0.7), 0 8px 18px rgba(5, 5, 5, 0.22);
+  color: var(--white);
+  letter-spacing: 0;
+  padding: 8px 11px;
+  text-transform: uppercase;
+}
+
+.award-seal {
+  align-items: center;
+  aspect-ratio: 1;
+  background: var(--white);
+  border: 2px solid rgb(190, 16, 42);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--charcoal), 0 0 0 5px rgba(255, 255, 255, 0.9);
+  color: rgb(160, 8, 30);
+  display: inline-flex;
+  font-size: 0.68rem;
+  font-weight: 900;
+  justify-content: center;
+  line-height: 1.05;
+  max-width: 82px;
+  padding: 11px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .listing-body {
@@ -1143,6 +1213,14 @@ dd {
 
   .featured-listings {
     grid-template-columns: 1fr;
+  }
+
+  .featured-pick-card {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-pick-card img {
+    aspect-ratio: 4 / 3;
   }
 
   .guide-map {

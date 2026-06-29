@@ -103,7 +103,7 @@ function restaurantCard(item) {
         <img src="${item.image}" alt="${item.name} dining atmosphere" loading="lazy" />
         <div class="listing-badges">
           ${item.isNew ? '<span class="badge">New</span>' : ""}
-          ${item.isFavorite ? '<span class="badge gold">Darcey Favorite</span>' : ""}
+          ${item.isPick ? '<span class="badge pick-seal">Darcey’s Pick</span>' : ""}
         </div>
       </div>
       <div class="listing-body">
@@ -213,6 +213,7 @@ function thingToDoCard(item) {
         <img src="${item.image}" alt="${item.name} entrance" loading="lazy" />
         <div class="listing-badges">
           ${item.isNew ? '<span class="badge">New</span>' : ""}
+          ${item.isPick ? '<span class="badge pick-seal">Darcey’s Pick</span>' : ""}
         </div>
       </div>
       <div class="listing-body">
@@ -252,6 +253,35 @@ function featuredPlaceholders(sectionName) {
           `,
         )
         .join("")}
+    </div>
+  `;
+}
+
+function restaurantFeaturedListings() {
+  const cactusJacks = restaurants.find((restaurant) => restaurant.name === "Cactus Jack's");
+  return `
+    <div class="featured-listings" aria-label="Featured Restaurant listings">
+      ${
+        cactusJacks
+          ? `
+            <article class="featured-pick-card">
+              <img src="${cactusJacks.image}" alt="${cactusJacks.name} exterior" loading="lazy" />
+              <div>
+                <span class="award-seal">Darcey’s Pick</span>
+                <p class="eyebrow">Featured Restaurant</p>
+                <h3>${cactusJacks.name}</h3>
+                <p>${cactusJacks.tip}</p>
+                <a href="${cactusJacks.maps}" target="_blank" rel="noreferrer">Open in Google Maps</a>
+              </div>
+            </article>
+          `
+          : ""
+      }
+      <article class="featured-placeholder-card">
+        <p class="eyebrow">Featured</p>
+        <h3>Restaurant feature 2</h3>
+        <p>Placeholder for a spotlight recommendation Darcey can feature here.</p>
+      </article>
     </div>
   `;
 }
@@ -471,7 +501,7 @@ function render() {
             </h1>
           </div>
           <p class="hero-brand-tagline">Darcey's favorites all in one place</p>
-          <p>Restaurants, happy hours, golf, things to do, local utilities, trusted professionals and desert favorites curated by Darcey.</p>
+          <p>Restaurants, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by Darcey.</p>
           <div class="hero-actions">
             <a class="button primary" href="#guide">${icon("compass")} Explore the Guide</a>
             <a class="button secondary" href="https://darceydeetz.com" target="_blank" rel="noreferrer">${icon("heart")} Visit Darcey's Website</a>
@@ -549,7 +579,7 @@ function render() {
             recommends, along with a few favorites shared by her clients.
           </p>
         </div>
-        ${featuredPlaceholders("Restaurant")}
+        ${restaurantFeaturedListings()}
 
         <div class="guide-tools">
           <label class="search-box">

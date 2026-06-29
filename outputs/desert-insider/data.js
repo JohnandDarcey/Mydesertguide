@@ -96,7 +96,7 @@ export const restaurants = [
     location: "Palm Desert",
     category: "Classic Desert Bar",
     tags: ["Happy Hour", "Casual", "Live Music", "Hidden Gem"],
-    rating: 4,
+    rating: 5,
     food: 3.5,
     atmosphere: 4,
     value: 4,
@@ -107,10 +107,11 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Cactus+Jack's+Palm+Desert",
     description:
       "A desert institution with character, regulars, and the sort of local texture that does not need polishing.",
-    tip: "Sit at the bar. The drink pours are huge, the drinks are strong, and you may want to Uber home.",
+    tip: "Great food, Great prices, and if you sit at the bar the wine pour is very generous and the drinks are stronger than in the pub or dining room. You might want to call an Uber!",
     image: "./assets/restaurants/cactus-jacks.png",
     isNew: false,
     isFavorite: true,
+    isPick: true,
   },
   {
     name: "California Bistro",
@@ -396,6 +397,7 @@ export const thingsToDo = [
     tip: "Summer mornings are quieter and cooler, so go early. You can wander at an easy pace, then stop at the concessions for ice cream, a cold drink, beer or wine along the way.",
     image: "./assets/things-to-do/the-living-desert.png",
     isNew: true,
+    isPick: true,
   },
 ];
 
