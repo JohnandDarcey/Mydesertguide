@@ -1402,6 +1402,14 @@ dd {
     padding-right: 22px;
   }
 
+  .real-estate-lead {
+    grid-template-columns: 1fr;
+  }
+
+  .darcey-cta-card {
+    max-width: 150px;
+  }
+
   .darcey-cta-photo {
     max-height: 260px;
     object-position: center top;
@@ -1410,10 +1418,6 @@ dd {
   .real-estate-cta .button {
     justify-content: center;
     width: 100%;
-  }
-
-  .real-estate-cta .dre-line {
-    grid-column: auto;
   }
 
   .welcome-copy {
