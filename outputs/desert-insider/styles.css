@@ -311,11 +311,23 @@ h1 {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   display: grid;
-  gap: clamp(22px, 4vw, 54px);
-  grid-template-columns: minmax(120px, 170px) minmax(340px, 0.78fr) minmax(360px, 0.85fr);
+  gap: clamp(28px, 6vw, 92px);
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.78fr);
   margin: 0 clamp(18px, 5vw, 64px) clamp(18px, 4vw, 42px);
   padding-bottom: clamp(34px, 5vw, 58px);
   padding-top: clamp(34px, 5vw, 58px);
+}
+
+.real-estate-lead {
+  align-items: center;
+  display: grid;
+  gap: clamp(22px, 4vw, 42px);
+  grid-template-columns: minmax(120px, 170px) minmax(0, 1fr);
+}
+
+.darcey-cta-card {
+  display: grid;
+  gap: 10px;
 }
 
 .darcey-cta-photo {
@@ -346,8 +358,11 @@ h1 {
 
 .real-estate-cta .dre-line {
   color: var(--charcoal);
-  font-size: 0.78rem;
+  font-size: clamp(0.54rem, 0.78vw, 0.68rem);
   font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+  text-align: center;
   text-transform: uppercase;
 }
 
