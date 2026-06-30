@@ -100,7 +100,11 @@ function allSearchablePlaces() {
 }
 
 function mapPlaces() {
-  return allSearchablePlaces().sort((a, b) => a.location.localeCompare(b.location) || a.name.localeCompare(b.name));
+  return [
+    ...restaurants.map((item) => ({ ...item, type: "Restaurant" })),
+    ...golfCourses.map((item) => ({ ...item, type: "Golf" })),
+    ...thingsToDo.map((item) => ({ ...item, type: "Thing To Do" })),
+  ].sort((a, b) => a.location.localeCompare(b.location) || a.name.localeCompare(b.name));
 }
 
 function pickRestaurants(names) {
@@ -267,7 +271,7 @@ function serviceCard(item) {
           ${item.website ? `<a href="${item.website}" target="_blank" rel="noreferrer">Website</a>` : ""}
           ${item.phone ? `<a href="tel:${item.phone.replace(/\D/g, "")}">Call ${item.phone}</a>` : ""}
           ${item.email ? `<a href="mailto:${item.email}">Email</a>` : ""}
-          <a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>
+          ${item.maps ? `<a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>` : ""}
         </div>
       </div>
     </article>

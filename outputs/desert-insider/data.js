@@ -440,11 +440,25 @@ export const professionals = [
     bestFor: "Landscaping, gardening and regular yard care",
     detail: "Jorge Arana · 760-443-3672",
     phone: "760-443-3672",
-    maps: "https://maps.google.com/?q=Jorge+Arana+Landscaping+Coachella+Valley",
     description:
       "A trusted landscaping and garden-care contact for clients who need help keeping a desert home looking polished and well cared for.",
     tip: "Call Jorge Arana directly for landscaping, gardening, and regular outdoor care around the home.",
     image: "./assets/services/jorge-arana-landscaping.png",
+    isNew: true,
+  },
+  {
+    name: "M&J Tax Services",
+    location: "Coachella Valley",
+    category: "Tax Services",
+    rating: 5,
+    bestFor: "Tax preparation and year-round tax support",
+    detail: "Tax preparation, planning and local client support.",
+    website: "https://mandjtaxservices.com/",
+    maps: "https://maps.google.com/?q=M%26J+Tax+Services+Coachella+Valley",
+    description:
+      "A local tax-services resource for clients who want help with tax preparation, planning and practical financial paperwork.",
+    tip: "Use M&J Tax Services for tax preparation, planning questions and year-round support from a local team.",
+    image: "./assets/services/mj-tax-services.png",
     isNew: true,
   },
   {
