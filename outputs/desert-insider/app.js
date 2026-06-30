@@ -687,10 +687,12 @@ function render() {
       </section>
 
       <section class="section real-estate-cta" aria-label="Real estate help from Darcey">
-        <img class="darcey-cta-photo" src="./assets/people/darcey-front-web.jpg" alt="Darcey Deetz" />
-        <div>
-          <p class="eyebrow">Real estate help</p>
-          <h2>Thinking about a move in the desert?</h2>
+        <div class="real-estate-lead">
+          <img class="darcey-cta-photo" src="./assets/people/darcey-front-web.jpg" alt="Darcey Deetz" />
+          <div>
+            <p class="eyebrow">Real estate help</p>
+            <h2>Thinking about a move in the desert?</h2>
+          </div>
         </div>
         <div class="real-estate-copy">
           <p>
