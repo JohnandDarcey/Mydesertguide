@@ -311,8 +311,8 @@ h1 {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   display: grid;
-  gap: 24px;
-  grid-template-columns: minmax(90px, 140px) minmax(0, 0.9fr) minmax(260px, 0.8fr) auto;
+  gap: clamp(22px, 4vw, 54px);
+  grid-template-columns: minmax(120px, 170px) minmax(340px, 0.78fr) minmax(360px, 0.85fr);
   margin: 0 clamp(18px, 5vw, 64px) clamp(18px, 4vw, 42px);
   padding-bottom: clamp(34px, 5vw, 58px);
   padding-top: clamp(34px, 5vw, 58px);
@@ -329,11 +329,17 @@ h1 {
 }
 
 .real-estate-cta h2 {
-  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-size: clamp(2.6rem, 4.8vw, 5rem);
   margin-bottom: 0;
 }
 
-.real-estate-cta p:not(.eyebrow) {
+.real-estate-copy {
+  align-items: start;
+  display: grid;
+  gap: 16px;
+}
+
+.real-estate-copy p:not(.eyebrow) {
   color: var(--muted);
   margin-bottom: 0;
 }
@@ -342,7 +348,6 @@ h1 {
   color: var(--charcoal);
   font-size: 0.78rem;
   font-weight: 800;
-  grid-column: 3;
   text-transform: uppercase;
 }
 
