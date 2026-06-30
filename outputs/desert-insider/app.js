@@ -504,11 +504,15 @@ function utilitiesSection() {
         </div>
         <div class="utility-guide-panel">
           <p>
-            A home guide should include the practical setup links too. I've included many of them here,
-            but if you'd like to download a printable easy reference guide:
+            A great home guide should include all the practical information you'll need after you move in.
+            I've included some of the most important utility links here, but if you'd like a convenient,
+            comprehensive printable reference to keep on hand, you can download it below.
           </p>
           <p class="utility-guide-label">Printable Guide</p>
-          <p>Keep the Coachella Valley utility contacts handy for move-in day, service setup and quick reference.</p>
+          <p>
+            Keep this guide handy for move-in day and beyond. It includes essential Coachella Valley utility providers,
+            service setup information, and important contact numbers - all in one easy-to-reference document.
+          </p>
           <a class="button dark utility-download-button" href="./assets/downloads/darceys-utility-guide.png" download="darceys-utility-guide.png">${icon("download")} Download Darcey's Utility Guide</a>
         </div>
       </div>
