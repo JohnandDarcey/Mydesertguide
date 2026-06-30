@@ -264,7 +264,9 @@ function serviceCard(item) {
         </dl>
         ${expandableTip("Darcey's Setup Tip", item.tip)}
         <div class="link-row">
-          <a href="${item.website}" target="_blank" rel="noreferrer">Website</a>
+          ${item.website ? `<a href="${item.website}" target="_blank" rel="noreferrer">Website</a>` : ""}
+          ${item.phone ? `<a href="tel:${item.phone.replace(/\D/g, "")}">Call ${item.phone}</a>` : ""}
+          ${item.email ? `<a href="mailto:${item.email}">Email</a>` : ""}
           <a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>
         </div>
       </div>
@@ -309,6 +311,8 @@ function featuredLinkRow(item) {
     <div class="featured-link-row">
       ${item.teeTime ? `<a href="${item.teeTime}" target="_blank" rel="noreferrer">Book Tee Time</a>` : ""}
       ${item.website ? `<a href="${item.website}" target="_blank" rel="noreferrer">Website</a>` : ""}
+      ${item.phone ? `<a href="tel:${item.phone.replace(/\D/g, "")}">Call ${item.phone}</a>` : ""}
+      ${item.email ? `<a href="mailto:${item.email}">Email</a>` : ""}
       ${item.menu ? `<a href="${item.menu}" target="_blank" rel="noreferrer">Menu</a>` : ""}
       ${item.maps ? `<a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>` : ""}
     </div>

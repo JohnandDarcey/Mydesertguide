@@ -1196,10 +1196,26 @@ dd {
 }
 
 .service-image img {
-  filter: grayscale(1) contrast(1.05);
   object-fit: contain;
-  opacity: 0.92;
-  padding: clamp(22px, 4vw, 42px);
+  padding: clamp(18px, 3vw, 34px);
+}
+
+.professionals-section .featured-media {
+  align-items: center;
+  background: var(--white);
+  display: flex;
+  justify-content: center;
+}
+
+.professionals-section .featured-media::after {
+  display: none;
+}
+
+.professionals-section .featured-media img {
+  height: 100%;
+  object-fit: contain;
+  padding: clamp(24px, 4vw, 44px);
+  width: 100%;
 }
 
 .signup-section {
