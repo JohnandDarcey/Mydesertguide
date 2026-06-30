@@ -26,6 +26,7 @@ const featuredThingsNames = ["The Living Desert", "Palm Springs Aerial Tramway"]
 const featuredRestaurantsByFilter = {
   American: ["Lulu", "Tony's Grill and Bar"],
   "Date Night": ["Spencer's", "California Bistro"],
+  Italian: ["Palmina by Puglia", "Giuseppe's"],
   Patio: ["Lulu", "Spencer's"],
 };
 function starRating(value) {
