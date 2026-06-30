@@ -503,9 +503,17 @@ function utilitiesSection() {
           <h2>The practical desert list clients always need.</h2>
         </div>
         <p>
-          A home guide should include the practical setup links too. This is where Darcey's local utility
-          recommendations will live as they are added.
+          A home guide should include the practical setup links too. I've included many of them here,
+          but if you'd like to download a printable easy reference guide:
         </p>
+      </div>
+      <div class="utility-download">
+        <div>
+          <p class="eyebrow">Printable guide</p>
+          <h3>Darcey's Utility Guide</h3>
+          <p>Keep the Coachella Valley utility contacts handy for move-in day, service setup and quick reference.</p>
+        </div>
+        <a class="button primary" href="./assets/downloads/darceys-utility-guide.png" download="darceys-utility-guide.png">${icon("download")} Download Guide</a>
       </div>
       <div class="listing-grid">
         ${services.map(serviceCard).join("")}
@@ -645,7 +653,6 @@ function render() {
               <span class="hero-title-line">Guide</span>
             </h1>
           </div>
-          <p class="hero-brand-tagline">Darcey's favorites all in one place</p>
           <p>Restaurants, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by Darcey.</p>
           <div class="hero-actions">
             <a class="button primary" href="#guide">${icon("compass")} Explore the Guide</a>
