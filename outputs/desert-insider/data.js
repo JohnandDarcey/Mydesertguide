@@ -423,6 +423,8 @@ export const professionals = [
     bestFor: "Insurance guidance and policy help",
     detail: "Dennis VanBuskirk · 760-341-3477 · info@ascendins.com",
     website: "https://ascendins.com/",
+    phone: "760-341-3477",
+    email: "info@ascendins.com",
     maps: "https://maps.google.com/?q=Ascend+Insurance+Coachella+Valley",
     description:
       "A local insurance resource for clients who want help reviewing coverage options, asking policy questions, or connecting with a trusted insurance professional.",
@@ -437,7 +439,7 @@ export const professionals = [
     rating: 5,
     bestFor: "Landscaping, gardening and regular yard care",
     detail: "Jorge Arana · 760-443-3672",
-    website: "tel:17604433672",
+    phone: "760-443-3672",
     maps: "https://maps.google.com/?q=Jorge+Arana+Landscaping+Coachella+Valley",
     description:
       "A trusted landscaping and garden-care contact for clients who need help keeping a desert home looking polished and well cared for.",
