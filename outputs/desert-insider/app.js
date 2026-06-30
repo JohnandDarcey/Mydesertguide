@@ -688,7 +688,10 @@ function render() {
 
       <section class="section real-estate-cta" aria-label="Real estate help from Darcey">
         <div class="real-estate-lead">
-          <img class="darcey-cta-photo" src="./assets/people/darcey-front-web.jpg" alt="Darcey Deetz" />
+          <div class="darcey-cta-card">
+            <img class="darcey-cta-photo" src="./assets/people/darcey-front-web.jpg" alt="Darcey Deetz" />
+            <p class="dre-line">Darcey Deetz · CA DRE 01374659</p>
+          </div>
           <div>
             <p class="eyebrow">Real estate help</p>
             <h2>Thinking about a move in the desert?</h2>
@@ -699,7 +702,6 @@ function render() {
             If this guide has you picturing life in the Coachella Valley, Darcey can help with the
             homes, neighborhoods and next steps.
           </p>
-          <p class="dre-line">Darcey Deetz · CA DRE 01374659</p>
           <a class="button dark" href="https://darceydeetz.com" target="_blank" rel="noreferrer">
             ${icon("heart")} Visit Darcey's Real Estate Website
           </a>
