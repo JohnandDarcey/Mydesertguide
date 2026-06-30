@@ -56,6 +56,7 @@ svg {
   background: rgba(255, 255, 255, 0.88);
   border-bottom: 1px solid var(--line);
   display: flex;
+  gap: 18px;
   justify-content: space-between;
   left: 0;
   padding: 14px clamp(18px, 5vw, 64px);
@@ -67,6 +68,7 @@ svg {
 
 .brand {
   display: grid;
+  flex: 0 0 auto;
   gap: 1px;
 }
 
@@ -87,11 +89,19 @@ svg {
 
 nav {
   display: flex;
-  gap: clamp(12px, 3vw, 30px);
+  gap: clamp(10px, 1.8vw, 24px);
+  overflow-x: auto;
+  scrollbar-width: none;
+  white-space: nowrap;
+}
+
+nav::-webkit-scrollbar {
+  display: none;
 }
 
 nav a {
   color: rgba(5, 5, 5, 0.74);
+  flex: 0 0 auto;
   font-size: 0.9rem;
   font-weight: 600;
 }
@@ -812,6 +822,10 @@ h1 {
   padding-bottom: 6px;
 }
 
+.mobile-filter-select {
+  display: none;
+}
+
 .filter-chip,
 .admin-action {
   align-items: center;
@@ -1323,10 +1337,16 @@ dd {
     overflow-x: auto;
     max-width: 100%;
     padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
   }
 
   nav a {
-    font-size: 0.8rem;
+    flex: 0 0 auto;
+    font-size: 0.78rem;
     white-space: nowrap;
   }
 
@@ -1381,6 +1401,40 @@ dd {
   .signup-section,
   .contact {
     grid-template-columns: 1fr;
+  }
+
+  .filter-row {
+    display: none;
+  }
+
+  .mobile-filter-select {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display: grid;
+    gap: 8px;
+    margin: 18px 0;
+    padding: 14px;
+  }
+
+  .mobile-filter-select span {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .mobile-filter-select select {
+    appearance: none;
+    background: var(--charcoal);
+    border: 0;
+    border-radius: 999px;
+    color: var(--white);
+    font: inherit;
+    font-weight: 800;
+    min-height: 50px;
+    padding: 0 18px;
+    width: 100%;
   }
 
   .welcome-note {

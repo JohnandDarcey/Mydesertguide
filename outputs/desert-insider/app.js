@@ -20,7 +20,6 @@ const state = {
 
 const dateNightNames = ["Spencer's", "Giuseppe's", "Mitch's", "California Bistro"];
 const happyHourNames = ["Giuseppe's", "Cactus Jack's", "California Bistro", "Bubba's Bones & Brews"];
-const featuredRestaurantNames = ["Spencer's", "Lulu"];
 const featuredGolfNames = ["Indian Canyons Golf Resort", "The Classic Club"];
 const featuredThingsNames = ["The Living Desert", "Palm Springs Aerial Tramway"];
 const featuredRestaurantsByFilter = {
@@ -39,7 +38,7 @@ function starRating(value) {
 function filteredRestaurants() {
   const term = state.query.trim().toLowerCase();
   const activeFeatured =
-    state.activeFilter === "All" ? pickRestaurants(featuredRestaurantNames) : featuredRestaurantsForFilter(state.activeFilter);
+    state.activeFilter === "All" ? [] : featuredRestaurantsForFilter(state.activeFilter);
   const featuredNames = new Set(activeFeatured.map((item) => item.name));
   const list = restaurants.filter((item) => {
     const haystack = [
@@ -340,17 +339,6 @@ function featuredPlaceholders(sectionName) {
   `;
 }
 
-function restaurantFeaturedListings() {
-  const featured = pickRestaurants(featuredRestaurantNames);
-  return `
-    <div class="featured-listings" aria-label="Featured Restaurant listings">
-      ${featured
-        .map((restaurant) => featuredSpotlightCard(restaurant, "Featured Restaurant", restaurant.tip))
-        .join("")}
-    </div>
-  `;
-}
-
 function thingsFeaturedListings() {
   const featured = pickThingsToDo(featuredThingsNames);
   return `
@@ -632,10 +620,14 @@ function render() {
         <small>Darcey's favorites all in one place</small>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#guide">Guide</a>
-        <a href="#map">Map</a>
+        <a href="#guide">Restaurants</a>
+        <a href="#happy-hour">Happy Hours</a>
+        <a href="#date-night">Date Night</a>
+        <a href="#golf">Golf</a>
+        <a href="#things">Things To Do</a>
         <a href="#utilities">Utilities</a>
         <a href="#professionals">Pros</a>
+        <a href="#map">Map</a>
         <a href="#alerts">Alerts</a>
         <a href="#contact">Contact</a>
         <a class="nav-cta" href="https://darceydeetz.com" target="_blank" rel="noreferrer">Darcey's Real Estate Website</a>
@@ -738,8 +730,6 @@ function render() {
             recommends, along with a few favorites shared by her clients.
           </p>
         </div>
-        ${restaurantFeaturedListings()}
-
         <div class="guide-tools">
           <label class="search-box">
             ${icon("search")}
@@ -758,6 +748,13 @@ function render() {
           <button class="filter-chip active" data-filter="All">All</button>
           ${filters.map((filter) => `<button class="filter-chip" data-filter="${filter}">${filter}</button>`).join("")}
         </div>
+        <label class="mobile-filter-select">
+          <span>Choose a restaurant category</span>
+          <select id="mobile-filter-select">
+            <option>All</option>
+            ${filters.map((filter) => `<option>${filter}</option>`).join("")}
+          </select>
+        </label>
         <div id="category-featured"></div>
         <div class="results-line">
           <span id="results-count"></span>
@@ -882,8 +879,17 @@ function render() {
       state.activeFilter = button.dataset.filter;
       document.querySelectorAll(".filter-chip").forEach((chip) => chip.classList.remove("active"));
       button.classList.add("active");
+      document.querySelector("#mobile-filter-select").value = state.activeFilter;
       renderListings();
     });
+  });
+
+  document.querySelector("#mobile-filter-select").addEventListener("change", (event) => {
+    state.activeFilter = event.target.value;
+    document.querySelectorAll(".filter-chip").forEach((chip) => {
+      chip.classList.toggle("active", chip.dataset.filter === state.activeFilter);
+    });
+    renderListings();
   });
 
   document.addEventListener("click", (event) => {
