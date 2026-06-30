@@ -149,6 +149,20 @@ function icon(name) {
   return `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths[name]}</svg>`;
 }
 
+function expandableTip(label, text) {
+  if (text.length < 165) {
+    return `<div class="tip"><strong>${label}</strong><span>${text}</span></div>`;
+  }
+
+  return `
+    <div class="tip tip-note-wrap">
+      <strong>${label}</strong>
+      <span class="tip-note">${text}</span>
+      <button class="tip-note-toggle" type="button" aria-expanded="false">Read more</button>
+    </div>
+  `;
+}
+
 function restaurantCard(item) {
   return `
     <article class="listing-card">
@@ -176,7 +190,7 @@ function restaurantCard(item) {
           <span>Atmosphere ${item.atmosphere}</span>
           <span>Value ${item.value}</span>
         </div>
-        <div class="tip"><strong>Darcey's Insider Tip</strong><span>${item.tip}</span></div>
+        ${expandableTip("Darcey's Insider Tip", item.tip)}
         <div class="link-row">
           <a href="${item.website}" target="_blank" rel="noreferrer">Website</a>
           <a href="${item.menu}" target="_blank" rel="noreferrer">Menu</a>
@@ -215,7 +229,7 @@ function golfCard(item) {
           <div><dt>Best For</dt><dd>${item.bestFor}</dd></div>
           <div><dt>Restaurant</dt><dd>${item.restaurant}</dd></div>
         </dl>
-        <div class="tip"><strong>Darcey's Golf Tip</strong><span>${item.tip}</span></div>
+        ${expandableTip("Darcey's Golf Tip", item.tip)}
         <div class="link-row">
           <a href="${item.teeTime}" target="_blank" rel="noreferrer">Book Tee Time</a>
           <a href="${item.website}" target="_blank" rel="noreferrer">Website</a>
@@ -248,7 +262,7 @@ function serviceCard(item) {
           <div><dt>Best For</dt><dd>${item.bestFor}</dd></div>
           <div><dt>Detail</dt><dd>${item.detail}</dd></div>
         </dl>
-        <div class="tip"><strong>Darcey's Setup Tip</strong><span>${item.tip}</span></div>
+        ${expandableTip("Darcey's Setup Tip", item.tip)}
         <div class="link-row">
           <a href="${item.website}" target="_blank" rel="noreferrer">Website</a>
           <a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>
@@ -280,7 +294,7 @@ function thingToDoCard(item) {
           <div><dt>Best For</dt><dd>${item.bestFor}</dd></div>
           <div><dt>Detail</dt><dd>${item.detail}</dd></div>
         </dl>
-        <div class="tip"><strong>Darcey's Pro Tip</strong><span>${item.tip}</span></div>
+        ${expandableTip("Darcey's Pro Tip", item.tip)}
         <div class="link-row">
           <a href="${item.website}" target="_blank" rel="noreferrer">Website</a>
           <a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>
@@ -928,10 +942,10 @@ function render() {
   });
 
   document.addEventListener("click", (event) => {
-    const toggle = event.target.closest(".featured-note-toggle");
+    const toggle = event.target.closest(".featured-note-toggle, .tip-note-toggle");
     if (!toggle) return;
 
-    const wrap = toggle.closest(".featured-note-wrap");
+    const wrap = toggle.closest(".featured-note-wrap, .tip-note-wrap");
     const isExpanded = wrap.classList.toggle("expanded");
     toggle.setAttribute("aria-expanded", String(isExpanded));
     toggle.textContent = isExpanded ? "Show less" : "Read more";

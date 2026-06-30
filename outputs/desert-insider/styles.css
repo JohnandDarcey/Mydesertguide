@@ -981,6 +981,41 @@ dd {
   color: var(--charcoal);
 }
 
+.tip-note-wrap {
+  gap: 7px;
+}
+
+.tip-note-wrap .tip-note {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.tip-note-wrap.expanded .tip-note {
+  display: block;
+  overflow: visible;
+}
+
+.tip-note-toggle {
+  background: transparent;
+  border: 0;
+  color: var(--charcoal);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 900;
+  justify-self: start;
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-color: rgba(5, 5, 5, 0.35);
+  text-underline-offset: 4px;
+}
+
+.tip-note-toggle:hover {
+  text-decoration-color: var(--charcoal);
+}
+
 .link-row {
   display: flex;
   flex-wrap: wrap;
