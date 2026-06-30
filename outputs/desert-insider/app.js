@@ -502,18 +502,15 @@ function utilitiesSection() {
           <p class="eyebrow">Local Utilities</p>
           <h2>The practical desert list clients always need.</h2>
         </div>
-        <p>
-          A home guide should include the practical setup links too. I've included many of them here,
-          but if you'd like to download a printable easy reference guide:
-        </p>
-      </div>
-      <div class="utility-download">
-        <div>
-          <p class="eyebrow">Printable guide</p>
-          <h3>Darcey's Utility Guide</h3>
+        <div class="utility-guide-panel">
+          <p>
+            A home guide should include the practical setup links too. I've included many of them here,
+            but if you'd like to download a printable easy reference guide:
+          </p>
+          <p class="utility-guide-label">Printable Guide</p>
           <p>Keep the Coachella Valley utility contacts handy for move-in day, service setup and quick reference.</p>
+          <a class="button dark utility-download-button" href="./assets/downloads/darceys-utility-guide.png" download="darceys-utility-guide.png">${icon("download")} Download Darcey's Utility Guide</a>
         </div>
-        <a class="button primary" href="./assets/downloads/darceys-utility-guide.png" download="darceys-utility-guide.png">${icon("download")} Download Guide</a>
       </div>
       <div class="listing-grid">
         ${services.map(serviceCard).join("")}
