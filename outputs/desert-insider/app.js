@@ -24,6 +24,7 @@ const happyHourNames = ["Lulu", "Giuseppe's", "Cactus Jack's", "California Bistr
 const featuredHappyHourNames = ["Lulu", "Giuseppe's"];
 const featuredGolfNames = ["Indian Canyons Golf Resort", "The Classic Club"];
 const featuredThingsNames = ["The Living Desert", "Palm Springs Aerial Tramway"];
+const featuredProfessionalNames = ["Ascend Insurance", "Jorge's Landscaping"];
 const featuredRestaurantsByFilter = {
   American: ["Lulu", "Tony's Grill and Bar"],
   "Date Night": ["Spencer's", "California Bistro"],
@@ -117,6 +118,12 @@ function pickGolfCourses(names) {
 function pickThingsToDo(names) {
   return names
     .map((name) => thingsToDo.find((thing) => thing.name === name))
+    .filter(Boolean);
+}
+
+function pickProfessionals(names) {
+  return names
+    .map((name) => professionals.find((professional) => professional.name === name))
     .filter(Boolean);
 }
 
@@ -534,6 +541,7 @@ function utilitiesSection() {
 }
 
 function professionalsSection() {
+  const featured = pickProfessionals(featuredProfessionalNames);
   return `
     <section class="section professionals-section" id="professionals">
       <div class="section-heading">
@@ -545,9 +553,16 @@ function professionalsSection() {
           Insurance contacts, home vendors and other trusted professionals clients may need as they settle into desert life.
         </p>
       </div>
-      ${featuredPlaceholders("Trusted Professionals")}
+      <div class="featured-listings" aria-label="Featured Trusted Professional listings">
+        ${featured
+          .map((professional) => featuredSpotlightCard(professional, "Featured Professional", professional.tip))
+          .join("")}
+      </div>
       <div class="listing-grid">
-        ${professionals.map(serviceCard).join("")}
+        ${professionals
+          .filter((professional) => !featured.some((item) => item.name === professional.name))
+          .map(serviceCard)
+          .join("")}
       </div>
       <div class="services-cta">
         <p>Have a trusted professional Darcey should consider?</p>
@@ -737,14 +752,16 @@ function render() {
       <section class="section guide" id="guide">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">The Guide</p>
-            <h2>Restaurants</h2>
-          </div>
-          <p>
-            Darcey's Star Ratings are personal recommendations based on places Darcey confidently
-            recommends, along with a few favorites shared by her clients.
-          </p>
+          <p class="eyebrow">The Guide</p>
+          <h2>Restaurants</h2>
         </div>
+        <p>
+            Darcey's Star Ratings highlight places I personally recommend and love, along with a
+            handful of client favorites that have earned their reputation. I visit many of these
+            spots regularly, so do not be surprised if we cross paths while you're out enjoying the
+            Coachella Valley.
+        </p>
+      </div>
         <div class="guide-tools">
           <label class="search-box">
             ${icon("search")}
@@ -791,7 +808,10 @@ function render() {
             <h2>Darcey's Desert Golf Picks</h2>
           </div>
           <p>
-            A few favorite courses for beautiful views, strong conditions, great restaurants and the kind of round worth recommending.
+            The Coachella Valley is home to more than 100 golf courses, but these are a few of my personal
+            favorites. Whether it's breathtaking mountain views, impeccable conditions, a fantastic clubhouse
+            restaurant, or simply a round that's memorable from the first tee to the final putt, these are the
+            courses I love recommending.
           </p>
         </div>
         ${golfFeaturedListings()}

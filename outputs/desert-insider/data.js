@@ -416,6 +416,36 @@ export const services = [
 
 export const professionals = [
   {
+    name: "Ascend Insurance",
+    location: "Coachella Valley",
+    category: "Insurance",
+    rating: 5,
+    bestFor: "Insurance guidance and policy help",
+    detail: "Dennis VanBuskirk · 760-341-3477 · info@ascendins.com",
+    website: "https://ascendins.com/",
+    maps: "https://maps.google.com/?q=Ascend+Insurance+Coachella+Valley",
+    description:
+      "A local insurance resource for clients who want help reviewing coverage options, asking policy questions, or connecting with a trusted insurance professional.",
+    tip: "Reach out to Dennis VanBuskirk for insurance questions, policy guidance, and help getting pointed in the right direction.",
+    image: "./assets/services/ascend-insurance.svg",
+    isNew: true,
+  },
+  {
+    name: "Jorge's Landscaping",
+    location: "Coachella Valley",
+    category: "Landscaping & Garden Care",
+    rating: 5,
+    bestFor: "Landscaping, gardening and regular yard care",
+    detail: "Jorge Arana · 760-443-3672",
+    website: "tel:17604433672",
+    maps: "https://maps.google.com/?q=Jorge+Arana+Landscaping+Coachella+Valley",
+    description:
+      "A trusted landscaping and garden-care contact for clients who need help keeping a desert home looking polished and well cared for.",
+    tip: "Call Jorge Arana directly for landscaping, gardening, and regular outdoor care around the home.",
+    image: "./assets/services/jorge-arana-landscaping.png",
+    isNew: true,
+  },
+  {
     name: "Foremost Insurance",
     location: "Cathedral City",
     category: "Insurance",
