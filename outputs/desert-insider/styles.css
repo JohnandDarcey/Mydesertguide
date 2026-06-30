@@ -1117,14 +1117,6 @@ dd {
   margin: 0;
 }
 
-.utility-guide-label {
-  color: var(--charcoal);
-  font-size: 0.92rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .utility-download-button {
   border: 1px solid var(--black);
   justify-content: center;
