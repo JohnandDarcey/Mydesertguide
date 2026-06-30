@@ -442,7 +442,7 @@ export const professionals = [
     phone: "760-443-3672",
     description:
       "A trusted landscaping and garden-care contact for clients who need help keeping a desert home looking polished and well cared for.",
-    tip: "Call Jorge Arana directly for landscaping, gardening, and regular outdoor care around the home.",
+    tip: "Call Jorge Arana directly for landscaping, gardening, and regular outdoor care. Jorge has handled countless projects for me over the years, including landscaping, concrete work, and yard cleanups. He's dependable, detail-oriented, always shows up when he says he will, and consistently does quality work. He's one of my go-to recommendations.",
     image: "./assets/services/jorge-arana-landscaping.png",
     isNew: true,
   },
