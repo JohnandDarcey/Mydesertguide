@@ -384,7 +384,7 @@ function categoryFeaturedShelf() {
           <img src="${item.image}" alt="${item.name} featured restaurant" loading="lazy" />
           <div class="category-featured-content">
             <div class="category-featured-topline">
-              <span>Featured Partner</span>
+              <span>Featured</span>
               <strong>${starRating(item.rating)}</strong>
             </div>
             <h3>${item.name}</h3>
@@ -397,10 +397,10 @@ function categoryFeaturedShelf() {
 
     return `
       <article class="category-featured-card empty">
-        <div class="category-featured-content">
-          <div class="category-featured-topline">
-            <span>Featured Partner</span>
-          </div>
+          <div class="category-featured-content">
+            <div class="category-featured-topline">
+            <span>Featured</span>
+            </div>
           <h3>Premium spot available</h3>
           <p>Reserved for a standout ${state.activeFilter.toLowerCase()} recommendation or paid partner.</p>
           <a href="mailto:john@darceydeetz.com?subject=Featured%20${encodeURIComponent(state.activeFilter)}%20Spot%20for%20My%20Desert%20Guide">Inquire</a>
