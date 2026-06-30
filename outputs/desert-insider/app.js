@@ -508,7 +508,6 @@ function utilitiesSection() {
             I've included some of the most important utility links here, but if you'd like a convenient,
             comprehensive printable reference to keep on hand, you can download it below.
           </p>
-          <p class="utility-guide-label">Printable Guide</p>
           <p>
             Keep this guide handy for move-in day and beyond. It includes essential Coachella Valley utility providers,
             service setup information, and important contact numbers - all in one easy-to-reference document.
@@ -693,14 +692,16 @@ function render() {
           <p class="eyebrow">Real estate help</p>
           <h2>Thinking about a move in the desert?</h2>
         </div>
-        <p>
-          If this guide has you picturing life in the Coachella Valley, Darcey can help with the
-          homes, neighborhoods and next steps.
-        </p>
-        <p class="dre-line">Darcey Deetz · CA DRE 01374659</p>
-        <a class="button dark" href="https://darceydeetz.com" target="_blank" rel="noreferrer">
-          ${icon("heart")} Visit Darcey's Real Estate Website
-        </a>
+        <div class="real-estate-copy">
+          <p>
+            If this guide has you picturing life in the Coachella Valley, Darcey can help with the
+            homes, neighborhoods and next steps.
+          </p>
+          <p class="dre-line">Darcey Deetz · CA DRE 01374659</p>
+          <a class="button dark" href="https://darceydeetz.com" target="_blank" rel="noreferrer">
+            ${icon("heart")} Visit Darcey's Real Estate Website
+          </a>
+        </div>
       </section>
 
       <section class="section guide-categories" aria-label="Guide categories">
