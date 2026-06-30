@@ -621,8 +621,6 @@ function render() {
       </a>
       <nav aria-label="Primary navigation">
         <a href="#guide">Restaurants</a>
-        <a href="#happy-hour">Happy Hours</a>
-        <a href="#date-night">Date Night</a>
         <a href="#golf">Golf</a>
         <a href="#things">Things To Do</a>
         <a href="#utilities">Utilities</a>
@@ -630,7 +628,6 @@ function render() {
         <a href="#map">Map</a>
         <a href="#alerts">Alerts</a>
         <a href="#contact">Contact</a>
-        <a class="nav-cta" href="https://darceydeetz.com" target="_blank" rel="noreferrer">Darcey's Real Estate Website</a>
       </nav>
     </header>
 
