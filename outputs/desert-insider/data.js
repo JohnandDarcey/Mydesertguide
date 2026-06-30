@@ -361,6 +361,36 @@ export const services = [
     image: "./assets/services/southern-california-edison.png",
     isNew: true,
   },
+  {
+    name: "Coachella Valley Water District",
+    location: "Coachella Valley",
+    category: "Water",
+    rating: 5,
+    bestFor: "Setting up water service",
+    detail: "Local water service, billing, conservation resources and customer support.",
+    website: "https://www.cvwd.org/",
+    maps: "https://maps.google.com/?q=Coachella+Valley+Water+District",
+    description:
+      "A key local utility for clients setting up water service, managing an account, or checking conservation and service information.",
+    tip: "Set up service early and keep the customer portal handy for billing, usage and conservation updates.",
+    image: "./assets/services/coachella-valley-water-district.png",
+    isNew: true,
+  },
+  {
+    name: "Imperial Irrigation District",
+    location: "Coachella Valley",
+    category: "Electric & Water",
+    rating: 5,
+    bestFor: "Utility service in IID areas",
+    detail: "Electric service and local utility resources for parts of the Coachella Valley.",
+    website: "https://www.iid.com/",
+    maps: "https://maps.google.com/?q=Imperial+Irrigation+District+Coachella+Valley",
+    description:
+      "A practical utility link for clients whose homes fall within IID service areas for power or related local utility needs.",
+    tip: "Confirm whether the property is in IID service territory before move-in so utility setup is smooth.",
+    image: "./assets/services/imperial-irrigation-district.png",
+    isNew: true,
+  },
 ];
 
 export const professionals = [
