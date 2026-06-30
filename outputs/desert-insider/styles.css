@@ -328,6 +328,8 @@ h1 {
 .darcey-cta-card {
   display: grid;
   gap: 10px;
+  justify-self: start;
+  width: min(170px, 100%);
 }
 
 .darcey-cta-photo {
@@ -358,7 +360,7 @@ h1 {
 
 .real-estate-cta .dre-line {
   color: var(--charcoal);
-  font-size: clamp(0.54rem, 0.78vw, 0.68rem);
+  font-size: clamp(0.48rem, 0.66vw, 0.62rem);
   font-weight: 800;
   line-height: 1.2;
   margin: 0;
