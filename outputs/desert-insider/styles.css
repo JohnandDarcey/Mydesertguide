@@ -1156,11 +1156,14 @@ dd {
 }
 
 .service-image {
-  background: #ffdc40;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
 }
 
 .service-image img {
+  filter: grayscale(1) contrast(1.05);
   object-fit: contain;
+  opacity: 0.92;
   padding: clamp(22px, 4vw, 42px);
 }
 

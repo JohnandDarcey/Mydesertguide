@@ -149,7 +149,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=California+Bistro+Palm+Desert",
     description:
       "Easygoing California dining with enough polish for date night and enough comfort for a midweek favorite.",
-    tip: "Ask what is seasonal before you order; the specials are usually the move.",
+    tip: "While the dining room and patio are both beautiful places to enjoy a meal, do not overlook the bar. The large wraparound bar has a fun, lively atmosphere and consistently great service. Their Happy Hour menu is packed with delicious options, but my go-to is the Blackened Chicken Sandwich. Honestly, it may just be my favorite sandwich in the entire Coachella Valley!",
     image: "./assets/restaurants/california-bistro.png",
     isNew: true,
     isFavorite: false,
@@ -233,7 +233,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Tony's+Grill+and+Bar+Palm+Springs",
     description:
       "A comfortable local American pick that works when you want something easy, familiar, and satisfying.",
-    tip: "Keep it simple and split a few classics.",
+    tip: "It's a great little neighborhood spot, and I love sitting at the bar. They have an amazing taco salad that is big enough to share, and their house wines are really good. There is no patio, but on a hot summer day, this is a perfect little indoor hideaway.",
     image: "./assets/restaurants/tonys-grill-and-bar.png",
     isNew: true,
     isFavorite: false,
@@ -317,7 +317,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Las+Casuelas+Palm+Springs",
     description:
       "A festive standby for visitors who want patio energy, music, margaritas, and a lively downtown evening.",
-    tip: "Treat it as a patio-and-people-watching night.",
+    tip: "Las Casuelas has several locations throughout the Coachella Valley, but this one is definitely my favorite. The outdoor patio is one of the best in the desert, and they often have live music on weekends, so be sure to check their website for the schedule. It is a fantastic spot for people-watching, and if you can snag a seat at the palapa bar, even better. The atmosphere is always lively, the Skinny Cadillac Margaritas are some of my favorites, and the food is consistently delicious. It is the kind of place that is just as much about the fun atmosphere as it is the great meal.",
     image: "./assets/restaurants/las-casuelas.png",
     isNew: false,
     isFavorite: false,

@@ -18,13 +18,16 @@ const state = {
   activeMapPlace: null,
 };
 
+const preferredRestaurantOrder = ["Lulu", "Spencer's", "Palmina by Puglia", "Giuseppe's"];
 const dateNightNames = ["Spencer's", "Giuseppe's", "Mitch's", "California Bistro"];
-const happyHourNames = ["Giuseppe's", "Cactus Jack's", "California Bistro", "Bubba's Bones & Brews"];
+const happyHourNames = ["Lulu", "Giuseppe's", "Cactus Jack's", "California Bistro", "Bubba's Bones & Brews"];
+const featuredHappyHourNames = ["Lulu", "Giuseppe's"];
 const featuredGolfNames = ["Indian Canyons Golf Resort", "The Classic Club"];
 const featuredThingsNames = ["The Living Desert", "Palm Springs Aerial Tramway"];
 const featuredRestaurantsByFilter = {
   American: ["Lulu", "Tony's Grill and Bar"],
   "Date Night": ["Spencer's", "California Bistro"],
+  "Happy Hour": featuredHappyHourNames,
   Italian: ["Palmina by Puglia", "Giuseppe's"],
   Patio: ["Lulu", "Spencer's"],
 };
@@ -62,6 +65,13 @@ function filteredRestaurants() {
   return list.sort((a, b) => {
     if (state.sort === "Alphabetical") return a.name.localeCompare(b.name);
     if (state.sort === "Newest") return Number(b.isNew) - Number(a.isNew);
+    if (state.activeFilter === "All") {
+      const aIndex = preferredRestaurantOrder.indexOf(a.name);
+      const bIndex = preferredRestaurantOrder.indexOf(b.name);
+      if (aIndex !== -1 || bIndex !== -1) {
+        return (aIndex === -1 ? 99 : aIndex) - (bIndex === -1 ? 99 : bIndex);
+      }
+    }
     return b.rating - a.rating || a.name.localeCompare(b.name);
   });
 }
@@ -443,6 +453,7 @@ function dateNightSection() {
 
 function happyHourSection() {
   const places = pickRestaurants(happyHourNames);
+  const featured = pickRestaurants(featuredHappyHourNames);
   return `
     <section class="section spotlight-section happy-hour-section" id="happy-hour">
       <div class="section-heading">
@@ -454,9 +465,16 @@ function happyHourSection() {
           Places with the right mix of local energy, reliable drinks and a reason to linger a little longer.
         </p>
       </div>
-      ${featuredPlaceholders("Happy Hour")}
+      <div class="featured-listings" aria-label="Featured Happy Hour listings">
+        ${featured
+          .map((restaurant) => featuredSpotlightCard(restaurant, "Featured Happy Hour", restaurant.tip))
+          .join("")}
+      </div>
       <div class="listing-grid">
-        ${places.map(restaurantCard).join("")}
+        ${places
+          .filter((restaurant) => !featured.some((item) => item.name === restaurant.name))
+          .map(restaurantCard)
+          .join("")}
       </div>
     </section>
   `;
