@@ -129,7 +129,7 @@ nav a {
 .hero-content {
   color: var(--white);
   max-width: 820px;
-  padding: 14vh clamp(20px, 6vw, 76px) 18vh;
+  padding: 8vh clamp(20px, 6vw, 76px) 20vh;
   position: relative;
 }
 
@@ -1307,7 +1307,7 @@ dd {
   }
 
   .hero-content {
-    padding: 18vh 18px 11vh;
+    padding: 11vh 18px 12vh;
   }
 
   h1 {

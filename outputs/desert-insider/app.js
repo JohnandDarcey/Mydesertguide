@@ -638,7 +638,6 @@ function render() {
         <img src="${assets.hero}" alt="Elegant Coachella Valley desert patio at golden hour" />
         <div class="hero-overlay"></div>
         <div class="hero-content">
-          <p class="kicker">Darcey's personal Coachella Valley guide</p>
           <div class="hero-title-wrap">
             <h1>
               <span class="hero-title-line hero-title-my">My</span>
