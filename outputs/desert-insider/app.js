@@ -677,7 +677,7 @@ function render() {
       <nav aria-label="Primary navigation">
         <a href="#guide">Restaurants</a>
         <a href="#golf">Golf</a>
-        <a href="#things">Things To Do</a>
+        <a href="#things-to-do">Things To Do</a>
         <a href="#utilities">Utilities</a>
         <a href="#professionals">Pros</a>
         <a href="#map">Map</a>
