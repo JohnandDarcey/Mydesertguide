@@ -513,6 +513,31 @@ h1 {
   margin-bottom: 0;
 }
 
+.things-featured-listings .featured-pick-card {
+  grid-template-columns: 1fr;
+  min-height: 0;
+}
+
+.things-featured-listings .featured-media {
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+}
+
+.things-featured-listings .featured-media img {
+  aspect-ratio: 16 / 9;
+  height: 100%;
+  object-position: center;
+}
+
+.things-featured-listings .featured-content {
+  align-content: start;
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.things-featured-listings .featured-pick-card h3 {
+  font-size: clamp(2rem, 3vw, 3.1rem);
+}
+
 .featured-pick-card p:not(.eyebrow),
 .featured-why p {
   color: rgba(255, 255, 255, 0.78);

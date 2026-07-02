@@ -381,7 +381,7 @@ function featuredPlaceholders(sectionName) {
 function thingsFeaturedListings() {
   const featured = pickThingsToDo(featuredThingsNames);
   return `
-    <div class="featured-listings" aria-label="Featured Things To Do listings">
+    <div class="featured-listings things-featured-listings" aria-label="Featured Things To Do listings">
       ${featured
         .map((thing) => featuredSpotlightCard(thing, "Featured Thing To Do", thing.tip))
         .join("")}
