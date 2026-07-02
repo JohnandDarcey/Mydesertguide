@@ -416,6 +416,22 @@ export const services = [
 
 export const professionals = [
   {
+    name: "The Buttercake Studio",
+    location: "Coachella Valley",
+    category: "Custom Cakes & Desserts",
+    rating: 5,
+    bestFor: "Custom cakes, special occasions and beautifully designed desserts",
+    detail: "Nathan · Custom cakes and inventive flavor pairings.",
+    website: "https://thebuttercakestudio.com/",
+    maps: "https://maps.google.com/?q=The+Buttercake+Studio+Coachella+Valley",
+    description:
+      "A custom cake studio for clients planning birthdays, celebrations, dinner parties, milestone events or anything that calls for a memorable dessert.",
+    tip: "Nathan is a good friend of ours, and his cakes are simply amazing. They are true works of art, but what really makes them special is how beautiful the flavors are too. He can create all the classics beautifully, and he also has a gift for suggesting inventive flavor combinations that feel thoughtful, elevated, and completely memorable.",
+    image: "./assets/services/buttercake-studio-cake.png",
+    images: ["./assets/services/buttercake-studio-nathan.png", "./assets/services/buttercake-studio-cake.png"],
+    isNew: true,
+  },
+  {
     name: "Ascend Insurance",
     location: "Coachella Valley",
     category: "Insurance",

@@ -24,7 +24,7 @@ const happyHourNames = ["Lulu", "Giuseppe's", "Cactus Jack's", "California Bistr
 const featuredHappyHourNames = ["Lulu", "Giuseppe's"];
 const featuredGolfNames = ["Indian Canyons Golf Resort", "The Classic Club"];
 const featuredThingsNames = ["The Living Desert", "Palm Springs Aerial Tramway"];
-const featuredProfessionalNames = ["Ascend Insurance", "Jorge's Landscaping"];
+const featuredProfessionalNames = ["The Buttercake Studio", "Jorge's Landscaping"];
 const featuredRestaurantsByFilter = {
   American: ["Lulu", "Tony's Grill and Bar"],
   "Date Night": ["Spencer's", "California Bistro"],
@@ -245,10 +245,16 @@ function golfCard(item) {
 }
 
 function serviceCard(item) {
+  const serviceImages = item.images?.length
+    ? `<div class="service-image-grid">${item.images
+        .map((image) => `<img src="${image}" alt="${item.name}" loading="lazy" />`)
+        .join("")}</div>`
+    : `<img src="${item.image}" alt="${item.name} logo" loading="lazy" />`;
+
   return `
     <article class="listing-card service-listing-card">
       <div class="listing-image service-image">
-        <img src="${item.image}" alt="${item.name} logo" loading="lazy" />
+        ${serviceImages}
         <div class="listing-badges">
           ${item.isNew ? '<span class="badge">New</span>' : ""}
         </div>
@@ -338,10 +344,16 @@ function expandableFeaturedNote(text) {
 
 function featuredSpotlightCard(item, label, why, actionLabel = "View Details") {
   const ratingLabel = item.rating ? `<span class="featured-rating">${starRating(item.rating)}</span>` : "";
+  const media = item.images?.length
+    ? `<div class="featured-media-gallery">${item.images
+        .map((image) => `<img src="${image}" alt="${item.name} featured image" loading="lazy" />`)
+        .join("")}</div>`
+    : `<img src="${item.image}" alt="${item.name} featured image" loading="lazy" />`;
+
   return `
     <article class="featured-pick-card">
       <div class="featured-media">
-        <img src="${item.image}" alt="${item.name} featured image" loading="lazy" />
+        ${media}
       </div>
       <div class="featured-content">
         <div class="featured-kicker-row">
