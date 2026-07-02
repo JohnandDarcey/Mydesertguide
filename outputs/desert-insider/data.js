@@ -44,7 +44,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Lulu+Palm+Springs",
     description:
       "A polished Palm Springs staple with a lively dining room, dependable brunch, and a great first-stop energy for guests arriving in town.",
-    tip: "Here's one of my favorite insider tips: the all-day Happy Hour in the bar. I love the salads, and the Chicken Piccata is one of my go-to dishes. On the weekends, the Chicken Pot Pie is a must! Make a reservation and request a good table - you'll have some of the best people-watching in the Coachella Valley.",
+    tip: "Lulu is one of those Palm Springs staples I always feel good recommending, especially if someone is visiting and wants that fun downtown energy. I love the bar for happy hour, the patio for people-watching, and the menu has something for just about everyone. My go-to dishes are the salads, Chicken Piccata, and of course the truffle fries. If you are there on a weekend and the Chicken Pot Pie is available, order it. Make a reservation and ask for a good table - this is one of the best people-watching spots in Palm Springs.",
     image: "./assets/restaurants/lulu-california-bistro.png",
     isNew: false,
     isFavorite: true,
@@ -65,7 +65,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Giuseppe's+Palm+Springs",
     description:
       "Warm, reliable Italian comfort with the kind of neighborhood feel that makes people come back again and again.",
-    tip: "In season, Get there by 3:45 if you want a seat at the bar. The happy hour pizza at the bar is a great value as is the ceasar salad!",
+    tip: "Giuseppe's is such a great neighborhood Italian spot, especially when you want something casual, comfortable, and dependable. In season, get there early if you want a bar seat because it fills up fast. The happy hour pizza is a great value, and I love pairing it with the Caesar salad. It is one of those places where you can keep it simple and still leave happy.",
     image: "./assets/restaurants/giuseppes.png",
     isNew: false,
     isFavorite: true,
@@ -86,7 +86,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Palmina+by+Puglia+Palm+Springs",
     description:
       "A spirited Italian favorite with authentic Puglian flavors, a warm host, and the kind of room that makes dinner feel like an occasion.",
-    tip: "Darcey loves Palmina for its authentic Italian flavors and the pride Antonello brings to every detail. He is the consummate host and entertainer, and you can feel his care in the ingredients, the food, and the energy of the room. The pizza tastes truly authentic, and the espresso martini is a perfect nightcap.",
+    tip: "Palmina feels like dinner with someone who truly loves sharing Italian food. Antonello brings so much pride and personality to the room, and you can feel it in the food, the ingredients, and the way guests are treated. The pizza tastes truly authentic, the pasta is full of flavor, and the espresso martini is a perfect way to end the night. This is a great spot when you want dinner to feel warm, personal, and a little special.",
     image: "./assets/restaurants/palmina-by-puglia.png",
     isNew: true,
     isFavorite: true,
@@ -107,7 +107,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=La+Perlita+Palm+Springs",
     description:
       "Unfussy, flavorful, and beloved for casual Mexican food that feels like a local recommendation rather than a tourist script.",
-    tip: "Skip the sugary margarita mix and order the skinny margarita.",
+    tip: "La Perlita is a great casual Mexican spot when you want good food without making a big production of it. It has that easy local feel, and sometimes that is exactly what you want. My tip is to skip the sugary margarita mix and order the skinny margarita. It is simple, refreshing, and lets the food shine.",
     image: "./assets/restaurants/la-perlita-user.png",
     isNew: false,
     isFavorite: false,
@@ -128,7 +128,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Cactus+Jack's+Palm+Desert",
     description:
       "A desert institution with character, regulars, and the sort of local texture that does not need polishing.",
-    tip: "Great food, Great prices, and if you sit at the bar the wine pour is very generous and the drinks are stronger than in the pub or dining room. You might want to call an Uber!",
+    tip: "Cactus Jack's is a true local desert classic. It is not fancy, and that is exactly why people love it. The food is good, the prices are fair, and the bar has that fun regulars-and-locals kind of energy. If you sit at the bar, just know the wine pours are generous and the cocktails can be strong - this may be a good night to call an Uber.",
     image: "./assets/restaurants/cactus-jacks.png",
     isNew: false,
     isFavorite: true,
@@ -149,7 +149,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=California+Bistro+Palm+Desert",
     description:
       "Easygoing California dining with enough polish for date night and enough comfort for a midweek favorite.",
-    tip: "While the dining room and patio are both beautiful places to enjoy a meal, do not overlook the bar. The large wraparound bar has a fun, lively atmosphere and consistently great service. Their Happy Hour menu is packed with delicious options, but my go-to is the Blackened Chicken Sandwich. Honestly, it may just be my favorite sandwich in the entire Coachella Valley!",
+    tip: "California Bistro has a beautiful dining room and patio, but do not overlook the bar. The big wraparound bar is lively, social, and the service is always great. Their happy hour menu has plenty of good choices, but my favorite is the Blackened Chicken Sandwich. Honestly, it may be my favorite sandwich anywhere in the Valley.",
     image: "./assets/restaurants/california-bistro.png",
     isNew: true,
     isFavorite: false,
@@ -170,7 +170,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Johnny+Costa's+Palm+Springs",
     description:
       "A timeless Palm Springs dining room with old Hollywood warmth, confident service, and classic Italian dishes.",
-    tip: "Book ahead for a proper dinner night and let it be old-school.",
+    tip: "Johnny Costa's is a classic Palm Springs dinner spot in the best way. It has that old-school Italian feel, warm service, and a menu that makes you want to settle in and enjoy the night. This is where I would go when I want a proper dinner, not a rushed meal. Book ahead, order something classic, and let it feel like a real night out.",
     image: "./assets/restaurants/johnny-costas-exterior.png",
     isNew: false,
     isFavorite: true,
@@ -191,7 +191,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Spencer's+Palm+Springs",
     description:
       "Elegant, tucked against the mountain, and still one of the most reliable choices for a special desert meal.",
-    tip: "This is one of my favorite patios in the desert. The atmosphere is beautiful, the service is always exceptional, and they have a fantastic wine list - I love the Dutton Ranch Chardonnay. If it's your first visit, you have to order the Chinese Style Kung Pao Calamari. It's famous for a reason and one of those dishes I find myself craving. Just be sure to make a reservation during season because this place fills up quickly.",
+    tip: "Spencer's has one of my favorite patios in the desert. It is tucked up against the mountain, the atmosphere is beautiful, and the service is always exceptional. I love their wine list - the Dutton Ranch Chardonnay is one of my favorites. If it is your first time, you have to try the Chinese Style Kung Pao Calamari. It is famous for a reason and one of those dishes I find myself craving. Make a reservation during season because Spencer's fills up quickly.",
     image: "./assets/restaurants/spencers-patio.png",
     isNew: false,
     isFavorite: true,
@@ -212,7 +212,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Tyler's+Burgers+Palm+Springs",
     description:
       "A true Palm Springs burger classic, casual in all the right ways and best enjoyed without overthinking it.",
-    tip: "Go for lunch, keep the order classic, and do not skip the patio if it is open.",
+    tip: "Tyler's is the kind of place you do not need to overthink. Go for lunch, order a classic burger, and enjoy the Palm Springs charm of it all. If the patio is open, sit outside. It is casual, simple, and exactly what a good burger spot should be.",
     image: "./assets/restaurants/tylers-burgers.png",
     isNew: false,
     isFavorite: false,
@@ -233,7 +233,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Tony's+Grill+and+Bar+Palm+Springs",
     description:
       "A comfortable local American pick that works when you want something easy, familiar, and satisfying.",
-    tip: "It's a great little neighborhood spot, and I love sitting at the bar. They have an amazing taco salad that is big enough to share, and their house wines are really good. There is no patio, but on a hot summer day, this is a perfect little indoor hideaway.",
+    tip: "Tony's is a great little neighborhood spot, especially when you want something easy and comfortable. I love sitting at the bar, and their taco salad is huge - definitely big enough to share. Their house wines are really good too. There is no patio, but on a hot summer day, this is the perfect little indoor hideaway.",
     image: "./assets/restaurants/tonys-grill-and-bar.png",
     isNew: true,
     isFavorite: false,
@@ -254,7 +254,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Bubba's+Bones+and+Brews+Cathedral+City",
     description:
       "A casual Cathedral City favorite for barbecue, cold drinks, and easygoing happy-hour energy.",
-    tip: "Do not miss the Jalapeno Sausage Wontons. YUM, and the patio is dog friendly!!",
+    tip: "Bubba's is a fun, casual spot for barbecue, drinks, and an easy happy hour. Do not miss the Jalapeno Sausage Wontons - they are so good. The patio is dog friendly too, which makes it a great choice when you want to bring your pup and keep things relaxed.",
     image: "./assets/restaurants/bubbas-bones-and-brews.png",
     isNew: true,
     isFavorite: false,
@@ -275,7 +275,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Bongo+Johnny's+Palm+Springs",
     description:
       "A relaxed brunch choice with playful energy and a central location that makes it easy with visitors.",
-    tip: "Bring a dog-friendly mindset and keep the morning casual.",
+    tip: "Bongo Johnny's is a fun, casual brunch spot when you want something easy in the middle of Palm Springs. It is relaxed, dog-friendly, and great for a low-pressure breakfast or lunch with friends. Go with a laid-back mindset, grab a patio seat if you can, and enjoy the people-watching.",
     image: "./assets/restaurants/bongo-johnnys.png",
     isNew: false,
     isFavorite: false,
@@ -296,7 +296,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Cheeky's+Palm+Springs",
     description:
       "A stylish brunch favorite with rotating details, bright flavors, and a Palm Springs line that usually tells the story.",
-    tip: "Go earlier than you think, especially on weekends.",
+    tip: "Cheeky's is one of those Palm Springs brunch spots people talk about for a reason. The menu is creative, the energy is fun, and the bacon flight is always a conversation starter. Go earlier than you think, especially on weekends, because the line can build quickly. It is worth it if you are in the mood for a brunch that feels very Palm Springs.",
     image: "./assets/restaurants/cheekys.jpg",
     isNew: false,
     isFavorite: true,
@@ -317,7 +317,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Las+Casuelas+Palm+Springs",
     description:
       "A festive standby for visitors who want patio energy, music, margaritas, and a lively downtown evening.",
-    tip: "Las Casuelas has several locations throughout the Coachella Valley, but this one is definitely my favorite. The outdoor patio is one of the best in the desert, and they often have live music on weekends, so be sure to check their website for the schedule. It is a fantastic spot for people-watching, and if you can snag a seat at the palapa bar, even better. The atmosphere is always lively, the Skinny Cadillac Margaritas are some of my favorites, and the food is consistently delicious. It is the kind of place that is just as much about the fun atmosphere as it is the great meal.",
+    tip: "Las Casuelas has several locations in the Valley, but this is my favorite. The outdoor patio is one of the best in the desert, and they often have live music on weekends, so check their schedule before you go. It is great for people-watching, and if you can grab a seat at the palapa bar, you are in for a fun night. The Skinny Cadillac Margaritas are my go-to, the food is always good, and the atmosphere is lively without feeling too fancy.",
     image: "./assets/restaurants/las-casuelas.png",
     isNew: false,
     isFavorite: false,
@@ -338,7 +338,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Mitch's+Palm+Desert",
     description:
       "Fresh, elegant, and consistently strong for a night out on El Paseo with clients, friends, or visiting family.",
-    tip: "Ask what just came in before deciding on sushi.",
+    tip: "Mitch's is one of my favorite choices when you want a polished night out on El Paseo. It works for date night, visitors, clients, or dinner with friends. The seafood and sushi are always fresh, and I like to ask what just came in before deciding what to order. It is elegant without feeling stiff, and the patio is beautiful when the weather is right.",
     image: "./assets/restaurants/mitchs-patio.png",
     isNew: false,
     isFavorite: true,
@@ -359,7 +359,7 @@ export const restaurants = [
     maps: "https://maps.google.com/?q=Cipolline+Osteria+Palm+Desert",
     description:
       "A refined Italian option for a slower dinner, good wine, and a more intimate desert evening.",
-    tip: "Order a few starters for the table before pasta.",
+    tip: "Cipolline is a lovely choice when you want a slower Italian dinner with good wine and a cozy, more intimate feel. I like ordering a few starters for the table before pasta so everyone can share and settle in. It is a nice spot for date night or dinner with friends when you want something a little more refined but still warm and comfortable.",
     image: "./assets/restaurants/cipolline-osteria.png",
     isNew: true,
     isFavorite: false,
@@ -378,7 +378,7 @@ export const services = [
     maps: "https://maps.google.com/?q=Southern+California+Edison+Coachella+Valley",
     description:
       "The electric utility clients will usually need when setting up or managing home service in the desert.",
-    tip: "Start service before your move-in date so the home is ready when you arrive.",
+    tip: "If you are moving into a desert home, set up your electric service before your move-in date so the house is ready when you arrive. It is one of those little things that makes the first day feel so much smoother. Keep your online account handy for billing, outage alerts, and service updates.",
     image: "./assets/services/southern-california-edison.png",
     isNew: true,
   },
@@ -393,7 +393,7 @@ export const services = [
     maps: "https://maps.google.com/?q=Coachella+Valley+Water+District",
     description:
       "A key local utility for clients setting up water service, managing an account, or checking conservation and service information.",
-    tip: "Set up service early and keep the customer portal handy for billing, usage and conservation updates.",
+    tip: "Set up your water service early and keep the customer portal saved somewhere easy to find. It is helpful for billing, usage, conservation updates, and any service questions that come up. In the desert, water matters, so this is one of those practical links worth keeping close.",
     image: "./assets/services/coachella-valley-water-district.png",
     isNew: true,
   },
@@ -408,7 +408,7 @@ export const services = [
     maps: "https://maps.google.com/?q=Imperial+Irrigation+District+Coachella+Valley",
     description:
       "A practical utility link for clients whose homes fall within IID service areas for power or related local utility needs.",
-    tip: "Confirm whether the property is in IID service territory before move-in so utility setup is smooth.",
+    tip: "Before move-in, confirm whether the property is in IID territory so you know exactly who handles service for that address. It saves time and avoids last-minute utility confusion. Once you know, set up service early and keep the account information handy.",
     image: "./assets/services/imperial-irrigation-district.png",
     isNew: true,
   },
@@ -428,7 +428,7 @@ export const professionals = [
     maps: "https://maps.google.com/?q=Ascend+Insurance+Coachella+Valley",
     description:
       "A local insurance resource for clients who want help reviewing coverage options, asking policy questions, or connecting with a trusted insurance professional.",
-    tip: "Reach out to Dennis VanBuskirk for insurance questions, policy guidance, and help getting pointed in the right direction.",
+    tip: "Reach out to Dennis VanBuskirk at Ascend Insurance if you have insurance questions or need help getting pointed in the right direction. Insurance can feel overwhelming, especially with a new home, and it is always helpful to have a local resource who understands the area and can walk you through your options.",
     image: "./assets/services/ascend-insurance.svg",
     isNew: true,
   },
@@ -442,7 +442,7 @@ export const professionals = [
     phone: "760-443-3672",
     description:
       "A trusted landscaping and garden-care contact for clients who need help keeping a desert home looking polished and well cared for.",
-    tip: "Call Jorge Arana directly for landscaping, gardening, and regular outdoor care. Jorge has handled countless projects for me over the years, including landscaping, concrete work, and yard cleanups. He's dependable, detail-oriented, always shows up when he says he will, and consistently does quality work. He's one of my go-to recommendations.",
+    tip: "Call Jorge Arana directly for landscaping, gardening, and regular outdoor care. Jorge has done countless jobs for me over the years, from landscaping to concrete work to yard cleanups. He is dependable, shows up when he says he will, pays attention to the details, and consistently does quality work. He is one of my go-to recommendations.",
     image: "./assets/services/jorge-arana-landscaping.png",
     isNew: true,
   },
@@ -457,7 +457,7 @@ export const professionals = [
     maps: "https://maps.google.com/?q=M%26J+Tax+Services+Coachella+Valley",
     description:
       "A local tax-services resource for clients who want help with tax preparation, planning and practical financial paperwork.",
-    tip: "Use M&J Tax Services for tax preparation, planning questions and year-round support from a local team.",
+    tip: "M&J Tax Services is a helpful local resource for tax preparation, planning questions, and year-round support. It is always nice to have a local team you can reach out to when paperwork, tax questions, or planning details come up. This is a good contact to keep in your home resource list.",
     image: "./assets/services/mj-tax-services.png",
     isNew: true,
   },
@@ -472,7 +472,7 @@ export const professionals = [
     maps: "https://maps.google.com/?q=Gary+Donovan+Farmers+Insurance+Cathedral+City",
     description:
       "An insurance contact for clients who need help with coverage questions, policy setup, or a local broker connection.",
-    tip: "Use the Farmers contact page to reach Gary Donovan's office and confirm the right coverage for your property.",
+    tip: "Use Gary Donovan's Farmers Insurance office if you need help with insurance questions, policy setup, or confirming the right coverage for your property. This is especially helpful when you are buying, moving, or reviewing what coverage makes sense for a desert home.",
     image: "./assets/services/foremost-insurance.png",
     isNew: true,
   },
@@ -490,7 +490,7 @@ export const thingsToDo = [
     maps: "https://maps.google.com/?q=The+Living+Desert+Zoo+and+Gardens+Palm+Desert",
     description:
       "A beloved Palm Desert destination with animals, gardens, walking paths and beautiful desert scenery that works for locals and visiting guests.",
-    tip: "Summer mornings are quieter and cooler, so go early. You can wander at an easy pace, then stop at the concessions for ice cream, a cold drink, beer or wine along the way.",
+    tip: "The Living Desert is one of my favorite places to take visitors because it feels so uniquely Palm Desert. Go early, especially in the warmer months, so you can enjoy the animals, gardens, and walking paths before the day heats up. Take your time, wear comfortable shoes, and plan a little stop for a cold drink, ice cream, beer, or wine along the way.",
     image: "./assets/things-to-do/the-living-desert.png",
     isNew: true,
   },
@@ -505,7 +505,7 @@ export const thingsToDo = [
     maps: "https://maps.google.com/?q=Palm+Springs+Aerial+Tramway",
     description:
       "One of the most iconic Palm Springs experiences, with dramatic views, cooler mountain air, hiking, dining and that unforgettable ride up the canyon.",
-    tip: "Bring a light layer even when it is warm in town. The temperature at the top can feel like a totally different season.",
+    tip: "The Tram is one of those experiences everyone should do at least once. You leave the desert floor and suddenly you are up in the mountains with completely different views and cooler air. Bring a light layer, even if it is warm in town, because the top can feel like a totally different season. Give yourself time to walk around, take photos, and enjoy the view before heading back down.",
     image: "./assets/things-to-do/palm-springs-aerial-tram.png",
     isNew: true,
   },
@@ -520,7 +520,7 @@ export const thingsToDo = [
     maps: "https://maps.google.com/?q=Sunnylands+Rancho+Mirage",
     description:
       "A beautifully designed Rancho Mirage landmark with modern architecture, desert gardens and a calm, polished setting that feels special without feeling fussy.",
-    tip: "Check the tour schedule before you go, then leave time to wander the gardens and take in the mountain views.",
+    tip: "Sunnylands is peaceful, beautiful, and such a nice change of pace. Check the tour schedule before you go if you want to see more of the estate, but even just walking the gardens is worth it. Leave time to wander, enjoy the architecture, and take in the mountain views. It is one of those places that feels calm, polished, and very special.",
     image: "./assets/things-to-do/sunnylands.png",
     isNew: true,
   },
@@ -535,7 +535,7 @@ export const thingsToDo = [
     maps: "https://maps.google.com/?q=Coachella+Valley+Firebirds+Acrisure+Arena",
     description:
       "A fun, lively way to spend an evening in the desert, with great crowd energy and a true local-team feel.",
-    tip: "Make a night of it and arrive early so parking, food and getting to your seats all feel easy.",
+    tip: "A Firebirds game is such a fun night out, even if you are not a huge hockey person. The crowd energy is great, Acrisure Arena is easy to enjoy, and it feels like a true local experience. Arrive early so parking, food, and getting to your seats all feel easy. It is a great option for families, friends, or visitors who want something lively to do in the evening.",
     image: "./assets/things-to-do/coachella-valley-firebirds.png",
     isNew: true,
   },
@@ -551,7 +551,7 @@ export const golfCourses = [
     restaurant: "A favorite for breakfast and lunch before or after your round.",
     description:
       "A timeless Palm Springs golf experience with mountain views, palms, and that old-desert feeling people hope to find when they come here.",
-    tip: "Play Indian Canyons South. It is postcard perfect, and the restaurant is amazing for breakfast and lunch.",
+    tip: "Play Indian Canyons South if you want that postcard-perfect Palm Springs golf experience. The mountain views, palm trees, and old-desert feel are exactly what people picture when they come here. The restaurant is also wonderful for breakfast or lunch, so plan enough time to enjoy it before or after your round.",
     maps: "https://maps.google.com/?q=Indian+Canyons+Golf+Resort+Palm+Springs",
     website: "https://indiancanyonsgolf.com",
     teeTime: "https://indiancanyonsgolf.com",
@@ -566,7 +566,7 @@ export const golfCourses = [
     restaurant: "The restaurant and sunset views make it worth staying after the round.",
     description:
       "A smart, reliable desert round with strong value, approachable play, and views that get especially beautiful late in the day.",
-    tip: "This is Darcey's best value play for good conditions and great prices. The restaurant and sunsets are amazing too.",
+    tip: "Cimarron is one of my favorite value plays in the desert. The course is usually in good condition, the pricing is strong, and it is an easy recommendation when someone wants a fun round without overcomplicating it. Stay after your round if you can - the restaurant and sunset views are worth it.",
     maps: "https://maps.google.com/?q=Cimarron+Golf+Resort+Cathedral+City",
     website: "https://cimarrongolf.com",
     teeTime: "https://cimarrongolf.com",
@@ -581,7 +581,7 @@ export const golfCourses = [
     restaurant: "The clubhouse is part of the experience, with a stylish setting for lunch or drinks.",
     description:
       "A polished Palm Springs course where the architecture, clubhouse, and mountain views all feel deeply connected to the desert lifestyle.",
-    tip: "The clubhouse is so mid-century modern, and the views cannot be beat.",
+    tip: "Escena is beautiful from start to finish. The course has big mountain views, and the clubhouse has that mid-century modern Palm Springs look everyone loves. Even if you are not playing, it is worth going for lunch or drinks because the setting is so good. This is a great pick when you want golf to feel stylish and very Palm Springs.",
     maps: "https://maps.google.com/?q=Escena+Golf+Club+Palm+Springs",
     website: "https://escenagolf.com",
     teeTime: "https://escenagolf.com/golf#reservations",
@@ -596,7 +596,7 @@ export const golfCourses = [
     restaurant: "A polished clubhouse setting for a relaxed post-round meal.",
     description:
       "A consistently beautiful Palm Desert golf destination with two courses and the kind of conditioning that makes it easy to recommend.",
-    tip: "Two courses, and always in spectacular shape.",
+    tip: "Desert Willow is one of the easiest golf recommendations in Palm Desert because it is consistently beautiful and so well maintained. With two courses, you have options, and the conditions are almost always excellent. It is a great choice for visitors, clients, or anyone who wants a polished desert golf experience.",
     maps: "https://maps.google.com/?q=Desert+Willow+Golf+Resort+Palm+Desert",
     website: "https://desertwillow.com",
     teeTime: "https://www.desertwillow.com/bookateetime/",
@@ -611,7 +611,7 @@ export const golfCourses = [
     restaurant: "Bellatrix is outstanding, whether you are playing or just meeting for a meal.",
     description:
       "A bigger, more challenging desert round with a strong practice facility and a clubhouse restaurant that makes it a full-day recommendation.",
-    tip: "Outstanding restaurant at Bellatrix, and the course is a wonderful challenge. Great practice facility too. A post-round drink is amazing on the patio at Bellatrix.",
+    tip: "The Classic Club is a wonderful challenge and a great choice when you want a more serious round. The practice facility is excellent, and Bellatrix makes the whole day feel complete. Even if you are not playing, Bellatrix is a great spot for lunch, dinner, or a post-round drink on the patio.",
     maps: "https://maps.google.com/?q=The+Classic+Club+Palm+Desert",
     website: "https://classicclubgolf.com",
     teeTime: "https://www.classicclubgolf.com/book_tt/",
