@@ -589,7 +589,8 @@ function professionalsSection() {
           <h2>Local Pros</h2>
         </div>
         <p>
-          Insurance contacts, home vendors and other trusted professionals clients may need as they settle into desert life.
+          Trusted local professionals for your home and peace of mind. From insurance contacts and home service providers
+          to reliable local experts, these are the people I confidently recommend to help make life in the desert a little easier.
         </p>
       </div>
       <div class="featured-listings" aria-label="Featured Trusted Professional listings">
@@ -655,35 +656,6 @@ function renderMap() {
   });
 }
 
-function handleAlertSignup(form) {
-  const emailInput = form.querySelector("input[name='email']");
-  const email = emailInput.value.trim();
-  if (!email) return;
-
-  if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
-    const subject = encodeURIComponent("Please add me to My Desert Guide alerts");
-    const body = encodeURIComponent(`Please add ${email} to the My Desert Guide new recommendation alerts list.`);
-    window.location.href = `mailto:john@darceydeetz.com?subject=${subject}&body=${body}`;
-    return;
-  }
-
-  const formData = new FormData(form);
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString(),
-  })
-    .then(() => {
-      form.reset();
-      document.querySelector("#signup-message").textContent =
-        "You are on the list. We will send a note when new recommendations are added.";
-    })
-    .catch(() => {
-      document.querySelector("#signup-message").textContent =
-        "Something did not go through. Please email john@darceydeetz.com and we will add you.";
-    });
-}
-
 function render() {
   app.innerHTML = `
     <header class="site-header">
@@ -698,7 +670,6 @@ function render() {
         <a href="#utilities">Utilities</a>
         <a href="#professionals">Pros</a>
         <a href="#map">Map</a>
-        <a href="#alerts">Alerts</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
