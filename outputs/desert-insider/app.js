@@ -24,7 +24,7 @@ const happyHourNames = ["Lulu", "Giuseppe's", "Cactus Jack's", "California Bistr
 const featuredHappyHourNames = ["Lulu", "Giuseppe's"];
 const featuredGolfNames = ["Indian Canyons Golf Resort", "The Classic Club"];
 const featuredThingsNames = ["The Living Desert", "Palm Springs Aerial Tramway"];
-const featuredProfessionalNames = ["The Buttercake Studio", "Jorge's Landscaping"];
+const featuredProfessionalNames = ["The Buttercake Studio", "Mr. Beez Termite & Pest Control"];
 const featuredRestaurantsByFilter = {
   American: ["Lulu", "Tony's Grill and Bar"],
   "Date Night": ["Spencer's", "California Bistro"],

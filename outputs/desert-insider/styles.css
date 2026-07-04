@@ -1485,7 +1485,7 @@ dd {
   }
 
   .hero {
-    min-height: 88svh;
+    min-height: 100svh;
   }
 
   .hero-overlay {
