@@ -1278,6 +1278,15 @@ dd {
   width: 100%;
 }
 
+.professionals-section .featured-pick-photo .featured-media {
+  background: var(--black);
+}
+
+.professionals-section .featured-pick-photo .featured-media img {
+  object-fit: cover;
+  padding: 0;
+}
+
 .professionals-section .featured-media-gallery img {
   object-fit: cover;
   padding: 0;
@@ -1474,8 +1483,13 @@ dd {
   }
 
   nav a {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(5, 5, 5, 0.06);
     flex: 0 0 auto;
     font-size: 0.78rem;
+    padding: 8px 12px;
     white-space: nowrap;
   }
 
