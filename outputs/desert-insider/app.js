@@ -245,6 +245,7 @@ function golfCard(item) {
 }
 
 function serviceCard(item) {
+  const imageTone = item.imageStyle === "photo" ? " service-image-photo" : "";
   const serviceImages = item.images?.length
     ? `<div class="service-image-grid">${item.images
         .map((image) => `<img src="${image}" alt="${item.name}" loading="lazy" />`)
@@ -253,7 +254,7 @@ function serviceCard(item) {
 
   return `
     <article class="listing-card service-listing-card">
-      <div class="listing-image service-image">
+      <div class="listing-image service-image${imageTone}">
         ${serviceImages}
         <div class="listing-badges">
           ${item.isNew ? '<span class="badge">New</span>' : ""}

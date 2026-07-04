@@ -1241,6 +1241,11 @@ dd {
   padding: clamp(18px, 3vw, 34px);
 }
 
+.service-image.service-image-photo img {
+  object-fit: cover;
+  padding: 0;
+}
+
 .service-image-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
