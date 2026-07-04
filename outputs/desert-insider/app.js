@@ -246,6 +246,9 @@ function golfCard(item) {
 
 function serviceCard(item) {
   const imageTone = item.imageStyle === "photo" ? " service-image-photo" : "";
+  const tipLabel = item.category === "Electric" || item.category === "Water" || item.category === "Electric & Water"
+    ? "Darcey's Setup Tip"
+    : "Darcey's Tip";
   const serviceImages = item.images?.length
     ? `<div class="service-image-grid">${item.images
         .map((image) => `<img src="${image}" alt="${item.name}" loading="lazy" />`)
@@ -273,7 +276,7 @@ function serviceCard(item) {
           <div><dt>Best For</dt><dd>${item.bestFor}</dd></div>
           <div><dt>Detail</dt><dd>${item.detail}</dd></div>
         </dl>
-        ${expandableTip("Darcey's Setup Tip", item.tip)}
+        ${expandableTip(tipLabel, item.tip)}
         <div class="link-row">
           ${item.website ? `<a href="${item.website}" target="_blank" rel="noreferrer">Website</a>` : ""}
           ${item.phone ? `<a href="tel:${item.phone.replace(/\D/g, "")}">Call ${item.phone}</a>` : ""}
@@ -345,6 +348,7 @@ function expandableFeaturedNote(text) {
 
 function featuredSpotlightCard(item, label, why, actionLabel = "View Details") {
   const ratingLabel = item.rating ? `<span class="featured-rating">${starRating(item.rating)}</span>` : "";
+  const cardTone = item.imageStyle === "photo" ? " featured-pick-photo" : "";
   const media = item.images?.length
     ? `<div class="featured-media-gallery">${item.images
         .map((image) => `<img src="${image}" alt="${item.name} featured image" loading="lazy" />`)
@@ -352,7 +356,7 @@ function featuredSpotlightCard(item, label, why, actionLabel = "View Details") {
     : `<img src="${item.image}" alt="${item.name} featured image" loading="lazy" />`;
 
   return `
-    <article class="featured-pick-card">
+    <article class="featured-pick-card${cardTone}">
       <div class="featured-media">
         ${media}
       </div>
