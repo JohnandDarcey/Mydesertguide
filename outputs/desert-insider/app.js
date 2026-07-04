@@ -926,11 +926,6 @@ function render() {
     toggle.textContent = isExpanded ? "Show less" : "Read more";
   });
 
-  document.querySelector(".signup-form").addEventListener("submit", (event) => {
-    event.preventDefault();
-    handleAlertSignup(event.currentTarget);
-  });
-
   renderListings();
   renderMap();
 }
