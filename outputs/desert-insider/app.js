@@ -861,27 +861,6 @@ function render() {
         </div>
       </section>
 
-      <section class="section signup-section" id="alerts">
-        <div>
-          <p class="eyebrow">New recommendations</p>
-          <h2>Get an alert when Darcey adds a new favorite.</h2>
-          <p>Join the update list for fresh restaurants, golf picks and desert finds as the guide grows.</p>
-        </div>
-        <form class="signup-form" name="recommendation-alerts" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="recommendation-alerts" />
-          <label>
-            <span>First name</span>
-            <input type="text" name="first-name" autocomplete="given-name" placeholder="First name" />
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
-          </label>
-          <button class="button dark" type="submit">${icon("mail")} Sign Up for Alerts</button>
-          <p id="signup-message" class="signup-message" aria-live="polite"></p>
-        </form>
-      </section>
-
       <section class="section contact" id="contact">
         <div class="contact-main">
           <img class="contact-photo" src="./assets/people/darcey-headshot-web.jpg" alt="Darcey Deetz" />
