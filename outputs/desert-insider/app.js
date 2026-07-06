@@ -19,7 +19,7 @@ const state = {
 };
 
 const preferredRestaurantOrder = ["Lulu", "Spencer's", "Palmina by Puglia", "Giuseppe's"];
-const dateNightNames = ["Spencer's", "Giuseppe's", "Mitch's", "California Bistro"];
+const dateNightNames = ["Spencer's", "Copley's", "Giuseppe's", "Mitch's", "California Bistro"];
 const happyHourNames = ["Lulu", "Giuseppe's", "Cactus Jack's", "California Bistro", "Bubba's Bones & Brews"];
 const featuredHappyHourNames = ["Lulu", "Giuseppe's"];
 const featuredGolfNames = ["Indian Canyons Golf Resort", "The Classic Club"];
