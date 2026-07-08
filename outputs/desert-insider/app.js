@@ -581,6 +581,7 @@ function utilitiesSection() {
 
 const professionalCategoryOrder = [
   "Landscaping & Garden Care",
+  "Pool Service",
   "Mortgage Lending",
   "Pest Control",
   "Insurance",

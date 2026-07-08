@@ -484,6 +484,21 @@ export const professionals = [
     isNew: true,
   },
   {
+    name: "Gali Pool Service",
+    location: "Coachella Valley",
+    category: "Pool Service",
+    rating: 5,
+    bestFor: "Pool cleaning, service and regular maintenance",
+    detail: "760-324-8148 · galyrma@aol.com",
+    phone: "760-324-8148",
+    email: "galyrma@aol.com",
+    description:
+      "A dependable pool-service contact for regular cleanings, maintenance and keeping a desert pool ready to enjoy.",
+    tip: "We use Gali for our own pool, and they come twice a week. Our pool is always sparkling clean, the staff is super friendly, and our dogs love them too.",
+    image: "./assets/services/gali-pool-service.png",
+    isNew: true,
+  },
+  {
     name: "VanMar Lending",
     location: "Coachella Valley",
     category: "Mortgage Lending",
