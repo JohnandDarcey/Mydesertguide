@@ -579,8 +579,50 @@ function utilitiesSection() {
   `;
 }
 
+const professionalCategoryOrder = [
+  "Landscaping & Garden Care",
+  "Mortgage Lending",
+  "Pest Control",
+  "Insurance",
+  "Cable & Internet",
+  "Garbage & Recycling",
+  "Tax Services",
+  "Custom Cakes & Desserts",
+];
+
+function groupedProfessionalCards(items) {
+  const groups = items.reduce((collection, item) => {
+    const category = item.category || "Trusted Professionals";
+    if (!collection.has(category)) collection.set(category, []);
+    collection.get(category).push(item);
+    return collection;
+  }, new Map());
+  const orderedCategories = [
+    ...professionalCategoryOrder.filter((category) => groups.has(category)),
+    ...Array.from(groups.keys()).filter((category) => !professionalCategoryOrder.includes(category)),
+  ];
+
+  return orderedCategories
+    .map(
+      (category) => `
+        <div class="professional-group">
+          <div class="professional-group-heading">
+            <h3>${category}</h3>
+          </div>
+          <div class="listing-grid">
+            ${groups.get(category).map(serviceCard).join("")}
+          </div>
+        </div>
+      `,
+    )
+    .join("");
+}
+
 function professionalsSection() {
   const featured = pickProfessionals(featuredProfessionalNames);
+  const regularProfessionals = professionals.filter(
+    (professional) => !featured.some((item) => item.name === professional.name),
+  );
   return `
     <section class="section professionals-section" id="professionals">
       <div class="section-heading">
@@ -598,11 +640,8 @@ function professionalsSection() {
           .map((professional) => featuredSpotlightCard(professional, "Featured Professional", professional.tip))
           .join("")}
       </div>
-      <div class="listing-grid">
-        ${professionals
-          .filter((professional) => !featured.some((item) => item.name === professional.name))
-          .map(serviceCard)
-          .join("")}
+      <div class="professional-groups">
+        ${groupedProfessionalCards(regularProfessionals)}
       </div>
       <div class="services-cta">
         <p>Have a trusted professional Darcey should consider?</p>

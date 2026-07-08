@@ -1197,6 +1197,30 @@ dd {
   border-top: 1px solid var(--line);
 }
 
+.professional-groups {
+  display: grid;
+  gap: clamp(26px, 4vw, 46px);
+}
+
+.professional-group {
+  display: grid;
+  gap: 18px;
+}
+
+.professional-group-heading {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.professional-group-heading h3 {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  letter-spacing: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+
 .services-cta {
   align-items: center;
   background: var(--white);
