@@ -643,6 +643,21 @@ export const professionals = [
 
 export const thingsToDo = [
   {
+    name: "VillageFest",
+    location: "Palm Springs",
+    category: "Thursday Night Street Fair",
+    rating: 5,
+    bestFor: "Local makers, food vendors, live music and a classic Palm Springs evening",
+    detail: "A weekly downtown street fair along Palm Canyon Drive every Thursday evening.",
+    website: "https://villagefest.org/",
+    maps: "https://maps.google.com/?q=VillageFest+Palm+Springs",
+    description:
+      "A lively Thursday-night Palm Springs tradition with artists, handcrafted goods, music, produce, street performers and food vendors.",
+    tip: "If you are visiting Palm Springs on a Thursday night, VillageFest is a must. It is one of our favorite ways to show off Palm Springs to guests or just enjoy an easy night out together. Palm Canyon Drive closes to traffic and fills with local artists, handcrafted goods, live music, street performers, fresh produce and wonderful food vendors. Do not miss The Palm Springs Candle Guys - their candles make fantastic gifts, and they are some of the nicest people you will meet. Come hungry, stroll slowly, try something new, and save room for dessert while you enjoy the live entertainment. VillageFest runs every Thursday evening downtown, typically 6:00 to 10:00 PM October through May and 7:00 to 10:00 PM June through September.",
+    image: "./assets/things-to-do/villagefest.png",
+    isNew: true,
+  },
+  {
     name: "The Living Desert",
     location: "Palm Desert",
     category: "Zoo & Gardens",
@@ -700,6 +715,21 @@ export const thingsToDo = [
       "A fun, lively way to spend an evening in the desert, with great crowd energy and a true local-team feel.",
     tip: "A Firebirds game is such a fun night out, even if you are not a huge hockey person. The crowd energy is great, Acrisure Arena is easy to enjoy, and it feels like a true local experience. Arrive early so parking, food, and getting to your seats all feel easy. It is a great option for families, friends, or visitors who want something lively to do in the evening.",
     image: "./assets/things-to-do/coachella-valley-firebirds.png",
+    isNew: true,
+  },
+  {
+    name: "Palm Springs Festival of Lights Parade",
+    location: "Palm Springs",
+    category: "Holiday Event",
+    rating: 5,
+    bestFor: "A festive downtown night with family, friends or visiting guests",
+    detail: "An annual early-December parade along Palm Canyon Drive.",
+    website: "https://psfestivaloflights.com/",
+    maps: "https://maps.google.com/?q=Palm+Springs+Festival+of+Lights+Parade",
+    description:
+      "A beloved Palm Springs holiday tradition with illuminated floats, marching bands, giant balloons and Santa.",
+    tip: "One of our favorite holiday traditions is the Palm Springs Festival of Lights Parade. If you are visiting the desert in early December, this is such a fun night downtown. Palm Canyon Drive turns into a festive wonderland with beautifully lit floats, high-energy marching bands, giant holiday balloons and Santa. Get there early, find a good spot along Palm Canyon, and make an evening of it with dinner or a cocktail before the parade begins. Bring a light jacket and a little holiday spirit. The parade is held on the first Saturday in December and draws a big crowd, so arriving early is absolutely worth it.",
+    image: "./assets/things-to-do/palm-springs-festival-of-lights.png",
     isNew: true,
   },
 ];
