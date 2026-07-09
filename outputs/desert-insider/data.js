@@ -9,6 +9,7 @@ export const categories = [
   "Restaurants",
   "Golf",
   "Things To Do",
+  "Shopping",
   "Local Utilities",
   "Darcey's Trusted Professionals",
 ];
@@ -384,6 +385,39 @@ export const restaurants = [
     image: "./assets/restaurants/cipolline-osteria.png",
     isNew: true,
     isFavorite: false,
+  },
+];
+
+export const shopping = [
+  {
+    name: "Gelson's Rancho Mirage",
+    location: "Rancho Mirage",
+    category: "Gourmet Market",
+    rating: 5,
+    bestFor: "Gourmet groceries, prepared foods, wine bar and easy lunch",
+    detail: "Wine bar, fresh sushi, Wolfgang Puck pizzas, carvery and deli.",
+    website: "https://www.gelsons.com/",
+    maps: "https://maps.google.com/?q=Gelson's+Rancho+Mirage",
+    description:
+      "A polished grocery stop that feels part market, part casual lunch destination and part entertaining shortcut.",
+    tip: "Gelson's Rancho Mirage has a wine bar inside the store, which makes shopping feel a little more fun. You can sip while you shop, watch fresh sushi being made, grab a Wolfgang Puck pizza, or stop by the carvery for prime rib or turkey. The deli has some of the most interesting salads, too. I love the idea of doing your shopping and then staying for lunch at the wine bar.",
+    image: "./assets/gelsons-rancho-mirage.png",
+    isNew: true,
+  },
+  {
+    name: "World Market",
+    location: "Palm Springs",
+    category: "Home Decor & Gifts",
+    rating: 5,
+    bestFor: "Home decor, furniture, gourmet foods, gifts and entertaining essentials",
+    detail: "Affordable finds from around the world, with especially fun seasonal displays.",
+    website: "https://www.worldmarket.com/",
+    maps: "https://maps.google.com/?q=World+Market+Palm+Springs",
+    description:
+      "A fun Palm Springs stop for unique home pieces, host gifts, pantry finds and small treasures you did not know you needed.",
+    tip: "World Market is one of my favorite places in Palm Springs for unique home decor, furniture, gourmet foods, gifts and entertaining essentials from around the world, all at surprisingly approachable prices. Whether you are decorating a new home, refreshing your patio or picking up a thoughtful hostess gift, there is always something interesting to discover. I especially love visiting during the holidays, when the seasonal displays are full of one-of-a-kind finds.",
+    image: "./assets/world-market-palm-springs.png",
+    isNew: true,
   },
 ];
 

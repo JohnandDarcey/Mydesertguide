@@ -6,6 +6,7 @@ import {
   professionals,
   restaurants,
   services,
+  shopping,
   thingsToDo,
 } from "./data.js";
 
@@ -24,6 +25,7 @@ const happyHourNames = ["Lulu", "Giuseppe's", "Cactus Jack's", "California Bistr
 const featuredHappyHourNames = ["Lulu", "Giuseppe's"];
 const featuredGolfNames = ["Indian Canyons Golf Resort", "The Classic Club"];
 const featuredThingsNames = ["The Living Desert", "Palm Springs Aerial Tramway"];
+const featuredShoppingNames = ["Gelson's Rancho Mirage", "World Market"];
 const featuredProfessionalNames = ["The Buttercake Studio", "Mr. Beez Termite & Pest Control"];
 const featuredRestaurantsByFilter = {
   American: ["Lulu", "Tony's Grill and Bar"],
@@ -96,6 +98,7 @@ function allSearchablePlaces() {
     ...services.map((item) => ({ ...item, type: "Utility" })),
     ...professionals.map((item) => ({ ...item, type: "Trusted Professional" })),
     ...thingsToDo.map((item) => ({ ...item, type: "Thing To Do" })),
+    ...shopping.map((item) => ({ ...item, type: "Shopping" })),
   ];
 }
 
@@ -104,6 +107,7 @@ function mapPlaces() {
     ...restaurants.map((item) => ({ ...item, type: "Restaurant" })),
     ...golfCourses.map((item) => ({ ...item, type: "Golf" })),
     ...thingsToDo.map((item) => ({ ...item, type: "Thing To Do" })),
+    ...shopping.map((item) => ({ ...item, type: "Shopping" })),
   ].sort((a, b) => a.location.localeCompare(b.location) || a.name.localeCompare(b.name));
 }
 
@@ -122,6 +126,12 @@ function pickGolfCourses(names) {
 function pickThingsToDo(names) {
   return names
     .map((name) => thingsToDo.find((thing) => thing.name === name))
+    .filter(Boolean);
+}
+
+function pickShopping(names) {
+  return names
+    .map((name) => shopping.find((place) => place.name === name))
     .filter(Boolean);
 }
 
@@ -208,6 +218,7 @@ function restaurantCard(item) {
 function categoryHref(category) {
   if (category === "Golf") return "#golf";
   if (category === "Things To Do") return "#things-to-do";
+  if (category === "Shopping") return "#shopping";
   if (category === "Local Utilities") return "#utilities";
   if (category === "Darcey's Trusted Professionals") return "#professionals";
   if (category === "Hidden Gems") return "#contact";
@@ -311,6 +322,38 @@ function thingToDoCard(item) {
           <div><dt>Detail</dt><dd>${item.detail}</dd></div>
         </dl>
         ${expandableTip("Darcey's Pro Tip", item.tip)}
+        <div class="link-row">
+          <a href="${item.website}" target="_blank" rel="noreferrer">Website</a>
+          <a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function shoppingCard(item) {
+  return `
+    <article class="listing-card shopping-card">
+      <div class="listing-image">
+        <img src="${item.image}" alt="${item.name} shopping destination" loading="lazy" />
+        <div class="listing-badges">
+          ${item.isNew ? '<span class="badge">New</span>' : ""}
+        </div>
+      </div>
+      <div class="listing-body">
+        <div class="eyebrow">${item.location} · ${item.category}</div>
+        <div class="card-title-row">
+          <h3>${item.name}</h3>
+          <div class="stars" aria-label="Darcey Rating ${item.rating} out of 5">${starRating(
+            item.rating,
+          )}</div>
+        </div>
+        <p>${item.description}</p>
+        <dl class="meta-grid">
+          <div><dt>Best For</dt><dd>${item.bestFor}</dd></div>
+          <div><dt>Detail</dt><dd>${item.detail}</dd></div>
+        </dl>
+        ${expandableTip("Darcey's Shopping Tip", item.tip)}
         <div class="link-row">
           <a href="${item.website}" target="_blank" rel="noreferrer">Website</a>
           <a href="${item.maps}" target="_blank" rel="noreferrer">Google Maps</a>
@@ -547,6 +590,35 @@ function thingsToDoSection() {
   `;
 }
 
+function shoppingSection() {
+  const featured = pickShopping(featuredShoppingNames);
+  return `
+    <section class="section spotlight-section shopping-section" id="shopping">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Shopping</p>
+          <h2>Darcey's favorite places to browse, shop and linger.</h2>
+        </div>
+        <p>
+          A few local shopping stops worth knowing, from gourmet markets and entertaining shortcuts
+          to home finds, gifts and little discoveries that make desert living more fun.
+        </p>
+      </div>
+      <div class="featured-listings" aria-label="Featured Shopping listings">
+        ${featured
+          .map((place) => featuredSpotlightCard(place, "Featured Shopping", place.tip))
+          .join("")}
+      </div>
+      <div class="listing-grid">
+        ${shopping
+          .filter((place) => !featured.some((item) => item.name === place.name))
+          .map(shoppingCard)
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
 function utilitiesSection() {
   return `
     <section class="section services-section" id="utilities">
@@ -707,6 +779,7 @@ function render() {
         <a href="#guide">Restaurants</a>
         <a href="#golf">Golf</a>
         <a href="#things-to-do">Things To Do</a>
+        <a href="#shopping">Shopping</a>
         <a href="#utilities">Utilities</a>
         <a href="#professionals">Pros</a>
         <a href="#map">Map</a>
@@ -728,7 +801,7 @@ function render() {
           </div>
           <p>Restaurants, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by Darcey.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#guide">${icon("compass")} Explore the Guide</a>
+            <a class="button primary" href="#browse-guide">${icon("compass")} Explore the Guide</a>
             <a class="button secondary" href="https://darceydeetz.com" target="_blank" rel="noreferrer">${icon("heart")} Visit Darcey's Real Estate Website</a>
           </div>
         </div>
@@ -781,7 +854,7 @@ function render() {
         </div>
       </section>
 
-      <section class="section guide-categories" aria-label="Guide categories">
+      <section class="section guide-categories" id="browse-guide" aria-label="Guide categories">
         <div class="category-heading">
           <p class="eyebrow">Browse the guide</p>
           <h2>Start with what you need.</h2>
@@ -850,6 +923,8 @@ function render() {
       ${happyHourSection()}
 
       ${thingsToDoSection()}
+
+      ${shoppingSection()}
 
       <section class="section golf-guide" id="golf">
         <div class="section-heading">
