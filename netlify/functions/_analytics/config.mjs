@@ -1,3 +1,8 @@
+const reportRecipients = (process.env.ANALYTICS_REPORT_TO || "john@darceydeetz.com,darcey@darceydeetz.com")
+  .split(",")
+  .map((email) => email.trim())
+  .filter(Boolean);
+
 export const GUIDE_CONFIG = {
   guideId: "darcey-my-desert-guide",
   profileId: "darcey-deetz",
@@ -7,7 +12,7 @@ export const GUIDE_CONFIG = {
   reportSubheading: "Darcey's guide performance at a glance",
   realtorName: "Darcey Deetz",
   realtorDre: "CA DRE 01374659",
-  recipient: process.env.ANALYTICS_REPORT_TO || "darcey@darceydeetz.com",
+  recipient: reportRecipients,
   fromEmail: process.env.ANALYTICS_FROM_EMAIL || "My Desert Guide <reports@mydesertguide.com>",
   siteUrl: (process.env.SITE_URL || process.env.URL || "https://mydesertguide.com").replace(/\/$/, ""),
   dashboardPath: "/admin/analytics.html",

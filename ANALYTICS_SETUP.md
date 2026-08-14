@@ -53,7 +53,7 @@ Add these in Netlify:
 
 ```text
 ANALYTICS_ADMIN_TOKEN=choose-a-long-private-password
-ANALYTICS_REPORT_TO=darcey@darceydeetz.com
+ANALYTICS_REPORT_TO=john@darceydeetz.com,darcey@darceydeetz.com
 ANALYTICS_FROM_EMAIL=My Desert Guide <reports@mydesertguide.com>
 RESEND_API_KEY=your-resend-api-key
 SITE_URL=https://mydesertguide.com
@@ -63,6 +63,7 @@ ANALYTICS_HASH_SALT=choose-a-random-private-string
 Notes:
 
 - `ANALYTICS_ADMIN_TOKEN` protects the private dashboard API and the test email button.
+- `ANALYTICS_REPORT_TO` accepts a comma-separated list of recipients.
 - `RESEND_API_KEY` is required before emails can actually send.
 - `ANALYTICS_FROM_EMAIL` must be a sender address/domain verified in Resend.
 - `SITE_URL` is used to generate absolute dashboard and image URLs in email clients.

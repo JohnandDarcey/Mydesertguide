@@ -5,7 +5,13 @@ import { getReportHistory, putReportHistory } from "./store.mjs";
 import { getReportMetrics } from "./metrics.mjs";
 
 function reportHistoryKey(date, recipient) {
-  return `${GUIDE_CONFIG.guideId}/${date}/${recipient.toLowerCase().replace(/[^a-z0-9@._-]/g, "-")}.json`;
+  const recipientKey = (Array.isArray(recipient) ? recipient : [recipient])
+    .map((email) => String(email).trim().toLowerCase())
+    .filter(Boolean)
+    .sort()
+    .join(",")
+    .replace(/[^a-z0-9@._,-]/g, "-");
+  return `${GUIDE_CONFIG.guideId}/${date}/${recipientKey}.json`;
 }
 
 export async function buildDailyReport(date) {

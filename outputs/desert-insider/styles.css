@@ -2268,34 +2268,50 @@ dd {
 
 @media (max-width: 599px) {
   .hero-image-map {
-    --mobile-hero-photo-height: clamp(480px, 143vw, 570px);
-    min-height: calc(var(--mobile-hero-photo-height) + 748px);
+    aspect-ratio: 3 / 2;
+    min-height: 0;
   }
 
-  .hero-art-desktop,
-  .hero-image-map::after {
+  .hero-image-map::after,
+  .hero-art-mobile,
+  .hero-live-header,
+  .hero-live-copy {
     display: none;
   }
 
-  .hero-image-map .hero-art-mobile {
+  .hero-image-map .hero-art-desktop {
     display: block;
-    height: var(--mobile-hero-photo-height);
+    height: 100%;
     left: 0;
-    object-fit: cover;
-    object-position: center top;
-    top: 68px;
+    object-fit: contain;
+    object-position: center;
+    top: 0;
     width: 100%;
   }
 
-  .hero-live-copy {
-    top: calc(68px + var(--mobile-hero-photo-height));
+  .hero-hotspot.hotspot-explore,
+  .hero-hotspot.hotspot-about,
+  .hero-hotspot.hotspot-connect-text,
+  .hero-hotspot.hotspot-connect-call,
+  .hero-hotspot.hotspot-connect-email,
+  .hero-hotspot.hotspot-card-food,
+  .hero-hotspot.hotspot-card-golf,
+  .hero-hotspot.hotspot-card-things,
+  .hero-hotspot.hotspot-card-shopping,
+  .hero-hotspot.hotspot-curated,
+  .hero-hotspot.hotspot-insider,
+  .hero-hotspot.hotspot-trusted,
+  .hero-hotspot.hotspot-love {
+    display: block;
   }
 
-  .hero-live-actions .button,
-  .hero-mobile-nav a,
-  .hero-contact-actions a,
-  .hero-mobile-curated {
-    border-radius: var(--control-radius);
+  .hotspot-explore,
+  .hotspot-about,
+  .hotspot-connect-text,
+  .hotspot-connect-call,
+  .hotspot-connect-email {
+    min-height: 28px;
+    transform: translateY(-7px);
   }
 }
 
