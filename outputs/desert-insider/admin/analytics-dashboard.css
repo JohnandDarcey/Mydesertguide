@@ -12,7 +12,7 @@
   --radius: 16px;
   --control-radius: 8px;
   --shadow: 0 16px 42px rgba(0, 0, 0, 0.06);
-  --font-display: "Libre Bodoni", "Didot", "Bodoni 72", "Times New Roman", serif;
+  --font-display: "Bodoni Moda", "Didot", "Bodoni 72", "Times New Roman", serif;
   --font-sans: "Montserrat", "Avenir Next", Arial, sans-serif;
   --display: var(--font-display);
   --sans: var(--font-sans);

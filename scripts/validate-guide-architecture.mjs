@@ -27,7 +27,7 @@ for (const marker of ["The Desert", "my-desert-guide-hero-darcey.png", "Start Wi
   if (!`${homepage}\n${homepageApp}\n${homepageData}`.toLowerCase().includes(marker.toLowerCase())) throw new Error(`Homepage preservation marker is missing: ${marker}`);
 }
 for (const marker of [
-  '--font-display: "Libre Bodoni"',
+  '--font-display: "Bodoni Moda"',
   '--font-sans: "Montserrat"',
   "--type-page-title:",
   "--type-section-title:",
