@@ -2901,16 +2901,16 @@ dd {
   .hero-image-map .hero-art-mobile {
     display: block;
     height: auto;
-    left: 0;
-    -webkit-mask-image: linear-gradient(90deg, rgba(255, 255, 255, 1) 0 80%, rgba(255, 255, 255, 0) 100%);
-    mask-image: linear-gradient(90deg, rgba(255, 255, 255, 1) 0 80%, rgba(255, 255, 255, 0) 100%);
+    left: clamp(5px, 1.8vw, 8px);
+    -webkit-mask-image: linear-gradient(90deg, #fff 0 76%, rgba(255, 255, 255, 0.8) 84%, rgba(255, 255, 255, 0) 100%);
+    mask-image: linear-gradient(90deg, #fff 0 76%, rgba(255, 255, 255, 0.8) 84%, rgba(255, 255, 255, 0) 100%);
     mask-mode: alpha;
     object-fit: contain;
     object-position: left top;
     position: absolute;
-    top: calc(24px + env(safe-area-inset-top, 0px));
-    width: min(90vw, 370px);
-    z-index: 4;
+    top: calc(66px + env(safe-area-inset-top, 0px));
+    width: min(69vw, 280px);
+    z-index: 2;
   }
 
   .hero-live-header {
