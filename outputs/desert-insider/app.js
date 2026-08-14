@@ -145,6 +145,23 @@ function googleMapEmbed(place) {
   return `https://www.google.com/maps?q=${encodeURIComponent(`${place.name} ${place.location} CA`)}&output=embed`;
 }
 
+function attr(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+function analyticsAttrs(item, type) {
+  const image = item.image || item.images?.[0] || "";
+  return `data-guide-place="${attr(item.name)}" data-guide-category="${attr(
+    item.category || type,
+  )}" data-guide-type="${attr(type)}" data-guide-image="${attr(image)}" data-guide-rating="${attr(
+    item.rating || "",
+  )}"`;
+}
+
 function icon(name) {
   const paths = {
     search:
@@ -179,7 +196,7 @@ function expandableTip(label, text) {
 
 function restaurantCard(item) {
   return `
-    <article class="listing-card">
+    <article class="listing-card" ${analyticsAttrs(item, "Restaurant")}>
       <div class="listing-image">
         <img src="${item.image}" alt="${item.name} dining atmosphere" loading="lazy" />
         <div class="listing-badges">
@@ -227,7 +244,7 @@ function categoryHref(category) {
 
 function golfCard(item) {
   return `
-    <article class="listing-card golf-card">
+    <article class="listing-card golf-card" ${analyticsAttrs(item, "Golf")}>
       <div class="listing-image">
         <img src="${item.image}" alt="${item.name} desert golf atmosphere" loading="lazy" />
       </div>
@@ -267,7 +284,7 @@ function serviceCard(item) {
     : `<img src="${item.image}" alt="${item.name} logo" loading="lazy" />`;
 
   return `
-    <article class="listing-card service-listing-card">
+    <article class="listing-card service-listing-card" ${analyticsAttrs(item, "Service")}>
       <div class="listing-image service-image${imageTone}">
         ${serviceImages}
         <div class="listing-badges">
@@ -301,7 +318,7 @@ function serviceCard(item) {
 
 function thingToDoCard(item) {
   return `
-    <article class="listing-card thing-card">
+    <article class="listing-card thing-card" ${analyticsAttrs(item, "Thing To Do")}>
       <div class="listing-image">
         <img src="${item.image}" alt="${item.name} entrance" loading="lazy" />
         <div class="listing-badges">
@@ -333,7 +350,7 @@ function thingToDoCard(item) {
 
 function shoppingCard(item) {
   return `
-    <article class="listing-card shopping-card">
+    <article class="listing-card shopping-card" ${analyticsAttrs(item, "Shopping")}>
       <div class="listing-image">
         <img src="${item.image}" alt="${item.name} shopping destination" loading="lazy" />
         <div class="listing-badges">
@@ -399,7 +416,10 @@ function featuredSpotlightCard(item, label, why, actionLabel = "View Details") {
     : `<img src="${item.image}" alt="${item.name} featured image" loading="lazy" />`;
 
   return `
-    <article class="featured-pick-card${cardTone}">
+    <article class="featured-pick-card${cardTone}" ${analyticsAttrs(
+      item,
+      label.replace(/^Featured\s+/, "") || "Featured",
+    )}>
       <div class="featured-media">
         ${media}
       </div>
@@ -468,7 +488,7 @@ function categoryFeaturedShelf() {
     const item = featured[index];
     if (item) {
       return `
-        <article class="category-featured-card">
+        <article class="category-featured-card" ${analyticsAttrs(item, "Restaurant")}>
           <img src="${item.image}" alt="${item.name} featured restaurant" loading="lazy" />
           <div class="category-featured-content">
             <div class="category-featured-topline">

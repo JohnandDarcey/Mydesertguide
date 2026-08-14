@@ -1,6 +1,10 @@
 [build]
   publish = "outputs/desert-insider"
-  command = ""
+  command = "node scripts/validate-analytics.mjs"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
 
 [[headers]]
   for = "/*"
@@ -8,6 +12,21 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/api/analytics/collect"
+  to = "/.netlify/functions/analytics-collect"
+  status = 200
+
+[[redirects]]
+  from = "/api/analytics/summary"
+  to = "/.netlify/functions/analytics-summary"
+  status = 200
+
+[[redirects]]
+  from = "/api/analytics/send-test-report"
+  to = "/.netlify/functions/analytics-send-report"
+  status = 200
 
 [[redirects]]
   from = "/*"

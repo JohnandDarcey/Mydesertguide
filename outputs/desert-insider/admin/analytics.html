@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>My Desert Guide Analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,600;6..96,700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./analytics-dashboard.css" />
+  </head>
+  <body>
+    <main class="dashboard-shell">
+      <header class="dashboard-hero">
+        <div>
+          <p class="eyebrow">Private Dashboard</p>
+          <h1>My Desert Guide Analytics</h1>
+          <p>Darcey's guide performance at a glance.</p>
+        </div>
+        <a href="/" class="home-link">Open Guide</a>
+      </header>
+
+      <section class="access-panel" aria-label="Analytics access">
+        <form id="token-form">
+          <label for="token-input">Admin access token</label>
+          <div class="token-row">
+            <input id="token-input" type="password" autocomplete="current-password" placeholder="Paste token" />
+            <button type="submit">Load Dashboard</button>
+          </div>
+        </form>
+        <button id="clear-token" class="quiet-button" type="button">Clear saved token</button>
+      </section>
+
+      <div id="status" class="status" role="status"></div>
+
+      <section id="summary" class="summary-grid" aria-label="Traffic summary"></section>
+
+      <section class="panel trend-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Last 7 Days</p>
+            <h2>Guide View Trend</h2>
+          </div>
+          <button id="refresh" class="quiet-button" type="button">Refresh</button>
+        </div>
+        <div id="trend-chart" class="trend-chart" aria-label="7-day guide view trend"></div>
+      </section>
+
+      <section class="detail-grid">
+        <article class="panel">
+          <p class="eyebrow">Top Categories</p>
+          <div id="top-categories" class="rank-list"></div>
+        </article>
+        <article class="panel">
+          <p class="eyebrow">Top Places</p>
+          <div id="top-places" class="rank-list"></div>
+        </article>
+      </section>
+
+      <section class="detail-grid">
+        <article class="panel">
+          <p class="eyebrow">Actions</p>
+          <div id="actions" class="action-grid"></div>
+        </article>
+        <article class="panel">
+          <p class="eyebrow">Sources</p>
+          <div id="sources" class="source-list"></div>
+        </article>
+      </section>
+
+      <section class="panel test-report-panel">
+        <div>
+          <p class="eyebrow">Daily Pulse Email</p>
+          <h2>Send Test Daily Report</h2>
+          <p>
+            Sends a test version of the visual email using real analytics data for the previous completed day.
+          </p>
+        </div>
+        <button id="send-test" class="dark-button" type="button">Send Test Report</button>
+      </section>
+    </main>
+
+    <script src="./analytics-dashboard.js"></script>
+  </body>
+</html>
