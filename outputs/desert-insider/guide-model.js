@@ -15,6 +15,8 @@ export const guideProfile = {
   guideName: "Darcey's Guide",
   siteName: "My Desert Guide",
   realtorName: "Darcey Deetz",
+  curatorLabel: "Curated by",
+  professionalIdentifier: "Palm Springs & Coachella Valley Realtor®",
   realtorDre: "CA DRE 01374659",
   brokerage: "Pinnacle Realty Advisors",
   brokerageDre: "CA DRE 02220139",

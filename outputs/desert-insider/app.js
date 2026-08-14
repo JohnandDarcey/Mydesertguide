@@ -885,6 +885,10 @@ function render() {
             <span class="hero-description-desktop">Food &amp; drink, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by <em>Darcey.</em></span>
             <span class="hero-description-mobile">Food &amp; drink, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by <em>Darcey.</em></span>
           </p>
+          <div class="hero-curator hero-curator-mobile" aria-label="${realtorProfile.fullName}, ${realtorProfile.professionalIdentifier}">
+            <p class="hero-curator-name">${realtorProfile.curatorLabel} ${realtorProfile.fullName}</p>
+            <p class="hero-curator-role">${realtorProfile.professionalIdentifier}</p>
+          </div>
           <div class="hero-live-actions">
             <a class="button dark hero-explore" href="#browse-guide" data-analytics-event="explore_desert_click" data-analytics-category="Homepage" data-analytics-label="Explore the Desert">Explore the Desert</a>
             <a class="button hero-about" href="#about-darcey">About Darcey</a>
@@ -899,6 +903,10 @@ function render() {
           <a class="hero-mobile-curated" href="#browse-guide">
             <span aria-hidden="true">☆</span> Curated Favorites
           </a>
+        </div>
+        <div class="hero-curator hero-curator-desktop" aria-label="${realtorProfile.fullName}, ${realtorProfile.professionalIdentifier}">
+          <p class="hero-curator-name">${realtorProfile.curatorLabel} ${realtorProfile.fullName}</p>
+          <p class="hero-curator-role">${realtorProfile.professionalIdentifier}</p>
         </div>
         <a class="hero-hotspot hotspot-header-food" href="/food-drink/" aria-label="Food &amp; Drink" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink"></a>
         <a class="hero-hotspot hotspot-header-golf" href="/golf/" aria-label="Golf" data-category-link data-category-name="Golf" data-category-slug="golf"></a>

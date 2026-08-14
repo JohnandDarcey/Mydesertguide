@@ -11,6 +11,8 @@ export const assets = {
 export const realtorProfile = {
   firstName: "Darcey",
   fullName: "Darcey Deetz",
+  curatorLabel: "Curated by",
+  professionalIdentifier: "Palm Springs & Coachella Valley Realtor®",
   dre: "CA DRE 01374659",
   brokerage: "Pinnacle Realty Advisors",
   brokerageDre: "CA DRE 02220139",

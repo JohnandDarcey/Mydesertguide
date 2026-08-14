@@ -43,11 +43,17 @@ for (const marker of [
   "real_estate_cta_impression",
   "real_estate_home_search_click",
   "home-footer",
+  "hero-curator",
+  "realtorProfile.curatorLabel",
+  "realtorProfile.professionalIdentifier",
 ]) {
   if (!homepageApp.includes(marker)) throw new Error(`Hybrid homepage marker is missing: ${marker}`);
 }
 if (!homepageData.includes("Pinnacle Realty Advisors") || !homepageData.includes("CA DRE 02220139")) {
   throw new Error("Homepage real-estate brokerage disclosure is missing.");
+}
+if (!homepageData.includes("Curated by") || !homepageData.includes("Palm Springs & Coachella Valley Realtor®")) {
+  throw new Error("Homepage Realtor identifier profile data is missing.");
 }
 for (const category of categoryDefinitions) {
   if (!homepageData.includes(`/${category.slug}/`)) throw new Error(`Homepage gateway is missing: /${category.slug}/`);
