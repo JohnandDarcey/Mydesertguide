@@ -1,11 +1,13 @@
 export const GUIDE_CONFIG = {
+  guideId: "darcey-my-desert-guide",
+  profileId: "darcey-deetz",
   timezone: "America/Los_Angeles",
   siteName: "My Desert Guide",
   reportName: "My Desert Guide Daily Pulse",
   reportSubheading: "Darcey's guide performance at a glance",
   realtorName: "Darcey Deetz",
   realtorDre: "CA DRE 01374659",
-  recipient: process.env.ANALYTICS_REPORT_TO || "john@darceydeetz.com",
+  recipient: process.env.ANALYTICS_REPORT_TO || "darcey@darceydeetz.com",
   fromEmail: process.env.ANALYTICS_FROM_EMAIL || "My Desert Guide <reports@mydesertguide.com>",
   siteUrl: (process.env.SITE_URL || process.env.URL || "https://mydesertguide.com").replace(/\/$/, ""),
   dashboardPath: "/admin/analytics.html",
@@ -23,6 +25,8 @@ export const TRACKED_EVENTS = new Set([
   "business_website_click",
   "menu_click",
   "favorite_save",
+  "pwa_install_confirmed",
+  "pwa_standalone_launch",
 ]);
 
 export const CLIENT_ENGAGEMENT_EVENTS = new Set([
@@ -46,6 +50,8 @@ export const EVENT_TOTAL_KEYS = {
   business_website_click: "businessWebsiteClicks",
   menu_click: "menuClicks",
   favorite_save: "favoriteSaves",
+  pwa_install_confirmed: "pwaInstallConfirmed",
+  pwa_standalone_launch: "pwaStandaloneLaunches",
 };
 
 const categoryImages = {

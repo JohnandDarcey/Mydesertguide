@@ -1,9 +1,4 @@
-import {
-  categoryImage,
-  dashboardUrl,
-  GUIDE_CONFIG,
-  imageUrl,
-} from "./config.mjs";
+import { dashboardUrl, GUIDE_CONFIG } from "./config.mjs";
 import { formatDisplayDate, shortDisplayDate, weekdayLabel } from "./time.mjs";
 
 const nf = new Intl.NumberFormat("en-US");
@@ -17,499 +12,148 @@ function escapeHtml(value = "") {
     .replaceAll("'", "&#039;");
 }
 
-function formatNumber(value = 0) {
+function number(value = 0) {
   return nf.format(Number(value || 0));
 }
 
-function changeLine(current = 0, previous = 0) {
-  if (!previous && !current) return "No change from the day before";
-  if (!previous && current) return "New activity vs. the day before";
-
-  const percent = Math.round(((current - previous) / previous) * 100);
-  if (percent === 0) return "Even with the day before";
-  return `${percent > 0 ? "Up" : "Down"} ${Math.abs(percent)}% vs. the day before`;
+function contactTotal(totals = {}) {
+  return Number(totals.darceyTextClicks || 0) +
+    Number(totals.darceyCallClicks || 0) +
+    Number(totals.darceyEmailClicks || 0);
 }
 
-function buildInsight(report) {
-  const totals = report.day.totals;
-  const topCategory = report.day.topCategories[0];
-  const topPlace = report.day.topPlaces[0];
-  const previousViews = report.previousDay.totals.guideViews;
-
-  if (!totals.guideViews) {
-    return `No guide visits were recorded on ${formatDisplayDate(report.date)}. The 7-day view stays useful for context.`;
-  }
-
-  if (topCategory && topPlace) {
-    return `${topCategory.name} drove the most activity, with ${topPlace.name} leading all individual place views.`;
-  }
-
-  if (totals.darceyWebsiteClicks) {
-    return `Darcey's real estate website received ${formatNumber(
-      totals.darceyWebsiteClicks,
-    )} click${totals.darceyWebsiteClicks === 1 ? "" : "s"} from the guide.`;
-  }
-
-  if (totals.mapsClicks) {
-    return `Visitors used the guide for directions ${formatNumber(
-      totals.mapsClicks,
-    )} time${totals.mapsClicks === 1 ? "" : "s"}, a good sign they are acting on Darcey's recommendations.`;
-  }
-
-  if (totals.guideViews > previousViews) {
-    return `Guide views increased from the day before, with ${formatNumber(
-      totals.guideViews,
-    )} total view${totals.guideViews === 1 ? "" : "s"}.`;
-  }
-
-  return `The guide recorded ${formatNumber(totals.guideViews)} view${
-    totals.guideViews === 1 ? "" : "s"
-  } and ${formatNumber(totals.clientEngagements)} client engagement${
-    totals.clientEngagements === 1 ? "" : "s"
-  }.`;
-}
-
-function metricCard(value, label, accent = "#111111") {
-  return `
-    <td class="metric-cell" width="50%" style="padding:8px;">
-      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:separate;border-spacing:0;background:#fbf7ef;border:1px solid #e4dbcc;border-radius:18px;">
-        <tr>
-          <td style="padding:22px 20px 20px;">
-            <div style="font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:44px;font-weight:700;color:${accent};letter-spacing:-1px;">${formatNumber(
-              value,
-            )}</div>
-            <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;text-transform:uppercase;letter-spacing:1.8px;color:#6f675b;margin-top:8px;">${escapeHtml(
-              label,
-            )}</div>
-          </td>
-        </tr>
-      </table>
-    </td>
-  `;
-}
-
-function compactStat(value, label) {
-  return `
-    <td width="33.33%" style="padding:0 8px 8px 0;">
-      <div style="background:#ffffff;border:1px solid #e7dfd5;border-radius:14px;padding:16px 14px;">
-        <div style="font-family:Georgia,'Times New Roman',serif;font-size:28px;line-height:30px;color:#111111;font-weight:700;">${formatNumber(
-          value,
-        )}</div>
-        <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;text-transform:uppercase;letter-spacing:1.4px;color:#7c756d;margin-top:6px;">${escapeHtml(
-          label,
-        )}</div>
-      </div>
-    </td>
-  `;
+function metric(value, label) {
+  return `<td class="metric" width="50%" style="padding:7px;">
+    <div style="background:#fffdf8;border:1px solid #dfd4c5;border-radius:14px;padding:22px 18px;">
+      <div style="font-family:Georgia,'Times New Roman',serif;font-size:40px;line-height:42px;font-weight:400;color:#111111;">${number(value)}</div>
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;text-transform:uppercase;letter-spacing:1.6px;color:#756d63;margin-top:7px;">${escapeHtml(label)}</div>
+    </div>
+  </td>`;
 }
 
 function trendChart(trend = []) {
   const max = Math.max(1, ...trend.map((item) => Number(item.guideViews || 0)));
-  return `
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
-      <tr>
-        ${trend
-          .map((item) => {
-            const height = Math.max(8, Math.round((Number(item.guideViews || 0) / max) * 92));
-            return `
-              <td valign="bottom" style="height:118px;padding:0 3px;text-align:center;">
-                <div title="${escapeHtml(shortDisplayDate(item.date))}: ${formatNumber(
-                  item.guideViews,
-                )} views" style="display:inline-block;width:100%;max-width:34px;height:${height}px;background:#111111;border-radius:999px 999px 4px 4px;"></div>
-              </td>
-            `;
-          })
-          .join("")}
-      </tr>
-      <tr>
-        ${trend
-          .map(
-            (item) => `
-              <td style="font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:14px;color:#857d72;text-align:center;padding-top:8px;">${escapeHtml(
-                weekdayLabel(item.date),
-              )}</td>
-            `,
-          )
-          .join("")}
-      </tr>
-    </table>
-  `;
+  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+    <tr>${trend.map((item) => {
+      const height = Math.max(6, Math.round((Number(item.guideViews || 0) / max) * 78));
+      return `<td valign="bottom" style="height:92px;padding:0 4px;text-align:center;">
+        <div style="display:inline-block;width:100%;max-width:30px;height:${height}px;background:#b18b62;border-radius:5px 5px 2px 2px;"></div>
+      </td>`;
+    }).join("")}</tr>
+    <tr>${trend.map((item) => `<td style="font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#81786d;text-align:center;padding-top:7px;">${weekdayLabel(item.date)}</td>`).join("")}</tr>
+  </table>`;
 }
 
-function sourceBars(sources = {}) {
-  const entries = Object.entries(sources)
-    .sort((a, b) => Number(b[1] || 0) - Number(a[1] || 0))
-    .slice(0, 4);
-  const total = entries.reduce((sum, [, value]) => sum + Number(value || 0), 0);
-  if (!total) return "";
-
-  return `
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;margin-top:12px;">
-      ${entries
-        .map(([source, value]) => {
-          const percent = Math.round((Number(value || 0) / total) * 100);
-          return `
-            <tr>
-              <td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:18px;color:#2f2b26;padding:7px 0;width:120px;">${escapeHtml(
-                source,
-              )}</td>
-              <td style="padding:7px 10px;">
-                <div style="height:8px;background:#e6ddd0;border-radius:999px;overflow:hidden;">
-                  <div style="width:${percent}%;height:8px;background:#111111;border-radius:999px;"></div>
-                </div>
-              </td>
-              <td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:18px;color:#2f2b26;text-align:right;width:44px;">${percent}%</td>
-            </tr>
-          `;
-        })
-        .join("")}
-    </table>
-  `;
+function categoryBars(categories = []) {
+  const items = categories.slice(0, 4);
+  const max = Math.max(1, ...items.map((item) => Number(item.views || 0)));
+  if (!items.length) return `<p style="font-family:Arial,Helvetica,sans-serif;color:#756d63;margin:0;">No category activity was recorded.</p>`;
+  return items.map((item) => {
+    const width = Math.max(4, Math.round((Number(item.views || 0) / max) * 100));
+    return `<div style="margin-top:15px;">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr>
+        <td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#2e2925;">${escapeHtml(item.name)}</td>
+        <td align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#2e2925;">${number(item.views)}</td>
+      </tr></table>
+      <div style="height:8px;background:#ebe3d8;border-radius:4px;overflow:hidden;margin-top:7px;"><div style="height:8px;width:${width}%;background:#111111;border-radius:4px;"></div></div>
+    </div>`;
+  }).join("");
 }
 
-function topPlaceList(places = []) {
-  if (!places.length) {
-    return `
-      <p style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#6a6258;margin:0;">
-        No individual place views were recorded for this day yet.
-      </p>
-    `;
+function placeList(places = []) {
+  if (!places.length) return `<p style="font-family:Arial,Helvetica,sans-serif;color:#756d63;margin:0;">Individual recommendations will appear here as visitors explore them.</p>`;
+  return places.slice(0, 3).map((place, index) => `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-top:${index ? "1px solid #e7dfd4" : "0"};">
+    <tr>
+      <td style="font-family:Georgia,'Times New Roman',serif;font-size:24px;color:#b18b62;width:34px;padding:13px 0;">${index + 1}</td>
+      <td style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#25211e;padding:13px 8px;"><strong>${escapeHtml(place.name)}</strong><br><span style="font-size:11px;color:#81786d;">${escapeHtml(place.category || "Guide")}</span></td>
+      <td align="right" style="font-family:Georgia,'Times New Roman',serif;font-size:24px;color:#111111;padding:13px 0;">${number(place.views)}</td>
+    </tr>
+  </table>`).join("");
+}
+
+function quietMessage(report) {
+  const totals = report.day.totals;
+  const topCategory = report.day.topCategories[0];
+  if (!totals.guideViews && !totals.placeViews && !contactTotal(totals)) {
+    return "Your guide didn't record visitor activity yesterday, but we're continuing to track its performance.";
   }
-
-  return `
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
-      ${places
-        .slice(0, 3)
-        .map((place) => {
-          const src = imageUrl(place.image || categoryImage(place.category), 120, 120);
-          return `
-            <tr>
-              <td width="56" style="padding:0 14px 12px 0;">
-                <img src="${escapeHtml(src)}" alt="${escapeHtml(
-                  place.name,
-                )}" width="56" height="56" style="display:block;width:56px;height:56px;object-fit:cover;border-radius:12px;" />
-              </td>
-              <td style="padding:0 0 12px;">
-                <div style="font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:21px;color:#111111;font-weight:700;">${escapeHtml(
-                  place.name,
-                )}</div>
-                <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#7a7167;">${formatNumber(
-                  place.views,
-                )} view${place.views === 1 ? "" : "s"}</div>
-              </td>
-            </tr>
-          `;
-        })
-        .join("")}
-    </table>
-  `;
-}
-
-function featuredCard(label, title, value, image, alt, supporting) {
-  return `
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:separate;border-spacing:0;background:#ffffff;border:1px solid #e4dbcc;border-radius:22px;overflow:hidden;">
-      <tr>
-        <td>
-          <img src="${escapeHtml(image)}" alt="${escapeHtml(
-            alt,
-          )}" width="640" style="display:block;width:100%;max-height:260px;object-fit:cover;" />
-        </td>
-      </tr>
-      <tr>
-        <td style="padding:22px 22px 24px;">
-          <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;text-transform:uppercase;letter-spacing:1.9px;color:#857d72;">${escapeHtml(
-            label,
-          )}</div>
-          <div style="font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:34px;color:#111111;font-weight:700;margin-top:8px;">${escapeHtml(
-            title,
-          )}</div>
-          <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#2f2b26;margin-top:8px;"><strong>${escapeHtml(
-            value,
-          )}</strong></div>
-          <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#6a6258;margin-top:10px;">${escapeHtml(
-            supporting,
-          )}</div>
-        </td>
-      </tr>
-    </table>
-  `;
+  if (Number(totals.guideViews || 0) < 10) {
+    return `Your guide had a quieter day with ${number(totals.guideViews)} visit${totals.guideViews === 1 ? "" : "s"} and ${number(totals.uniqueVisitors)} visitor${totals.uniqueVisitors === 1 ? "" : "s"}.${topCategory ? ` ${topCategory.name} was the most explored section.` : ""}`;
+  }
+  return `Your guide welcomed ${number(totals.uniqueVisitors)} visitor${totals.uniqueVisitors === 1 ? "" : "s"} and recorded ${number(totals.placeViews)} recommendation view${totals.placeViews === 1 ? "" : "s"} yesterday.`;
 }
 
 export function renderDailyReportEmail(report) {
   const totals = report.day.totals;
-  const topCategory = report.day.topCategories[0];
-  const topPlace = report.day.topPlaces[0];
-  const insight = buildInsight(report);
-  const categoryTitle = topCategory?.name || "Guide Activity";
-  const categoryViews = topCategory?.views || totals.categoryViews || totals.guideViews;
-  const topPlaceTitle = topPlace?.name || "No place leader yet";
-  const topPlaceViews = topPlace?.views || 0;
-  const contactActions =
-    Number(totals.darceyCallClicks || 0) +
-    Number(totals.darceyTextClicks || 0) +
-    Number(totals.darceyEmailClicks || 0);
-  const displayDate = formatDisplayDate(report.date);
-  const sevenDayChange = changeLine(
-    totals.guideViews,
-    report.previousDay.totals.guideViews,
-  );
-  const categoryFeature = featuredCard(
-    "Most Popular Yesterday",
-    categoryTitle,
-    `${formatNumber(categoryViews)} view${categoryViews === 1 ? "" : "s"}`,
-    imageUrl(topCategory?.image || categoryImage(categoryTitle), 900, 520),
-    categoryTitle,
-    topCategory
-      ? `${categoryTitle} was the most explored section of Darcey's guide.`
-      : "The guide is ready for the next wave of visitors.",
-  );
-  const placeFeature = topPlace
-    ? featuredCard(
-        "Most Viewed Place",
-        topPlaceTitle,
-        `${formatNumber(topPlaceViews)} view${topPlaceViews === 1 ? "" : "s"} yesterday${
-          topPlace.rating ? ` · Darcey Rating ${topPlace.rating}` : ""
-        }`,
-        imageUrl(topPlace.image || categoryImage(topPlace.category), 900, 520),
-        topPlaceTitle,
-        "A real place people explored inside the guide.",
-      )
-    : `
-      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:separate;border-spacing:0;background:#ffffff;border:1px solid #e4dbcc;border-radius:22px;">
-        <tr>
-          <td style="padding:28px 24px;">
-            <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;text-transform:uppercase;letter-spacing:1.9px;color:#857d72;">Most Viewed Place</div>
-            <div style="font-family:Georgia,'Times New Roman',serif;font-size:28px;line-height:32px;color:#111111;font-weight:700;margin-top:8px;">No place leader yet</div>
-            <p style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#6a6258;margin:10px 0 0;">When visitors start opening individual recommendations, the top place will appear here with its guide image.</p>
-          </td>
-        </tr>
-      </table>
-    `;
+  const displayDate = formatDisplayDate(report.date, true);
+  const contacts = contactTotal(totals);
+  const recentAverage = Math.round(Number(report.last7.totals.guideViews || 0) / 7);
+  const isSilent = !totals.guideViews && !totals.placeViews && !contacts;
+  const realEstate = Number(totals.darceyWebsiteClicks || 0);
+  const subject = `Your Desert Guide Daily Report — ${displayDate}`;
 
-  const html = `<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light only" />
-    <title>${escapeHtml(GUIDE_CONFIG.reportName)}</title>
-    <style>
-      @media only screen and (max-width: 640px) {
-        .email-wrap { width: 100% !important; }
-        .metric-cell { display: block !important; width: 100% !important; box-sizing: border-box !important; }
-        .feature-column { display: block !important; width: 100% !important; box-sizing: border-box !important; padding-right: 0 !important; padding-left: 0 !important; }
-        .mobile-stack { display: block !important; width: 100% !important; }
-      }
-    </style>
-  </head>
-  <body style="margin:0;padding:0;background:#f2ece3;">
-    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
-      ${escapeHtml(GUIDE_CONFIG.reportSubheading)} for ${escapeHtml(displayDate)}.
-    </div>
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f2ece3;border-collapse:collapse;">
-      <tr>
-        <td align="center" style="padding:24px 10px;">
-          <table class="email-wrap" role="presentation" width="680" cellspacing="0" cellpadding="0" style="width:680px;max-width:680px;border-collapse:separate;border-spacing:0;background:#fffaf2;border-radius:28px;overflow:hidden;">
-            <tr>
-              <td style="background:#050505;padding:34px 30px 32px;text-align:center;">
-                <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;letter-spacing:3px;text-transform:uppercase;color:#e8dfd3;">MY DESERT GUIDE</div>
-                <div style="font-family:Georgia,'Times New Roman',serif;font-size:48px;line-height:52px;color:#ffffff;font-weight:700;margin-top:8px;">Daily Pulse</div>
-                <div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:23px;color:#d8cebf;margin-top:12px;">${escapeHtml(
-                  displayDate,
-                )}</div>
-                <div style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#bfb3a3;margin-top:8px;">Here's how Darcey's guide performed yesterday.</div>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:26px 22px 10px;">
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
-                  <tr>
-                    ${metricCard(totals.guideViews, "Guide Views")}
-                    ${metricCard(totals.uniqueVisitors, "Unique Visitors")}
-                  </tr>
-                  <tr>
-                    ${metricCard(totals.clientEngagements, "Client Engagements")}
-                    ${metricCard(totals.returningVisitors, "Returning Visitors")}
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:8px 30px 24px;">
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:separate;border-spacing:0;background:#ffffff;border:1px solid #e4dbcc;border-radius:22px;">
-                  <tr>
-                    <td style="padding:24px 22px;">
-                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
-                        <tr>
-                          <td>
-                            <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;text-transform:uppercase;letter-spacing:1.9px;color:#857d72;">7-Day View Trend</div>
-                            <div style="font-family:Georgia,'Times New Roman',serif;font-size:26px;line-height:30px;color:#111111;font-weight:700;margin-top:6px;">${escapeHtml(
-                              sevenDayChange,
-                            )}</div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td style="padding-top:18px;">
-                            ${trendChart(report.trend)}
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0 30px 24px;">
-                ${categoryFeature}
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0 30px 24px;">
-                ${placeFeature}
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0 30px 24px;">
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:separate;border-spacing:0;background:#ffffff;border:1px solid #e4dbcc;border-radius:22px;">
-                  <tr>
-                    <td style="padding:24px 22px;">
-                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;text-transform:uppercase;letter-spacing:1.9px;color:#857d72;">Trending Places</div>
-                      <div style="height:14px;"></div>
-                      ${topPlaceList(report.day.topPlaces)}
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0 30px 24px;">
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:separate;border-spacing:0;background:#111111;border-radius:22px;">
-                  <tr>
-                    <td style="padding:24px 22px;">
-                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;text-transform:uppercase;letter-spacing:1.9px;color:#d8cebf;">What Visitors Did</div>
-                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;margin-top:16px;">
-                        <tr>
-                          <td class="mobile-stack" style="font-family:Arial,Helvetica,sans-serif;color:#ffffff;padding:0 12px 12px 0;width:25%;">
-                            <div style="font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:32px;font-weight:700;">${formatNumber(
-                              totals.mapsClicks,
-                            )}</div>
-                            <div style="font-size:12px;line-height:18px;color:#d8cebf;margin-top:6px;">Directions Clicks</div>
-                          </td>
-                          <td class="mobile-stack" style="font-family:Arial,Helvetica,sans-serif;color:#ffffff;padding:0 12px 12px 0;width:25%;">
-                            <div style="font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:32px;font-weight:700;">${formatNumber(
-                              totals.businessWebsiteClicks,
-                            )}</div>
-                            <div style="font-size:12px;line-height:18px;color:#d8cebf;margin-top:6px;">Business Website Clicks</div>
-                          </td>
-                          <td class="mobile-stack" style="font-family:Arial,Helvetica,sans-serif;color:#ffffff;padding:0 12px 12px 0;width:25%;">
-                            <div style="font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:32px;font-weight:700;">${formatNumber(
-                              totals.darceyWebsiteClicks,
-                            )}</div>
-                            <div style="font-size:12px;line-height:18px;color:#d8cebf;margin-top:6px;">Darcey Website Clicks</div>
-                          </td>
-                          <td class="mobile-stack" style="font-family:Arial,Helvetica,sans-serif;color:#ffffff;padding:0 0 12px;width:25%;">
-                            <div style="font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:32px;font-weight:700;">${formatNumber(
-                              contactActions,
-                            )}</div>
-                            <div style="font-size:12px;line-height:18px;color:#d8cebf;margin-top:6px;">Contact Actions</div>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0 30px 24px;">
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:separate;border-spacing:0;background:#fbf7ef;border:1px solid #e4dbcc;border-radius:22px;">
-                  <tr>
-                    <td style="padding:24px 22px;">
-                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;text-transform:uppercase;letter-spacing:1.9px;color:#857d72;">Yesterday's Insight</div>
-                      <p style="font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:32px;color:#111111;margin:10px 0 0;">${escapeHtml(
-                        insight,
-                      )}</p>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0 30px 24px;">
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:separate;border-spacing:0;background:#ffffff;border:1px solid #e4dbcc;border-radius:22px;">
-                  <tr>
-                    <td style="padding:24px 22px;">
-                      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;text-transform:uppercase;letter-spacing:1.9px;color:#857d72;">Last 7 Days</div>
-                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;margin-top:16px;">
-                        <tr>
-                          ${compactStat(report.last7.totals.guideViews, "Guide Views")}
-                          ${compactStat(report.last7.totals.uniqueVisitors, "Unique Visitors")}
-                          ${compactStat(report.last7.totals.clientEngagements, "Client Engagements")}
-                        </tr>
-                      </table>
-                      ${sourceBars(report.last7.sources)}
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:0 30px 30px;">
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
-                  <tr>
-                    <td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:21px;color:#6a6258;padding-bottom:20px;text-align:center;">
-                      Since analytics began: <strong style="color:#111111;">${formatNumber(
-                        report.lifetime.totals.guideViews,
-                      )}</strong> total guide views and <strong style="color:#111111;">${formatNumber(
-                        report.lifetime.totals.uniqueVisitors,
-                      )}</strong> unique visitors.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="center">
-                      <a href="${escapeHtml(
-                        dashboardUrl(),
-                      )}" style="display:inline-block;background:#111111;color:#ffffff;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:18px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:16px 28px;border-radius:999px;">View Full Analytics</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:18px;color:#8a8177;padding-top:18px;text-align:center;">
-                      ${escapeHtml(GUIDE_CONFIG.realtorName)} · ${escapeHtml(GUIDE_CONFIG.realtorDre)}
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </body>
-</html>`;
+  const detailSections = isSilent ? "" : `
+    <tr><td style="padding:0 28px 22px;"><div style="background:#ffffff;border:1px solid #dfd4c5;border-radius:16px;padding:22px;">
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#81786d;">Yesterday's Activity</div>
+      <div style="font-family:Georgia,'Times New Roman',serif;font-size:25px;line-height:32px;color:#111111;margin-top:7px;">${number(totals.guideViews)} views yesterday <span style="color:#b18b62;">·</span> 7-day average ${number(recentAverage)}</div>
+      <div style="margin-top:16px;">${trendChart(report.trend)}</div>
+    </div></td></tr>
+    <tr><td style="padding:0 28px 22px;"><div style="background:#ffffff;border:1px solid #dfd4c5;border-radius:16px;padding:22px;">
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#81786d;">What People Loved</div>
+      ${categoryBars(report.day.topCategories)}
+    </div></td></tr>
+    <tr><td style="padding:0 28px 22px;"><div style="background:#ffffff;border:1px solid #dfd4c5;border-radius:16px;padding:22px;">
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#81786d;">Most Popular Places Yesterday</div>
+      <div style="margin-top:8px;">${placeList(report.day.topPlaces)}</div>
+    </div></td></tr>
+    <tr><td style="padding:0 28px 22px;"><div style="background:#111111;border-radius:16px;padding:22px;color:#ffffff;">
+      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#d9ccbc;">People Connected With You</div>
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-top:16px;"><tr>
+        <td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#ffffff;">Text Darcey<br><strong style="font-family:Georgia,serif;font-size:28px;font-weight:400;">${number(totals.darceyTextClicks)}</strong></td>
+        <td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#ffffff;">Call Darcey<br><strong style="font-family:Georgia,serif;font-size:28px;font-weight:400;">${number(totals.darceyCallClicks)}</strong></td>
+        <td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#ffffff;">Email Darcey<br><strong style="font-family:Georgia,serif;font-size:28px;font-weight:400;">${number(totals.darceyEmailClicks)}</strong></td>
+      </tr></table>
+      <div style="border-top:1px solid #4b4540;margin-top:15px;padding-top:14px;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#d9ccbc;"><strong style="color:#ffffff;">${number(contacts)}</strong> total contact action${contacts === 1 ? "" : "s"}</div>
+    </div></td></tr>
+    ${realEstate ? `<tr><td style="padding:0 28px 22px;"><div style="background:#f2e7d7;border:1px solid #d8c5aa;border-radius:16px;padding:22px;"><div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#756d63;">Real Estate Interest</div><div style="font-family:Georgia,serif;font-size:25px;line-height:32px;margin-top:8px;">${number(realEstate)} visit${realEstate === 1 ? "" : "s"} to Darcey's real estate website</div></div></td></tr>` : ""}
+  `;
+
+  const html = `<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+    @media (max-width:620px){.wrap{width:100%!important}.metric{display:block!important;width:100%!important}.pad{padding-left:16px!important;padding-right:16px!important}}
+  </style></head><body style="margin:0;background:#eee7dd;padding:0;">
+    <div style="display:none;max-height:0;overflow:hidden;">Here's how your Desert Guide performed yesterday.</div>
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#eee7dd;"><tr><td align="center" style="padding:22px 8px;">
+      <table class="wrap" role="presentation" width="680" cellspacing="0" cellpadding="0" style="width:680px;max-width:680px;background:#fbf7ef;border-collapse:separate;border-spacing:0;border-radius:20px;overflow:hidden;">
+        <tr><td style="background:#050505;padding:34px 28px;text-align:center;color:#ffffff;">
+          <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#d9ccbc;">My Desert Guide</div>
+          <div style="font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:48px;font-weight:400;margin-top:7px;">Good morning, Darcey.</div>
+          <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#d9ccbc;margin-top:10px;">Here's how your Desert Guide performed yesterday.<br>${escapeHtml(displayDate)}</div>
+        </td></tr>
+        <tr><td class="pad" style="padding:25px 21px 10px;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr>${metric(totals.guideViews,"Guide Views")}${metric(totals.uniqueVisitors,"Visitors")}</tr><tr>${metric(totals.placeViews,"Places Viewed")}${metric(contacts,"People Connected")}</tr></table></td></tr>
+        <tr><td style="padding:5px 28px 22px;"><div style="background:#f2e7d7;border-left:3px solid #b18b62;padding:18px 19px;font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:29px;color:#2e2925;">${escapeHtml(quietMessage(report))}</div></td></tr>
+        ${detailSections}
+        <tr><td style="padding:4px 28px 32px;text-align:center;"><a href="${escapeHtml(dashboardUrl())}" style="display:inline-block;background:#111111;color:#ffffff;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:15px 24px;border-radius:8px;">View Full Analytics</a><div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:16px;color:#81786d;margin-top:18px;">${escapeHtml(GUIDE_CONFIG.realtorName)} · ${escapeHtml(GUIDE_CONFIG.realtorDre)}</div></td></tr>
+      </table>
+    </td></tr></table>
+  </body></html>`;
 
   const text = [
-    `${GUIDE_CONFIG.reportName}`,
-    `${GUIDE_CONFIG.reportSubheading}`,
-    displayDate,
+    `Good morning, Darcey.`,
+    `Here's how your Desert Guide performed yesterday — ${displayDate}.`,
     "",
-    `Guide Views: ${formatNumber(totals.guideViews)}`,
-    `Unique Visitors: ${formatNumber(totals.uniqueVisitors)}`,
-    `Client Engagements: ${formatNumber(totals.clientEngagements)}`,
-    `Returning Visitors: ${formatNumber(totals.returningVisitors)}`,
+    `Guide Views: ${number(totals.guideViews)}`,
+    `Visitors: ${number(totals.uniqueVisitors)}`,
+    `Places Viewed: ${number(totals.placeViews)}`,
+    `People Connected: ${number(contacts)}`,
     "",
-    `Insight: ${insight}`,
+    quietMessage(report),
+    ...report.day.topPlaces.slice(0, 3).map((place, index) => `${index + 1}. ${place.name} — ${number(place.views)} views`),
     "",
-    `Top Category: ${categoryTitle} (${formatNumber(categoryViews)} views)`,
-    topPlace ? `Top Place: ${topPlaceTitle} (${formatNumber(topPlaceViews)} views)` : "Top Place: none yet",
-    "",
+    `Text Darcey: ${number(totals.darceyTextClicks)}`,
+    `Call Darcey: ${number(totals.darceyCallClicks)}`,
+    `Email Darcey: ${number(totals.darceyEmailClicks)}`,
     `View Full Analytics: ${dashboardUrl()}`,
   ].join("\n");
 
-  return {
-    subject: `${GUIDE_CONFIG.reportName}: ${shortDisplayDate(report.date)}`,
-    html,
-    text,
-    insight,
-  };
+  return { subject, html, text, insight: quietMessage(report) };
 }

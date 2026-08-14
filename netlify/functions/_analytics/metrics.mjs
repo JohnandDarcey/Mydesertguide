@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import {
   CLIENT_ENGAGEMENT_EVENTS,
   EVENT_TOTAL_KEYS,
+  GUIDE_CONFIG,
   TRACKED_EVENTS,
 } from "./config.mjs";
 import { datesEnding, localDateString } from "./time.mjs";
@@ -26,11 +27,15 @@ function blankTotals() {
     businessWebsiteClicks: 0,
     menuClicks: 0,
     favoriteSaves: 0,
+    pwaInstallConfirmed: 0,
+    pwaStandaloneLaunches: 0,
   };
 }
 
 function blankDay(date) {
   return {
+    guideId: GUIDE_CONFIG.guideId,
+    profileId: GUIDE_CONFIG.profileId,
     date,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
@@ -49,9 +54,13 @@ function blankDay(date) {
 
 function blankLifetime() {
   return {
+    guideId: GUIDE_CONFIG.guideId,
+    profileId: GUIDE_CONFIG.profileId,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     totals: blankTotals(),
+    categories: {},
+    places: {},
     uniqueVisitorHashes: [],
   };
 }
@@ -196,6 +205,8 @@ export async function recordEvent(payload = {}, request, context) {
   const sessionKey = sessionId ? `${visitorHash}:${sessionId}` : "";
   const day = await getDay(date);
   const lifetime = await getLifetime();
+  lifetime.categories ||= {};
+  lifetime.places ||= {};
   const visitorProfile = await loadVisitorProfile(visitorHash);
   const isKnownVisitor = Boolean(visitorProfile?.firstSeen);
 
@@ -253,15 +264,28 @@ export async function recordEvent(payload = {}, request, context) {
     const categoryRecord = ensureCounter(day.categories, category, {
       image: sanitize(payload.image),
     });
+    const lifetimeCategory = ensureCounter(lifetime.categories, category, {
+      image: sanitize(payload.image),
+    });
     if (categoryRecord) {
       categoryRecord.views += 1;
       if (payload.image && !categoryRecord.image) categoryRecord.image = sanitize(payload.image);
+    }
+    if (lifetimeCategory) {
+      lifetimeCategory.views += 1;
+      if (payload.image && !lifetimeCategory.image) lifetimeCategory.image = sanitize(payload.image);
     }
   }
 
   const placeName = sanitize(payload.placeName);
   if (placeName) {
     const place = ensureCounter(day.places, placeName, {
+      category,
+      type: sanitize(payload.placeType || payload.type),
+      image: sanitize(payload.image),
+      rating: sanitize(payload.rating),
+    });
+    const lifetimePlace = ensureCounter(lifetime.places, placeName, {
       category,
       type: sanitize(payload.placeType || payload.type),
       image: sanitize(payload.image),
@@ -277,9 +301,20 @@ export async function recordEvent(payload = {}, request, context) {
       if (!place.rating && payload.rating) place.rating = sanitize(payload.rating);
       place.lastEventAt = new Date().toISOString();
     }
+    if (lifetimePlace) {
+      if (eventName === "place_view") lifetimePlace.views += 1;
+      if (CLIENT_ENGAGEMENT_EVENTS.has(eventName) || eventName === "business_website_click" || eventName === "menu_click") {
+        lifetimePlace.actions += 1;
+      }
+      if (!lifetimePlace.image && payload.image) lifetimePlace.image = sanitize(payload.image);
+      if (!lifetimePlace.rating && payload.rating) lifetimePlace.rating = sanitize(payload.rating);
+      lifetimePlace.lastEventAt = new Date().toISOString();
+    }
   }
 
   await saveVisitorProfile(visitorHash, {
+    guideId: GUIDE_CONFIG.guideId,
+    profileId: GUIDE_CONFIG.profileId,
     firstSeen: visitorProfile?.firstSeen || date,
     lastSeen: date,
     lastEventAt: new Date().toISOString(),
@@ -357,16 +392,60 @@ export function rollup(days) {
 
 export async function getDashboardSummary() {
   const todayDate = localDateString(new Date());
-  const yesterdayDate = datesEnding(todayDate, 2)[0];
-  const last7Dates = datesEnding(todayDate, 7);
-  const last30Dates = datesEnding(todayDate, 30);
-  const allDates = Array.from(new Set([todayDate, yesterdayDate, ...last7Dates, ...last30Dates]));
-  const dayEntries = await Promise.all(allDates.map(async (date) => [date, await getDay(date)]));
+  const last180Dates = datesEnding(todayDate, 180);
+  const yesterdayDate = last180Dates.at(-2);
+  const last7Dates = last180Dates.slice(-7);
+  const previous7Dates = last180Dates.slice(-14, -7);
+  const last30Dates = last180Dates.slice(-30);
+  const previous30Dates = last180Dates.slice(-60, -30);
+  const last90Dates = last180Dates.slice(-90);
+  const previous90Dates = last180Dates.slice(0, 90);
+  const dayEntries = await Promise.all(last180Dates.map(async (date) => [date, await getDay(date)]));
   const dayMap = Object.fromEntries(dayEntries);
   const lifetime = await getLifetime();
 
+  const trendFor = (dates) =>
+    dates.map((date) => ({
+      date,
+      guideViews: Number(dayMap[date]?.totals?.guideViews || 0),
+      uniqueVisitors: Number(dayMap[date]?.totals?.uniqueVisitors || 0),
+      placeViews: Number(dayMap[date]?.totals?.placeViews || 0),
+      contactActions:
+        Number(dayMap[date]?.totals?.darceyCallClicks || 0) +
+        Number(dayMap[date]?.totals?.darceyTextClicks || 0) +
+        Number(dayMap[date]?.totals?.darceyEmailClicks || 0),
+    }));
+
+  const range = (dates, previousDates) => ({
+    current: rollup(dates.map((date) => dayMap[date])),
+    previous: rollup(previousDates.map((date) => dayMap[date])),
+    trend: trendFor(dates),
+  });
+
+  const last90 = rollup(last90Dates.map((date) => dayMap[date]));
+  const allTime = {
+    ...last90,
+    totals: {
+      ...last90.totals,
+      ...(lifetime.totals || blankTotals()),
+      returningVisitors: last90.totals.returningVisitors,
+      sessions: Math.max(
+        Number(last90.totals.sessions || 0),
+        Number(lifetime.totals?.sessions || 0),
+      ),
+    },
+    topCategories: lifetime.categories && Object.keys(lifetime.categories).length
+      ? topEntries(lifetime.categories, "views", 8)
+      : last90.topCategories,
+    topPlaces: lifetime.places && Object.keys(lifetime.places).length
+      ? topEntries(lifetime.places, "views", 8)
+      : last90.topPlaces,
+  };
+
   return {
     ok: true,
+    guideId: GUIDE_CONFIG.guideId,
+    profileId: GUIDE_CONFIG.profileId,
     generatedAt: new Date().toISOString(),
     todayDate,
     yesterdayDate,
@@ -378,12 +457,17 @@ export async function getDashboardSummary() {
       totals: lifetime.totals || blankTotals(),
       createdAt: lifetime.createdAt,
     },
-    trend: last7Dates.map((date) => ({
-      date,
-      guideViews: Number(dayMap[date]?.totals?.guideViews || 0),
-      uniqueVisitors: Number(dayMap[date]?.totals?.uniqueVisitors || 0),
-      clientEngagements: Number(dayMap[date]?.totals?.clientEngagements || 0),
-    })),
+    trend: trendFor(last7Dates),
+    ranges: {
+      "7": range(last7Dates, previous7Dates),
+      "30": range(last30Dates, previous30Dates),
+      "90": range(last90Dates, previous90Dates),
+      all: {
+        current: allTime,
+        previous: null,
+        trend: trendFor(last90Dates),
+      },
+    },
   };
 }
 
@@ -395,6 +479,8 @@ export async function getReportMetrics(reportDate) {
   const previousDate = datesEnding(reportDate, 2)[0];
 
   return {
+    guideId: GUIDE_CONFIG.guideId,
+    profileId: GUIDE_CONFIG.profileId,
     date: reportDate,
     day: rollup([dayMap[reportDate]]),
     previousDay: rollup([dayMap[previousDate]]),

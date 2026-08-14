@@ -17,6 +17,8 @@ The browser sends these event names to `/api/analytics/collect`:
 - `business_website_click`
 - `menu_click`
 - `favorite_save`
+- `pwa_install_confirmed`
+- `pwa_standalone_launch`
 
 `favorite_save` is reserved for the future. Favorites were not added as part of this project.
 
@@ -45,7 +47,7 @@ Add these in Netlify:
 
 ```text
 ANALYTICS_ADMIN_TOKEN=choose-a-long-private-password
-ANALYTICS_REPORT_TO=john@darceydeetz.com
+ANALYTICS_REPORT_TO=darcey@darceydeetz.com
 ANALYTICS_FROM_EMAIL=My Desert Guide <reports@mydesertguide.com>
 RESEND_API_KEY=your-resend-api-key
 SITE_URL=https://mydesertguide.com
@@ -70,22 +72,7 @@ https://mydesertguide.com/admin/analytics.html
 
 Paste the `ANALYTICS_ADMIN_TOKEN` when prompted. The token is saved only in that browser's local storage and is not placed in the URL.
 
-The dashboard shows:
-
-- Today
-- Yesterday
-- Last 7 days
-- Last 30 days
-- Guide views
-- Unique visitors
-- Returning visitors
-- Client Engagements
-- Top categories
-- Top places
-- Darcey/contact clicks
-- Maps clicks
-- Business website and menu clicks
-- Referral source summary when available
+The dashboard defaults to 30 days and also offers 7 days, 90 days, and all time. It shows four headline metrics, a views-and-visitors activity chart, new versus returning visitors, category interest, popular places, Darcey contact actions, real-estate interest, and reliable PWA activity when present.
 
 ## Daily Email Report
 
@@ -101,10 +88,10 @@ Netlify cron runs in UTC, so the function is checked at both 15:00 UTC and 16:00
 
 Each report summarizes the previous completed calendar day in `America/Los_Angeles`.
 
-The email is called:
+The email subject is:
 
 ```text
-My Desert Guide Daily Pulse
+Your Desert Guide Daily Report — [Date]
 ```
 
 Subheading:
@@ -118,7 +105,7 @@ Darcey's guide performance at a glance
 Before sending a scheduled daily report, the function checks Netlify Blobs for a sent-history record keyed by:
 
 ```text
-report date + recipient
+guide ID + report date + recipient
 ```
 
 If the daily job runs twice, it will not send the same report twice. Manual test emails are stored under separate test-history records so they do not interfere with the real daily send record.
@@ -131,7 +118,7 @@ From the private dashboard, click:
 Send Test Report
 ```
 
-This sends a test version of the Daily Pulse email using real analytics data for the previous completed day.
+`Preview Daily Report` opens the exact generated email in a new browser window without sending it. `Send Test Report` sends a test version using real analytics data for the previous completed Pacific-time day.
 
 ## Production Testing Checklist
 
@@ -143,9 +130,9 @@ After Netlify deploys and environment variables are added:
 4. Open `https://mydesertguide.com/admin/analytics.html`.
 5. Paste the admin token and confirm the dashboard updates.
 6. Click `Send Test Report`.
-7. Confirm `john@darceydeetz.com` receives the email.
+7. Confirm `darcey@darceydeetz.com` receives the email.
 8. Confirm the email images load and the layout looks good on mobile.
 
 ## Future Expansion
 
-The analytics modules are separated into config, time, storage, metrics, email rendering, email provider, and report service files. That makes it possible to add additional Realtors later by introducing guide-specific configuration and storage namespaces. Multi-Realtor behavior is not included yet.
+The analytics modules are separated into config, time, storage, metrics, email rendering, email provider, and report service files. Records and report history include `guideId` / `profileId`, and templates receive a guide report object. That makes it possible to add additional Realtors later through guide-specific configuration and storage namespaces without rebuilding the dashboard or report engine. Multi-Realtor UI is intentionally not included yet.

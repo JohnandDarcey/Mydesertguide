@@ -1,5 +1,6 @@
 (() => {
   const measurementId = window.DARCEY_GA_MEASUREMENT_ID;
+  const analyticsConfig = window.MDG_ANALYTICS_CONFIG || {};
 
   if (measurementId && /^G-[A-Z0-9]+$/.test(measurementId)) {
     const gtagScript = document.createElement("script");
@@ -98,6 +99,8 @@
   function send(eventName, details = {}) {
     const payload = {
       eventName,
+      guideId: analyticsConfig.guideId || "darcey-my-desert-guide",
+      profileId: analyticsConfig.profileId || "darcey-deetz",
       visitorId,
       sessionId,
       url: window.location.href,
@@ -251,6 +254,13 @@
 
   window.addEventListener("load", () => {
     send("guide_view", { category: sectionFromHash() });
+    if (window.matchMedia?.("(display-mode: standalone)")?.matches || window.navigator.standalone === true) {
+      send("pwa_standalone_launch", { category: "Guide App" });
+    }
     scheduleBinding();
+  });
+
+  window.addEventListener("appinstalled", () => {
+    send("pwa_install_confirmed", { category: "Guide App" });
   });
 })();

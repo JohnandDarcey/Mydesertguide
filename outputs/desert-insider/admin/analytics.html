@@ -4,32 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>My Desert Guide Analytics</title>
+    <title>Your Desert Guide Performance</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;500&family=Montserrat:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./analytics-dashboard.css?v=20260814-guide-refine" />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./analytics-dashboard.css?v=20260814-visual-reporting" />
   </head>
   <body>
     <main class="dashboard-shell">
       <header class="dashboard-hero">
         <div>
-          <p class="eyebrow">Private Dashboard</p>
-          <h1>My Desert Guide Analytics</h1>
-          <p>Darcey's guide performance at a glance.</p>
+          <p class="eyebrow">Darcey's My Desert Guide</p>
+          <h1>Your Desert Guide Performance</h1>
+          <p>See how people are discovering and using your guide.</p>
         </div>
         <a href="/" class="home-link">Open Guide</a>
       </header>
 
-      <section class="access-panel" aria-label="Analytics access">
+      <section class="access-panel" id="access-panel" aria-label="Analytics access">
         <form id="token-form">
-          <label for="token-input">Admin access token</label>
+          <label for="token-input">Private dashboard access</label>
           <div class="token-row">
-            <input id="token-input" type="password" autocomplete="current-password" placeholder="Paste token" />
-            <button type="submit">Load Dashboard</button>
+            <input id="token-input" type="password" autocomplete="current-password" placeholder="Enter private access token" />
+            <button type="submit">Open Dashboard</button>
           </div>
         </form>
         <button id="clear-token" class="quiet-button" type="button">Clear saved token</button>
@@ -37,53 +34,72 @@
 
       <div id="status" class="status" role="status"></div>
 
-      <section id="summary" class="summary-grid" aria-label="Traffic summary"></section>
-
-      <section class="panel trend-panel">
-        <div class="panel-heading">
-          <div>
-            <p class="eyebrow">Last 7 Days</p>
-            <h2>Guide View Trend</h2>
+      <section class="overview-section" aria-labelledby="overview-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">At a Glance</p><h2 id="overview-title">Guide Highlights</h2></div>
+          <div class="range-selector" id="range-selector" aria-label="Analytics date range">
+            <button type="button" data-range="7">7 Days</button>
+            <button type="button" data-range="30" class="active">30 Days</button>
+            <button type="button" data-range="90">90 Days</button>
+            <button type="button" data-range="all">All Time</button>
           </div>
+        </div>
+        <div id="summary" class="summary-grid" aria-label="Guide highlights"></div>
+      </section>
+
+      <section class="panel activity-panel" aria-labelledby="activity-title">
+        <div class="panel-heading">
+          <div><p class="eyebrow">Is usage increasing?</p><h2 id="activity-title">Guide Activity</h2></div>
           <button id="refresh" class="quiet-button" type="button">Refresh</button>
         </div>
-        <div id="trend-chart" class="trend-chart" aria-label="7-day guide view trend"></div>
+        <div id="activity-chart" class="activity-chart" aria-label="Guide views over time"></div>
       </section>
 
-      <section class="detail-grid">
-        <article class="panel">
-          <p class="eyebrow">Top Categories</p>
-          <div id="top-categories" class="rank-list"></div>
+      <section class="visual-grid">
+        <article class="panel visitor-panel">
+          <p class="eyebrow">Visitor Loyalty</p>
+          <h2>New vs Returning Visitors</h2>
+          <div class="donut-layout"><div id="visitor-donut" class="donut" aria-label="New versus returning visitors"></div><div id="visitor-details" class="donut-legend"></div></div>
         </article>
-        <article class="panel">
-          <p class="eyebrow">Top Places</p>
-          <div id="top-places" class="rank-list"></div>
-        </article>
-      </section>
-
-      <section class="detail-grid">
-        <article class="panel">
-          <p class="eyebrow">Actions</p>
-          <div id="actions" class="action-grid"></div>
-        </article>
-        <article class="panel">
-          <p class="eyebrow">Sources</p>
-          <div id="sources" class="source-list"></div>
+        <article class="panel category-panel">
+          <p class="eyebrow">Audience Interests</p>
+          <h2>What People Are Exploring</h2>
+          <div id="category-bars" class="category-bars"></div>
         </article>
       </section>
 
-      <section class="panel test-report-panel">
+      <section class="panel popular-panel" aria-labelledby="popular-title">
+        <div class="panel-heading"><div><p class="eyebrow">Darcey's Recommendations</p><h2 id="popular-title">Most Popular Places</h2></div></div>
+        <div id="popular-places" class="popular-places"></div>
+      </section>
+
+      <section class="panel contact-panel" aria-labelledby="contact-title">
+        <div class="panel-heading"><div><p class="eyebrow">Meaningful Engagement</p><h2 id="contact-title">People Connecting With Darcey</h2></div><div id="contact-total" class="contact-total"></div></div>
+        <div id="contact-cards" class="contact-grid"></div>
+        <div id="contact-trend" class="mini-trend"></div>
+      </section>
+
+      <section class="opportunity-grid">
+        <article class="panel" id="real-estate-panel" hidden>
+          <p class="eyebrow">Business Opportunity</p><h2>Real Estate Interest</h2><div id="real-estate-content"></div>
+        </article>
+        <article class="panel" id="app-panel" hidden>
+          <p class="eyebrow">Guide App Engagement</p><h2>Returning Through the App</h2><div id="app-content"></div>
+        </article>
+      </section>
+
+      <section class="panel report-panel">
         <div>
-          <p class="eyebrow">Daily Pulse Email</p>
-          <h2>Send Test Daily Report</h2>
-          <p>
-            Sends a test version of the visual email using real analytics data for the previous completed day.
-          </p>
+          <p class="eyebrow">Daily Performance Email</p>
+          <h2>Review Tomorrow's Report Today</h2>
+          <p>Preview the report using Darcey's actual analytics, or send a test copy now.</p>
         </div>
-        <button id="send-test" class="dark-button" type="button">Send Test Report</button>
+        <div class="report-actions">
+          <button id="preview-report" class="quiet-button" type="button">Preview Daily Report</button>
+          <button id="send-test" class="dark-button" type="button">Send Test Report</button>
+        </div>
       </section>
     </main>
-
-    <script src="./analytics-dashboard.js"></script>
+    <script src="./analytics-dashboard.js?v=20260814-visual-reporting"></script>
   </body>
 </html>

@@ -5,7 +5,7 @@ import { getReportHistory, putReportHistory } from "./store.mjs";
 import { getReportMetrics } from "./metrics.mjs";
 
 function reportHistoryKey(date, recipient) {
-  return `${date}/${recipient.toLowerCase().replace(/[^a-z0-9@._-]/g, "-")}.json`;
+  return `${GUIDE_CONFIG.guideId}/${date}/${recipient.toLowerCase().replace(/[^a-z0-9@._-]/g, "-")}.json`;
 }
 
 export async function buildDailyReport(date) {
@@ -38,6 +38,8 @@ export async function sendDailyReport({
   }
 
   await putReportHistory(key, {
+    guide_id: GUIDE_CONFIG.guideId,
+    profile_id: GUIDE_CONFIG.profileId,
     report_date: date,
     recipient,
     generated_at: new Date().toISOString(),
@@ -57,6 +59,8 @@ export async function sendDailyReport({
     });
 
     const history = {
+      guide_id: GUIDE_CONFIG.guideId,
+      profile_id: GUIDE_CONFIG.profileId,
       report_date: date,
       recipient,
       generated_at: new Date().toISOString(),
@@ -78,6 +82,8 @@ export async function sendDailyReport({
     };
   } catch (error) {
     await putReportHistory(key, {
+      guide_id: GUIDE_CONFIG.guideId,
+      profile_id: GUIDE_CONFIG.profileId,
       report_date: date,
       recipient,
       generated_at: new Date().toISOString(),
