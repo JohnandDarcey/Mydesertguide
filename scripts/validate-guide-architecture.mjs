@@ -27,7 +27,7 @@ for (const marker of ["The Desert", "my-desert-guide-hero-darcey.png", "Start Wi
   if (!`${homepage}\n${homepageApp}\n${homepageData}`.toLowerCase().includes(marker.toLowerCase())) throw new Error(`Homepage preservation marker is missing: ${marker}`);
 }
 for (const marker of [
-  '--font-display: "Bodoni Moda"',
+  '--font-display: "Didot"',
   '--font-sans: "Montserrat"',
   "--type-page-title:",
   "--type-section-title:",
@@ -36,6 +36,17 @@ for (const marker of [
 ]) {
   if (!homepageStyles.includes(marker) || !directoryStyles.includes(marker)) {
     throw new Error(`Shared typography token is missing: ${marker}`);
+  }
+}
+if (!homepageStyles.includes("h4,\nh5,\nh6") || !homepageStyles.includes("text-transform: uppercase")) {
+  throw new Error("Homepage uppercase heading treatment is missing.");
+}
+if (!directoryStyles.includes("h1, h2, h3, h4, h5, h6") || !directoryStyles.includes("text-transform: uppercase")) {
+  throw new Error("Directory uppercase heading treatment is missing.");
+}
+for (const stylesheet of [homepageStyles, directoryStyles]) {
+  if (!stylesheet.includes('"Didot", "Bodoni 72", "Bodoni Moda"')) {
+    throw new Error("Hero-matched Didot/Bodoni display stack is missing.");
   }
 }
 for (const marker of [

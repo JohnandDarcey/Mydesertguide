@@ -6,7 +6,7 @@
   --white: #fff;
   --gold: #c7a384;
   --line: #ddd2c3;
-  --font-display: "Bodoni Moda", "Didot", "Bodoni 72", "Times New Roman", serif;
+  --font-display: "Didot", "Bodoni 72", "Bodoni Moda", "Times New Roman", serif;
   --font-sans: "Montserrat", "Avenir Next", Arial, sans-serif;
   --font-editorial: "Cormorant Garamond", "Baskerville", Georgia, serif;
   --display: var(--font-display);
@@ -37,6 +37,7 @@ button, input, select { font: inherit; }
 button { cursor: pointer; }
 img { display: block; max-width: 100%; }
 [hidden] { display: none !important; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--display); font-weight: 400; letter-spacing: -.01em; text-transform: uppercase; }
 
 .site-header { align-items: center; background: rgba(251,248,242,.96); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; min-height: 80px; padding: 14px clamp(20px,4vw,58px); position: sticky; top: 0; z-index: 30; }
 .site-brand { font-family: var(--display); font-size: clamp(1.5rem,3vw,2.25rem); text-decoration: none; }
@@ -80,7 +81,7 @@ img { display: block; max-width: 100%; }
 .experience-tile { aspect-ratio: 16/9; border-radius: 14px; color: var(--white); isolation: isolate; min-height: 170px; overflow: hidden; position: relative; text-decoration: none; }
 .experience-tile::after { background: linear-gradient(0deg,rgba(4,3,2,.82),rgba(4,3,2,.05) 70%); content: ""; inset: 0; position: absolute; z-index: -1; }
 .experience-tile img { height: 100%; inset: 0; object-fit: cover; position: absolute; transition: transform .35s ease; width: 100%; z-index: -2; }
-.experience-tile span { bottom: 0; font-family: var(--display); font-size: var(--type-card-title); font-weight: 400; left: 0; letter-spacing: var(--tracking-heading); line-height: var(--leading-heading); padding: clamp(17px,2.5vw,27px); position: absolute; text-shadow: 0 2px 20px rgba(0,0,0,.42); }
+.experience-tile span { bottom: 0; font-family: var(--display); font-size: var(--type-card-title); font-weight: 400; left: 0; letter-spacing: var(--tracking-heading); line-height: var(--leading-heading); padding: clamp(17px,2.5vw,27px); position: absolute; text-shadow: 0 2px 20px rgba(0,0,0,.42); text-transform: uppercase; }
 .experience-tile:hover img { transform: scale(1.035); }
 .curated-picks { margin: 0 0 clamp(64px,9vw,112px); }
 .curated-picks-grid .recommendation-card { background: var(--white); }
