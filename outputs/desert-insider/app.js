@@ -832,12 +832,24 @@ function render() {
             <a href="#things-to-do">Things to Do</a>
             <a href="#shopping">Shopping</a>
           </nav>
+          <details class="hero-mobile-menu">
+            <summary>Menu</summary>
+            <nav aria-label="Mobile guide navigation">
+              <a href="#guide">Food &amp; Drink</a>
+              <a href="#golf">Golf</a>
+              <a href="#things-to-do">Things to Do</a>
+              <a href="#shopping">Shopping</a>
+            </nav>
+          </details>
         </header>
         <div class="hero-live-copy">
           <p class="hero-kicker">Your Guide to</p>
           <h1>The Desert</h1>
           <div class="hero-divider" aria-hidden="true"><span>♥</span></div>
-          <p class="hero-description">Food &amp; drink, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by <em>Darcey.</em></p>
+          <p class="hero-description">
+            <span class="hero-description-desktop">Food &amp; drink, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by <em>Darcey.</em></span>
+            <span class="hero-description-mobile">Food &amp; drink, golf, things to do, and trusted local favorites—recommended by Darcey.</span>
+          </p>
           <div class="hero-live-actions">
             <a class="button dark hero-explore" href="#browse-guide">Explore the Desert</a>
             <a class="button hero-about" href="#about-darcey">About Darcey</a>
@@ -874,6 +886,11 @@ function render() {
         <a class="hero-hotspot hotspot-trusted" href="#professionals" aria-label="Trusted Recommendations"></a>
         <a class="hero-hotspot hotspot-love" href="${realtorProfile.website}" target="_blank" rel="noreferrer" aria-label="Love Where You Live — visit Darcey's real estate website"></a>
       </section>
+
+      <aside class="hero-mobile-extras" aria-label="Contact Darcey">
+        <p class="eyebrow">Let's Connect</p>
+        ${contactActionLinks("hero-mobile-contact-strip")}
+      </aside>
 
       <section class="section intro welcome-note" id="about-darcey">
         <img class="darcey-note-photo" src="${realtorProfile.headshot}" alt="${realtorProfile.fullName} smiling in the desert" />
