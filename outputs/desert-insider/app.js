@@ -8,7 +8,7 @@ import {
   services,
   shopping,
   thingsToDo,
-} from "./data.js";
+} from "./data.js?v=20260814-hero";
 
 const app = document.querySelector("#app");
 
