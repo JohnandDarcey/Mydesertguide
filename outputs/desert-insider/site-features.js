@@ -56,6 +56,12 @@ function enhanceHomepageRecommendations() {
     actions.className = "place-actions-inline";
     actions.dataset.placeActions = "true";
     actions.innerHTML = `${favoriteButton(slug, name)}<a href="/place/${slug}/">View recommendation</a>`;
+    if (card.closest(".home-curated")) {
+      const recommendationLink = actions.querySelector("a");
+      recommendationLink.dataset.analyticsEvent = "curated_favorite_click";
+      recommendationLink.dataset.analyticsCategory = card.dataset.guideCategory || "Curated Favorites";
+      recommendationLink.dataset.analyticsLabel = name;
+    }
     target.append(actions);
   });
 }

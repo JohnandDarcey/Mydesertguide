@@ -78,9 +78,9 @@ function footer() {
 
 function scripts() {
   return `<script src="/analytics-config.js?v=20260814-guide-architecture"></script>
-    <script src="/analytics.js?v=20260814-real-estate-bridge"></script>
+    <script src="/analytics.js?v=20260814-hybrid-homepage"></script>
     <script type="module" src="/directory.js?v=20260814-guide-architecture-v2"></script>
-    <script type="module" src="/site-features.js?v=20260814-guide-architecture-v2"></script>`;
+    <script type="module" src="/site-features.js?v=20260814-hybrid-homepage"></script>`;
 }
 
 function favoriteButton(place, className = "") {

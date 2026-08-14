@@ -17,6 +17,9 @@ function blankTotals() {
     returningVisitors: 0,
     sessions: 0,
     categoryViews: 0,
+    homepageCategoryClicks: 0,
+    curatedFavoriteClicks: 0,
+    exploreDesertClicks: 0,
     placeViews: 0,
     clientEngagements: 0,
     darceyWebsiteClicks: 0,
@@ -267,7 +270,7 @@ export async function recordEvent(payload = {}, request, context) {
   }
 
   const category = normalizeCategory(payload);
-  if (eventName === "category_view" || eventName === "place_view") {
+  if (eventName === "category_view" || eventName === "homepage_category_click" || eventName === "place_view") {
     const categoryRecord = ensureCounter(day.categories, category, {
       image: sanitize(payload.image),
     });
@@ -305,7 +308,7 @@ export async function recordEvent(payload = {}, request, context) {
 
     if (place) {
       if (eventName === "place_view") place.views += 1;
-      if (CLIENT_ENGAGEMENT_EVENTS.has(eventName) || eventName === "business_website_click" || eventName === "menu_click") {
+      if (CLIENT_ENGAGEMENT_EVENTS.has(eventName) || eventName === "business_website_click" || eventName === "menu_click" || eventName === "curated_favorite_click") {
         place.actions += 1;
       }
       if (!place.image && payload.image) place.image = sanitize(payload.image);
@@ -314,7 +317,7 @@ export async function recordEvent(payload = {}, request, context) {
     }
     if (lifetimePlace) {
       if (eventName === "place_view") lifetimePlace.views += 1;
-      if (CLIENT_ENGAGEMENT_EVENTS.has(eventName) || eventName === "business_website_click" || eventName === "menu_click") {
+      if (CLIENT_ENGAGEMENT_EVENTS.has(eventName) || eventName === "business_website_click" || eventName === "menu_click" || eventName === "curated_favorite_click") {
         lifetimePlace.actions += 1;
       }
       if (!lifetimePlace.image && payload.image) lifetimePlace.image = sanitize(payload.image);

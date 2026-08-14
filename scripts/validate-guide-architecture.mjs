@@ -23,8 +23,29 @@ const homepageData = await read("data.js");
 for (const marker of ["The Desert", "my-desert-guide-hero-darcey.png", "Start With What You Need"]) {
   if (!`${homepage}\n${homepageApp}\n${homepageData}`.toLowerCase().includes(marker.toLowerCase())) throw new Error(`Homepage preservation marker is missing: ${marker}`);
 }
+const homepageRender = homepageApp.slice(homepageApp.indexOf("function render()"), homepageApp.indexOf("const legacyCategoryRoutes"));
+for (const legacyHash of ["#guide", "#golf", "#things-to-do", "#shopping", "#utilities", "#professionals"]) {
+  if (homepageRender.includes(`href="${legacyHash}"`)) throw new Error(`Homepage still renders legacy category navigation: ${legacyHash}`);
+}
+for (const removedSection of ['id="guide"', 'id="golf"', 'id="things-to-do"', 'id="shopping"', 'id="utilities"', 'id="professionals"', 'id="map"']) {
+  if (homepageRender.includes(removedSection)) throw new Error(`Homepage still renders retired directory section: ${removedSection}`);
+}
+for (const marker of [
+  'href="#browse-guide"',
+  "curatedFavoritesSection()",
+  "Spencer's",
+  "The Classic Club",
+  "The Living Desert",
+  "World Market",
+  "home-install-card",
+  "Love Where You Live",
+  "home-footer",
+]) {
+  if (!homepageApp.includes(marker)) throw new Error(`Hybrid homepage marker is missing: ${marker}`);
+}
 for (const category of categoryDefinitions) {
   if (!homepageData.includes(`/${category.slug}/`)) throw new Error(`Homepage gateway is missing: /${category.slug}/`);
+  if (!homepageApp.includes(`/${category.slug}/`)) throw new Error(`Homepage navigation is missing: /${category.slug}/`);
   const html = await read(`${category.slug}/index.html`);
   for (const marker of ["<h1>", "rel=\"canonical\"", "application/ld+json", "data-category-grid"]) {
     if (!html.includes(marker)) throw new Error(`${category.slug} is missing ${marker}.`);

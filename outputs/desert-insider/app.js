@@ -9,7 +9,7 @@ import {
   services,
   shopping,
   thingsToDo,
-} from "./data.js?v=20260814-guide-architecture";
+} from "./data.js?v=20260814-hybrid-homepage";
 
 const app = document.querySelector("#app");
 
@@ -28,6 +28,12 @@ const featuredGolfNames = ["Indian Canyons Golf Resort", "The Classic Club"];
 const featuredThingsNames = ["VillageFest", "The Living Desert"];
 const featuredShoppingNames = ["Gelson's Rancho Mirage", "World Market"];
 const featuredProfessionalNames = ["The Buttercake Studio", "Mr. Beez Termite & Pest Control"];
+const homepageCuratedFavorites = [
+  { item: restaurants.find((place) => place.name === "Spencer's"), category: "Food & Drink", categoryHref: "/food-drink/", type: "Restaurant" },
+  { item: golfCourses.find((place) => place.name === "The Classic Club"), category: "Golf", categoryHref: "/golf/", type: "GolfCourse" },
+  { item: thingsToDo.find((place) => place.name === "The Living Desert"), category: "Things to Do", categoryHref: "/things-to-do/", type: "TouristAttraction" },
+  { item: shopping.find((place) => place.name === "World Market"), category: "Shopping", categoryHref: "/shopping/", type: "Store" },
+].filter(({ item }) => Boolean(item));
 const featuredRestaurantsByFilter = {
   American: ["Lulu", "Tony's Grill and Bar"],
   "Date Night": ["Spencer's", "California Bistro"],
@@ -172,6 +178,35 @@ function analyticsAttrs(item, type) {
   )}" data-guide-type="${attr(type)}" data-guide-slug="${placeSlug(item.name)}" data-track-impression="true" data-guide-image="${attr(image)}" data-guide-rating="${attr(
     item.rating || "",
   )}"`;
+}
+
+function curatedFavoritesSection() {
+  return `
+    <section class="section home-curated" aria-label="Curated favorites">
+      <div class="section-heading home-curated-heading">
+        <div>
+          <p class="eyebrow">Curated Favorites</p>
+          <h2>A taste of Darcey's desert.</h2>
+        </div>
+        <p>A few standout recommendations across the guide—each one personally worth sharing.</p>
+      </div>
+      <div class="home-curated-grid">
+        ${homepageCuratedFavorites.map(({ item, category, categoryHref, type }) => {
+          const slug = placeSlug(item.name);
+          return `
+            <article class="home-curated-card" data-guide-place="${attr(item.name)}" data-guide-category="${attr(category)}" data-guide-type="${attr(type)}" data-guide-slug="${slug}" data-category-slug="${categoryHref.replaceAll("/", "")}" data-guide-image="${attr(item.image)}" data-guide-rating="${attr(item.rating || "")}">
+              <a class="home-curated-card-link" href="/place/${slug}/" aria-label="View Darcey's recommendation for ${attr(item.name)}" data-analytics-event="curated_favorite_click" data-analytics-category="${attr(category)}" data-analytics-label="${attr(item.name)}"></a>
+              <div class="home-curated-media"><img src="${item.image}" alt="${attr(item.name)}" loading="lazy" decoding="async" /></div>
+              <div class="featured-content">
+                <p class="eyebrow">${attr(category)} · ${attr(item.location || "Coachella Valley")}</p>
+                <h3>${attr(item.name)}</h3>
+                <p>${attr(item.description)}</p>
+                <a class="home-curated-category-link" href="${categoryHref}" data-category-link data-category-name="${attr(category)}" data-category-slug="${categoryHref.replaceAll("/", "")}">Explore ${attr(category)} <span aria-hidden="true">→</span></a>
+              </div>
+            </article>`;
+        }).join("")}
+      </div>
+    </section>`;
 }
 
 function icon(name) {
@@ -827,18 +862,18 @@ function render() {
         <header class="hero-live-header">
           <a class="hero-live-brand" href="#top">My Desert Guide <span aria-hidden="true">♥</span></a>
           <nav class="hero-live-nav" aria-label="Primary guide navigation">
-            <a href="#guide">Food &amp; Drink</a>
-            <a href="#golf">Golf</a>
-            <a href="#things-to-do">Things to Do</a>
-            <a href="#shopping">Shopping</a>
+            <a href="/food-drink/" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink">Food &amp; Drink</a>
+            <a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a>
+            <a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a>
+            <a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a>
           </nav>
           <details class="hero-mobile-menu">
             <summary>Menu</summary>
             <nav aria-label="Mobile guide navigation">
-              <a href="#guide">Food &amp; Drink</a>
-              <a href="#golf">Golf</a>
-              <a href="#things-to-do">Things to Do</a>
-              <a href="#shopping">Shopping</a>
+              <a href="/food-drink/" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink">Food &amp; Drink</a>
+              <a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a>
+              <a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a>
+              <a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a>
             </nav>
           </details>
         </header>
@@ -851,84 +886,40 @@ function render() {
             <span class="hero-description-mobile">Food &amp; drink, golf, things to do, and trusted local favorites—recommended by Darcey.</span>
           </p>
           <div class="hero-live-actions">
-            <a class="button dark hero-explore" href="#browse-guide">Explore the Desert</a>
+            <a class="button dark hero-explore" href="#browse-guide" data-analytics-event="explore_desert_click" data-analytics-category="Homepage" data-analytics-label="Explore the Desert">Explore the Desert</a>
             <a class="button hero-about" href="#about-darcey">About Darcey</a>
           </div>
           <nav class="hero-mobile-nav" aria-label="Mobile guide categories">
-            <a href="#guide">Food &amp; Drink</a>
-            <a href="#golf">Golf</a>
-            <a href="#things-to-do">Things to Do</a>
-            <a href="#shopping">Shopping</a>
+            <a href="/food-drink/" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink">Food &amp; Drink</a>
+            <a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a>
+            <a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a>
+            <a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a>
           </nav>
           ${contactActionLinks("hero-contact-actions")}
           <a class="hero-mobile-curated" href="#browse-guide">
             <span aria-hidden="true">☆</span> Curated Favorites
           </a>
         </div>
-        <a class="hero-hotspot hotspot-header-food" href="#guide" aria-label="Food &amp; Drink"></a>
-        <a class="hero-hotspot hotspot-header-golf" href="#golf" aria-label="Golf"></a>
-        <a class="hero-hotspot hotspot-header-things" href="#things-to-do" aria-label="Things to Do"></a>
-        <a class="hero-hotspot hotspot-header-shopping" href="#shopping" aria-label="Shopping"></a>
+        <a class="hero-hotspot hotspot-header-food" href="/food-drink/" aria-label="Food &amp; Drink" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink"></a>
+        <a class="hero-hotspot hotspot-header-golf" href="/golf/" aria-label="Golf" data-category-link data-category-name="Golf" data-category-slug="golf"></a>
+        <a class="hero-hotspot hotspot-header-things" href="/things-to-do/" aria-label="Things to Do" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do"></a>
+        <a class="hero-hotspot hotspot-header-shopping" href="/shopping/" aria-label="Shopping" data-category-link data-category-name="Shopping" data-category-slug="shopping"></a>
         <a class="hero-hotspot hotspot-header-text" href="sms:${realtorProfile.phoneHref}" aria-label="Text Darcey"></a>
         <a class="hero-hotspot hotspot-header-call" href="tel:${realtorProfile.phoneHref}" aria-label="Call Darcey"></a>
         <a class="hero-hotspot hotspot-header-email" href="mailto:${realtorProfile.email}" aria-label="Email Darcey"></a>
-        <a class="hero-hotspot hotspot-explore" href="#browse-guide" aria-label="Explore the Desert"></a>
+        <a class="hero-hotspot hotspot-explore" href="#browse-guide" aria-label="Explore the Desert" data-analytics-event="explore_desert_click" data-analytics-category="Homepage" data-analytics-label="Explore the Desert"></a>
         <a class="hero-hotspot hotspot-about" href="#about-darcey" aria-label="About Darcey"></a>
         <a class="hero-hotspot hotspot-connect-text" href="sms:${realtorProfile.phoneHref}" aria-label="Text Darcey"></a>
         <a class="hero-hotspot hotspot-connect-call" href="tel:${realtorProfile.phoneHref}" aria-label="Call Darcey"></a>
         <a class="hero-hotspot hotspot-connect-email" href="mailto:${realtorProfile.email}" aria-label="Email Darcey"></a>
-        <a class="hero-hotspot hotspot-card-food" href="#guide" aria-label="Explore Food & Drink"></a>
-        <a class="hero-hotspot hotspot-card-golf" href="#golf" aria-label="Explore Golf"></a>
-        <a class="hero-hotspot hotspot-card-things" href="#things-to-do" aria-label="Explore Things to Do"></a>
-        <a class="hero-hotspot hotspot-card-shopping" href="#shopping" aria-label="Explore Shopping"></a>
+        <a class="hero-hotspot hotspot-card-food" href="/food-drink/" aria-label="Explore Food & Drink" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink"></a>
+        <a class="hero-hotspot hotspot-card-golf" href="/golf/" aria-label="Explore Golf" data-category-link data-category-name="Golf" data-category-slug="golf"></a>
+        <a class="hero-hotspot hotspot-card-things" href="/things-to-do/" aria-label="Explore Things to Do" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do"></a>
+        <a class="hero-hotspot hotspot-card-shopping" href="/shopping/" aria-label="Explore Shopping" data-category-link data-category-name="Shopping" data-category-slug="shopping"></a>
         <a class="hero-hotspot hotspot-curated" href="#browse-guide" aria-label="Curated Favorites — Start With What You Need"></a>
         <a class="hero-hotspot hotspot-insider" href="#browse-guide" aria-label="Local Insider Tips"></a>
-        <a class="hero-hotspot hotspot-trusted" href="#professionals" aria-label="Trusted Recommendations"></a>
+        <a class="hero-hotspot hotspot-trusted" href="/trusted-professionals/" aria-label="Trusted Recommendations" data-category-link data-category-name="Trusted Professionals" data-category-slug="trusted-professionals"></a>
         <a class="hero-hotspot hotspot-love" href="${realtorProfile.website}" target="_blank" rel="noreferrer" aria-label="Love Where You Live — visit Darcey's real estate website"></a>
-      </section>
-
-      <aside class="hero-mobile-extras" aria-label="Contact Darcey">
-        <p class="eyebrow">Let's Connect</p>
-        ${contactActionLinks("hero-mobile-contact-strip")}
-      </aside>
-
-      <section class="section intro welcome-note" id="about-darcey">
-        <img class="darcey-note-photo" src="${realtorProfile.headshot}" alt="${realtorProfile.fullName} smiling in the desert" />
-        <div>
-          <p class="eyebrow">A note from Darcey</p>
-          <h2>A personal guide to the desert <span class="no-break">I love.</span></h2>
-        </div>
-        <div class="welcome-copy">
-          <p class="welcome-summary">My Desert Guide is a collection of the food, golf, local businesses, and experiences I genuinely recommend to clients, friends, and family.</p>
-          <div class="welcome-details" id="darcey-bio-details" aria-hidden="true">
-            <p>Every favorite is chosen because it is somewhere I would happily send the people I care about most.</p>
-            <p>Consider this my personal welcome to the Coachella Valley—and an invitation to experience the desert like a local.</p>
-          </div>
-          <button class="bio-toggle" id="bio-toggle" type="button" aria-expanded="false" aria-controls="darcey-bio-details">Read More</button>
-          ${contactActionLinks("contact-actions-light")}
-        </div>
-      </section>
-
-      <section class="section real-estate-cta" aria-label="Real estate help from Darcey">
-        <div class="real-estate-lead">
-          <div class="darcey-cta-card">
-            <img class="darcey-cta-photo" src="${realtorProfile.portrait}" alt="${realtorProfile.fullName}" />
-            <p class="dre-line">${realtorProfile.fullName} · ${realtorProfile.dre}</p>
-          </div>
-          <div>
-            <p class="eyebrow">Real estate help</p>
-            <h2>Thinking about a move in the desert?</h2>
-          </div>
-        </div>
-        <div class="real-estate-copy">
-          <p>
-            If this guide has you picturing life in the Coachella Valley, Darcey can help with the
-            homes, neighborhoods and next steps.
-          </p>
-          <a class="button dark" href="${realtorProfile.website}" target="_blank" rel="noreferrer">
-            ${icon("heart")} Visit Darcey's Real Estate Website
-          </a>
-        </div>
       </section>
 
       <section class="section guide-categories" id="browse-guide" aria-label="Guide categories">
@@ -940,7 +931,7 @@ function render() {
           ${categories
             .map(
               (category) => `
-                <a href="${category.href}" class="category-tile">
+                <a href="${category.href}" class="category-tile" data-category-link data-category-name="${category.label}" data-category-slug="${category.href.replaceAll("/", "")}">
                   <img
                     src="${category.image}"
                     srcset="${category.imageSmall} 480w, ${category.image} 900w"
@@ -959,6 +950,24 @@ function render() {
         </div>
       </section>
 
+      <section class="section intro welcome-note" id="about-darcey">
+        <img class="darcey-note-photo" src="${realtorProfile.headshot}" alt="${realtorProfile.fullName} smiling in the desert" />
+        <div>
+          <p class="eyebrow">A note from Darcey</p>
+          <h2>A personal guide to the desert <span class="no-break">I love.</span></h2>
+        </div>
+        <div class="welcome-copy">
+          <p class="welcome-summary">My Desert Guide is a collection of the food, golf, local businesses, and experiences I genuinely recommend to clients, friends, and family.</p>
+          <div class="welcome-details" id="darcey-bio-details" aria-hidden="true">
+            <p>Every favorite is chosen because it is somewhere I would happily send the people I care about most.</p>
+            <p>Consider this my personal welcome to the Coachella Valley—and an invitation to experience the desert like a local.</p>
+          </div>
+          <button class="bio-toggle" id="bio-toggle" type="button" aria-expanded="false" aria-controls="darcey-bio-details">Read More</button>
+        </div>
+      </section>
+
+      ${curatedFavoritesSection()}
+
       <section class="section home-install-card" data-install-card hidden aria-label="Add Darcey's Guide to your phone">
         <div>
           <p class="eyebrow">Take Darcey's Guide With You ♡</p>
@@ -968,165 +977,35 @@ function render() {
         <button class="button dark" type="button" data-install-button>Add to My Phone</button>
       </section>
 
-      <section class="section guide" id="guide">
-        <div class="section-heading">
-          <div>
-          <p class="eyebrow">The Guide</p>
-          <h2>Food &amp; Drink</h2>
+      <section class="section home-love-section" id="contact" aria-label="Coachella Valley real estate with Darcey">
+        <div class="home-love-copy">
+          <p class="eyebrow">Love Where You Live</p>
+          <h2>Thinking about making the desert home?</h2>
+          <p>Whether you're buying, selling, or simply exploring what's possible, Darcey can help you navigate Coachella Valley real estate with the same local knowledge behind this guide.</p>
         </div>
-        <p>
-            Darcey's Star Ratings highlight places I personally recommend and love, along with a
-            handful of client favorites that have earned their reputation. I visit many of these
-            spots regularly, so do not be surprised if we cross paths while you're out enjoying the
-            Coachella Valley.
-        </p>
-      </div>
-        <div class="guide-tools">
-          <label class="search-box">
-            ${icon("search")}
-            <input id="search-input" type="search" placeholder="Search food, drinks, tips, cuisines..." />
-          </label>
-          <label class="sort-box">
-            <span>Sort</span>
-            <select id="sort-select">
-              <option>Highest Darcey Rating</option>
-              <option>Newest</option>
-              <option>Alphabetical</option>
-            </select>
-          </label>
-        </div>
-        <div class="filter-row">
-          <button class="filter-chip active" data-filter="All">All</button>
-          ${filters.map((filter) => `<button class="filter-chip" data-filter="${filter}">${filter}</button>`).join("")}
-        </div>
-        <label class="mobile-filter-select">
-          <span>Choose a Food &amp; Drink category</span>
-          <select id="mobile-filter-select">
-            <option>All</option>
-            ${filters.map((filter) => `<option>${filter}</option>`).join("")}
-          </select>
-        </label>
-        <div id="category-featured"></div>
-        <div class="results-line">
-          <span id="results-count"></span>
-          <span>★★★★★ = Darcey Rating, not Google or Yelp.</span>
-        </div>
-        <div id="listing-grid" class="listing-grid"></div>
-      </section>
-
-      ${dateNightSection()}
-
-      ${happyHourSection()}
-
-      ${thingsToDoSection()}
-
-      ${shoppingSection()}
-
-      <section class="section golf-guide" id="golf">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Golf</p>
-            <h2>Darcey's Desert Golf Picks</h2>
-          </div>
-          <p>
-            The Coachella Valley is home to more than 100 golf courses, but these are a few of my personal
-            favorites. Whether it's breathtaking mountain views, impeccable conditions, a fantastic clubhouse
-            restaurant, or simply a round that's memorable from the first tee to the final putt, these are the
-            courses I love recommending.
-          </p>
-        </div>
-        ${golfFeaturedListings()}
-        <div class="listing-grid golf-grid">
-          ${golfCourses.filter((course) => !featuredGolfNames.includes(course.name)).map(golfCard).join("")}
+        <div class="home-love-actions">
+          <a class="button home-search-button" href="${realtorProfile.homeSearchUrl}" target="_blank" rel="noreferrer">Explore Desert Homes</a>
+          <a class="home-talk-link" href="sms:${realtorProfile.phoneHref}" data-analytics-event="real_estate_contact_click" data-analytics-category="Real Estate" data-analytics-label="Talk With Darcey">Talk With Darcey <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
-      ${utilitiesSection()}
-
-      ${professionalsSection()}
-
-      <section class="section map-section" id="map">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Explore by area</p>
-            <h2>Interactive Map</h2>
-          </div>
-          <p>
-            Choose a recommendation to see it on a real street map with city labels, nearby roads and a direct Google Maps link.
-          </p>
+      <footer class="home-footer">
+        <div>
+          <a class="home-footer-brand" href="#top">My Desert Guide <span aria-hidden="true">♥</span></a>
+          <p>Darcey's personal guide to the best of desert living.</p>
         </div>
-        <div class="map-layout">
-          <div class="guide-map">
-            <iframe
-              id="map-frame"
-              title="Detailed map for selected My Desert Guide recommendation"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src=""
-            ></iframe>
-          </div>
-          <aside class="map-side">
-            <div id="map-detail" class="map-detail"></div>
-            <div id="map-place-list" class="map-place-list" aria-label="Map locations"></div>
-          </aside>
+        <nav class="home-footer-nav" aria-label="Footer guide navigation">
+          ${categories.map((category) => `<a href="${category.href}" data-category-link data-category-name="${category.label}" data-category-slug="${category.href.replaceAll("/", "")}">${category.label}</a>`).join("")}
+        </nav>
+        <div class="home-footer-contact">
+          <a href="/saved/">Saved Places ♡</a>
+          <a href="sms:${realtorProfile.phoneHref}">Text Darcey</a>
+          <a href="tel:${realtorProfile.phoneHref}">Call Darcey</a>
+          <a href="mailto:${realtorProfile.email}">Email Darcey</a>
         </div>
-      </section>
-
-      <section class="section contact" id="contact">
-        <div class="contact-main">
-          <img class="contact-photo" src="${realtorProfile.headshot}" alt="${realtorProfile.fullName}" />
-          <div>
-            <p class="eyebrow">Contact Darcey</p>
-            <h2>Have a local favorite Darcey should know about?</h2>
-            <p>Send the name, location and what makes it special. For real estate help, Darcey is always happy to point you in the right direction.</p>
-            <div class="darcey-contact-card">
-              <h3>${realtorProfile.fullName}</h3>
-              <p>${realtorProfile.dre}</p>
-              <a href="mailto:${realtorProfile.email}">${realtorProfile.email}</a>
-              <a href="tel:${realtorProfile.phoneHref}">${realtorProfile.phoneDisplay}</a>
-              <a href="${realtorProfile.website}" target="_blank" rel="noreferrer">darceydeetz.com</a>
-            </div>
-            ${contactActionLinks("contact-actions-dark")}
-          </div>
-        </div>
-        <div class="contact-links">
-          <a href="mailto:john@darceydeetz.com?subject=My%20Desert%20Guide%20Recommendation&body=Hi%20John%2C%0A%0AI%20have%20a%20recommendation%20for%20My%20Desert%20Guide.%0A%0AName%3A%0ALocation%3A%0ACategory%20%28restaurant%2C%20hidden%20gem%2C%20golf%20course%2C%20etc.%29%3A%0AWhat%20makes%20it%20special%3A%0AWebsite%20or%20Instagram%20%28if%20available%29%3A%0A%0AThank%20you!" class="submit-link">Submit a Recommendation</a>
-          <a href="mailto:john@darceydeetz.com?subject=Food%20and%20Drink%20Recommendation%20for%20My%20Desert%20Guide">Food &amp; Drink</a>
-          <a href="mailto:john@darceydeetz.com?subject=Hidden%20Gem%20for%20My%20Desert%20Guide">Hidden Gem</a>
-          <a href="mailto:john@darceydeetz.com?subject=Golf%20Course%20Recommendation%20for%20My%20Desert%20Guide">Golf Course</a>
-        </div>
-      </section>
-
+      </footer>
     </main>
   `;
-
-  document.querySelector("#search-input").addEventListener("input", (event) => {
-    state.query = event.target.value;
-    renderListings();
-  });
-
-  document.querySelector("#sort-select").addEventListener("change", (event) => {
-    state.sort = event.target.value;
-    renderListings();
-  });
-
-  document.querySelectorAll(".filter-chip").forEach((button) => {
-    button.addEventListener("click", () => {
-      state.activeFilter = button.dataset.filter;
-      document.querySelectorAll(".filter-chip").forEach((chip) => chip.classList.remove("active"));
-      button.classList.add("active");
-      document.querySelector("#mobile-filter-select").value = state.activeFilter;
-      renderListings();
-    });
-  });
-
-  document.querySelector("#mobile-filter-select").addEventListener("change", (event) => {
-    state.activeFilter = event.target.value;
-    document.querySelectorAll(".filter-chip").forEach((chip) => {
-      chip.classList.toggle("active", chip.dataset.filter === state.activeFilter);
-    });
-    renderListings();
-  });
 
   document.querySelector("#bio-toggle").addEventListener("click", (event) => {
     const details = document.querySelector("#darcey-bio-details");
@@ -1146,8 +1025,21 @@ function render() {
     toggle.textContent = isExpanded ? "Show less" : "Read more";
   });
 
-  renderListings();
-  renderMap();
 }
 
-render();
+const legacyCategoryRoutes = {
+  "#guide": "/food-drink/",
+  "#restaurants": "/food-drink/",
+  "#date-night": "/food-drink/",
+  "#happy-hour": "/food-drink/",
+  "#golf": "/golf/",
+  "#things-to-do": "/things-to-do/",
+  "#shopping": "/shopping/",
+  "#utilities": "/utilities/",
+  "#professionals": "/trusted-professionals/",
+  "#map": "/#browse-guide",
+};
+
+const legacyCategoryRoute = legacyCategoryRoutes[window.location.hash.toLowerCase()];
+if (legacyCategoryRoute) window.location.replace(legacyCategoryRoute);
+else render();

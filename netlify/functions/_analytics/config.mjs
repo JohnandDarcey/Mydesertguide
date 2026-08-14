@@ -21,6 +21,9 @@ export const GUIDE_CONFIG = {
 export const TRACKED_EVENTS = new Set([
   "guide_view",
   "category_view",
+  "homepage_category_click",
+  "curated_favorite_click",
+  "explore_desert_click",
   "place_view",
   "darcey_website_click",
   "real_estate_contact_click",
@@ -54,6 +57,9 @@ export const CLIENT_ENGAGEMENT_EVENTS = new Set([
 export const EVENT_TOTAL_KEYS = {
   guide_view: "guideViews",
   category_view: "categoryViews",
+  homepage_category_click: "homepageCategoryClicks",
+  curated_favorite_click: "curatedFavoriteClicks",
+  explore_desert_click: "exploreDesertClicks",
   place_view: "placeViews",
   darcey_website_click: "darceyWebsiteClicks",
   real_estate_contact_click: "realEstateContactClicks",

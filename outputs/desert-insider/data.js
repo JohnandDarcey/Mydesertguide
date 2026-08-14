@@ -16,6 +16,7 @@ export const realtorProfile = {
   phoneHref: "+17608081449",
   email: "darcey@darceydeetz.com",
   website: "https://darceydeetz.com",
+  homeSearchUrl: "https://darceydeetz.com/home-search/listings",
   headshot: "./assets/people/darcey-headshot-web.jpg",
   portrait: "./assets/people/darcey-front-web.jpg",
 };

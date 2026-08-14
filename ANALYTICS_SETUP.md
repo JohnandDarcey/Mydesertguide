@@ -29,6 +29,8 @@ The browser sends these event names to `/api/analytics/collect`:
 
 Favorites are device-local and shared across the homepage, category pages, recommendation pages, and installed mode. Installation events intentionally distinguish interest, instructions, native prompt outcomes, confirmed installation, and standalone launches.
 
+The hybrid homepage also records `homepage_category_click`, `curated_favorite_click`, and `explore_desert_click` so category routing, editorial highlights, and the intentional homepage scroll action remain distinct without duplicate hash-based category events.
+
 ## Client Engagements
 
 Client Engagements are the sum of:

@@ -229,11 +229,24 @@
 
       const explicitEvent = anchor.dataset.analyticsEvent;
       if (explicitEvent && explicitEvent !== classified?.[0]) {
+        const explicitPayload = cardPayload(anchor);
         send(explicitEvent, {
-          ...cardPayload(anchor),
-          category: "Real Estate",
+          ...explicitPayload,
+          category:
+            anchor.dataset.analyticsCategory ||
+            (explicitEvent.startsWith("real_estate_") ? "Real Estate" : explicitPayload.category),
           actionUrl: anchor.href,
           actionText: anchor.dataset.analyticsLabel || anchor.textContent.trim().slice(0, 80),
+        });
+      }
+
+      const categoryLink = anchor.closest("[data-category-link]");
+      if (categoryLink) {
+        send("homepage_category_click", {
+          category: categoryLink.dataset.categoryName || categoryLink.textContent.trim(),
+          categorySlug: categoryLink.dataset.categorySlug || "",
+          actionUrl: categoryLink.href,
+          actionText: categoryLink.dataset.categoryName || categoryLink.textContent.trim().slice(0, 80),
         });
       }
     }
@@ -241,11 +254,6 @@
     const filter = event.target.closest(".filter-chip");
     if (filter?.dataset.filter) {
       send("category_view", { category: filter.dataset.filter });
-    }
-
-    const categoryTile = event.target.closest(".category-tile");
-    if (categoryTile) {
-      send("category_view", { category: categoryTile.textContent.trim() });
     }
 
     const mapButton = event.target.closest(".map-place-button");
@@ -262,11 +270,6 @@
     if (event.target.matches("#mobile-filter-select")) {
       send("category_view", { category: event.target.value });
     }
-  });
-
-  window.addEventListener("hashchange", () => {
-    send("category_view", { category: sectionFromHash() });
-    scheduleBinding();
   });
 
   document.addEventListener("mdg:analytics", (event) => {
