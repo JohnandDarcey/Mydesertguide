@@ -9,7 +9,7 @@ import {
   services,
   shopping,
   thingsToDo,
-} from "./data.js?v=20260814-real-estate-restored";
+} from "./data.js?v=20260814-hero-realtor-identifier";
 
 const app = document.querySelector("#app");
 
