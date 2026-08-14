@@ -249,7 +249,7 @@ h1 {
 }
 
 .hero-image-map {
-  aspect-ratio: 1844 / 853;
+  aspect-ratio: 1829 / 860;
   background: var(--paper);
   isolation: isolate;
   min-height: 0;
@@ -387,20 +387,20 @@ h1 {
   outline-offset: -3px;
 }
 
-.hotspot-header-food { height: 6.5%; left: 22.6%; top: 4%; width: 7.6%; }
-.hotspot-header-golf { height: 6.5%; left: 31.5%; top: 4%; width: 5.5%; }
-.hotspot-header-things { height: 6.5%; left: 37.5%; top: 4%; width: 8.8%; }
-.hotspot-header-shopping { height: 6.5%; left: 46.5%; top: 4%; width: 7.5%; }
-.hotspot-header-utilities { height: 6.5%; left: 54.1%; top: 4%; width: 6.7%; }
-.hotspot-header-trusted { height: 6.5%; left: 61%; top: 4%; width: 8.7%; }
-.hotspot-header-text { height: 6.5%; left: 70.7%; top: 4%; width: 9%; }
-.hotspot-header-call { height: 6.5%; left: 80.3%; top: 4%; width: 9%; }
-.hotspot-header-email { height: 6.5%; left: 89.7%; top: 4%; width: 9.1%; }
-.hotspot-explore { height: 6.8%; left: 27.8%; top: 69.4%; width: 15.6%; }
-.hotspot-about { height: 6.8%; left: 44.4%; top: 69.4%; width: 12.1%; }
-.hotspot-connect-text { height: 6.8%; left: 27.8%; top: 83.3%; width: 10.8%; }
-.hotspot-connect-call { height: 6.8%; left: 39.2%; top: 83.3%; width: 10.6%; }
-.hotspot-connect-email { height: 6.8%; left: 50.4%; top: 83.3%; width: 10.9%; }
+.hotspot-header-food { height: 6.4%; left: 22.6%; top: 4%; width: 7.4%; }
+.hotspot-header-golf { height: 6.4%; left: 31.6%; top: 4%; width: 5.1%; }
+.hotspot-header-things { height: 6.4%; left: 37.6%; top: 4%; width: 8.1%; }
+.hotspot-header-shopping { height: 6.4%; left: 46.6%; top: 4%; width: 7.3%; }
+.hotspot-header-utilities { height: 6.4%; left: 54.2%; top: 4%; width: 6.7%; }
+.hotspot-header-trusted { height: 6.4%; left: 61%; top: 4%; width: 8.8%; }
+.hotspot-header-text { height: 6.4%; left: 70.8%; top: 4%; width: 9%; }
+.hotspot-header-call { height: 6.4%; left: 80.3%; top: 4%; width: 9%; }
+.hotspot-header-email { height: 6.4%; left: 89.7%; top: 4%; width: 9.2%; }
+.hotspot-explore { height: 6.8%; left: 27.7%; top: 68.7%; width: 15.7%; }
+.hotspot-about { height: 6.8%; left: 44.4%; top: 68.7%; width: 12.1%; }
+.hotspot-connect-text { height: 6.6%; left: 27.7%; top: 82.7%; width: 10.9%; }
+.hotspot-connect-call { height: 6.6%; left: 39.1%; top: 82.7%; width: 10.7%; }
+.hotspot-connect-email { height: 6.6%; left: 50.3%; top: 82.7%; width: 11.1%; }
 
 .hero-mobile-links {
   display: none;
