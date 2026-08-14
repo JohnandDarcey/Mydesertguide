@@ -8,9 +8,9 @@
   --white: #ffffff;
   --line: rgba(5, 5, 5, 0.12);
   --shadow: 0 14px 34px rgba(5, 5, 5, 0.09);
-  --font-display: "Bodoni Moda", "Didot", "Times New Roman", serif;
+  --font-display: "Libre Bodoni", "Didot", "Bodoni 72", "Times New Roman", serif;
   --font-sans: "Montserrat", "Avenir Next", Arial, sans-serif;
-  --font-editorial: "Bodoni Moda", Georgia, serif;
+  --font-editorial: "Cormorant Garamond", "Baskerville", Georgia, serif;
   --font-signature: "Allura", "Snell Roundhand", cursive;
   --serif: var(--font-display);
   --sans: var(--font-sans);
@@ -170,8 +170,8 @@ h1,
 h2,
 h3 {
   font-family: var(--serif);
-  font-weight: 600;
-  letter-spacing: -0.035em;
+  font-weight: 500;
+  letter-spacing: -0.025em;
   line-height: var(--heading-line-height);
 }
 
@@ -311,8 +311,9 @@ h1 {
 .hero-live-copy h1 {
   color: var(--charcoal);
   font-size: clamp(3.2rem, 7.3vw, 7.1rem);
-  font-weight: 600;
-  letter-spacing: -0.055em;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  word-spacing: 0.08em;
   line-height: 0.9;
   margin: 0;
   text-transform: uppercase;
@@ -474,7 +475,10 @@ h1 {
   align-self: center;
   border-left: 1px solid var(--line);
   color: var(--muted);
-  font-size: clamp(1.03rem, 1.6vw, 1.28rem);
+  font-family: var(--font-editorial);
+  font-size: clamp(1.18rem, 1.8vw, 1.42rem);
+  font-weight: 500;
+  line-height: 1.48;
   max-width: 640px;
   padding-left: clamp(20px, 3vw, 38px);
 }
@@ -567,6 +571,10 @@ h1 {
 
 .real-estate-copy p:not(.eyebrow) {
   color: var(--muted);
+  font-family: var(--font-editorial);
+  font-size: clamp(1.15rem, 1.55vw, 1.34rem);
+  font-weight: 500;
+  line-height: 1.5;
   margin-bottom: 0;
 }
 
@@ -589,7 +597,10 @@ h1 {
 .section-heading p,
 .contact p {
   color: var(--muted);
-  font-size: 1.04rem;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.12rem, 1.4vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .guide-categories {
