@@ -1048,9 +1048,9 @@
     ],
     "isFavorite": false,
     "isNew": true,
-    "image": "/assets/coffee/koffi-editorial.jpg",
+    "image": "/assets/coffee/koffi-palm-springs.jpg",
     "images": [],
-    "imageAlt": "Editorial Palm Springs courtyard coffee scene representing the Koffi experience",
+    "imageAlt": "Koffi's Palm Springs Central café and patio beneath the San Jacinto Mountains",
     "address": "515 N Palm Canyon Dr, Palm Springs, CA 92262",
     "phone": "",
     "email": "",
@@ -1095,6 +1095,10 @@
       ]
     ],
     "goodToKnow": "Koffi has several desert locations. Directions open the original Palm Springs North café; use View All Locations to choose another.",
+    "photoCredit": {
+      "label": "Photo courtesy of Koffi",
+      "url": "https://kofficoffee.com/pages/locations"
+    },
     "coffeePickLabel": "Palm Springs Classic",
     "schemaType": "CafeOrCoffeeShop"
   },
@@ -1133,9 +1137,9 @@
     ],
     "isFavorite": false,
     "isNew": true,
-    "image": "/assets/coffee/ernest-coffee-editorial.jpg",
+    "image": "/assets/coffee/ernest-coffee-palm-springs.jpg",
     "images": [],
-    "imageAlt": "Editorial retro-modern Palm Springs café scene representing the Ernest Coffee experience",
+    "imageAlt": "Ernest Coffee's colorful Palm Springs exterior with orange awnings and palm trees",
     "address": "1101 N Palm Canyon Dr, Palm Springs, CA 92262",
     "phone": "",
     "email": "",
@@ -1180,6 +1184,10 @@
       ]
     ],
     "goodToKnow": "Check Ernest's official website for current hours before heading over.",
+    "photoCredit": {
+      "label": "Photo courtesy of Visit Palm Springs",
+      "url": "https://visitpalmsprings.com/listing/ernest-coffee/93/"
+    },
     "coffeePickLabel": "Uptown Favorite",
     "schemaType": "CafeOrCoffeeShop"
   },
@@ -1218,9 +1226,9 @@
     ],
     "isFavorite": false,
     "isNew": true,
-    "image": "/assets/coffee/varraco-editorial.jpg",
+    "image": "/assets/coffee/varraco-palm-desert.jpg",
     "images": [],
-    "imageAlt": "Editorial specialty coffee roasting scene representing the Varraco experience",
+    "imageAlt": "A specialty drink in front of Varraco Coffee and Roasters in Palm Desert",
     "address": "73891 Highway 111, Palm Desert, CA 92260",
     "phone": "",
     "email": "",
@@ -1265,6 +1273,10 @@
       ]
     ],
     "goodToKnow": "Look for distinctive coffees from the Philippines and Southeast Asia, including Liberica.",
+    "photoCredit": {
+      "label": "Photo courtesy of Visit Greater Palm Springs",
+      "url": "https://www.visitgreaterpalmsprings.com/listing/varraco-coffee-%2B-roasters/56315/"
+    },
     "coffeePickLabel": "Coffee Lover's Pick",
     "schemaType": "CafeOrCoffeeShop"
   },
@@ -1304,9 +1316,9 @@
     ],
     "isFavorite": false,
     "isNew": true,
-    "image": "/assets/coffee/iw-coffee-editorial.jpg",
+    "image": "/assets/coffee/iw-coffee-indian-wells.jpg",
     "images": [],
-    "imageAlt": "Editorial Indian Wells café breakfast scene representing the IW Coffee experience",
+    "imageAlt": "The entrance to IW Coffee in Indian Wells",
     "address": "74995 Highway 111, Indian Wells, CA 92210",
     "phone": "",
     "email": "",
@@ -1351,6 +1363,10 @@
       ]
     ],
     "goodToKnow": "This recommendation is specifically for the Indian Wells location on Highway 111.",
+    "photoCredit": {
+      "label": "Photo courtesy of IW Coffee",
+      "url": "https://iwcoffeeco.com/"
+    },
     "coffeePickLabel": "Easy Morning Stop",
     "schemaType": "CafeOrCoffeeShop"
   },
@@ -1389,9 +1405,9 @@
     ],
     "isFavorite": false,
     "isNew": true,
-    "image": "/assets/coffee/everbloom-editorial.jpg",
+    "image": "/assets/coffee/everbloom-indio.jpg",
     "images": [],
-    "imageAlt": "Editorial modern Indio specialty café scene representing the Everbloom Coffee experience",
+    "imageAlt": "An iced specialty drink served at Everbloom Coffee in Indio",
     "address": "81730 Highway 111, Suite 14, Indio, CA 92201",
     "phone": "",
     "email": "",
@@ -1436,6 +1452,10 @@
       ]
     ],
     "goodToKnow": "Directions open the Midtown Indio location. Visit the official website for current information.",
+    "photoCredit": {
+      "label": "Photo courtesy of Everbloom Coffee",
+      "url": "https://everbloom.coffee/"
+    },
     "coffeePickLabel": "East Valley Favorite",
     "schemaType": "CafeOrCoffeeShop"
   },
@@ -1447,19 +1467,19 @@
     "slug": "starbucks",
     "url": "/place/starbucks/",
     "name": "Starbucks",
-    "city": "Coachella Valley",
+    "city": "Palm Springs",
     "category": "Food & Drink",
     "categorySlug": "food-drink",
     "subcategory": "Coffee",
-    "description": "Sometimes you just want what you know. Starbucks has multiple locations throughout the Coachella Valley for an easy coffee, breakfast or grab-and-go stop.",
-    "cardDescription": "Sometimes you just want what you know.",
+    "description": "Sometimes you just want what you know. This downtown Palm Springs Starbucks is an easy stop for coffee, breakfast or a quick break while exploring Palm Canyon Drive.",
+    "cardDescription": "A familiar coffee stop in the heart of downtown Palm Springs.",
     "darceysTake": "",
     "tags": [
       "Coffee",
       "Breakfast",
       "Grab & Go",
       "Familiar Favorite",
-      "Multiple Locations"
+      "Downtown Palm Springs"
     ],
     "experienceTypes": [
       "Brunch",
@@ -1469,22 +1489,22 @@
       "Breakfast",
       "Grab & Go",
       "Familiar Favorite",
-      "Multiple Locations"
+      "Downtown Palm Springs"
     ],
     "editorialLabels": [
       "Familiar Favorite"
     ],
     "isFavorite": false,
     "isNew": true,
-    "image": "/assets/coffee/starbucks-familiar-favorite.jpg",
+    "image": "/assets/coffee/starbucks-palm-springs.jpg",
     "images": [],
-    "imageAlt": "Editorial grab-and-go coffee scene representing a familiar café option",
-    "address": "",
+    "imageAlt": "The modern Starbucks café and outdoor patio in downtown Palm Springs",
+    "address": "110 N Palm Canyon Dr, Palm Springs, CA 92262",
     "phone": "",
     "email": "",
     "website": "https://www.starbucks.com/store-locator/store/search/",
     "menu": "",
-    "directions": "",
+    "directions": "https://www.google.com/maps/search/?api=1&query=Starbucks+110+N+Palm+Canyon+Dr+Palm+Springs+CA+92262",
     "teeTime": "",
     "hours": "",
     "latitude": null,
@@ -1497,22 +1517,14 @@
     "restaurant": "",
     "providerId": "",
     "aliases": [],
-    "serviceAreas": [
-      "Palm Springs",
-      "Cathedral City",
-      "Rancho Mirage",
-      "Palm Desert",
-      "Indian Wells",
-      "La Quinta",
-      "Indio",
-      "Coachella"
-    ],
+    "serviceAreas": [],
     "additionalLocations": [],
     "startServiceUrl": "",
     "availabilityUrl": "",
     "primaryAction": "",
     "websiteLabel": "Find a Starbucks",
     "websiteAnalyticsEvent": "find_starbucks_click",
+    "directionsLabel": "Get Directions",
     "quickInfo": [
       [
         "Experience",
@@ -1523,10 +1535,14 @@
         "Coffee and grab & go"
       ],
       [
-        "Locations",
-        "Throughout the Coachella Valley"
+        "Location",
+        "Downtown Palm Springs"
       ]
     ],
+    "photoCredit": {
+      "label": "Photo courtesy of Visit Palm Springs",
+      "url": "https://visitpalmsprings.com/listing/starbucks/30/"
+    },
     "familiarFavoriteLabel": "Familiar Favorite",
     "schemaType": "CafeOrCoffeeShop"
   },
