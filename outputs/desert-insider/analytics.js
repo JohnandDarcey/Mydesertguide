@@ -57,7 +57,7 @@
     const id = hash.replace(/^#/, "");
     const sections = {
       "browse-guide": "Browse Guide",
-      guide: "Restaurants",
+      guide: "Food & Drink",
       "date-night": "Date Night",
       "happy-hour": "Happy Hour",
       golf: "Golf",

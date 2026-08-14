@@ -49,7 +49,7 @@ export const EVENT_TOTAL_KEYS = {
 };
 
 const categoryImages = {
-  Restaurants: "./assets/restaurants/spencers-patio.png",
+  "Food & Drink": "./assets/restaurants/spencers-patio.png",
   "Happy Hour": "./assets/ig_0e3d77dee4f981a0016a41593366a88199baafbc65d93660f5.png",
   Golf: "./assets/golf/indian-canyons-web.jpg",
   "Things To Do": "./assets/things-to-do/the-living-desert.png",
@@ -101,5 +101,5 @@ export function imageUrl(path = "", width = 900, height = 520) {
 }
 
 export function categoryImage(category = "") {
-  return categoryImages[category] || categoryImages.Restaurants;
+  return categoryImages[category] || categoryImages["Food & Drink"];
 }

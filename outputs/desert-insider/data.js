@@ -5,13 +5,61 @@ export const assets = {
   neighborhoods: "./assets/ig_0e3d77dee4f981a0016a4159753f708199a185eb187fc2be32.png",
 };
 
+export const realtorProfile = {
+  firstName: "Darcey",
+  fullName: "Darcey Deetz",
+  dre: "CA DRE 01374659",
+  phoneDisplay: "760-808-1449",
+  phoneHref: "+17608081449",
+  email: "darcey@darceydeetz.com",
+  website: "https://darceydeetz.com",
+  headshot: "./assets/people/darcey-headshot-web.jpg",
+  portrait: "./assets/people/darcey-front-web.jpg",
+};
+
 export const categories = [
-  "Restaurants",
-  "Golf",
-  "Things To Do",
-  "Shopping",
-  "Local Utilities",
-  "Darcey's Trusted Professionals",
+  {
+    label: "Food & Drink",
+    href: "#guide",
+    image: "./assets/category-cards/food-drink-900.jpg",
+    imageSmall: "./assets/category-cards/food-drink-480.jpg",
+    alt: "Outdoor dining at Lulu California Bistro",
+  },
+  {
+    label: "Golf",
+    href: "#golf",
+    image: "./assets/category-cards/golf-900.jpg",
+    imageSmall: "./assets/category-cards/golf-480.jpg",
+    alt: "A green desert golf course framed by palms and mountains",
+  },
+  {
+    label: "Things to Do",
+    href: "#things-to-do",
+    image: "./assets/category-cards/things-to-do-900.jpg",
+    imageSmall: "./assets/category-cards/things-to-do-480.jpg",
+    alt: "Palm Springs Aerial Tramway above the desert",
+  },
+  {
+    label: "Shopping",
+    href: "#shopping",
+    image: "./assets/category-cards/shopping-900.jpg",
+    imageSmall: "./assets/category-cards/shopping-480.jpg",
+    alt: "World Market in Palm Springs",
+  },
+  {
+    label: "Local Utilities",
+    href: "#utilities",
+    image: "./assets/category-cards/local-utilities-900.jpg",
+    imageSmall: "./assets/category-cards/local-utilities-480.jpg",
+    alt: "A Palm Springs neighborhood at golden hour",
+  },
+  {
+    label: "Trusted Professionals",
+    href: "#professionals",
+    image: "./assets/category-cards/trusted-professionals-900.jpg",
+    imageSmall: "./assets/category-cards/trusted-professionals-480.jpg",
+    alt: "A trusted local professional in his kitchen studio",
+  },
 ];
 
 export const filters = [

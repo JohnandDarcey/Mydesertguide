@@ -1,6 +1,6 @@
 # My Desert Guide
 
-Darcey's personal Coachella Valley guide to restaurants, happy hours, golf, and local favorites.
+Darcey's personal Coachella Valley guide to food and drink, happy hours, golf, and local favorites.
 
 ## Netlify Deployment
 

@@ -4,11 +4,12 @@ import {
   filters,
   golfCourses,
   professionals,
+  realtorProfile,
   restaurants,
   services,
   shopping,
   thingsToDo,
-} from "./data.js?v=20260814-hero";
+} from "./data.js?v=20260814-food-drink";
 
 const app = document.querySelector("#app");
 
@@ -176,8 +177,22 @@ function icon(name) {
       '<path d="M12 3l1.8 5.1L19 10l-5.2 1.9L12 17l-1.8-5.1L5 10l5.2-1.9L12 3Z"></path><path d="M5 17l.8 2.2L8 20l-2.2.8L5 23l-.8-2.2L2 20l2.2-.8L5 17Z"></path>',
     mail:
       '<path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path>',
+    message:
+      '<path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"></path>',
+    phone:
+      '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"></path>',
   };
   return `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths[name]}</svg>`;
+}
+
+function contactActionLinks(className = "") {
+  return `
+    <div class="contact-actions ${className}" aria-label="Contact ${realtorProfile.firstName}">
+      <a href="sms:${realtorProfile.phoneHref}">${icon("message")}<span>Text Darcey</span></a>
+      <a href="tel:${realtorProfile.phoneHref}">${icon("phone")}<span>Call</span></a>
+      <a href="mailto:${realtorProfile.email}">${icon("mail")}<span>Email</span></a>
+    </div>
+  `;
 }
 
 function expandableTip(label, text) {
@@ -230,16 +245,6 @@ function restaurantCard(item) {
       </div>
     </article>
   `;
-}
-
-function categoryHref(category) {
-  if (category === "Golf") return "#golf";
-  if (category === "Things To Do") return "#things-to-do";
-  if (category === "Shopping") return "#shopping";
-  if (category === "Local Utilities") return "#utilities";
-  if (category === "Darcey's Trusted Professionals") return "#professionals";
-  if (category === "Hidden Gems") return "#contact";
-  return "#guide";
 }
 
 function golfCard(item) {
@@ -792,65 +797,54 @@ function render() {
   app.innerHTML = `
     <main id="top">
       <section class="hero hero-image-map" aria-label="My Desert Guide featured navigation">
-        <img src="${assets.hero}" alt="My Desert Guide featuring Darcey Deetz and the Coachella Valley" />
-        <a class="hero-hotspot hotspot-brand" href="#top" aria-label="My Desert Guide home"></a>
-        <a class="hero-hotspot hotspot-restaurants" href="#guide" aria-label="Restaurants"></a>
-        <a class="hero-hotspot hotspot-happy-hours" href="#happy-hour" aria-label="Happy Hours"></a>
-        <a class="hero-hotspot hotspot-golf" href="#golf" aria-label="Golf"></a>
-        <a class="hero-hotspot hotspot-things" href="#things-to-do" aria-label="Things To Do"></a>
-        <a class="hero-hotspot hotspot-shopping" href="#shopping" aria-label="Shopping"></a>
-        <a class="hero-hotspot hotspot-neighborhoods" href="#map" aria-label="Neighborhoods and map"></a>
-        <a class="hero-hotspot hotspot-events" href="#things-to-do" aria-label="Events"></a>
-        <a class="hero-hotspot hotspot-essentials" href="#utilities" aria-label="Desert Essentials"></a>
-        <a class="hero-hotspot hotspot-explore" href="#browse-guide" aria-label="Explore the Desert"></a>
+        <img class="hero-art" src="${assets.hero}" alt="Darcey Deetz with a Palm Springs desert landscape" />
+        <header class="hero-live-header">
+          <a class="hero-live-brand" href="#top">My Desert Guide <span aria-hidden="true">♥</span></a>
+          <nav class="hero-live-nav" aria-label="Primary guide navigation">
+            <a href="#guide">Food &amp; Drink</a>
+            <a href="#golf">Golf</a>
+            <a href="#things-to-do">Things to Do</a>
+            <a href="#shopping">Shopping</a>
+            <a href="#utilities">Local Utilities</a>
+            <a href="#professionals">Trusted Professionals</a>
+            <a href="#map">Map</a>
+          </nav>
+        </header>
+        <div class="hero-live-copy">
+          <p class="hero-kicker">Your Guide to</p>
+          <h1>The Desert</h1>
+          <div class="hero-divider" aria-hidden="true"><span>♥</span></div>
+          <p class="hero-description">Food &amp; drink, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by <em>Darcey.</em></p>
+          <a class="button dark hero-explore" href="#browse-guide">Explore the Desert</a>
+        </div>
         <a class="hero-hotspot hotspot-curated" href="#guide" aria-label="Curated Favorites"></a>
         <a class="hero-hotspot hotspot-insider" href="#browse-guide" aria-label="Local Insider Tips"></a>
         <a class="hero-hotspot hotspot-trusted" href="#professionals" aria-label="Trusted Recommendations"></a>
-        <a class="hero-hotspot hotspot-love" href="https://darceydeetz.com" target="_blank" rel="noreferrer" aria-label="Love Where You Live — visit Darcey's real estate website"></a>
+        <a class="hero-hotspot hotspot-love" href="${realtorProfile.website}" target="_blank" rel="noreferrer" aria-label="Love Where You Live — visit Darcey's real estate website"></a>
       </section>
 
-      <nav class="hero-mobile-links" aria-label="Mobile guide navigation">
-        <a class="button dark" href="#browse-guide">Explore the Desert</a>
-        <a href="#guide">Restaurants</a>
-        <a href="#happy-hour">Happy Hours</a>
-        <a href="#golf">Golf</a>
-        <a href="#things-to-do">Things To Do</a>
-        <a href="#shopping">Shopping</a>
-        <a href="#map">Neighborhoods</a>
-        <a href="#utilities">Desert Essentials</a>
-        <a href="#professionals">Trusted Pros</a>
-      </nav>
-
       <section class="section intro welcome-note">
-        <img class="darcey-note-photo" src="./assets/people/darcey-headshot-web.jpg" alt="Darcey Deetz smiling in the desert" />
+        <img class="darcey-note-photo" src="${realtorProfile.headshot}" alt="${realtorProfile.fullName} smiling in the desert" />
         <div>
           <p class="eyebrow">A note from Darcey</p>
           <h2>A personal guide to the desert <span class="no-break">I love.</span></h2>
         </div>
         <div class="welcome-copy">
-          <p>
-            The Coachella Valley is so much more than beautiful weather and palm trees. It's the incredible people,
-            unforgettable restaurants, world-class golf, unique local businesses, and hidden gems that make living here
-            such a joy.
-          </p>
-          <p>
-            This guide is a collection of the places I genuinely recommend to my clients, friends, and family. From my
-            favorite restaurants and happy hours to golf courses, trusted local vendors, shopping, entertainment,
-            wellness, and neighborhood treasures, every recommendation has been chosen because it's somewhere I'd
-            happily send the people I care about most.
-          </p>
-          <p>
-            Consider this my personal welcome to the desert, a guide designed to help you experience the Coachella
-            Valley like a local and discover all the reasons so many of us are proud to call it home.
-          </p>
+          <p class="welcome-summary">My Desert Guide is a collection of the food, golf, local businesses, and experiences I genuinely recommend to clients, friends, and family.</p>
+          <div class="welcome-details" id="darcey-bio-details" aria-hidden="true">
+            <p>Every favorite is chosen because it is somewhere I would happily send the people I care about most.</p>
+            <p>Consider this my personal welcome to the Coachella Valley—and an invitation to experience the desert like a local.</p>
+          </div>
+          <button class="bio-toggle" id="bio-toggle" type="button" aria-expanded="false" aria-controls="darcey-bio-details">Read More</button>
+          ${contactActionLinks("contact-actions-light")}
         </div>
       </section>
 
       <section class="section real-estate-cta" aria-label="Real estate help from Darcey">
         <div class="real-estate-lead">
           <div class="darcey-cta-card">
-            <img class="darcey-cta-photo" src="./assets/people/darcey-front-web.jpg" alt="Darcey Deetz" />
-            <p class="dre-line">Darcey Deetz · CA DRE 01374659</p>
+            <img class="darcey-cta-photo" src="${realtorProfile.portrait}" alt="${realtorProfile.fullName}" />
+            <p class="dre-line">${realtorProfile.fullName} · ${realtorProfile.dre}</p>
           </div>
           <div>
             <p class="eyebrow">Real estate help</p>
@@ -862,7 +856,7 @@ function render() {
             If this guide has you picturing life in the Coachella Valley, Darcey can help with the
             homes, neighborhoods and next steps.
           </p>
-          <a class="button dark" href="https://darceydeetz.com" target="_blank" rel="noreferrer">
+          <a class="button dark" href="${realtorProfile.website}" target="_blank" rel="noreferrer">
             ${icon("heart")} Visit Darcey's Real Estate Website
           </a>
         </div>
@@ -877,8 +871,17 @@ function render() {
           ${categories
             .map(
               (category) => `
-                <a href="${categoryHref(category)}" class="category-tile">
-                  <strong>${category}</strong>
+                <a href="${category.href}" class="category-tile">
+                  <img
+                    src="${category.image}"
+                    srcset="${category.imageSmall} 480w, ${category.image} 900w"
+                    sizes="(max-width: 760px) calc(50vw - 28px), (max-width: 1050px) calc(33vw - 28px), calc(33vw - 52px)"
+                    alt="${category.alt}"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="category-tile-overlay" aria-hidden="true"></span>
+                  <strong>${category.label}</strong>
                 </a>
               `,
             )
@@ -890,7 +893,7 @@ function render() {
         <div class="section-heading">
           <div>
           <p class="eyebrow">The Guide</p>
-          <h2>Restaurants</h2>
+          <h2>Food &amp; Drink</h2>
         </div>
         <p>
             Darcey's Star Ratings highlight places I personally recommend and love, along with a
@@ -902,7 +905,7 @@ function render() {
         <div class="guide-tools">
           <label class="search-box">
             ${icon("search")}
-            <input id="search-input" type="search" placeholder="Search restaurants, tips, cuisines..." />
+            <input id="search-input" type="search" placeholder="Search food, drinks, tips, cuisines..." />
           </label>
           <label class="sort-box">
             <span>Sort</span>
@@ -918,7 +921,7 @@ function render() {
           ${filters.map((filter) => `<button class="filter-chip" data-filter="${filter}">${filter}</button>`).join("")}
         </div>
         <label class="mobile-filter-select">
-          <span>Choose a restaurant category</span>
+          <span>Choose a Food &amp; Drink category</span>
           <select id="mobile-filter-select">
             <option>All</option>
             ${filters.map((filter) => `<option>${filter}</option>`).join("")}
@@ -992,23 +995,24 @@ function render() {
 
       <section class="section contact" id="contact">
         <div class="contact-main">
-          <img class="contact-photo" src="./assets/people/darcey-headshot-web.jpg" alt="Darcey Deetz" />
+          <img class="contact-photo" src="${realtorProfile.headshot}" alt="${realtorProfile.fullName}" />
           <div>
             <p class="eyebrow">Contact Darcey</p>
             <h2>Have a local favorite Darcey should know about?</h2>
             <p>Send the name, location and what makes it special. For real estate help, Darcey is always happy to point you in the right direction.</p>
             <div class="darcey-contact-card">
-              <h3>Darcey Deetz</h3>
-              <p>CA DRE 01374659</p>
-              <a href="mailto:darcey@darceydeetz.com">darcey@darceydeetz.com</a>
-              <a href="tel:17608081449">760-808-1449</a>
-              <a href="https://darceydeetz.com" target="_blank" rel="noreferrer">darceydeetz.com</a>
+              <h3>${realtorProfile.fullName}</h3>
+              <p>${realtorProfile.dre}</p>
+              <a href="mailto:${realtorProfile.email}">${realtorProfile.email}</a>
+              <a href="tel:${realtorProfile.phoneHref}">${realtorProfile.phoneDisplay}</a>
+              <a href="${realtorProfile.website}" target="_blank" rel="noreferrer">darceydeetz.com</a>
             </div>
+            ${contactActionLinks("contact-actions-dark")}
           </div>
         </div>
         <div class="contact-links">
           <a href="mailto:john@darceydeetz.com?subject=My%20Desert%20Guide%20Recommendation&body=Hi%20John%2C%0A%0AI%20have%20a%20recommendation%20for%20My%20Desert%20Guide.%0A%0AName%3A%0ALocation%3A%0ACategory%20%28restaurant%2C%20hidden%20gem%2C%20golf%20course%2C%20etc.%29%3A%0AWhat%20makes%20it%20special%3A%0AWebsite%20or%20Instagram%20%28if%20available%29%3A%0A%0AThank%20you!" class="submit-link">Submit a Recommendation</a>
-          <a href="mailto:john@darceydeetz.com?subject=Restaurant%20Recommendation%20for%20My%20Desert%20Guide">Restaurant</a>
+          <a href="mailto:john@darceydeetz.com?subject=Food%20and%20Drink%20Recommendation%20for%20My%20Desert%20Guide">Food &amp; Drink</a>
           <a href="mailto:john@darceydeetz.com?subject=Hidden%20Gem%20for%20My%20Desert%20Guide">Hidden Gem</a>
           <a href="mailto:john@darceydeetz.com?subject=Golf%20Course%20Recommendation%20for%20My%20Desert%20Guide">Golf Course</a>
         </div>
@@ -1043,6 +1047,14 @@ function render() {
       chip.classList.toggle("active", chip.dataset.filter === state.activeFilter);
     });
     renderListings();
+  });
+
+  document.querySelector("#bio-toggle").addEventListener("click", (event) => {
+    const details = document.querySelector("#darcey-bio-details");
+    const isExpanded = details.classList.toggle("expanded");
+    details.setAttribute("aria-hidden", String(!isExpanded));
+    event.currentTarget.setAttribute("aria-expanded", String(isExpanded));
+    event.currentTarget.textContent = isExpanded ? "Show Less" : "Read More";
   });
 
   document.addEventListener("click", (event) => {

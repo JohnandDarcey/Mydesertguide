@@ -236,15 +236,138 @@ h1 {
 .hero-image-map {
   aspect-ratio: 3 / 2;
   background: var(--paper);
+  isolation: isolate;
   min-height: 0;
+  overflow: hidden;
   position: relative;
 }
 
-.hero-image-map img {
+.hero-image-map .hero-art {
   height: 100%;
   object-fit: contain;
   object-position: center;
   width: 100%;
+}
+
+.hero-live-header {
+  align-items: center;
+  background: rgba(250, 248, 245, 0.98);
+  display: flex;
+  gap: clamp(22px, 4vw, 60px);
+  height: 9.9%;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 clamp(24px, 3.1vw, 48px);
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 4;
+}
+
+.hero-live-brand {
+  color: var(--charcoal);
+  flex: 0 0 auto;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(1.45rem, 2.3vw, 2.25rem);
+  letter-spacing: -0.045em;
+}
+
+.hero-live-brand span {
+  color: #caa086;
+  font-family: inherit;
+  font-size: 0.68em;
+}
+
+.hero-live-nav {
+  align-items: center;
+  display: flex;
+  gap: clamp(13px, 2.1vw, 34px);
+  justify-content: flex-end;
+}
+
+.hero-live-nav a {
+  color: var(--charcoal);
+  font-size: clamp(0.58rem, 0.78vw, 0.78rem);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hero-live-nav a:hover,
+.hero-live-nav a:focus-visible {
+  color: #9b6347;
+}
+
+.hero-live-copy {
+  align-content: center;
+  background: #f8f6f1;
+  display: grid;
+  left: 31.4%;
+  min-height: 78%;
+  padding: clamp(32px, 4vw, 62px) clamp(28px, 4.6vw, 72px);
+  position: absolute;
+  top: 9.8%;
+  width: 46%;
+  z-index: 3;
+}
+
+.hero-kicker {
+  font-size: clamp(0.8rem, 1.35vw, 1.3rem);
+  letter-spacing: 0.18em;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.hero-live-copy h1 {
+  color: var(--charcoal);
+  font-size: clamp(3.2rem, 7.3vw, 7.1rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
+  margin: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hero-divider {
+  align-items: center;
+  color: #caa086;
+  display: flex;
+  gap: 14px;
+  margin: clamp(20px, 2.5vw, 36px) 0;
+}
+
+.hero-divider::before,
+.hero-divider::after {
+  background: #d7b8a5;
+  content: "";
+  height: 1px;
+  width: min(34%, 180px);
+}
+
+.hero-description {
+  font-family: Georgia, serif;
+  font-size: clamp(1rem, 1.62vw, 1.55rem);
+  font-style: italic;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 530px;
+}
+
+.hero-description em {
+  color: #b8876f;
+  font-weight: 700;
+}
+
+.hero-explore {
+  border-radius: 0;
+  justify-self: start;
+  letter-spacing: 0.08em;
+  margin-top: clamp(22px, 3vw, 40px);
+  padding-left: clamp(24px, 3vw, 44px);
+  padding-right: clamp(24px, 3vw, 44px);
+  text-transform: uppercase;
 }
 
 .hero-hotspot {
@@ -263,16 +386,6 @@ h1 {
   outline-offset: -3px;
 }
 
-.hotspot-brand { height: 7%; left: 2.5%; top: 1.4%; width: 20.5%; }
-.hotspot-restaurants { height: 6%; left: 27.7%; top: 2%; width: 8.1%; }
-.hotspot-happy-hours { height: 6%; left: 36.4%; top: 2%; width: 8.5%; }
-.hotspot-golf { height: 6%; left: 46.7%; top: 2%; width: 4.4%; }
-.hotspot-things { height: 6%; left: 52%; top: 2%; width: 9.1%; }
-.hotspot-shopping { height: 6%; left: 61.5%; top: 2%; width: 7%; }
-.hotspot-neighborhoods { height: 6%; left: 69.2%; top: 2%; width: 10.8%; }
-.hotspot-events { height: 6%; left: 80.8%; top: 2%; width: 5.5%; }
-.hotspot-essentials { height: 6%; left: 86.7%; top: 2%; width: 11%; }
-.hotspot-explore { height: 7.5%; left: 34.8%; top: 66.6%; width: 21%; }
 .hotspot-curated { height: 9.5%; left: 0; top: 90.3%; width: 24.7%; }
 .hotspot-insider { height: 9.5%; left: 24.7%; top: 90.3%; width: 21.3%; }
 .hotspot-trusted { height: 9.5%; left: 46%; top: 90.3%; width: 26.6%; }
@@ -362,6 +475,36 @@ h1 {
 
 .welcome-copy p:last-child {
   margin-bottom: 0;
+}
+
+.welcome-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 280ms ease, opacity 220ms ease, margin 280ms ease;
+  visibility: hidden;
+}
+
+.welcome-details.expanded {
+  margin-top: 1em;
+  max-height: 260px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.bio-toggle {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  color: var(--charcoal);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-top: 12px;
+  padding: 0 0 4px;
+  text-transform: uppercase;
 }
 
 .real-estate-cta {
@@ -454,30 +597,59 @@ h1 {
 
 .category-strip {
   display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 22px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   overflow: visible;
 }
 
 .category-tile {
-  align-items: center;
+  align-items: end;
+  aspect-ratio: 4 / 3;
   background: var(--charcoal);
-  border: 1px solid var(--charcoal);
+  border: 1px solid rgba(38, 31, 27, 0.15);
   border-radius: 8px;
+  box-shadow: 0 18px 38px rgba(42, 31, 24, 0.13);
   color: var(--white);
   display: grid;
-  gap: 0;
-  justify-items: center;
-  min-height: 118px;
-  padding: 16px 12px;
-  text-align: center;
+  min-height: 210px;
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
+.category-tile img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  min-width: 0;
+  position: absolute;
+  transition: transform 420ms ease;
+  width: 100%;
+}
+
+.category-tile-overlay {
+  background: linear-gradient(0deg, rgba(8, 7, 6, 0.78), rgba(8, 7, 6, 0.05) 72%);
+  inset: 0;
+  position: absolute;
+}
+
+.category-tile:hover img {
+  transform: scale(1.035);
+}
+
 .category-tile strong {
-  align-self: center;
-  font-size: clamp(0.88rem, 1.2vw, 1rem);
-  line-height: 1.25;
+  bottom: 0;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(1.35rem, 2.3vw, 2.35rem);
+  left: 0;
+  line-height: 1.05;
+  padding: clamp(18px, 2.5vw, 30px);
+  position: absolute;
+  right: 0;
+  text-align: left;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+  z-index: 1;
 }
 
 .featured-listings {
@@ -1431,6 +1603,42 @@ dd {
   text-underline-offset: 4px;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.contact-actions a {
+  align-items: center;
+  border: 1px solid rgba(28, 25, 23, 0.18);
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.76rem;
+  font-weight: 800;
+  gap: 8px;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.contact-actions svg {
+  height: 18px;
+  width: 18px;
+}
+
+.contact-actions-light a {
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+.contact-actions-dark a {
+  background: var(--white);
+  color: var(--charcoal);
+}
+
 .contact-links {
   align-content: start;
   display: grid;
@@ -1460,13 +1668,19 @@ dd {
   }
 
   .category-strip {
-    display: flex;
-    overflow-x: auto;
-    padding-bottom: 4px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .category-tile {
-    flex: 0 0 210px;
+    min-height: 180px;
+  }
+
+  .hero-live-nav {
+    gap: 13px;
+  }
+
+  .hero-live-nav a {
+    font-size: 0.55rem;
   }
 }
 
@@ -1635,6 +1849,16 @@ dd {
     padding-top: 20px;
   }
 
+  .contact-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .contact-actions a {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
   .feature.large {
     grid-row: auto;
   }
@@ -1674,7 +1898,8 @@ dd {
 
   .guide-map {
     aspect-ratio: 4 / 5;
-    min-height: 430px;
+    min-height: 0;
+    width: 100%;
   }
 
   .results-line {
@@ -1726,12 +1951,17 @@ dd {
 
   .category-strip {
     gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .category-tile {
-    flex-basis: 168px;
-    min-height: 112px;
-    padding: 14px;
+    aspect-ratio: 0.94;
+    min-height: 0;
+  }
+
+  .category-tile strong {
+    font-size: clamp(1rem, 5.3vw, 1.35rem);
+    padding: 14px 12px;
   }
 
   .guide-tools {
@@ -1750,37 +1980,74 @@ dd {
 
 @media (max-width: 760px) {
   .hero-image-map {
-    aspect-ratio: 3 / 2;
-    min-height: 0;
+    aspect-ratio: auto;
+    min-height: min(760px, 112svh);
   }
 
-  .hero-image-map img {
-    object-position: center;
+  .hero-image-map .hero-art {
+    object-fit: cover;
+    object-position: left center;
   }
 
-  .hero-mobile-links {
-    background: var(--white);
-    border-bottom: 1px solid var(--line);
-    display: grid;
-    gap: 9px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: none;
-    overflow: visible;
-    padding: 14px 16px 18px;
+  .hero-live-header {
+    height: 72px;
+    padding: 0 18px;
+  }
+
+  .hero-live-brand {
+    font-size: clamp(1.75rem, 8vw, 2.2rem);
+  }
+
+  .hero-live-nav {
+    display: none;
+  }
+
+  .hero-live-copy {
+    align-content: end;
+    background: #f8f6f1;
+    bottom: 0;
+    left: auto;
+    min-height: 47%;
+    padding: 36px 20px 30px;
+    right: 0;
+    top: auto;
+    width: 100%;
+  }
+
+  .hero-kicker {
+    font-size: 0.74rem;
+  }
+
+  .hero-live-copy h1 {
+    font-size: clamp(3.4rem, 17vw, 5.4rem);
     white-space: normal;
   }
 
-  .hero-mobile-links a {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    min-height: 44px;
-    text-align: center;
+  .hero-divider {
+    margin: 18px 0;
   }
 
-  .hero-mobile-links .button {
-    grid-column: 1 / -1;
-    width: 100%;
+  .hero-description {
+    font-size: clamp(1rem, 4.6vw, 1.25rem);
+    line-height: 1.45;
+  }
+
+  .hero-explore {
+    justify-self: stretch;
+    margin-top: 22px;
+  }
+
+  .hero-hotspot {
+    display: none;
+  }
+
+  .category-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .category-tile {
+    aspect-ratio: 0.94;
+    min-height: 0;
   }
 }
 

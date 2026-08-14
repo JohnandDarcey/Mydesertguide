@@ -116,7 +116,7 @@ function normalizeCategory(payload) {
   const type = sanitize(payload.placeType || payload.type);
   const category = sanitize(payload.category);
 
-  if (type === "Restaurant") return "Restaurants";
+  if (type === "Restaurant") return "Food & Drink";
   if (type === "Golf") return "Golf";
   if (type === "Thing To Do") return "Things To Do";
   if (type === "Shopping") return "Shopping";
@@ -125,7 +125,7 @@ function normalizeCategory(payload) {
 
   const hash = sanitize(payload.hash).replace(/^#/, "");
   const hashCategories = {
-    guide: "Restaurants",
+    guide: "Food & Drink",
     "browse-guide": "Browse Guide",
     golf: "Golf",
     "things-to-do": "Things To Do",
