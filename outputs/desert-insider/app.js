@@ -9,7 +9,7 @@ import {
   services,
   shopping,
   thingsToDo,
-} from "./data.js?v=20260814-hybrid-homepage";
+} from "./data.js?v=20260814-mobile-arm-fix-v2";
 
 const app = document.querySelector("#app");
 
