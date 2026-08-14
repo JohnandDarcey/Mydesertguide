@@ -16,10 +16,10 @@
   --sans: var(--font-sans);
   --tracking-label: 0.09em;
   --heading-line-height: 0.98;
-  --type-page-title: clamp(3.25rem, 6.4vw, 6.4rem);
-  --type-section-title: clamp(2.5rem, 4.7vw, 4.7rem);
-  --type-subsection-title: clamp(2rem, 3.4vw, 3.35rem);
-  --type-card-title: clamp(1.5rem, 2.2vw, 2.1rem);
+  --type-page-title: clamp(2.76rem, 5.44vw, 5.44rem);
+  --type-section-title: clamp(2.13rem, 4vw, 4rem);
+  --type-subsection-title: clamp(1.7rem, 2.9vw, 2.85rem);
+  --type-card-title: clamp(1.28rem, 1.87vw, 1.79rem);
   --type-editorial: clamp(1.08rem, 1.45vw, 1.28rem);
   --type-body: 1rem;
   --type-small: 0.78rem;
@@ -2957,7 +2957,7 @@ dd {
 
 .install-dialog::backdrop { background: rgba(0,0,0,.62); }
 .install-dialog-inner { padding: 30px; }
-.install-dialog h2 { font-family: var(--font-display); font-size: 2.6rem; font-weight: 400; line-height: 1; margin: 0 0 13px; }
+.install-dialog h2 { font-family: var(--font-display); font-size: 2.21rem; font-weight: 400; line-height: 1; margin: 0 0 13px; }
 .install-dialog ol { color: var(--muted); line-height: 1.7; padding-left: 22px; }
 .install-dialog-actions { display: flex; gap: 8px; margin-top: 20px; }
 

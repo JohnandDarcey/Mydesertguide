@@ -50,6 +50,16 @@ for (const stylesheet of [homepageStyles, directoryStyles]) {
   }
 }
 for (const marker of [
+  "--type-page-title: clamp(2.76rem",
+  "--type-section-title: clamp(2.13rem",
+  "--type-subsection-title: clamp(1.7rem",
+  "--type-card-title: clamp(1.28rem",
+]) {
+  if (!homepageStyles.includes(marker) || !directoryStyles.includes(marker)) {
+    throw new Error(`Reduced global heading scale is missing: ${marker}`);
+  }
+}
+for (const marker of [
   ".hero-live-copy h1",
   "font-size: clamp(3.2rem, 7.3vw, 7.1rem)",
   "letter-spacing: -0.02em",
