@@ -144,7 +144,7 @@ function normalizePlace(item, category) {
     isNew: Boolean(item.isNew),
     image: absoluteAsset(item.image || item.images?.[0] || category.image),
     images: (item.images || []).map(absoluteAsset),
-    imageAlt: `${item.name}${item.location ? ` in ${item.location}` : ""}`,
+    imageAlt: item.imageAlt || `${item.name}${item.location ? ` in ${item.location}` : ""}`,
     address: item.address || "",
     phone: item.phone || "",
     email: item.email || "",
@@ -168,12 +168,15 @@ function normalizePlace(item, category) {
     availabilityUrl: item.availabilityUrl || "",
     primaryAction: item.primaryAction || "",
     websiteLabel: item.websiteLabel,
+    websiteAnalyticsEvent: item.websiteAnalyticsEvent,
     directionsLabel: item.directionsLabel,
     quickInfo: Array.isArray(item.quickInfo) ? item.quickInfo : undefined,
     goodToKnow: item.goodToKnow,
     photoCredit: item.photoCredit,
     hikingPickLabel: item.hikingPickLabel,
-    schemaType: category.schemaType,
+    coffeePickLabel: item.coffeePickLabel,
+    familiarFavoriteLabel: item.familiarFavoriteLabel,
+    schemaType: item.schemaType || category.schemaType,
   };
 }
 
@@ -222,11 +225,14 @@ export const masterPlaces = allPlaces.map((place) => ({
   availabilityUrl: place.availabilityUrl,
   primaryAction: place.primaryAction,
   websiteLabel: place.websiteLabel,
+  websiteAnalyticsEvent: place.websiteAnalyticsEvent,
   directionsLabel: place.directionsLabel,
   quickInfo: place.quickInfo,
   goodToKnow: place.goodToKnow,
   photoCredit: place.photoCredit,
   hikingPickLabel: place.hikingPickLabel,
+  coffeePickLabel: place.coffeePickLabel,
+  familiarFavoriteLabel: place.familiarFavoriteLabel,
 }));
 
 export const guideRecommendations = allPlaces.map((place) => ({

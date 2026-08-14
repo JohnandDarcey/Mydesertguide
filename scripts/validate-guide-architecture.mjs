@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../outp
 const read = (relative) => fs.readFile(path.join(root, relative), "utf8");
 
 if (categoryDefinitions.length !== 6) throw new Error(`Expected 6 primary categories, found ${categoryDefinitions.length}.`);
-if (allPlaces.length !== 59) throw new Error(`Expected 59 source recommendations and utility resources, found ${allPlaces.length}.`);
+if (allPlaces.length !== 65) throw new Error(`Expected 65 source recommendations and utility resources, found ${allPlaces.length}.`);
 
 const slugs = new Set(allPlaces.map((place) => place.slug));
 const ids = new Set(allPlaces.map((place) => place.placeId));
@@ -99,6 +99,26 @@ const thingsToDoPage = await read("things-to-do/index.html");
 for (const marker of ["Darcey's Desert Hiking Picks", "Hike the desert.", "Palm Oasis", "Waterfall", "Local Workout", "Views + Architecture", "Mountain Escape", "Desert temperatures climb quickly"]) {
   if (!thingsToDoPage.includes(marker)) throw new Error(`Things to Do hiking collection is missing: ${marker}`);
 }
+const coffeePicks = [
+  ["koffi", ["Palm Springs Classic", "View All Locations", "Get Directions"]],
+  ["ernest-coffee", ["Uptown Favorite", "1101 N Palm Canyon Dr", "Visit Website"]],
+  ["varraco-coffee-roasters", ["Coffee Lover&#39;s Pick", "73891 Highway 111", "Official Instagram"]],
+  ["iw-coffee", ["Easy Morning Stop", "74995 Highway 111", "Indian Wells"]],
+  ["everbloom-coffee", ["East Valley Favorite", "81730 Highway 111", "Midtown Indio"]],
+  ["starbucks", ["Familiar Favorite", "Find a Starbucks", "find_starbucks_click"]],
+];
+for (const [slug, markers] of coffeePicks) {
+  const html = await read(`place/${slug}/index.html`);
+  for (const marker of markers) {
+    if (!html.includes(marker)) throw new Error(`${slug} is missing coffee marker: ${marker}`);
+  }
+  if (html.includes("Darcey's Take")) throw new Error(`${slug} must not include an invented Darcey's Take.`);
+}
+const foodDrinkPage = await read("food-drink/index.html");
+for (const marker of ["Darcey's Coffee Picks", "Coffee in the desert.", "Palm Springs Classic", "Uptown Favorite", "Coffee Lover&#39;s Pick", "Easy Morning Stop", "East Valley Favorite", "Familiar Favorites", "Find a Starbucks"]) {
+  if (!foodDrinkPage.includes(marker)) throw new Error(`Food & Drink coffee collection is missing: ${marker}`);
+}
+if ((foodDrinkPage.match(/data-guide-place="Starbucks"/g) || []).length !== 1) throw new Error("Starbucks should appear exactly once on Food & Drink.");
 for (const providerName of ["Southern California Edison", "Imperial Irrigation District", "SoCalGas", "Desert Water Agency", "Coachella Valley Water District", "Mission Springs Water District", "Indio Water Authority", "Myoma Dunes Water Company", "City of Coachella Water Department", "Spectrum", "Frontier Communications", "AT&amp;T Internet", "T-Mobile Home Internet"]) {
   if (!utilitiesPage.includes(providerName)) throw new Error(`Utilities concierge is missing provider: ${providerName}`);
 }

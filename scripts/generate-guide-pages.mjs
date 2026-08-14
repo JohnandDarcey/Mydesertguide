@@ -47,7 +47,7 @@ function pageHead({ title, description, canonical, image, type = "website", noin
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Libre+Bodoni:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/directory.css?v=20260814-hiking-picks">
+    <link rel="stylesheet" href="/directory.css?v=20260814-coffee-picks">
     ${schema ? `<script type="application/ld+json">${jsonLd(schema)}</script>` : ""}`;
 }
 
@@ -80,7 +80,7 @@ function footer() {
 function scripts() {
   return `<script src="/analytics-config.js?v=20260814-guide-architecture"></script>
     <script src="/analytics.js?v=20260814-utility-concierge"></script>
-    <script type="module" src="/directory.js?v=20260814-hiking-picks"></script>
+    <script type="module" src="/directory.js?v=20260814-coffee-picks"></script>
     <script type="module" src="/site-features.js?v=20260814-hybrid-homepage"></script>`;
 }
 
@@ -98,13 +98,32 @@ function card(place) {
     <a class="card-link" href="${place.url}" aria-label="Open ${escapeHtml(place.name)}"></a>
     <div class="card-media"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" loading="lazy" decoding="async">${favoriteButton(place)}</div>
     <div class="card-body">
-      <div class="card-topline">${place.hikingPickLabel ? `<span>${escapeHtml(place.hikingPickLabel)}</span><span>${escapeHtml(place.city)}</span>` : `${escapeHtml(place.city)} · ${escapeHtml(place.subcategory || place.category)}`}</div>
+      <div class="card-topline">${place.hikingPickLabel || place.coffeePickLabel || place.familiarFavoriteLabel ? `<span>${escapeHtml(place.hikingPickLabel || place.coffeePickLabel || place.familiarFavoriteLabel)}</span><span>${escapeHtml(place.city)}</span>` : `${escapeHtml(place.city)} · ${escapeHtml(place.subcategory || place.category)}`}</div>
       <h2>${escapeHtml(place.name)}</h2>
       <p>${escapeHtml(place.cardDescription || place.description)}</p>
       ${place.isFavorite ? '<div class="favorite-mark">♡ Darcey&#39;s Favorite</div>' : ""}
       <div class="tag-list">${tags(place)}</div>
     </div>
   </article>`;
+}
+
+function familiarFavoriteCard(place) {
+  const search = [place.name, place.city, place.category, place.subcategory, place.description, ...(place.serviceAreas || []), ...place.tags].join(" ").toLowerCase();
+  return `<article class="recommendation-card familiar-favorite-card" data-recommendation-card data-guide-place="${escapeHtml(place.name)}" data-guide-slug="${place.slug}" data-guide-category="${escapeHtml(place.category)}" data-guide-type="${escapeHtml(place.schemaType)}" data-place-id="${place.placeId}" data-city="${escapeHtml(place.city)}" data-tags="${escapeHtml(place.tags.join("|"))}" data-search="${escapeHtml(search)}">
+    <div class="card-media"><a href="${place.url}" aria-label="Open ${escapeHtml(place.name)}"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" loading="lazy" decoding="async"></a>${favoriteButton(place)}</div>
+    <div class="card-body"><div class="card-topline"><span>${escapeHtml(place.familiarFavoriteLabel)}</span><span>${escapeHtml(place.city)}</span></div><h2><a href="${place.url}">${escapeHtml(place.name)}</a></h2><p>${escapeHtml(place.cardDescription || place.description)}</p><div class="tag-list">${tags(place)}</div><a class="button dark familiar-action" href="${escapeHtml(place.website)}" target="_blank" rel="noreferrer" data-analytics-event="${escapeHtml(place.websiteAnalyticsEvent || "recommendation_external_click")}" data-analytics-label="${escapeHtml(`${place.websiteLabel} - ${place.name}`)}">${escapeHtml(place.websiteLabel || "Website")}</a></div>
+  </article>`;
+}
+
+function coffeeCollection(category) {
+  const coffeePicks = category.places.filter((place) => place.coffeePickLabel);
+  const familiarFavorites = category.places.filter((place) => place.familiarFavoriteLabel);
+  if (!coffeePicks.length) return "";
+  return `<section class="coffee-collection" data-card-section aria-labelledby="coffee-picks-title">
+    <div class="coffee-collection-heading"><p class="eyebrow">Darcey's Coffee Picks</p><h2 id="coffee-picks-title">Coffee in the desert.</h2><p>Five local stops with their own personality—from a Palm Springs classic to an east valley specialty-coffee favorite.</p></div>
+    <div class="coffee-picks-grid">${coffeePicks.map(card).join("")}</div>
+    ${familiarFavorites.length ? `<section class="familiar-favorites" data-card-section aria-labelledby="familiar-favorites-title"><div class="familiar-favorites-heading"><p class="eyebrow">Familiar Favorites</p><h3 id="familiar-favorites-title">Sometimes you just want what you know.</h3></div><div class="familiar-favorites-grid">${familiarFavorites.map(familiarFavoriteCard).join("")}</div></section>` : ""}
+  </section>`;
 }
 
 function hikingCollection(category) {
@@ -186,7 +205,8 @@ function categoryPage(category) {
   const supportedTags = [...tagCounts.entries()].filter(([, count]) => count >= 1).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0])).slice(0, 10).map(([tag]) => tag);
   const isUtilities = category.slug === "utilities";
   const isThingsToDo = category.slug === "things-to-do";
-  const standardPlaces = isThingsToDo ? category.places.filter((place) => !place.hikingPickLabel) : category.places;
+  const isFoodDrink = category.slug === "food-drink";
+  const standardPlaces = category.places.filter((place) => !place.hikingPickLabel && !place.coffeePickLabel && !place.familiarFavoriteLabel);
   const discovery = isUtilities ? utilityConcierge(category) : `<section aria-label="Filter ${escapeHtml(category.label)} recommendations">
         <div class="discovery-tools"><label class="search-field"><span aria-hidden="true">⌕</span><input type="search" data-category-search placeholder="Search ${escapeHtml(category.label.toLowerCase())}, tags or Darcey's notes…" aria-label="Search recommendations"></label><label class="location-field"><span>Location</span><select data-location-filter><option>All</option>${cities.map((city) => `<option>${escapeHtml(city)}</option>`).join("")}</select></label></div>
         <div class="tag-filters" aria-label="Recommendation filters"><button class="tag-filter active" type="button" data-tag-filter="All">All</button>${supportedTags.map((tag) => `<button class="tag-filter" type="button" data-tag-filter="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`).join("")}</div>
@@ -194,7 +214,8 @@ function categoryPage(category) {
       </section>
       <div data-category-grid>
         ${isThingsToDo ? hikingCollection(category) : ""}
-        <section class="${isThingsToDo ? "more-things-section " : ""}recommendation-grid" data-card-section>${standardPlaces.map(card).join("")}</section>
+        ${isFoodDrink ? coffeeCollection(category) : ""}
+        <section class="${isThingsToDo ? "more-things-section " : isFoodDrink ? "more-food-section " : ""}recommendation-grid" data-card-section>${standardPlaces.map(card).join("")}</section>
       </div>
       <div class="empty-state" data-empty-results hidden>No recommendations match those filters yet. Try another location or interest.</div>`;
 
@@ -221,14 +242,14 @@ function actionLinks(place) {
   const links = [
     place.startServiceUrl && `<a class="button dark" href="${escapeHtml(place.startServiceUrl)}" target="_blank" rel="noreferrer" data-analytics-event="utility_start_service_click" data-analytics-label="Start Service - ${escapeHtml(place.name)}">Start Service</a>`,
     place.availabilityUrl && `<a class="button dark" href="${escapeHtml(place.availabilityUrl)}" target="_blank" rel="noreferrer" data-analytics-event="utility_check_availability_click" data-analytics-label="Check Availability - ${escapeHtml(place.name)}">Check Availability</a>`,
-    place.website && `<a class="button${place.startServiceUrl || place.availabilityUrl ? "" : " dark"}" href="${escapeHtml(place.website)}" target="_blank" rel="noreferrer"${place.categorySlug === "utilities" ? ` data-analytics-event="utility_provider_website_click" data-analytics-label="Website - ${escapeHtml(place.name)}"` : place.websiteLabel ? ` data-analytics-event="recommendation_external_click" data-analytics-label="${escapeHtml(`${place.websiteLabel} - ${place.name}`)}"` : ""}>${escapeHtml(place.websiteLabel || "Website")}</a>`,
+    place.website && `<a class="button${place.startServiceUrl || place.availabilityUrl ? "" : " dark"}" href="${escapeHtml(place.website)}" target="_blank" rel="noreferrer"${place.categorySlug === "utilities" ? ` data-analytics-event="utility_provider_website_click" data-analytics-label="Website - ${escapeHtml(place.name)}"` : place.websiteLabel ? ` data-analytics-event="${escapeHtml(place.websiteAnalyticsEvent || "recommendation_external_click")}" data-analytics-label="${escapeHtml(`${place.websiteLabel} - ${place.name}`)}"` : ""}>${escapeHtml(place.websiteLabel || "Website")}</a>`,
     place.menu && `<a class="button" href="${escapeHtml(place.menu)}" target="_blank" rel="noreferrer">Menu</a>`,
     place.teeTime && `<a class="button" href="${escapeHtml(place.teeTime)}" target="_blank" rel="noreferrer">Book Tee Time</a>`,
     place.directions && `<a class="button" href="${escapeHtml(place.directions)}" target="_blank" rel="noreferrer"${place.directionsLabel ? ` data-analytics-event="recommendation_directions_click" data-analytics-label="Directions - ${escapeHtml(place.name)}"` : ""}>${escapeHtml(place.directionsLabel || "Directions")}</a>`,
     place.phone && `<a class="button" href="tel:${place.phone.replace(/\D/g,"")}"${place.categorySlug === "utilities" ? ` data-analytics-event="utility_phone_click" data-analytics-label="Call ${escapeHtml(place.name)}"` : ""}>Call</a>`,
     place.email && `<a class="button" href="mailto:${escapeHtml(place.email)}">Email</a>`,
   ].filter(Boolean);
-  if (place.hikingPickLabel) {
+  if (place.hikingPickLabel || place.coffeePickLabel) {
     const directionsIndex = links.findIndex((link) => link.includes('data-analytics-event="recommendation_directions_click"'));
     const websiteIndex = links.findIndex((link) => link.includes('data-analytics-event="recommendation_external_click"'));
     if (directionsIndex > websiteIndex && websiteIndex >= 0) {
@@ -259,7 +280,7 @@ function placePage(place) {
   <body data-page-kind="place" data-guide-id="${place.guideId}" data-profile-id="${place.profileId}" data-category="${escapeHtml(place.category)}" data-category-slug="${place.categorySlug}" data-place-id="${place.placeId}" data-place-slug="${place.slug}" data-place-name="${escapeHtml(place.name)}" data-place-type="${place.schemaType}">
     ${header()}<main class="page-shell">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/${place.categorySlug}/">${escapeHtml(place.category)}</a><span>/</span><span aria-current="page">${escapeHtml(place.name)}</span></nav>
-      <article class="place-hero"><div class="place-media"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" fetchpriority="high">${place.photoCredit ? `<a class="photo-credit" href="${escapeHtml(place.photoCredit.url)}" target="_blank" rel="noreferrer">${escapeHtml(place.photoCredit.label)}</a>` : ""}</div><div class="place-copy"><p class="eyebrow">${escapeHtml(place.city)} · ${escapeHtml(place.subcategory || place.category)}</p><h1>${escapeHtml(place.name)}</h1><p class="place-deck">${escapeHtml(place.description)}</p><div class="tag-list place-tags">${tags(place,5)}</div>${place.isFavorite && place.categorySlug !== "utilities" ? '<div class="favorite-mark">♡ Darcey&#39;s Favorite</div>' : ""}<div class="place-actions">${place.categorySlug === "utilities" ? "" : favoriteButton(place,"place-save")} ${actionLinks(place)}</div></div></article>
+      <article class="place-hero"><div class="place-media"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" fetchpriority="high">${place.photoCredit ? `<a class="photo-credit" href="${escapeHtml(place.photoCredit.url)}" target="_blank" rel="noreferrer">${escapeHtml(place.photoCredit.label)}</a>` : ""}</div><div class="place-copy"><p class="eyebrow">${escapeHtml(place.city)} · ${escapeHtml(place.coffeePickLabel || place.familiarFavoriteLabel || place.subcategory || place.category)}</p><h1>${escapeHtml(place.name)}</h1><p class="place-deck">${escapeHtml(place.description)}</p><div class="tag-list place-tags">${tags(place,5)}</div>${place.isFavorite && place.categorySlug !== "utilities" ? '<div class="favorite-mark">♡ Darcey&#39;s Favorite</div>' : ""}<div class="place-actions">${place.categorySlug === "utilities" ? "" : favoriteButton(place,"place-save")} ${actionLinks(place)}</div></div></article>
       <div class="place-content">
         ${place.darceysTake ? `<section class="place-section darcey-take"><p class="eyebrow">♡ Darcey's Take</p><blockquote>“${escapeHtml(place.darceysTake)}”</blockquote></section>` : ""}${place.goodToKnow ? `<section class="place-section good-to-know"><p class="eyebrow">Good to Know</p><p>${escapeHtml(place.goodToKnow)}</p></section>` : ""}
         ${detailRows(place) ? `<section class="place-section"><p class="eyebrow">Plan Your Visit</p><h2>Useful details.</h2><dl class="detail-list">${detailRows(place)}</dl></section>` : ""}
