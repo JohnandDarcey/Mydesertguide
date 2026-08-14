@@ -883,7 +883,7 @@ function render() {
           <div class="hero-divider" aria-hidden="true"><span>♥</span></div>
           <p class="hero-description">
             <span class="hero-description-desktop">Food &amp; drink, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by <em>Darcey.</em></span>
-            <span class="hero-description-mobile">Food &amp; drink, golf, things to do, and trusted local favorites—recommended by Darcey.</span>
+            <span class="hero-description-mobile">Food &amp; drink, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by <em>Darcey.</em></span>
           </p>
           <div class="hero-live-actions">
             <a class="button dark hero-explore" href="#browse-guide" data-analytics-event="explore_desert_click" data-analytics-category="Homepage" data-analytics-label="Explore the Desert">Explore the Desert</a>
@@ -924,8 +924,15 @@ function render() {
 
       <section class="section guide-categories" id="browse-guide" aria-label="Guide categories">
         <div class="category-heading">
-          <p class="eyebrow">Browse the guide</p>
-          <h2>Start with what you need.</h2>
+          <div class="category-heading-desktop">
+            <p class="eyebrow">Browse the guide</p>
+            <h2>Start with what you need.</h2>
+          </div>
+          <div class="category-heading-mobile">
+            <p class="eyebrow">Start with what you need</p>
+            <h2>Explore by category</h2>
+            <div class="category-heading-divider" aria-hidden="true"><span>♥</span></div>
+          </div>
         </div>
         <div class="category-strip">
           ${categories

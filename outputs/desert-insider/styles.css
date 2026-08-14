@@ -637,6 +637,10 @@ h1 {
   margin-bottom: 0;
 }
 
+.category-heading-mobile {
+  display: none;
+}
+
 .category-strip {
   display: grid;
   gap: clamp(12px, 1.6vw, 22px);
@@ -2276,6 +2280,11 @@ dd {
 }
 
 @media (max-width: 599px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   .hero-image-map {
     aspect-ratio: auto;
     background-color: #f8f6f1;
@@ -2843,4 +2852,358 @@ dd {
   .home-install-card { align-items: stretch; grid-template-columns: 1fr; }
   .home-install-card .button { width: 100%; }
   .place-actions-inline { justify-content: space-between; }
+}
+
+/* Mobile hero composition based on Darcey's supplied full-screen reference. */
+@media (max-width: 599px) {
+  .hero-image-map {
+    background: #050505;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: max(100svh, 720px);
+    overflow: hidden;
+    padding: 0 0 env(safe-area-inset-bottom, 0px);
+    position: relative;
+  }
+
+  @supports (min-height: 100dvh) {
+    .hero-image-map {
+      min-height: max(100dvh, 720px);
+    }
+  }
+
+  .hero-image-map::before {
+    background-image: url("./assets/mobile-desert-pool-background-v2.jpg");
+    background-position: center 42%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: auto;
+    content: "";
+    height: clamp(470px, 66svh, 620px);
+    inset-inline: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+
+  .hero-image-map::after {
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.12) 32%, rgba(0, 0, 0, 0.72) 58%, #050505 72%, #050505 100%);
+    content: "";
+    display: block;
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 3;
+  }
+
+  .hero-image-map .hero-art-mobile {
+    display: block;
+    height: auto;
+    left: 0;
+    -webkit-mask-image: linear-gradient(90deg, #000 0 72%, rgba(0, 0, 0, 0.75) 82%, transparent 100%);
+    mask-image: linear-gradient(90deg, #000 0 72%, rgba(0, 0, 0, 0.75) 82%, transparent 100%);
+    object-fit: contain;
+    object-position: left top;
+    position: absolute;
+    top: calc(66px + env(safe-area-inset-top, 0px));
+    width: min(72vw, 292px);
+    z-index: 2;
+  }
+
+  .hero-live-header {
+    align-items: center;
+    background: linear-gradient(180deg, rgba(250, 248, 245, 0.98), rgba(250, 248, 245, 0.88) 72%, transparent);
+    display: flex;
+    height: calc(72px + env(safe-area-inset-top, 0px));
+    justify-content: space-between;
+    padding: env(safe-area-inset-top, 0px) 19px 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 7;
+  }
+
+  .hero-live-brand {
+    color: #080808;
+    font-size: clamp(1.48rem, 7.6vw, 1.95rem);
+    letter-spacing: -0.04em;
+  }
+
+  .hero-mobile-menu summary {
+    border: 0;
+    border-radius: 0;
+    color: transparent;
+    font-size: 0;
+    height: 42px;
+    padding: 0;
+    position: relative;
+    width: 42px;
+  }
+
+  .hero-mobile-menu summary::before,
+  .hero-mobile-menu summary::after {
+    border-bottom: 2px solid #111;
+    border-top: 2px solid #111;
+    content: "";
+    height: 12px;
+    left: 6px;
+    position: absolute;
+    top: 8px;
+    width: 30px;
+  }
+
+  .hero-mobile-menu summary::after {
+    border-bottom: 0;
+    border-top: 2px solid #111;
+    top: 28px;
+  }
+
+  .hero-live-copy {
+    align-content: end;
+    background: transparent;
+    color: #fff;
+    display: grid;
+    margin-top: auto;
+    min-height: 0;
+    padding: clamp(265px, 36svh, 310px) 18px 18px;
+    position: relative;
+    text-align: center;
+    top: auto;
+    width: 100%;
+    z-index: 5;
+  }
+
+  .hero-kicker {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(0.66rem, 3.4vw, 0.83rem);
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    margin: 0 0 7px;
+  }
+
+  .hero-live-copy h1 {
+    color: #fff;
+    font-size: clamp(2.82rem, 14vw, 3.65rem);
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-live-copy h1::after {
+    color: #bd8240;
+    content: "♥";
+    font-family: var(--sans);
+    font-size: 0.28em;
+    position: absolute;
+    right: 0.1em;
+    top: 0.1em;
+  }
+
+  .hero-divider {
+    color: #bd8240;
+    gap: 12px;
+    justify-content: center;
+    margin: 13px 0 11px;
+  }
+
+  .hero-divider::before,
+  .hero-divider::after {
+    background: rgba(189, 130, 64, 0.72);
+    width: 34%;
+  }
+
+  .hero-description {
+    color: rgba(255, 255, 255, 0.96);
+    font-size: clamp(0.92rem, 4.35vw, 1.08rem);
+    line-height: 1.35;
+    margin: 0 auto;
+    max-width: 36rem;
+  }
+
+  .hero-description-mobile em {
+    color: #bd8240;
+    font-family: var(--font-signature);
+    font-size: 1.35em;
+    font-style: normal;
+  }
+
+  .hero-live-actions {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr;
+    margin-top: 14px;
+  }
+
+  .hero-live-actions .button {
+    background: rgba(0, 0, 0, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.88);
+    border-radius: 5px;
+    color: #fff;
+    font-size: clamp(0.66rem, 3.15vw, 0.8rem);
+    font-weight: 500;
+    justify-content: center;
+    letter-spacing: 0.09em;
+    min-height: 46px;
+    padding: 9px 12px;
+  }
+
+  .hero-contact-actions {
+    display: grid;
+    gap: 6px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 12px;
+    overflow: visible;
+    white-space: normal;
+  }
+
+  .hero-contact-actions::before {
+    align-items: center;
+    color: #bd8240;
+    content: "LET'S CONNECT";
+    display: flex;
+    font-size: 0.67rem;
+    font-weight: 600;
+    gap: 10px;
+    grid-column: 1 / -1;
+    justify-content: center;
+    letter-spacing: 0.08em;
+    margin-bottom: 1px;
+  }
+
+  .hero-contact-actions a {
+    background: #f2eee8;
+    border: 1px solid #f2eee8;
+    border-radius: 4px;
+    color: #101010;
+    display: flex;
+    font-size: clamp(0.52rem, 2.45vw, 0.66rem);
+    font-weight: 600;
+    gap: 5px;
+    justify-content: center;
+    letter-spacing: 0.02em;
+    min-height: 44px;
+    padding: 7px 4px;
+  }
+
+  .hero-contact-actions a:first-child {
+    grid-column: auto;
+  }
+
+  .hero-contact-actions svg {
+    height: 17px;
+    width: 17px;
+  }
+
+  .category-heading-desktop {
+    display: none;
+  }
+
+  .category-heading-mobile {
+    display: block;
+  }
+
+  .guide-categories {
+    background: #f8f5ef;
+    padding: 30px 18px 42px;
+  }
+
+  .category-heading {
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  .category-heading-mobile .eyebrow {
+    color: #b8793d;
+    font-size: 0.64rem;
+    margin-bottom: 7px;
+  }
+
+  .category-heading-mobile h2 {
+    color: #0a0908;
+    font-size: clamp(1.95rem, 9vw, 2.25rem);
+    line-height: 1;
+  }
+
+  .category-heading-divider {
+    align-items: center;
+    color: #bd8240;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 12px auto 0;
+  }
+
+  .category-heading-divider::before,
+  .category-heading-divider::after {
+    background: #cfad88;
+    content: "";
+    height: 1px;
+    width: 24%;
+  }
+
+  .category-strip {
+    gap: 8px;
+    grid-template-columns: 1fr;
+  }
+
+  .category-tile {
+    aspect-ratio: auto;
+    border-radius: 5px;
+    height: clamp(94px, 25vw, 108px);
+    min-height: 0;
+    width: 100%;
+  }
+
+  .category-tile-overlay {
+    background: linear-gradient(90deg, rgba(8, 7, 6, 0.08) 0%, rgba(8, 7, 6, 0.82) 63%, rgba(8, 7, 6, 0.94) 100%);
+  }
+
+  .category-tile strong {
+    bottom: 39px;
+    font-size: clamp(1.15rem, 5.7vw, 1.48rem);
+    left: 53%;
+    padding: 0 12px;
+    right: 0;
+  }
+
+  .category-explore {
+    bottom: 20px;
+    font-size: 0.61rem;
+    left: calc(53% + 12px);
+  }
+}
+
+@media (max-width: 350px) {
+  .hero-image-map {
+    min-height: max(100svh, 680px);
+  }
+
+  .hero-live-header {
+    height: calc(62px + env(safe-area-inset-top, 0px));
+    padding-left: 14px;
+    padding-right: 12px;
+  }
+
+  .hero-live-copy {
+    padding: clamp(245px, 38svh, 305px) 14px 13px;
+  }
+
+  .hero-divider {
+    margin: 9px 0 8px;
+  }
+
+  .hero-description {
+    font-size: 0.88rem;
+  }
+
+  .hero-live-actions {
+    margin-top: 10px;
+  }
+
+  .hero-live-actions .button,
+  .hero-contact-actions a {
+    min-height: 41px;
+  }
 }
