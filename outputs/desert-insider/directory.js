@@ -41,3 +41,51 @@ if (categoryGrid) {
   });
   render();
 }
+
+const utilityConcierge = document.querySelector("[data-utility-concierge]");
+
+if (utilityConcierge) {
+  const select = utilityConcierge.querySelector("[data-utility-city-select]");
+  const results = utilityConcierge.querySelector("[data-utility-city-results]");
+  const panels = [...utilityConcierge.querySelectorAll("[data-utility-city-panel]")];
+  const filterButtons = [...document.querySelectorAll("[data-utility-filter]")];
+  const browseCards = [...document.querySelectorAll("[data-utility-provider-grid] [data-utility-provider-card]")];
+  const empty = document.querySelector("[data-utility-empty]");
+  let selectorOpened = false;
+
+  function analytics(eventName, details = {}) {
+    document.dispatchEvent(new CustomEvent("mdg:analytics", { detail: { eventName, details } }));
+  }
+
+  function trackSelectorOpened() {
+    if (selectorOpened) return;
+    selectorOpened = true;
+    analytics("utility_city_selector_opened", { category: "Utilities Setup" });
+  }
+
+  select.addEventListener("focus", trackSelectorOpened, { once: true });
+  select.addEventListener("pointerdown", trackSelectorOpened, { once: true });
+  select.addEventListener("change", () => {
+    const city = select.value;
+    results.hidden = !city;
+    panels.forEach((panel) => { panel.hidden = panel.dataset.utilityCityPanel !== city; });
+    if (!city) return;
+    analytics("utility_city_selected", { category: "Utilities Setup", selectedCity: city });
+    results.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.utilityFilter;
+      let visible = 0;
+      filterButtons.forEach((candidate) => candidate.classList.toggle("active", candidate === button));
+      browseCards.forEach((card) => {
+        const show = filter === "All" || card.dataset.utilityType === filter;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      empty.hidden = visible !== 0;
+      analytics("utility_category_viewed", { category: "Utilities Setup", utilityCategory: filter });
+    });
+  });
+}

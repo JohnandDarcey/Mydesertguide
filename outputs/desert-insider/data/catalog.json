@@ -37,7 +37,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-giuseppes",
@@ -60,7 +66,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-palmina-by-puglia",
@@ -83,7 +95,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-la-perlita",
@@ -106,7 +124,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-cactus-jacks",
@@ -129,7 +153,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-california-bistro",
@@ -152,7 +182,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-johnny-costas",
@@ -175,7 +211,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-spencers",
@@ -198,7 +240,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-copleys",
@@ -221,7 +269,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-tylers",
@@ -244,7 +298,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-tonys-grill-and-bar",
@@ -267,7 +327,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-bubbas-bones-and-brews",
@@ -290,7 +356,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-bongo-johnnys",
@@ -313,7 +385,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-cheekys",
@@ -336,7 +414,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-las-casuelas-terraza",
@@ -359,7 +443,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-mitchs",
@@ -382,7 +472,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-cipolline-osteria",
@@ -405,7 +501,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Restaurant"
+      "schemaType": "Restaurant",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-indian-canyons-golf-resort",
@@ -428,7 +530,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "GolfCourse"
+      "schemaType": "GolfCourse",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-cimarron-golf-resort",
@@ -451,7 +559,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "GolfCourse"
+      "schemaType": "GolfCourse",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-escena-golf-club",
@@ -474,7 +588,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "GolfCourse"
+      "schemaType": "GolfCourse",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-desert-willow",
@@ -497,7 +617,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "GolfCourse"
+      "schemaType": "GolfCourse",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-the-classic-club",
@@ -520,7 +646,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "GolfCourse"
+      "schemaType": "GolfCourse",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-villagefest",
@@ -543,7 +675,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "TouristAttraction"
+      "schemaType": "TouristAttraction",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-the-living-desert",
@@ -566,7 +704,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "TouristAttraction"
+      "schemaType": "TouristAttraction",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-palm-springs-aerial-tramway",
@@ -589,7 +733,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "TouristAttraction"
+      "schemaType": "TouristAttraction",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-palm-springs-air-museum",
@@ -612,7 +762,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "TouristAttraction"
+      "schemaType": "TouristAttraction",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-palm-springs-art-museum",
@@ -635,7 +791,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "TouristAttraction"
+      "schemaType": "TouristAttraction",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-sunnylands",
@@ -658,7 +820,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "TouristAttraction"
+      "schemaType": "TouristAttraction",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-coachella-valley-firebirds",
@@ -681,7 +849,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "TouristAttraction"
+      "schemaType": "TouristAttraction",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-palm-springs-festival-of-lights-parade",
@@ -704,7 +878,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "TouristAttraction"
+      "schemaType": "TouristAttraction",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-gelsons-rancho-mirage",
@@ -727,7 +907,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Store"
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-world-market",
@@ -750,7 +936,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Store"
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-southern-california-edison",
@@ -764,7 +956,7 @@
       "image": "/assets/services/southern-california-edison.png",
       "images": [],
       "address": "",
-      "phone": "",
+      "phone": "800-655-4555",
       "email": "",
       "website": "https://www.sce.com/",
       "menu": "",
@@ -773,7 +965,23 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Organization"
+      "schemaType": "Organization",
+      "providerId": "utility-sce",
+      "aliases": [
+        "SCE",
+        "Southern California Edison (SCE)"
+      ],
+      "serviceAreas": [
+        "Palm Springs",
+        "Cathedral City",
+        "Rancho Mirage",
+        "Palm Desert",
+        "Indian Wells",
+        "Desert Hot Springs"
+      ],
+      "startServiceUrl": "https://www.sce.com/customer-service-center/start-stop-move-service",
+      "availabilityUrl": "",
+      "primaryAction": "START SERVICE"
     },
     {
       "placeId": "place-coachella-valley-water-district",
@@ -787,7 +995,7 @@
       "image": "/assets/services/coachella-valley-water-district.png",
       "images": [],
       "address": "",
-      "phone": "",
+      "phone": "760-398-2651",
       "email": "",
       "website": "https://www.cvwd.org/",
       "menu": "",
@@ -796,7 +1004,24 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Organization"
+      "schemaType": "Organization",
+      "providerId": "utility-cvwd",
+      "aliases": [
+        "CVWD"
+      ],
+      "serviceAreas": [
+        "Cathedral City",
+        "Rancho Mirage",
+        "Palm Desert",
+        "Indian Wells",
+        "La Quinta",
+        "Indio",
+        "Thousand Palms",
+        "Thermal / Mecca"
+      ],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "VISIT PROVIDER"
     },
     {
       "placeId": "place-imperial-irrigation-district",
@@ -805,12 +1030,12 @@
       "city": "Coachella Valley",
       "category": "Utilities Setup",
       "categorySlug": "utilities",
-      "subcategory": "Electric & Water",
+      "subcategory": "Electric",
       "description": "A practical utility link for clients whose homes fall within IID service areas for power or related local utility needs.",
       "image": "/assets/services/imperial-irrigation-district.png",
       "images": [],
       "address": "",
-      "phone": "",
+      "phone": "800-303-7756",
       "email": "",
       "website": "https://www.iid.com/",
       "menu": "",
@@ -819,7 +1044,392 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "Organization"
+      "schemaType": "Organization",
+      "providerId": "utility-iid",
+      "aliases": [
+        "IID"
+      ],
+      "serviceAreas": [
+        "Rancho Mirage",
+        "Palm Desert",
+        "Indian Wells",
+        "La Quinta",
+        "Indio",
+        "Coachella",
+        "Bermuda Dunes",
+        "Thousand Palms",
+        "Thermal / Mecca"
+      ],
+      "startServiceUrl": "https://www.iid.com/start-service",
+      "availabilityUrl": "",
+      "primaryAction": "START SERVICE"
+    },
+    {
+      "placeId": "place-socalgas",
+      "slug": "socalgas",
+      "name": "SoCalGas",
+      "city": "Coachella Valley",
+      "category": "Utilities Setup",
+      "categorySlug": "utilities",
+      "subcategory": "Gas",
+      "description": "The natural gas provider identified in Darcey's utility guide for each supported Coachella Valley community.",
+      "image": "/assets/services/icon-gas.svg",
+      "images": [],
+      "address": "",
+      "phone": "800-427-2200",
+      "email": "",
+      "website": "https://www.socalgas.com/",
+      "menu": "",
+      "directions": "",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Organization",
+      "providerId": "utility-socalgas",
+      "aliases": [
+        "Southern California Gas Company",
+        "The Gas Company"
+      ],
+      "serviceAreas": [
+        "Palm Springs",
+        "Cathedral City",
+        "Rancho Mirage",
+        "Palm Desert",
+        "Indian Wells",
+        "La Quinta",
+        "Indio",
+        "Coachella",
+        "Desert Hot Springs",
+        "Bermuda Dunes",
+        "Thousand Palms",
+        "Thermal / Mecca"
+      ],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "VISIT PROVIDER"
+    },
+    {
+      "placeId": "place-desert-water-agency",
+      "slug": "desert-water-agency",
+      "name": "Desert Water Agency",
+      "city": "Palm Springs & Cathedral City",
+      "category": "Utilities Setup",
+      "categorySlug": "utilities",
+      "subcategory": "Water",
+      "description": "Local water service for Palm Springs and portions of Cathedral City, with exact service determined by property address.",
+      "image": "/assets/services/icon-water.svg",
+      "images": [],
+      "address": "",
+      "phone": "760-323-4971",
+      "email": "",
+      "website": "https://dwa.org/",
+      "menu": "",
+      "directions": "",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Organization",
+      "providerId": "utility-dwa",
+      "aliases": [
+        "DWA",
+        "Desert Water Agency (DWA)"
+      ],
+      "serviceAreas": [
+        "Palm Springs",
+        "Cathedral City"
+      ],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "VISIT PROVIDER"
+    },
+    {
+      "placeId": "place-mission-springs-water-district",
+      "slug": "mission-springs-water-district",
+      "name": "Mission Springs Water District",
+      "city": "Desert Hot Springs",
+      "category": "Utilities Setup",
+      "categorySlug": "utilities",
+      "subcategory": "Water",
+      "description": "The water provider identified in Darcey's utility guide for Desert Hot Springs.",
+      "image": "/assets/services/icon-water.svg",
+      "images": [],
+      "address": "",
+      "phone": "760-329-6448",
+      "email": "",
+      "website": "https://www.mswd.org/",
+      "menu": "",
+      "directions": "",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Organization",
+      "providerId": "utility-mswd",
+      "aliases": [
+        "MSWD",
+        "Mission Springs WD"
+      ],
+      "serviceAreas": [
+        "Desert Hot Springs"
+      ],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "VISIT PROVIDER"
+    },
+    {
+      "placeId": "place-indio-water-authority",
+      "slug": "indio-water-authority",
+      "name": "Indio Water Authority",
+      "city": "Indio",
+      "category": "Utilities Setup",
+      "categorySlug": "utilities",
+      "subcategory": "Water",
+      "description": "The primary water provider identified for most Indio properties, with CVWD serving some addresses.",
+      "image": "/assets/services/icon-water.svg",
+      "images": [],
+      "address": "",
+      "phone": "760-391-4038",
+      "email": "",
+      "website": "https://www.indio.org/",
+      "menu": "",
+      "directions": "",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Organization",
+      "providerId": "utility-indio-water",
+      "aliases": [
+        "IWA"
+      ],
+      "serviceAreas": [
+        "Indio"
+      ],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "VISIT PROVIDER"
+    },
+    {
+      "placeId": "place-myoma-dunes-water-company",
+      "slug": "myoma-dunes-water-company",
+      "name": "Myoma Dunes Water Company",
+      "city": "Bermuda Dunes",
+      "category": "Utilities Setup",
+      "categorySlug": "utilities",
+      "subcategory": "Water",
+      "description": "The water provider identified in Darcey's utility guide for Bermuda Dunes.",
+      "image": "/assets/services/icon-water.svg",
+      "images": [],
+      "address": "",
+      "phone": "760-772-1967",
+      "email": "",
+      "website": "https://myomawater.com/",
+      "menu": "",
+      "directions": "",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Organization",
+      "providerId": "utility-myoma",
+      "aliases": [
+        "Myoma Dunes Water Co.",
+        "Myoma Water"
+      ],
+      "serviceAreas": [
+        "Bermuda Dunes"
+      ],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "VISIT PROVIDER"
+    },
+    {
+      "placeId": "place-city-of-coachella-water-department",
+      "slug": "city-of-coachella-water-department",
+      "name": "City of Coachella Water Department",
+      "city": "Coachella",
+      "category": "Utilities Setup",
+      "categorySlug": "utilities",
+      "subcategory": "Water",
+      "description": "The municipal water provider identified in Darcey's utility guide for the City of Coachella.",
+      "image": "/assets/services/icon-water.svg",
+      "images": [],
+      "address": "",
+      "phone": "760-398-2702",
+      "email": "",
+      "website": "https://www.coachella.org/",
+      "menu": "",
+      "directions": "",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Organization",
+      "providerId": "utility-coachella-water",
+      "aliases": [
+        "Coachella Water Department",
+        "City of Coachella Water"
+      ],
+      "serviceAreas": [
+        "Coachella"
+      ],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "VISIT PROVIDER"
+    },
+    {
+      "placeId": "place-spectrum",
+      "slug": "spectrum",
+      "name": "Spectrum",
+      "city": "Coachella Valley",
+      "category": "Utilities Setup",
+      "categorySlug": "utilities",
+      "subcategory": "Internet & Cable",
+      "description": "A cable and internet option identified throughout the Coachella Valley, subject to address-level availability.",
+      "image": "/assets/services/spectrum.png",
+      "images": [],
+      "address": "",
+      "phone": "855-707-7328",
+      "email": "",
+      "website": "https://www.spectrum.com/",
+      "menu": "",
+      "directions": "",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Organization",
+      "providerId": "utility-spectrum",
+      "aliases": [
+        "Charter Spectrum"
+      ],
+      "serviceAreas": [
+        "Palm Springs",
+        "Cathedral City",
+        "Rancho Mirage",
+        "Palm Desert",
+        "Indian Wells",
+        "La Quinta",
+        "Indio",
+        "Coachella",
+        "Desert Hot Springs",
+        "Bermuda Dunes",
+        "Thousand Palms",
+        "Thermal / Mecca"
+      ],
+      "startServiceUrl": "",
+      "availabilityUrl": "https://www.spectrum.com/",
+      "primaryAction": "CHECK AVAILABILITY"
+    },
+    {
+      "placeId": "place-frontier-communications",
+      "slug": "frontier-communications",
+      "name": "Frontier Communications",
+      "city": "Coachella Valley",
+      "category": "Utilities Setup",
+      "categorySlug": "utilities",
+      "subcategory": "Internet & Cable",
+      "description": "An internet option identified throughout the Coachella Valley, subject to address-level availability.",
+      "image": "/assets/services/icon-internet.svg",
+      "images": [],
+      "address": "",
+      "phone": "855-981-4544",
+      "email": "",
+      "website": "https://frontier.com/",
+      "menu": "",
+      "directions": "",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Organization",
+      "providerId": "utility-frontier",
+      "aliases": [
+        "Frontier"
+      ],
+      "serviceAreas": [
+        "Palm Springs",
+        "Cathedral City",
+        "Rancho Mirage",
+        "Palm Desert",
+        "Indian Wells",
+        "La Quinta",
+        "Indio",
+        "Coachella",
+        "Desert Hot Springs",
+        "Bermuda Dunes",
+        "Thousand Palms",
+        "Thermal / Mecca"
+      ],
+      "startServiceUrl": "",
+      "availabilityUrl": "https://frontier.com/",
+      "primaryAction": "CHECK AVAILABILITY"
+    },
+    {
+      "placeId": "place-at-and-t-internet",
+      "slug": "at-and-t-internet",
+      "name": "AT&T Internet",
+      "city": "Coachella Valley",
+      "category": "Utilities Setup",
+      "categorySlug": "utilities",
+      "subcategory": "Internet & Cable",
+      "description": "An additional internet provider from Darcey's quick-contact guide, with service determined by exact address.",
+      "image": "/assets/services/icon-internet.svg",
+      "images": [],
+      "address": "",
+      "phone": "800-288-2020",
+      "email": "",
+      "website": "https://www.att.com/internet/",
+      "menu": "",
+      "directions": "",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Organization",
+      "providerId": "utility-att",
+      "aliases": [
+        "AT&T",
+        "ATT Internet"
+      ],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "https://www.att.com/internet/",
+      "primaryAction": "CHECK AVAILABILITY"
+    },
+    {
+      "placeId": "place-t-mobile-home-internet",
+      "slug": "t-mobile-home-internet",
+      "name": "T-Mobile Home Internet",
+      "city": "Coachella Valley",
+      "category": "Utilities Setup",
+      "categorySlug": "utilities",
+      "subcategory": "Internet & Cable",
+      "description": "An additional home-internet provider from Darcey's quick-contact guide, with service determined by exact address.",
+      "image": "/assets/services/icon-internet.svg",
+      "images": [],
+      "address": "",
+      "phone": "844-839-5057",
+      "email": "",
+      "website": "https://www.t-mobile.com/home-internet",
+      "menu": "",
+      "directions": "",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Organization",
+      "providerId": "utility-tmobile",
+      "aliases": [
+        "T-Mobile",
+        "TMobile Home Internet"
+      ],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "https://www.t-mobile.com/home-internet",
+      "primaryAction": "CHECK AVAILABILITY"
     },
     {
       "placeId": "place-the-buttercake-studio",
@@ -845,7 +1455,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "ProfessionalService"
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-mr-beez-termite-and-pest-control",
@@ -868,7 +1484,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "ProfessionalService"
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-orchid-landscaping",
@@ -891,7 +1513,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "ProfessionalService"
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-gali-pool-service",
@@ -914,7 +1542,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "ProfessionalService"
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-vanmar-lending",
@@ -937,7 +1571,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "ProfessionalService"
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-ascend-insurance",
@@ -960,30 +1600,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "ProfessionalService"
-    },
-    {
-      "placeId": "place-spectrum",
-      "slug": "spectrum",
-      "name": "Spectrum",
-      "city": "Coachella Valley",
-      "category": "Trusted Professionals",
-      "categorySlug": "trusted-professionals",
-      "subcategory": "Cable & Internet",
-      "description": "A practical provider link for clients setting up internet, cable and home Wi-Fi in many desert neighborhoods.",
-      "image": "/assets/services/spectrum.png",
-      "images": [],
-      "address": "",
-      "phone": "",
-      "email": "",
-      "website": "https://www.spectrum.com/",
-      "menu": "",
-      "directions": "https://maps.google.com/?q=Spectrum+Coachella+Valley",
-      "teeTime": "",
-      "hours": "",
-      "latitude": null,
-      "longitude": null,
-      "schemaType": "ProfessionalService"
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-burrtec",
@@ -1006,7 +1629,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "ProfessionalService"
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-jorges-landscaping",
@@ -1029,7 +1658,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "ProfessionalService"
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-m-and-j-tax-services",
@@ -1052,7 +1687,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "ProfessionalService"
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     },
     {
       "placeId": "place-foremost-insurance",
@@ -1075,7 +1716,13 @@
       "hours": "",
       "latitude": null,
       "longitude": null,
-      "schemaType": "ProfessionalService"
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": ""
     }
   ],
   "recommendations": [
@@ -1706,7 +2353,10 @@
       "personalNote": "If you are moving into a desert home, set up your electric service before your move-in date so the house is ready when you arrive. It is one of those little things that makes the first day feel so much smoother. Keep your online account handy for billing, outage alerts, and service updates.",
       "tags": [
         "Electric",
-        "Setting up electric service"
+        "Palm Springs",
+        "Cathedral City",
+        "Rancho Mirage",
+        "Palm Desert"
       ],
       "isFavorite": true,
       "isNew": true,
@@ -1724,7 +2374,10 @@
       "personalNote": "Set up your water service early and keep the customer portal saved somewhere easy to find. It is helpful for billing, usage, conservation updates, and any service questions that come up. In the desert, water matters, so this is one of those practical links worth keeping close.",
       "tags": [
         "Water",
-        "Setting up water service"
+        "Cathedral City",
+        "Rancho Mirage",
+        "Palm Desert",
+        "Indian Wells"
       ],
       "isFavorite": true,
       "isNew": true,
@@ -1741,8 +2394,11 @@
       "placeId": "place-imperial-irrigation-district",
       "personalNote": "Before move-in, confirm whether the property is in IID territory so you know exactly who handles service for that address. It saves time and avoids last-minute utility confusion. Once you know, set up service early and keep the account information handy.",
       "tags": [
-        "Electric & Water",
-        "Utility service in IID areas"
+        "Electric",
+        "Rancho Mirage",
+        "Palm Desert",
+        "Indian Wells",
+        "La Quinta"
       ],
       "isFavorite": true,
       "isNew": true,
@@ -1751,6 +2407,209 @@
       "favoriteDish": "",
       "happyHour": "",
       "detail": "Electric service and local utility resources for parts of the Coachella Valley."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-socalgas",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-socalgas",
+      "personalNote": "Have the service address and move-in date ready before contacting SoCalGas, and confirm the account start date directly with the provider.",
+      "tags": [
+        "Gas",
+        "Palm Springs",
+        "Cathedral City",
+        "Rancho Mirage",
+        "Palm Desert"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Starting or managing natural gas service",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Natural gas service throughout the Coachella Valley."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-desert-water-agency",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-desert-water-agency",
+      "personalNote": "Cathedral City water service is split by address. Confirm the property with Desert Water Agency before establishing service.",
+      "tags": [
+        "Water",
+        "Palm Springs",
+        "Cathedral City",
+        "DWA",
+        "Desert Water Agency (DWA)"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Water service in Palm Springs and portions of Cathedral City",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Palm Springs water provider; serves the west/south portions of Cathedral City in the source guide."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-mission-springs-water-district",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-mission-springs-water-district",
+      "personalNote": "Confirm service availability for the property address directly with Mission Springs Water District.",
+      "tags": [
+        "Water",
+        "Desert Hot Springs",
+        "MSWD",
+        "Mission Springs WD"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Water service in Desert Hot Springs",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Water provider listed for Desert Hot Springs."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-indio-water-authority",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-indio-water-authority",
+      "personalNote": "Indio water service varies by property address. Confirm whether the home is served by Indio Water Authority or CVWD.",
+      "tags": [
+        "Water",
+        "Indio",
+        "IWA",
+        "Water service in most of Indio"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Water service in most of Indio",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Serves most Indio addresses; CVWD serves some areas."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-myoma-dunes-water-company",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-myoma-dunes-water-company",
+      "personalNote": "Confirm service for the exact property address directly with Myoma Dunes Water Company.",
+      "tags": [
+        "Water",
+        "Bermuda Dunes",
+        "Myoma Dunes Water Co.",
+        "Myoma Water",
+        "Water service in Bermuda Dunes"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Water service in Bermuda Dunes",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Water provider listed for Bermuda Dunes."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-city-of-coachella-water-department",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-city-of-coachella-water-department",
+      "personalNote": "Contact the City of Coachella to confirm the current account-opening process for the property.",
+      "tags": [
+        "Water",
+        "Coachella",
+        "Coachella Water Department",
+        "City of Coachella Water"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Water service in the City of Coachella",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Municipal water provider listed for Coachella."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-spectrum",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-spectrum",
+      "personalNote": "Check the exact service address before move-in. The source guide notes limited Spectrum availability in Thermal and Mecca.",
+      "tags": [
+        "Internet & Cable",
+        "Palm Springs",
+        "Cathedral City",
+        "Rancho Mirage",
+        "Palm Desert"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Cable, internet and home Wi-Fi setup",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Internet and cable availability varies by exact address; listed as limited in Thermal / Mecca."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-frontier-communications",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-frontier-communications",
+      "personalNote": "Check the exact service address before move-in. The source guide notes limited Frontier availability in Thermal and Mecca.",
+      "tags": [
+        "Internet & Cable",
+        "Palm Springs",
+        "Cathedral City",
+        "Rancho Mirage",
+        "Palm Desert"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Internet availability and home connectivity",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Internet availability varies by exact address; listed as limited in Thermal / Mecca."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-at-and-t-internet",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-at-and-t-internet",
+      "personalNote": "The source guide does not assign AT&T to specific cities, so use its address checker before relying on availability.",
+      "tags": [
+        "Internet & Cable",
+        "AT&T",
+        "ATT Internet"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Checking address-level internet availability",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Included as an additional quick-contact provider; the source does not assign specific cities."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-t-mobile-home-internet",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-t-mobile-home-internet",
+      "personalNote": "The source guide does not assign T-Mobile to specific cities, so use its address checker before relying on availability.",
+      "tags": [
+        "Internet & Cable",
+        "T-Mobile",
+        "TMobile Home Internet"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Checking address-level home internet availability",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Included as an additional quick-contact provider; the source does not assign specific cities."
     },
     {
       "recommendationId": "darcey-my-desert-guide:place-the-buttercake-studio",
@@ -1870,26 +2729,6 @@
       "favoriteDish": "",
       "happyHour": "",
       "detail": "Dennis VanBuskirk · 760-341-3477 · info@ascendins.com"
-    },
-    {
-      "recommendationId": "darcey-my-desert-guide:place-spectrum",
-      "guideId": "darcey-my-desert-guide",
-      "profileId": "darcey-deetz",
-      "placeId": "place-spectrum",
-      "personalNote": "Spectrum is one of the providers many clients check when setting up cable, internet or home Wi-Fi. Service availability can vary by exact address, so confirm your options before move-in and schedule installation early if you need internet right away.",
-      "tags": [
-        "Cable & Internet",
-        "Cable",
-        "internet",
-        "home Wi-Fi setup"
-      ],
-      "isFavorite": true,
-      "isNew": true,
-      "rating": 5,
-      "bestFor": "Cable, internet and home Wi-Fi setup",
-      "favoriteDish": "",
-      "happyHour": "",
-      "detail": "Internet, cable and home connectivity service."
     },
     {
       "recommendationId": "darcey-my-desert-guide:place-burrtec",

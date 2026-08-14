@@ -201,7 +201,7 @@
           }
 
           placeViewsSent.add(key);
-          send("place_view", payload);
+          send(entry.target.dataset.placeViewEvent || "place_view", payload);
           observer.unobserve(entry.target);
         });
       },

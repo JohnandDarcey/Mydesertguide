@@ -5,6 +5,8 @@ import {
   services,
   shopping,
   thingsToDo,
+  utilityCities,
+  utilityServiceAreas,
 } from "./data.js";
 
 export const guideProfile = {
@@ -80,7 +82,7 @@ const definitions = [
     slug: "utilities",
     label: "Utilities Setup",
     eyebrow: "Settle in smoothly",
-    intro: "The practical service links Darcey shares with clients who are setting up and caring for a home in the desert.",
+    intro: "Choose your city to find the electric, gas, water, internet and cable providers that typically serve your Coachella Valley home.",
     image: "/assets/category-cards/local-utilities-900.jpg",
     imageAlt: "A beautifully maintained desert neighborhood",
     schemaType: "Organization",
@@ -100,7 +102,7 @@ const definitions = [
 
 function usefulTags(item) {
   const explicit = Array.isArray(item.tags) ? item.tags.filter((tag) => tag !== "Favorites") : [];
-  const derived = [item.category];
+  const derived = [item.category, ...(item.serviceAreas || []), ...(item.aliases || [])];
   if (item.bestFor) {
     derived.push(
       ...String(item.bestFor)
@@ -156,6 +158,12 @@ function normalizePlace(item, category) {
     favoriteDish: item.favoriteDish || "",
     happyHour: item.happyHour || "",
     restaurant: item.restaurant || "",
+    providerId: item.providerId || "",
+    aliases: item.aliases || [],
+    serviceAreas: item.serviceAreas || [],
+    startServiceUrl: item.startServiceUrl || "",
+    availabilityUrl: item.availabilityUrl || "",
+    primaryAction: item.primaryAction || "",
     schemaType: category.schemaType,
   };
 }
@@ -166,6 +174,14 @@ export const categoryDefinitions = definitions.map(({ collection, ...category })
 }));
 
 export const allPlaces = categoryDefinitions.flatMap((category) => category.places);
+
+export const utilityProviders = categoryDefinitions.find((category) => category.slug === "utilities")?.places || [];
+
+export const utilityDirectory = {
+  cities: utilityCities,
+  serviceAreas: utilityServiceAreas,
+  providers: utilityProviders,
+};
 
 export const masterPlaces = allPlaces.map((place) => ({
   placeId: place.placeId,
@@ -189,6 +205,12 @@ export const masterPlaces = allPlaces.map((place) => ({
   latitude: place.latitude,
   longitude: place.longitude,
   schemaType: place.schemaType,
+  providerId: place.providerId,
+  aliases: place.aliases,
+  serviceAreas: place.serviceAreas,
+  startServiceUrl: place.startServiceUrl,
+  availabilityUrl: place.availabilityUrl,
+  primaryAction: place.primaryAction,
 }));
 
 export const guideRecommendations = allPlaces.map((place) => ({

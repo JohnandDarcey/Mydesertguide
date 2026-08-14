@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { allPlaces, categoryDefinitions, guideProfile, guideRecommendations, masterPlaces } from "../outputs/desert-insider/guide-model.js";
+import { allPlaces, categoryDefinitions, guideProfile, guideRecommendations, masterPlaces, slugify, utilityDirectory } from "../outputs/desert-insider/guide-model.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../outputs/desert-insider");
 
@@ -47,7 +47,7 @@ function pageHead({ title, description, canonical, image, type = "website", noin
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Libre+Bodoni:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/directory.css?v=20260814-real-estate-legal">
+    <link rel="stylesheet" href="/directory.css?v=20260814-utility-concierge">
     ${schema ? `<script type="application/ld+json">${jsonLd(schema)}</script>` : ""}`;
 }
 
@@ -79,8 +79,8 @@ function footer() {
 
 function scripts() {
   return `<script src="/analytics-config.js?v=20260814-guide-architecture"></script>
-    <script src="/analytics.js?v=20260814-real-estate-restored"></script>
-    <script type="module" src="/directory.js?v=20260814-guide-architecture-v2"></script>
+    <script src="/analytics.js?v=20260814-utility-concierge"></script>
+    <script type="module" src="/directory.js?v=20260814-utility-concierge"></script>
     <script type="module" src="/site-features.js?v=20260814-hybrid-homepage"></script>`;
 }
 
@@ -93,7 +93,7 @@ function tags(place, limit = 3) {
 }
 
 function card(place) {
-  const search = [place.name, place.city, place.category, place.subcategory, place.description, place.darceysTake, ...place.tags].join(" ").toLowerCase();
+  const search = [place.name, place.city, place.category, place.subcategory, place.description, place.darceysTake, ...(place.aliases || []), ...(place.serviceAreas || []), ...place.tags].join(" ").toLowerCase();
   return `<article class="recommendation-card" data-recommendation-card data-guide-place="${escapeHtml(place.name)}" data-guide-slug="${place.slug}" data-guide-category="${escapeHtml(place.category)}" data-guide-type="${escapeHtml(place.schemaType)}" data-place-id="${place.placeId}" data-city="${escapeHtml(place.city)}" data-tags="${escapeHtml(place.tags.join("|"))}" data-search="${escapeHtml(search)}">
     <a class="card-link" href="${place.url}" aria-label="Open ${escapeHtml(place.name)}"></a>
     <div class="card-media"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" loading="lazy" decoding="async">${favoriteButton(place)}</div>
@@ -114,6 +114,48 @@ function installCard() {
   </section>`;
 }
 
+const utilityGroups = [
+  { key: "electric", label: "Electric", icon: "electric" },
+  { key: "gas", label: "Gas", icon: "gas" },
+  { key: "water", label: "Water", icon: "water" },
+  { key: "internet", label: "Internet & Cable", icon: "internet" },
+];
+
+function utilityProviderCard(provider, context = "browse") {
+  const primaryUrl = provider.startServiceUrl || provider.availabilityUrl || provider.website;
+  const primaryEvent = provider.startServiceUrl ? "utility_start_service_click" : provider.availabilityUrl ? "utility_check_availability_click" : "utility_provider_website_click";
+  const primaryLabel = provider.primaryAction || (provider.startServiceUrl ? "Start Service" : provider.availabilityUrl ? "Check Availability" : "Visit Provider");
+  const search = [provider.name, provider.subcategory, provider.description, ...(provider.aliases || []), ...(provider.serviceAreas || [])].join(" ").toLowerCase();
+  return `<article class="utility-provider-card" data-utility-provider-card data-track-impression="true" data-place-view-event="utility_provider_view" data-guide-place="${escapeHtml(provider.name)}" data-guide-slug="${provider.slug}" data-place-id="${provider.placeId}" data-guide-category="Utilities Setup" data-guide-type="UtilityProvider" data-utility-type="${escapeHtml(provider.subcategory)}" data-search="${escapeHtml(search)}" data-utility-context="${escapeHtml(context)}">
+    <div class="utility-provider-identity"><img src="${provider.image}" alt="${escapeHtml(provider.name)} logo or ${provider.subcategory.toLowerCase()} service icon" loading="lazy" decoding="async"><div><p>${escapeHtml(provider.subcategory)}</p><h3><a href="${provider.url}" data-analytics-event="utility_provider_click" data-analytics-label="${escapeHtml(provider.name)}">${escapeHtml(provider.name)}</a></h3></div></div>
+    <p class="utility-provider-description">${escapeHtml(provider.detail || provider.description)}</p>
+    <div class="utility-provider-actions">
+      ${primaryUrl ? `<a class="button dark" href="${escapeHtml(primaryUrl)}" target="_blank" rel="noreferrer" data-analytics-event="${primaryEvent}" data-analytics-label="${escapeHtml(`${primaryLabel} - ${provider.name}`)}">${escapeHtml(primaryLabel)}</a>` : ""}
+      ${provider.phone ? `<a class="button" href="tel:${provider.phone.replace(/\D/g, "")}" data-analytics-event="utility_phone_click" data-analytics-label="Call ${escapeHtml(provider.name)}">Call <span class="utility-phone">${escapeHtml(provider.phone)}</span></a>` : ""}
+      ${provider.website && provider.website !== primaryUrl ? `<a class="utility-text-link" href="${escapeHtml(provider.website)}" target="_blank" rel="noreferrer" data-analytics-event="utility_provider_website_click" data-analytics-label="Website - ${escapeHtml(provider.name)}">Website →</a>` : ""}
+    </div>
+  </article>`;
+}
+
+function utilityConcierge(category) {
+  const byId = new Map(category.places.map((provider) => [provider.providerId, provider]));
+  const cityPanels = utilityDirectory.cities.map((city) => {
+    const relationship = utilityDirectory.serviceAreas[city];
+    return `<section class="utility-city-panel" data-utility-city-panel="${escapeHtml(city)}" hidden aria-live="polite">
+      <div class="utility-city-heading"><p class="eyebrow">Your ${escapeHtml(city)} utilities</p><h2>${escapeHtml(city)}</h2>${relationship.note ? `<p class="utility-address-warning"><strong>Service provider may vary by property address.</strong> ${escapeHtml(relationship.note)}</p>` : ""}</div>
+      <div class="utility-city-groups">${utilityGroups.map((group) => `<section class="utility-result-group" aria-labelledby="utility-${slugify(city)}-${group.key}"><div class="utility-group-title"><img src="/assets/services/icon-${group.icon}.svg" alt="" aria-hidden="true"><h3 id="utility-${slugify(city)}-${group.key}">${group.label}</h3></div><div class="utility-provider-list">${(relationship[group.key] || []).map((id) => utilityProviderCard(byId.get(id), `city:${city}`)).join("")}</div></section>`).join("")}</div>
+    </section>`;
+  }).join("");
+  const browseCards = category.places.map((provider) => utilityProviderCard(provider)).join("");
+  return `<section class="utility-concierge" data-utility-concierge data-analytics-impression="utilities_page_viewed" data-analytics-category="Utilities Setup">
+    <div class="utility-intro"><div><p class="eyebrow">Moving to the desert?</p><h2>Getting settled should be easy.</h2><p>Choose your city and we'll help you find the utility providers you'll likely need to get started.</p></div><div class="utility-city-picker"><label for="utility-city-select">Where is your home?</label><p>Choose your city to see the utility providers that typically serve your area.</p><select id="utility-city-select" data-utility-city-select><option value="">Select your city or area</option>${utilityDirectory.cities.map((city) => `<option value="${escapeHtml(city)}">${escapeHtml(city)}</option>`).join("")}</select></div></div>
+    <p class="utility-disclaimer">Utility service areas can vary by property address. Please confirm availability directly with the provider before establishing service.</p>
+    <div class="utility-city-results" data-utility-city-results hidden>${cityPanels}</div>
+  </section>
+  <section class="utility-browse" aria-labelledby="browse-utilities-title"><div class="section-heading"><div><p class="eyebrow">Browse by utility</p><h2 id="browse-utilities-title">Every provider, one easy place.</h2></div></div><div class="utility-tabs" role="group" aria-label="Filter providers by utility type"><button class="active" type="button" data-utility-filter="All">All</button>${["Electric", "Gas", "Water", "Internet & Cable"].map((label) => `<button type="button" data-utility-filter="${escapeHtml(label)}">${escapeHtml(label)}</button>`).join("")}</div><div class="utility-provider-grid" data-utility-provider-grid>${browseCards}</div><p class="empty-state" data-utility-empty hidden>No providers match this utility category.</p></section>
+  <section class="utility-download"><div><p class="eyebrow">Need a printable copy?</p><h2>Coachella Valley Utility Guide</h2><p>Prefer having everything in one place? Download Darcey's printable guide for quick reference.</p></div><div class="utility-download-actions"><a class="button dark" href="/downloads/Darceys-Coachella-Valley-Utility-Guide.pdf" target="_blank" data-analytics-event="utility_guide_download" data-analytics-label="Download Utility Guide">Download Utility Guide</a><a class="utility-text-link" href="/downloads/Darceys-Coachella-Valley-Utility-Guide.png" download data-analytics-event="utility_guide_download" data-analytics-label="Download Original Utility Guide">Original image →</a></div></section>`;
+}
+
 function categoryPage(category) {
   const canonical = `${guideProfile.siteUrl}/${category.slug}/`;
   const title = `${category.label} in the Coachella Valley | My Desert Guide`;
@@ -130,19 +172,21 @@ function categoryPage(category) {
   const tagCounts = new Map();
   category.places.flatMap((place) => place.tags).forEach((tag) => tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1));
   const supportedTags = [...tagCounts.entries()].filter(([, count]) => count >= 1).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0])).slice(0, 10).map(([tag]) => tag);
+  const isUtilities = category.slug === "utilities";
+  const discovery = isUtilities ? utilityConcierge(category) : `<section aria-label="Filter ${escapeHtml(category.label)} recommendations">
+        <div class="discovery-tools"><label class="search-field"><span aria-hidden="true">⌕</span><input type="search" data-category-search placeholder="Search ${escapeHtml(category.label.toLowerCase())}, tags or Darcey's notes…" aria-label="Search recommendations"></label><label class="location-field"><span>Location</span><select data-location-filter><option>All</option>${cities.map((city) => `<option>${escapeHtml(city)}</option>`).join("")}</select></label></div>
+        <div class="tag-filters" aria-label="Recommendation filters"><button class="tag-filter active" type="button" data-tag-filter="All">All</button>${supportedTags.map((tag) => `<button class="tag-filter" type="button" data-tag-filter="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`).join("")}</div>
+        <p class="results-summary" data-results-summary></p>
+      </section>
+      <section class="recommendation-grid" data-category-grid>${category.places.map(card).join("")}</section>
+      <div class="empty-state" data-empty-results hidden>No recommendations match those filters yet. Try another location or interest.</div>`;
 
   return `<!doctype html><html lang="en"><head>${pageHead({ title, description: category.intro, canonical, image: category.image, schema })}</head>
   <body data-page-kind="category" data-guide-id="${guideProfile.guideId}" data-profile-id="${guideProfile.profileId}" data-category="${escapeHtml(category.label)}" data-category-slug="${category.slug}">
     ${header()}<main class="page-shell">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">${escapeHtml(category.label)}</span></nav>
       <section class="category-hero"><div class="category-hero-copy"><p class="eyebrow">${escapeHtml(category.eyebrow)}</p><h1>${escapeHtml(category.label)}</h1><p>${escapeHtml(category.intro)}</p></div><div class="category-hero-media"><img src="${category.image}" alt="${escapeHtml(category.imageAlt)}" fetchpriority="high"></div></section>
-      <section aria-label="Filter ${escapeHtml(category.label)} recommendations">
-        <div class="discovery-tools"><label class="search-field"><span aria-hidden="true">⌕</span><input type="search" data-category-search placeholder="Search ${escapeHtml(category.label.toLowerCase())}, tags or Darcey's notes…" aria-label="Search recommendations"></label><label class="location-field"><span>Location</span><select data-location-filter><option>All</option>${cities.map((city) => `<option>${escapeHtml(city)}</option>`).join("")}</select></label></div>
-        <div class="tag-filters" aria-label="Recommendation filters"><button class="tag-filter active" type="button" data-tag-filter="All">All</button>${supportedTags.map((tag) => `<button class="tag-filter" type="button" data-tag-filter="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`).join("")}</div>
-        <p class="results-summary" data-results-summary></p>
-      </section>
-      <section class="recommendation-grid" data-category-grid>${category.places.map(card).join("")}</section>
-      <div class="empty-state" data-empty-results hidden>No recommendations match those filters yet. Try another location or interest.</div>
+      ${discovery}
       ${installCard()}
     </main>${footer()}${scripts()}
   </body></html>`;
@@ -157,11 +201,13 @@ function detailRows(place) {
 
 function actionLinks(place) {
   return [
-    place.website && `<a class="button dark" href="${escapeHtml(place.website)}" target="_blank" rel="noreferrer">Website</a>`,
+    place.startServiceUrl && `<a class="button dark" href="${escapeHtml(place.startServiceUrl)}" target="_blank" rel="noreferrer" data-analytics-event="utility_start_service_click" data-analytics-label="Start Service - ${escapeHtml(place.name)}">Start Service</a>`,
+    place.availabilityUrl && `<a class="button dark" href="${escapeHtml(place.availabilityUrl)}" target="_blank" rel="noreferrer" data-analytics-event="utility_check_availability_click" data-analytics-label="Check Availability - ${escapeHtml(place.name)}">Check Availability</a>`,
+    place.website && `<a class="button${place.startServiceUrl || place.availabilityUrl ? "" : " dark"}" href="${escapeHtml(place.website)}" target="_blank" rel="noreferrer"${place.categorySlug === "utilities" ? ` data-analytics-event="utility_provider_website_click" data-analytics-label="Website - ${escapeHtml(place.name)}"` : ""}>Website</a>`,
     place.menu && `<a class="button" href="${escapeHtml(place.menu)}" target="_blank" rel="noreferrer">Menu</a>`,
     place.teeTime && `<a class="button" href="${escapeHtml(place.teeTime)}" target="_blank" rel="noreferrer">Book Tee Time</a>`,
     place.directions && `<a class="button" href="${escapeHtml(place.directions)}" target="_blank" rel="noreferrer">Directions</a>`,
-    place.phone && `<a class="button" href="tel:${place.phone.replace(/\D/g,"")}">Call</a>`,
+    place.phone && `<a class="button" href="tel:${place.phone.replace(/\D/g,"")}"${place.categorySlug === "utilities" ? ` data-analytics-event="utility_phone_click" data-analytics-label="Call ${escapeHtml(place.name)}"` : ""}>Call</a>`,
     place.email && `<a class="button" href="mailto:${escapeHtml(place.email)}">Email</a>`,
   ].filter(Boolean).join("");
 }
@@ -186,7 +232,7 @@ function placePage(place) {
   <body data-page-kind="place" data-guide-id="${place.guideId}" data-profile-id="${place.profileId}" data-category="${escapeHtml(place.category)}" data-category-slug="${place.categorySlug}" data-place-id="${place.placeId}" data-place-slug="${place.slug}" data-place-name="${escapeHtml(place.name)}" data-place-type="${place.schemaType}">
     ${header()}<main class="page-shell">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/${place.categorySlug}/">${escapeHtml(place.category)}</a><span>/</span><span aria-current="page">${escapeHtml(place.name)}</span></nav>
-      <article class="place-hero"><div class="place-media"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" fetchpriority="high"></div><div class="place-copy"><p class="eyebrow">${escapeHtml(place.city)} · ${escapeHtml(place.subcategory || place.category)}</p><h1>${escapeHtml(place.name)}</h1><p class="place-deck">${escapeHtml(place.description)}</p><div class="tag-list place-tags">${tags(place,5)}</div>${place.isFavorite ? '<div class="favorite-mark">♡ Darcey&#39;s Favorite</div>' : ""}<div class="place-actions">${favoriteButton(place,"place-save")} ${actionLinks(place)}</div></div></article>
+      <article class="place-hero"><div class="place-media"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" fetchpriority="high"></div><div class="place-copy"><p class="eyebrow">${escapeHtml(place.city)} · ${escapeHtml(place.subcategory || place.category)}</p><h1>${escapeHtml(place.name)}</h1><p class="place-deck">${escapeHtml(place.description)}</p><div class="tag-list place-tags">${tags(place,5)}</div>${place.isFavorite && place.categorySlug !== "utilities" ? '<div class="favorite-mark">♡ Darcey&#39;s Favorite</div>' : ""}<div class="place-actions">${place.categorySlug === "utilities" ? "" : favoriteButton(place,"place-save")} ${actionLinks(place)}</div></div></article>
       <div class="place-content">
         ${place.darceysTake ? `<section class="place-section darcey-take"><p class="eyebrow">♡ Darcey's Take</p><blockquote>“${escapeHtml(place.darceysTake)}”</blockquote></section>` : ""}
         ${detailRows(place) ? `<section class="place-section"><p class="eyebrow">Plan Your Visit</p><h2>Useful details.</h2><dl class="detail-list">${detailRows(place)}</dl></section>` : ""}
@@ -205,7 +251,7 @@ function savedPage() {
 async function write(relative, content) {
   const target = path.join(root, relative);
   await fs.mkdir(path.dirname(target), { recursive: true });
-  await fs.writeFile(target, content);
+  await fs.writeFile(target, content.replace(/[ \t]+$/gm, ""));
 }
 
 await fs.rm(path.join(root, "place"), { recursive: true, force: true });

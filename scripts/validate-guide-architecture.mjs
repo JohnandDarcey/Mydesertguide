@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../outp
 const read = (relative) => fs.readFile(path.join(root, relative), "utf8");
 
 if (categoryDefinitions.length !== 6) throw new Error(`Expected 6 primary categories, found ${categoryDefinitions.length}.`);
-if (allPlaces.length !== 46) throw new Error(`Expected 46 source recommendations, found ${allPlaces.length}.`);
+if (allPlaces.length !== 55) throw new Error(`Expected 55 source recommendations and utility resources, found ${allPlaces.length}.`);
 
 const slugs = new Set(allPlaces.map((place) => place.slug));
 const ids = new Set(allPlaces.map((place) => place.placeId));
@@ -53,7 +53,7 @@ for (const category of categoryDefinitions) {
   if (!homepageData.includes(`/${category.slug}/`)) throw new Error(`Homepage gateway is missing: /${category.slug}/`);
   if (!homepageApp.includes(`/${category.slug}/`)) throw new Error(`Homepage navigation is missing: /${category.slug}/`);
   const html = await read(`${category.slug}/index.html`);
-  for (const marker of ["<h1>", "rel=\"canonical\"", "application/ld+json", "data-category-grid"]) {
+  for (const marker of ["<h1>", "rel=\"canonical\"", "application/ld+json", category.slug === "utilities" ? "data-utility-provider-grid" : "data-category-grid"]) {
     if (!html.includes(marker)) throw new Error(`${category.slug} is missing ${marker}.`);
   }
   for (const marker of ["Love Where You Live", "Thinking about making the desert home?", "https://darceydeetz.com/home-search/listings", "real_estate_contact_click"]) {
@@ -63,6 +63,14 @@ for (const category of categoryDefinitions) {
     if (!html.includes(marker)) throw new Error(`${category.slug} is missing real-estate legal marker: ${marker}`);
   }
   if (html.includes("Need Darcey's help?")) throw new Error(`${category.slug} still contains the retired footer.`);
+}
+
+const utilitiesPage = await read("utilities/index.html");
+for (const marker of ["Where is your home?", "data-utility-city-select", "Palm Springs", "Thermal / Mecca", "Service provider may vary by property address", "Darceys-Coachella-Valley-Utility-Guide.pdf", "utility_guide_download"]) {
+  if (!utilitiesPage.includes(marker)) throw new Error(`Utilities concierge is missing: ${marker}`);
+}
+for (const providerName of ["Southern California Edison", "Imperial Irrigation District", "SoCalGas", "Desert Water Agency", "Coachella Valley Water District", "Mission Springs Water District", "Indio Water Authority", "Myoma Dunes Water Company", "City of Coachella Water Department", "Spectrum", "Frontier Communications", "AT&amp;T Internet", "T-Mobile Home Internet"]) {
+  if (!utilitiesPage.includes(providerName)) throw new Error(`Utilities concierge is missing provider: ${providerName}`);
 }
 
 for (const place of allPlaces) {
@@ -98,4 +106,4 @@ if (!robots.includes("Sitemap: https://mydesertguide.com/sitemap.xml") || !robot
   throw new Error("robots.txt does not expose the sitemap or protect admin routes.");
 }
 
-console.log(`Validated 6 categories, 46 recommendation pages, favorites, PWA navigation, robots.txt and ${sitemapUrls} sitemap URLs.`);
+console.log(`Validated 6 categories, ${allPlaces.length} recommendation pages, utilities concierge, favorites, PWA navigation, robots.txt and ${sitemapUrls} sitemap URLs.`);
