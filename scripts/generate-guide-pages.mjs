@@ -181,6 +181,34 @@ const categoryLandingConfigs = {
       analyticsEvent: "explore_hiking_clicked",
     },
   },
+  shopping: {
+    discoveryEyebrow: "Find your kind of shopping",
+    discoveryTitle: "What are you shopping for?",
+    discoveryAnalyticsEvent: "shopping_experience_tile_selected",
+    discoveryTiles: [
+      ["Fashion", "Fashion", "frenchys-palm-springs"],
+      ["Gifts + Palm Springs", "Gifts", "destination-psp"],
+      ["Home + Design", "Home + Design", "the-shops-at-thirteen-forty-five"],
+      ["Art + Vintage", "Art + Vintage", "the-shag-store"],
+      ["Golf + Sport", "Golf + Sport", "pga-tour-superstore"],
+      ["Luxury", "Luxury", "saks-fifth-avenue"],
+    ],
+    picksTitle: "Darcey's Desert Shopping Picks",
+    picksAnalyticsEvent: "shopping_pick_clicked",
+    picks: [
+      ["the-shag-store", "Iconic Palm Springs"],
+      ["pga-tour-superstore", "For the Golfer"],
+      ["destination-psp", "Take Palm Springs Home"],
+      ["the-shops-at-thirteen-forty-five", "Design Lover's Pick"],
+      ["brandini-toffee", "Sweet Desert Favorite"],
+      ["el-paseo-shopping-district", "The Desert's Shopping Street"],
+    ],
+    picksCopy: "A few favorite places to shop, browse and bring a little desert style home.",
+    exploreEyebrow: "Explore Shopping",
+    exploreTitle: "Great places to shop around the desert.",
+    primaryFilters: ["All", "Fashion", "Gifts", "Home + Design", "Art + Vintage", "Golf + Sport", "Luxury", "Familiar Favorites"],
+    secondaryFilters: [],
+  },
 };
 
 function placeBySlug(category, slug) {
@@ -195,18 +223,18 @@ function filteredUrl(category, experience) {
 
 function experienceDiscovery(category, config) {
   return `<section class="experience-discovery" aria-labelledby="${category.slug}-mood-title">
-    <div class="editorial-heading"><p class="eyebrow">Start with the feeling</p><h2 id="${category.slug}-mood-title">What are you in the mood for?</h2></div>
+    <div class="editorial-heading"><p class="eyebrow">${escapeHtml(config.discoveryEyebrow || "Start with the feeling")}</p><h2 id="${category.slug}-mood-title">${escapeHtml(config.discoveryTitle || "What are you in the mood for?")}</h2></div>
     <div class="experience-tile-grid">${config.discoveryTiles.map(([label, filter, slug]) => {
       const place = placeBySlug(category, slug);
-      return `<a class="experience-tile" href="${filteredUrl(category, filter)}" data-analytics-event="experience_tile_clicked" data-analytics-label="${escapeHtml(`${category.label} - ${label}`)}"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" loading="lazy" decoding="async"><span>${escapeHtml(label)}</span></a>`;
+      return `<a class="experience-tile" href="${filteredUrl(category, filter)}" data-analytics-event="${escapeHtml(config.discoveryAnalyticsEvent || "experience_tile_clicked")}" data-analytics-label="${escapeHtml(`${category.label} - ${label}`)}"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" loading="lazy" decoding="async"><span>${escapeHtml(label)}</span></a>`;
     }).join("")}</div>
   </section>`;
 }
 
 function curatedPicks(category, config) {
   return `<section class="curated-picks" aria-labelledby="${category.slug}-picks-title">
-    <div class="editorial-heading"><p class="eyebrow">Curated for You</p><h2 id="${category.slug}-picks-title">Darcey's Desert Picks</h2><p>${escapeHtml(config.picksCopy)}</p></div>
-    <div class="recommendation-grid curated-picks-grid">${config.picks.map(([slug, label]) => card(placeBySlug(category, slug), { editorialLabel: label, analyticsEvent: "darceys_desert_pick_clicked", showTags: false })).join("")}</div>
+    <div class="editorial-heading"><p class="eyebrow">Curated for You</p><h2 id="${category.slug}-picks-title">${config.picksTitle ? escapeHtml(config.picksTitle) : "Darcey's Desert Picks"}</h2><p>${escapeHtml(config.picksCopy)}</p></div>
+    <div class="recommendation-grid curated-picks-grid">${config.picks.map(([slug, label]) => card(placeBySlug(category, slug), { editorialLabel: label, analyticsEvent: config.picksAnalyticsEvent || "darceys_desert_pick_clicked", showTags: false })).join("")}</div>
   </section>`;
 }
 
@@ -238,7 +266,7 @@ function specializedTeaser(category, config) {
 }
 
 function editorialCategoryLanding(category, config) {
-  return `${experienceDiscovery(category, config)}${curatedPicks(category, config)}${browseCollection(category, config)}${specializedTeaser(category, config)}`;
+  return `${experienceDiscovery(category, config)}${curatedPicks(category, config)}${browseCollection(category, config)}${config.teaser ? specializedTeaser(category, config) : ""}`;
 }
 
 function installCard() {
@@ -348,7 +376,7 @@ function actionLinks(place) {
     place.phone && `<a class="button" href="tel:${place.phone.replace(/\D/g,"")}"${place.categorySlug === "utilities" ? ` data-analytics-event="utility_phone_click" data-analytics-label="Call ${escapeHtml(place.name)}"` : ""}>Call</a>`,
     place.email && `<a class="button" href="mailto:${escapeHtml(place.email)}">Email</a>`,
   ].filter(Boolean);
-  if (place.hikingPickLabel || place.coffeePickLabel) {
+  if (place.hikingPickLabel || place.coffeePickLabel || place.categorySlug === "shopping") {
     const directionsIndex = links.findIndex((link) => link.includes('data-analytics-event="recommendation_directions_click"'));
     const websiteIndex = links.findIndex((link) => link.includes('data-analytics-event="recommendation_external_click"'));
     if (directionsIndex > websiteIndex && websiteIndex >= 0) {

@@ -43,6 +43,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -84,6 +85,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -123,6 +125,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -161,6 +164,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -198,6 +202,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -238,6 +243,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -277,6 +283,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -315,6 +322,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -355,6 +363,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -394,6 +403,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -433,6 +443,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -470,6 +481,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -510,6 +522,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -550,6 +563,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -589,6 +603,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -628,6 +643,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -667,6 +683,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -706,6 +723,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -770,6 +788,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -833,6 +852,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -896,6 +916,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -960,6 +981,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1032,6 +1054,7 @@
         "Indio",
         "Coachella"
       ],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1091,6 +1114,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1125,6 +1149,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1160,6 +1185,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1197,6 +1223,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1234,6 +1261,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1270,6 +1298,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1339,6 +1368,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1408,6 +1438,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1476,6 +1507,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1543,6 +1575,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1585,6 +1618,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1626,6 +1660,7 @@
         "Desert View Loop"
       ],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1695,6 +1730,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1735,6 +1771,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1773,6 +1810,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1813,6 +1851,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1849,6 +1888,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1859,6 +1899,505 @@
       ],
       "attributes": [
         "friends or visiting guests"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-the-shag-store",
+      "slug": "the-shag-store",
+      "name": "The Shag Store",
+      "city": "Palm Springs",
+      "category": "Shopping",
+      "categorySlug": "shopping",
+      "subcategory": "Art & Gifts",
+      "description": "For a little Palm Springs style to take home, The Shag Store is a must. The colorful gallery and shop is devoted entirely to Shag's unmistakable midcentury-inspired art, prints and merchandise.",
+      "cardDescription": "Colorful midcentury-inspired art, prints and Palm Springs style to take home.",
+      "image": "/assets/shopping/the-shag-store.jpg",
+      "images": [],
+      "address": "745 N Palm Canyon Dr, Palm Springs, CA 92262",
+      "phone": "",
+      "email": "",
+      "website": "https://shagstore.com/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=The+Shag+Store+745+N+Palm+Canyon+Dr+Palm+Springs+CA+92262",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Visit Website",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo by Zooey Li on Unsplash",
+        "url": "https://unsplash.com/photos/lkDZJL5psKU"
+      },
+      "experienceTypes": [
+        "Gifts",
+        "Art + Vintage"
+      ],
+      "attributes": [
+        "Art",
+        "Midcentury",
+        "Unique Find"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-pga-tour-superstore",
+      "slug": "pga-tour-superstore",
+      "name": "PGA TOUR Superstore",
+      "city": "Palm Desert",
+      "category": "Shopping",
+      "categorySlug": "shopping",
+      "subcategory": "Golf & Sport",
+      "description": "In golf country, this one is worth knowing. PGA TOUR Superstore is the desert's one-stop shop for clubs, apparel, shoes, accessories, fittings and just about anything else a golfer might need.",
+      "cardDescription": "The desert's one-stop shop for equipment, apparel, fittings and golf essentials.",
+      "image": "/assets/shopping/pga-tour-superstore.jpg",
+      "images": [],
+      "address": "72280 Highway 111, Palm Desert, CA 92260",
+      "phone": "760-601-3450",
+      "email": "",
+      "website": "https://www.pgatoursuperstore.com/stores/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=PGA+TOUR+Superstore+72280+Highway+111+Palm+Desert+CA+92260",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Visit Website",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo by Frederik Rosar on Unsplash",
+        "url": "https://unsplash.com/photos/aHqW2AChF6M"
+      },
+      "experienceTypes": [
+        "Golf + Sport"
+      ],
+      "attributes": [
+        "Golf",
+        "Golf Equipment",
+        "Golf Apparel",
+        "Shoes",
+        "Sporting Goods"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-destination-psp",
+      "slug": "destination-psp",
+      "name": "Destination PSP",
+      "city": "Palm Springs",
+      "category": "Shopping",
+      "categorySlug": "shopping",
+      "subcategory": "Gifts",
+      "description": "If you want to take a little Palm Springs home with you, start here. Destination PSP is packed with colorful midcentury-inspired gifts, home decor, apparel and desert memorabilia.",
+      "cardDescription": "Colorful midcentury-inspired gifts, home decor and desert memorabilia.",
+      "image": "/assets/shopping/destination-psp.jpg",
+      "images": [],
+      "address": "170 N Palm Canyon Dr, Palm Springs, CA 92262",
+      "phone": "",
+      "email": "",
+      "website": "https://destinationpsp.com/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Destination+PSP+170+N+Palm+Canyon+Dr+Palm+Springs+CA+92262",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Visit Website",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo by Meg von Haartman on Unsplash",
+        "url": "https://unsplash.com/photos/zAdJZZgNogo"
+      },
+      "experienceTypes": [
+        "Gifts",
+        "Home + Design",
+        "Art + Vintage"
+      ],
+      "attributes": [
+        "Midcentury",
+        "Home",
+        "Local"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-just-fabulous",
+      "slug": "just-fabulous",
+      "name": "Just Fabulous",
+      "city": "Palm Springs",
+      "category": "Shopping",
+      "categorySlug": "shopping",
+      "subcategory": "Gifts & Home",
+      "description": "A fun Palm Springs stop for stylish gifts, books, home decor and those little things you didn't know you needed.",
+      "cardDescription": "Stylish gifts, books, home decor and delightful little finds.",
+      "image": "/assets/shopping/just-fabulous.jpg",
+      "images": [],
+      "address": "515 N Palm Canyon Dr, Suite A4, Palm Springs, CA 92262",
+      "phone": "",
+      "email": "",
+      "website": "https://bjustfabulous.com/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Just+Fabulous+515+N+Palm+Canyon+Dr+Suite+A4+Palm+Springs+CA+92262",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Visit Website",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo by shawn kim on Unsplash",
+        "url": "https://unsplash.com/photos/auZY3byMjig"
+      },
+      "experienceTypes": [
+        "Gifts",
+        "Home + Design"
+      ],
+      "attributes": [
+        "Home",
+        "Books",
+        "Local Favorite"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-the-shops-at-thirteen-forty-five",
+      "slug": "the-shops-at-thirteen-forty-five",
+      "name": "The Shops at Thirteen Forty Five",
+      "city": "Palm Springs",
+      "category": "Shopping",
+      "categorySlug": "shopping",
+      "subcategory": "Home & Design",
+      "description": "One of Palm Springs' best places to browse. This stylish design collective brings together art, vintage finds, jewelry, fashion, furniture and beautiful objects for the home.",
+      "cardDescription": "A stylish design collective for art, vintage finds, fashion and beautiful home objects.",
+      "image": "/assets/shopping/the-shops-at-thirteen-forty-five.jpg",
+      "images": [],
+      "address": "1345 N Palm Canyon Dr, Palm Springs, CA 92262",
+      "phone": "",
+      "email": "",
+      "website": "https://www.theshopsat1345.com/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=The+Shops+at+Thirteen+Forty+Five+1345+N+Palm+Canyon+Dr+Palm+Springs+CA+92262",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Visit Website",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo by Robert on Unsplash",
+        "url": "https://unsplash.com/photos/3KNrZ7ssKFY"
+      },
+      "experienceTypes": [
+        "Fashion",
+        "Home + Design",
+        "Art + Vintage"
+      ],
+      "attributes": [
+        "Design",
+        "Home",
+        "Vintage",
+        "Art"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-brandini-toffee",
+      "slug": "brandini-toffee",
+      "name": "Brandini Toffee",
+      "city": "Palm Springs",
+      "category": "Shopping",
+      "categorySlug": "shopping",
+      "subcategory": "Gifts",
+      "description": "A sweet desert favorite. Brandini's locally made almond toffee makes a perfect treat—or an easy gift to take home.",
+      "cardDescription": "Locally made almond toffee that makes a perfect treat or easy gift.",
+      "image": "/assets/shopping/brandini-toffee.jpg",
+      "images": [],
+      "address": "132 S Palm Canyon Dr, Palm Springs, CA 92262",
+      "phone": "760-200-1598",
+      "email": "",
+      "website": "https://brandinitoffee.com/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Brandini+Toffee+132+S+Palm+Canyon+Dr+Palm+Springs+CA+92262",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [
+        "Palm Springs",
+        "Rancho Mirage"
+      ],
+      "additionalLocations": [
+        {
+          "label": "Factory + Store",
+          "address": "42250 Bob Hope Dr, Rancho Mirage, CA 92270"
+        }
+      ],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Visit Website",
+      "directionsLabel": "Get Directions",
+      "quickInfo": [
+        [
+          "Primary Shop",
+          "132 S Palm Canyon Dr, Palm Springs"
+        ],
+        [
+          "Factory + Store",
+          "42250 Bob Hope Dr, Rancho Mirage"
+        ],
+        [
+          "Best For",
+          "Local almond toffee and gifts"
+        ]
+      ],
+      "photoCredit": {
+        "label": "Photo by Tamanna Rumee on Unsplash",
+        "url": "https://unsplash.com/photos/7TiZjxU41lc"
+      },
+      "experienceTypes": [
+        "Gifts"
+      ],
+      "attributes": [
+        "Local",
+        "Sweets",
+        "Food Gift"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-frenchys-palm-springs",
+      "slug": "frenchys-palm-springs",
+      "name": "Frenchy's Palm Springs",
+      "city": "Palm Springs",
+      "category": "Shopping",
+      "categorySlug": "shopping",
+      "subcategory": "Fashion Boutique",
+      "description": "A longtime downtown Palm Springs boutique for women's fashion, resort wear, shoes and accessories, with a family-owned history dating to 1955.",
+      "cardDescription": "A longtime downtown boutique for women's fashion, resort wear, shoes and accessories.",
+      "image": "/assets/shopping/frenchys-palm-springs.jpg",
+      "images": [],
+      "address": "136 N Palm Canyon Dr, Palm Springs, CA 92262",
+      "phone": "760-325-5686",
+      "email": "",
+      "website": "https://www.frenchysfashions.com/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Frenchys+Fashions+136+N+Palm+Canyon+Dr+Palm+Springs+CA+92262",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Visit Website",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo by Tyler Davis on Unsplash",
+        "url": "https://unsplash.com/photos/O8lxsc1RwCQ"
+      },
+      "experienceTypes": [
+        "Fashion"
+      ],
+      "attributes": [
+        "Women's",
+        "Boutique",
+        "Shoes",
+        "Accessories"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-saks-fifth-avenue",
+      "slug": "saks-fifth-avenue",
+      "name": "Saks Fifth Avenue",
+      "city": "Palm Desert",
+      "category": "Shopping",
+      "categorySlug": "shopping",
+      "subcategory": "Luxury Fashion",
+      "description": "For luxury shopping in the desert, Saks on El Paseo brings designer fashion, beauty, shoes and accessories together in one stop.",
+      "cardDescription": "Designer fashion, beauty, shoes and accessories together on El Paseo.",
+      "image": "/assets/shopping/saks-fifth-avenue.jpg",
+      "images": [],
+      "address": "73555 El Paseo, Palm Desert, CA 92260",
+      "phone": "760-837-2900",
+      "email": "",
+      "website": "https://www.saksfifthavenue.com/locations/palmdesert/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Saks+Fifth+Avenue+73555+El+Paseo+Palm+Desert+CA+92260",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Visit Website",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo by Jie Yeu Teoh on Unsplash",
+        "url": "https://unsplash.com/photos/uNnx31GSPxk"
+      },
+      "experienceTypes": [
+        "Fashion",
+        "Home + Design",
+        "Luxury"
+      ],
+      "attributes": [
+        "Beauty",
+        "Shoes",
+        "El Paseo"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-macys",
+      "slug": "macys",
+      "name": "Macy's",
+      "city": "Palm Desert",
+      "category": "Shopping",
+      "categorySlug": "shopping",
+      "subcategory": "Department Store",
+      "description": "Sometimes you just want everything in one place. Macy's in Palm Desert is an easy stop for fashion, shoes, beauty, home and the essentials.",
+      "cardDescription": "A familiar, comprehensive stop for fashion, beauty, home and everyday essentials.",
+      "image": "/assets/shopping/macys-palm-desert.jpg",
+      "images": [],
+      "address": "72780 Highway 111, Palm Desert, CA 92260",
+      "phone": "760-346-9300",
+      "email": "",
+      "website": "https://www.macys.com/stores/ca/palmdesert/shops-at-palm-desert_534.html",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Macys+72780+Highway+111+Palm+Desert+CA+92260",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Visit Website",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo by Albert Stoynov on Unsplash",
+        "url": "https://unsplash.com/photos/XmfAjdvSZIU"
+      },
+      "experienceTypes": [
+        "Fashion",
+        "Home + Design",
+        "Art + Vintage",
+        "Familiar Favorites"
+      ],
+      "attributes": [
+        "Home",
+        "Beauty",
+        "Shoes"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-el-paseo-shopping-district",
+      "slug": "el-paseo-shopping-district",
+      "name": "El Paseo Shopping District",
+      "city": "Palm Desert",
+      "category": "Shopping",
+      "categorySlug": "shopping",
+      "subcategory": "Shopping District",
+      "description": "The desert's signature shopping street. Stroll El Paseo for luxury brands, boutiques, galleries, jewelry, home design and plenty of places to stop for lunch or a cocktail.",
+      "cardDescription": "The desert's signature shopping street for boutiques, galleries, design and dining.",
+      "image": "/assets/shopping/el-paseo-shopping-district.jpg",
+      "images": [],
+      "address": "El Paseo between Highway 74 and Portola Ave, Palm Desert, CA 92260",
+      "phone": "",
+      "email": "",
+      "website": "https://www.shopelpaseo.com/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=El+Paseo+Shopping+District+Palm+Desert+CA",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Explore El Paseo",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo by Jeffrey Eisen on Unsplash",
+        "url": "https://unsplash.com/photos/ytIqTxhYW4o"
+      },
+      "experienceTypes": [
+        "Fashion",
+        "Home + Design",
+        "Art + Vintage",
+        "Luxury"
+      ],
+      "attributes": [
+        "Art",
+        "Home"
       ],
       "editorialLabels": []
     },
@@ -1887,6 +2426,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -1926,10 +2466,13 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
       "experienceTypes": [
+        "Gifts",
+        "Home + Design",
         "Darcey's Favorites"
       ],
       "attributes": [
@@ -1975,6 +2518,7 @@
         "Indian Wells",
         "Desert Hot Springs"
       ],
+      "additionalLocations": [],
       "startServiceUrl": "https://www.sce.com/customer-service-center/start-stop-move-service",
       "availabilityUrl": "",
       "primaryAction": "START SERVICE",
@@ -2025,6 +2569,7 @@
         "Thousand Palms",
         "Thermal / Mecca"
       ],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "VISIT PROVIDER",
@@ -2076,6 +2621,7 @@
         "Thousand Palms",
         "Thermal / Mecca"
       ],
+      "additionalLocations": [],
       "startServiceUrl": "https://www.iid.com/start-service",
       "availabilityUrl": "",
       "primaryAction": "START SERVICE",
@@ -2131,6 +2677,7 @@
         "Thousand Palms",
         "Thermal / Mecca"
       ],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "VISIT PROVIDER",
@@ -2174,6 +2721,7 @@
         "Palm Springs",
         "Cathedral City"
       ],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "VISIT PROVIDER",
@@ -2216,6 +2764,7 @@
       "serviceAreas": [
         "Desert Hot Springs"
       ],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "VISIT PROVIDER",
@@ -2255,6 +2804,7 @@
       "serviceAreas": [
         "Indio"
       ],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "VISIT PROVIDER",
@@ -2295,6 +2845,7 @@
       "serviceAreas": [
         "Bermuda Dunes"
       ],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "VISIT PROVIDER",
@@ -2336,6 +2887,7 @@
       "serviceAreas": [
         "Coachella"
       ],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "VISIT PROVIDER",
@@ -2386,6 +2938,7 @@
         "Thousand Palms",
         "Thermal / Mecca"
       ],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "https://www.spectrum.com/",
       "primaryAction": "CHECK AVAILABILITY",
@@ -2438,6 +2991,7 @@
         "Thousand Palms",
         "Thermal / Mecca"
       ],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "https://frontier.com/",
       "primaryAction": "CHECK AVAILABILITY",
@@ -2478,6 +3032,7 @@
         "ATT Internet"
       ],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "https://www.att.com/internet/",
       "primaryAction": "CHECK AVAILABILITY",
@@ -2516,6 +3071,7 @@
         "TMobile Home Internet"
       ],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "https://www.t-mobile.com/home-internet",
       "primaryAction": "CHECK AVAILABILITY",
@@ -2554,6 +3110,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -2592,6 +3149,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -2630,6 +3188,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -2668,6 +3227,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -2706,6 +3266,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -2744,6 +3305,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -2781,6 +3343,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -2819,6 +3382,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -2857,6 +3421,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -2894,6 +3459,7 @@
       "providerId": "",
       "aliases": [],
       "serviceAreas": [],
+      "additionalLocations": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
       "primaryAction": "",
@@ -4306,6 +4872,337 @@
       "detail": "An annual early-December parade along Palm Canyon Drive."
     },
     {
+      "recommendationId": "darcey-my-desert-guide:place-the-shag-store",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-the-shag-store",
+      "personalNote": "",
+      "tags": [
+        "Art",
+        "Palm Springs",
+        "Midcentury",
+        "Gifts",
+        "Unique Find"
+      ],
+      "experienceTypes": [
+        "Gifts",
+        "Art + Vintage"
+      ],
+      "attributes": [
+        "Art",
+        "Midcentury",
+        "Unique Find"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Colorful Palm Springs art, prints and gifts",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-pga-tour-superstore",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-pga-tour-superstore",
+      "personalNote": "",
+      "tags": [
+        "Golf",
+        "Golf Equipment",
+        "Golf Apparel",
+        "Shoes",
+        "Sporting Goods"
+      ],
+      "experienceTypes": [
+        "Golf + Sport"
+      ],
+      "attributes": [
+        "Golf",
+        "Golf Equipment",
+        "Golf Apparel",
+        "Shoes",
+        "Sporting Goods"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Golf equipment, apparel, fittings and services",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Clubs, apparel, shoes, accessories, fittings, lessons and club services."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-destination-psp",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-destination-psp",
+      "personalNote": "",
+      "tags": [
+        "Gifts",
+        "Palm Springs",
+        "Midcentury",
+        "Home",
+        "Local"
+      ],
+      "experienceTypes": [
+        "Gifts",
+        "Home + Design",
+        "Art + Vintage"
+      ],
+      "attributes": [
+        "Midcentury",
+        "Home",
+        "Local"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Palm Springs gifts, home decor and colorful local style",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-just-fabulous",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-just-fabulous",
+      "personalNote": "",
+      "tags": [
+        "Gifts",
+        "Home",
+        "Books",
+        "Palm Springs",
+        "Local Favorite"
+      ],
+      "experienceTypes": [
+        "Gifts",
+        "Home + Design"
+      ],
+      "attributes": [
+        "Home",
+        "Books",
+        "Local Favorite"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Stylish gifts, books and home decor",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-the-shops-at-thirteen-forty-five",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-the-shops-at-thirteen-forty-five",
+      "personalNote": "",
+      "tags": [
+        "Design",
+        "Home",
+        "Vintage",
+        "Art",
+        "Fashion"
+      ],
+      "experienceTypes": [
+        "Fashion",
+        "Home + Design",
+        "Art + Vintage"
+      ],
+      "attributes": [
+        "Design",
+        "Home",
+        "Vintage",
+        "Art"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Art, vintage finds, furniture, fashion and design",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-brandini-toffee",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-brandini-toffee",
+      "personalNote": "",
+      "tags": [
+        "Gifts",
+        "Local",
+        "Palm Springs",
+        "Sweets",
+        "Food Gift"
+      ],
+      "experienceTypes": [
+        "Gifts"
+      ],
+      "attributes": [
+        "Local",
+        "Sweets",
+        "Food Gift"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Locally made almond toffee and easy gifts",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "",
+      "quickInfo": [
+        [
+          "Primary Shop",
+          "132 S Palm Canyon Dr, Palm Springs"
+        ],
+        [
+          "Factory + Store",
+          "42250 Bob Hope Dr, Rancho Mirage"
+        ],
+        [
+          "Best For",
+          "Local almond toffee and gifts"
+        ]
+      ]
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-frenchys-palm-springs",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-frenchys-palm-springs",
+      "personalNote": "",
+      "tags": [
+        "Fashion",
+        "Women's",
+        "Boutique",
+        "Shoes",
+        "Accessories"
+      ],
+      "experienceTypes": [
+        "Fashion"
+      ],
+      "attributes": [
+        "Women's",
+        "Boutique",
+        "Shoes",
+        "Accessories"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Women's fashion, resort wear, shoes and accessories",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-saks-fifth-avenue",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-saks-fifth-avenue",
+      "personalNote": "",
+      "tags": [
+        "Luxury",
+        "Fashion",
+        "Beauty",
+        "Shoes",
+        "El Paseo"
+      ],
+      "experienceTypes": [
+        "Fashion",
+        "Home + Design",
+        "Luxury"
+      ],
+      "attributes": [
+        "Beauty",
+        "Shoes",
+        "El Paseo"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Designer fashion, beauty, shoes and accessories",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-macys",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-macys",
+      "personalNote": "",
+      "tags": [
+        "Department Store",
+        "Fashion",
+        "Home",
+        "Beauty",
+        "Shoes"
+      ],
+      "experienceTypes": [
+        "Fashion",
+        "Home + Design",
+        "Art + Vintage",
+        "Familiar Favorites"
+      ],
+      "attributes": [
+        "Home",
+        "Beauty",
+        "Shoes"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Fashion, shoes, beauty, home and everyday essentials",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-el-paseo-shopping-district",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-el-paseo-shopping-district",
+      "personalNote": "",
+      "tags": [
+        "Shopping District",
+        "Luxury",
+        "Fashion",
+        "Art",
+        "Home"
+      ],
+      "experienceTypes": [
+        "Fashion",
+        "Home + Design",
+        "Art + Vintage",
+        "Luxury"
+      ],
+      "attributes": [
+        "Art",
+        "Home"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Boutiques, galleries, luxury shopping and a leisurely stroll",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
+    },
+    {
       "recommendationId": "darcey-my-desert-guide:place-gelsons-rancho-mirage",
       "guideId": "darcey-my-desert-guide",
       "profileId": "darcey-deetz",
@@ -4350,6 +5247,8 @@
         "gifts"
       ],
       "experienceTypes": [
+        "Gifts",
+        "Home + Design",
         "Darcey's Favorites"
       ],
       "attributes": [

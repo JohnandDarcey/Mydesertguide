@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../outp
 const read = (relative) => fs.readFile(path.join(root, relative), "utf8");
 
 if (categoryDefinitions.length !== 6) throw new Error(`Expected 6 primary categories, found ${categoryDefinitions.length}.`);
-if (allPlaces.length !== 65) throw new Error(`Expected 65 source recommendations and utility resources, found ${allPlaces.length}.`);
+if (allPlaces.length !== 75) throw new Error(`Expected 75 source recommendations and utility resources, found ${allPlaces.length}.`);
 
 const slugs = new Set(allPlaces.map((place) => place.slug));
 const ids = new Set(allPlaces.map((place) => place.placeId));
@@ -160,7 +160,35 @@ for (const marker of [
 if ((foodDrinkPage.match(/data-guide-place="Starbucks"/g) || []).length !== 1) throw new Error("Starbucks should appear exactly once on Food & Drink.");
 if ((foodDrinkPage.match(/specialized_collection_recommendation_clicked/g) || []).length !== 3) throw new Error("Food & Drink should preview exactly three Coffee recommendations.");
 if ((thingsToDoPage.match(/specialized_collection_recommendation_clicked/g) || []).length !== 3) throw new Error("Things to Do should preview exactly three Hiking recommendations.");
-for (const place of allPlaces.filter((place) => ["food-drink", "things-to-do"].includes(place.categorySlug))) {
+const shoppingPage = await read("shopping/index.html");
+for (const marker of [
+  "What are you shopping for?", "Fashion", "Gifts + Palm Springs", "Home + Design", "Art + Vintage", "Golf + Sport", "Luxury",
+  "Darcey&#39;s Desert Shopping Picks", "The Shag Store", "PGA TOUR Superstore", "Destination PSP", "The Shops at Thirteen Forty Five", "Brandini Toffee", "El Paseo Shopping District",
+  "Explore Shopping", "Familiar Favorites", "All Desert", "Palm Springs", "Rancho Mirage", "Palm Desert", "shopping_experience_tile_selected", "shopping_pick_clicked",
+]) {
+  if (!shoppingPage.includes(marker)) throw new Error(`Shopping discovery page is missing: ${marker}`);
+}
+if (homepageData.includes("Trina Turk") || shoppingPage.includes("Trina Turk")) throw new Error("Trina Turk must not be added to this Shopping collection.");
+const shoppingRecommendations = [
+  ["the-shag-store", ["745 N Palm Canyon Dr", "Get Directions", "Visit Website"]],
+  ["pga-tour-superstore", ["72280 Highway 111", "760-601-3450", "Get Directions", "Visit Website"]],
+  ["destination-psp", ["170 N Palm Canyon Dr", "Get Directions", "Visit Website"]],
+  ["just-fabulous", ["515 N Palm Canyon Dr", "Get Directions", "Visit Website"]],
+  ["the-shops-at-thirteen-forty-five", ["1345 N Palm Canyon Dr", "Get Directions", "Visit Website"]],
+  ["brandini-toffee", ["132 S Palm Canyon Dr", "42250 Bob Hope Dr", "Get Directions", "Visit Website"]],
+  ["frenchys-palm-springs", ["136 N Palm Canyon Dr", "women&#39;s fashion", "Get Directions", "Visit Website"]],
+  ["saks-fifth-avenue", ["73555 El Paseo", "Get Directions", "Visit Website"]],
+  ["macys", ["72780 Highway 111", "Get Directions", "Visit Website"]],
+  ["el-paseo-shopping-district", ["Highway 74 and Portola Ave", "Get Directions", "Explore El Paseo"]],
+];
+for (const [slug, markers] of shoppingRecommendations) {
+  const html = await read(`place/${slug}/index.html`);
+  for (const marker of markers) {
+    if (!html.includes(marker)) throw new Error(`${slug} is missing Shopping marker: ${marker}`);
+  }
+  if (html.includes("Darcey's Take")) throw new Error(`${slug} must not include an invented Darcey's Take.`);
+}
+for (const place of allPlaces.filter((place) => ["food-drink", "things-to-do", "shopping"].includes(place.categorySlug))) {
   if (!Array.isArray(place.experienceTypes) || !place.experienceTypes.length) throw new Error(`${place.slug} is missing normalized experience types.`);
   if (!Array.isArray(place.attributes) || !Array.isArray(place.editorialLabels)) throw new Error(`${place.slug} is missing normalized discovery metadata.`);
 }

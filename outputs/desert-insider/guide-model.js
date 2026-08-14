@@ -74,7 +74,7 @@ const definitions = [
     slug: "shopping",
     label: "Shopping",
     eyebrow: "Find something special",
-    intro: "Darcey's useful and enjoyable shopping stops for home finds, entertaining, thoughtful gifts and polished everyday essentials.",
+    intro: "A curated mix of places worth browsing, from Palm Springs gifts and design finds to golf gear, familiar favorites and El Paseo style.",
     image: "/assets/category-cards/shopping-900.jpg",
     imageAlt: "Shopping for home and entertaining finds in Palm Springs",
     schemaType: "Store",
@@ -154,6 +154,16 @@ function experienceTypes(item, category) {
     if (["The Living Desert", "Palm Springs Air Museum", "Coachella Valley Firebirds", "Palm Springs Festival of Lights Parade", "VillageFest"].includes(item.name)) experiences.push("Family");
   }
 
+  if (category.slug === "shopping") {
+    if (searchable.includes("fashion") || searchable.includes("women's") || searchable.includes("boutique")) experiences.push("Fashion");
+    if (searchable.includes("gift") || searchable.includes("souvenir") || searchable.includes("sweets")) experiences.push("Gifts");
+    if (searchable.includes("home") || searchable.includes("design")) experiences.push("Home + Design");
+    if (searchable.includes("art") || searchable.includes("vintage") || searchable.includes("midcentury")) experiences.push("Art + Vintage");
+    if (searchable.includes("golf") || searchable.includes("sporting goods")) experiences.push("Golf + Sport");
+    if (searchable.includes("luxury") || searchable.includes("el paseo")) experiences.push("Luxury");
+    if (searchable.includes("familiar favorite") || searchable.includes("department store")) experiences.push("Familiar Favorites");
+  }
+
   if (isFavorite) experiences.push("Darcey's Favorites");
   return [...new Set(experiences)];
 }
@@ -205,6 +215,7 @@ function normalizePlace(item, category) {
     providerId: item.providerId || "",
     aliases: item.aliases || [],
     serviceAreas: item.serviceAreas || [],
+    additionalLocations: item.additionalLocations || [],
     startServiceUrl: item.startServiceUrl || "",
     availabilityUrl: item.availabilityUrl || "",
     primaryAction: item.primaryAction || "",
@@ -262,6 +273,7 @@ export const masterPlaces = allPlaces.map((place) => ({
   providerId: place.providerId,
   aliases: place.aliases,
   serviceAreas: place.serviceAreas,
+  additionalLocations: place.additionalLocations,
   startServiceUrl: place.startServiceUrl,
   availabilityUrl: place.availabilityUrl,
   primaryAction: place.primaryAction,
