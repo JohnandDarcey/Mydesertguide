@@ -47,7 +47,7 @@ function pageHead({ title, description, canonical, image, type = "website", noin
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&family=Cormorant+Garamond:ital,wght@1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/directory.css?v=20260814-heading-scale-85">
+    <link rel="stylesheet" href="/directory.css?v=20260814-heading-scale-72">
     ${schema ? `<script type="application/ld+json">${jsonLd(schema)}</script>` : ""}`;
 }
 

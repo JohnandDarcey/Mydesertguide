@@ -50,10 +50,10 @@ for (const stylesheet of [homepageStyles, directoryStyles]) {
   }
 }
 for (const marker of [
-  "--type-page-title: clamp(2.76rem",
-  "--type-section-title: clamp(2.13rem",
-  "--type-subsection-title: clamp(1.7rem",
-  "--type-card-title: clamp(1.28rem",
+  "--type-page-title: clamp(2.35rem",
+  "--type-section-title: clamp(1.81rem",
+  "--type-subsection-title: clamp(1.45rem",
+  "--type-card-title: clamp(1.09rem",
 ]) {
   if (!homepageStyles.includes(marker) || !directoryStyles.includes(marker)) {
     throw new Error(`Reduced global heading scale is missing: ${marker}`);
