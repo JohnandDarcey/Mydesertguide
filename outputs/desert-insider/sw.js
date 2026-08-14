@@ -1,4 +1,4 @@
-const CACHE_NAME = "darceys-guide-v18-spa-shopping-refresh";
+const CACHE_NAME = "darceys-guide-v19-spa-homepage-cache-fix";
 const APP_SHELL = [
   "/",
   "/food-drink/",

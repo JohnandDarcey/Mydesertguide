@@ -106,6 +106,9 @@ if (!homepageData.includes("Pinnacle Realty Advisors") || !homepageData.includes
 if (!homepageData.includes("Curated by") || !homepageData.includes("Palm Springs & Coachella Valley Realtor®")) {
   throw new Error("Homepage Realtor identifier profile data is missing.");
 }
+if (!homepage.includes("app.js?v=20260814-spa-beauty-v2") || !homepageApp.includes("data.js?v=20260814-spa-beauty-v2")) {
+  throw new Error("Homepage Spa & Beauty cache-busting versions are missing.");
+}
 for (const category of categoryDefinitions) {
   if (!homepageData.includes(`/${category.slug}/`)) throw new Error(`Homepage gateway is missing: /${category.slug}/`);
   if (!homepageApp.includes(`/${category.slug}/`)) throw new Error(`Homepage navigation is missing: /${category.slug}/`);
@@ -241,6 +244,10 @@ for (const [slug, markers] of [
     if (!html.includes(marker)) throw new Error(`${slug} is missing Spa & Beauty marker: ${marker}`);
   }
   if (html.includes("Darcey's Take")) throw new Error(`${slug} must not include an invented Darcey's Take.`);
+}
+const joshFullerPage = await read("place/josh-fuller-at-salon-jarick/index.html");
+if (!joshFullerPage.includes("Photo courtesy of Salon Jarick") || !joshFullerPage.includes("/assets/spa-beauty/josh-fuller.jpg")) {
+  throw new Error("Josh Fuller must use the official Salon Jarick interior photo.");
 }
 
 const professionalsPage = await read("trusted-professionals/index.html");

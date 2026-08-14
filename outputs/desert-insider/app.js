@@ -10,7 +10,7 @@ import {
   shopping,
   spaBeauty,
   thingsToDo,
-} from "./data.js?v=20260814-trail-hero-nav";
+} from "./data.js?v=20260814-spa-beauty-v2";
 
 const app = document.querySelector("#app");
 

@@ -925,8 +925,8 @@ export const spaBeauty = [
     description: "Palm Springs hair and makeup artist Josh Fuller brings a polished eye to cuts, color, styling and special-event beauty at Salon Jarick.",
     cardDescription: "Polished hair, color, styling and makeup at Salon Jarick in Palm Springs.",
     image: "./assets/spa-beauty/josh-fuller.jpg",
-    imageAlt: "Polished hair styling from Josh Fuller Designs",
-    photoCredit: { label: "Photo courtesy of Josh Fuller Designs", url: "https://www.joshfullerdesigns.com/" },
+    imageAlt: "The bright, contemporary interior of Salon Jarick in Palm Springs",
+    photoCredit: { label: "Photo courtesy of Salon Jarick", url: "https://salonjarick.com/gallery/" },
     isNew: true,
   },
 ];
