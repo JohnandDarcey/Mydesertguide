@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../outp
 const read = (relative) => fs.readFile(path.join(root, relative), "utf8");
 
 if (categoryDefinitions.length !== 6) throw new Error(`Expected 6 primary categories, found ${categoryDefinitions.length}.`);
-if (allPlaces.length !== 56) throw new Error(`Expected 56 source recommendations and utility resources, found ${allPlaces.length}.`);
+if (allPlaces.length !== 59) throw new Error(`Expected 59 source recommendations and utility resources, found ${allPlaces.length}.`);
 
 const slugs = new Set(allPlaces.map((place) => place.slug));
 const ids = new Set(allPlaces.map((place) => place.placeId));
@@ -77,10 +77,28 @@ for (const marker of ["Where is your home?", "data-utility-city-select", "Palm S
 }
 
 const bumpAndGrindPage = await read("place/bump-and-grind-trail/index.html");
-for (const marker of ["4 miles", "Moderate", "About 2 hours", "February 1 through April 30", "Get Directions", "More Trail Info"]) {
+for (const marker of ["4 miles", "Moderate", "About 2 hours", "February 1–April 30", "main lower loop", "Get Directions", "More Trail Info"]) {
   if (!bumpAndGrindPage.includes(marker)) throw new Error(`Bump and Grind Trail is missing: ${marker}`);
 }
 if (bumpAndGrindPage.includes("Darcey's Take")) throw new Error("Bump and Grind Trail must not include an invented Darcey's Take.");
+const hikingPicks = [
+  ["indian-canyons", ["Andreas Canyon", "Murray Canyon", "Palm Canyon", "Official Website"]],
+  ["tahquitz-canyon", ["About 2 miles", "Water is required", "60-foot waterfall", "Official Website"]],
+  ["bump-and-grind-trail", ["February 1–April 30", "More Trail Info"]],
+  ["araby-trail", ["About 3.4 miles", "Challenging", "More Info"]],
+  ["palm-springs-aerial-tramway", ["About 1.5 miles", "High elevation", "Tram Info"]],
+];
+for (const [slug, markers] of hikingPicks) {
+  const html = await read(`place/${slug}/index.html`);
+  for (const marker of markers) {
+    if (!html.includes(marker)) throw new Error(`${slug} is missing hiking marker: ${marker}`);
+  }
+  if (html.includes("Darcey's Take")) throw new Error(`${slug} must not include an invented Darcey's Take.`);
+}
+const thingsToDoPage = await read("things-to-do/index.html");
+for (const marker of ["Darcey's Desert Hiking Picks", "Hike the desert.", "Palm Oasis", "Waterfall", "Local Workout", "Views + Architecture", "Mountain Escape", "Desert temperatures climb quickly"]) {
+  if (!thingsToDoPage.includes(marker)) throw new Error(`Things to Do hiking collection is missing: ${marker}`);
+}
 for (const providerName of ["Southern California Edison", "Imperial Irrigation District", "SoCalGas", "Desert Water Agency", "Coachella Valley Water District", "Mission Springs Water District", "Indio Water Authority", "Myoma Dunes Water Company", "City of Coachella Water Department", "Spectrum", "Frontier Communications", "AT&amp;T Internet", "T-Mobile Home Internet"]) {
   if (!utilitiesPage.includes(providerName)) throw new Error(`Utilities concierge is missing provider: ${providerName}`);
 }

@@ -657,6 +657,118 @@
       "primaryAction": ""
     },
     {
+      "placeId": "place-indian-canyons",
+      "slug": "indian-canyons",
+      "name": "Indian Canyons",
+      "city": "Palm Springs",
+      "category": "Things to Do",
+      "categorySlug": "things-to-do",
+      "subcategory": "Hiking / Outdoors",
+      "description": "Native palm oases, flowing streams and dramatic desert canyon scenery make Indian Canyons one of the signature outdoor experiences in Palm Springs. Choose anything from an easy oasis walk to a more adventurous canyon hike.",
+      "cardDescription": "Native palm oases, flowing streams and some of Palm Springs' most beautiful canyon scenery.",
+      "image": "/assets/things-to-do/indian-canyons.jpg",
+      "images": [],
+      "address": "",
+      "phone": "",
+      "email": "",
+      "website": "https://www.indian-canyons.com/indian_canyons",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Indian+Canyons+38520+S+Palm+Canyon+Drive+Palm+Springs+CA",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "TouristAttraction",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Official Website",
+      "directionsLabel": "Get Directions",
+      "quickInfo": [
+        [
+          "Andreas Canyon",
+          "1.2 miles · Easy"
+        ],
+        [
+          "Murray Canyon",
+          "4.7 miles · Moderate"
+        ],
+        [
+          "Palm Canyon",
+          "Choose a short walk or go farther"
+        ],
+        [
+          "Location",
+          "Palm Springs"
+        ]
+      ],
+      "goodToKnow": "Check current hours, admission and trail conditions before visiting.",
+      "photoCredit": {
+        "label": "Indian Canyons oasis by Martin Haeusler · CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Indian_Canyons_-_Oasis_(12.2010)_-_panoramio.jpg"
+      },
+      "hikingPickLabel": "Palm Oasis"
+    },
+    {
+      "placeId": "place-tahquitz-canyon",
+      "slug": "tahquitz-canyon",
+      "name": "Tahquitz Canyon",
+      "city": "Palm Springs",
+      "category": "Things to Do",
+      "categorySlug": "things-to-do",
+      "subcategory": "Hiking / Outdoors",
+      "description": "A beautiful canyon hike just minutes from downtown Palm Springs, Tahquitz Canyon leads through dramatic rock scenery to a seasonal 60-foot waterfall.",
+      "cardDescription": "A dramatic canyon hike leading to a seasonal 60-foot waterfall.",
+      "image": "/assets/things-to-do/tahquitz-canyon.jpg",
+      "images": [],
+      "address": "500 W Mesquite Ave, Palm Springs, CA",
+      "phone": "",
+      "email": "",
+      "website": "https://www.tahquitzcanyon.com/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Tahquitz+Canyon+500+W+Mesquite+Ave+Palm+Springs+CA",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "TouristAttraction",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Official Website",
+      "directionsLabel": "Get Directions",
+      "quickInfo": [
+        [
+          "Distance",
+          "About 2 miles"
+        ],
+        [
+          "Difficulty",
+          "Rocky · Moderate–challenging"
+        ],
+        [
+          "Time",
+          "About 2 hours"
+        ],
+        [
+          "Location",
+          "Palm Springs"
+        ]
+      ],
+      "goodToKnow": "Water is required on the trail. Check current admission, hours and waterfall conditions before visiting.",
+      "photoCredit": {
+        "label": "Tahquitz Falls by Gillfoto · CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Tahquitz_Falls_678.jpg"
+      },
+      "hikingPickLabel": "Waterfall"
+    },
+    {
       "placeId": "place-bump-and-grind-trail",
       "slug": "bump-and-grind-trail",
       "name": "Bump and Grind Trail",
@@ -664,8 +776,8 @@
       "category": "Things to Do",
       "categorySlug": "things-to-do",
       "subcategory": "Hiking / Outdoors",
-      "description": "One of Palm Desert's most popular local hikes, Bump and Grind is a great way to get outside, get a workout and take in beautiful views across the Coachella Valley.",
-      "cardDescription": "A local favorite for a desert hike, a good workout and beautiful valley views.",
+      "description": "A Palm Desert favorite for anyone looking for a real workout. Bump and Grind climbs into the Santa Rosa Mountains and rewards the effort with sweeping views across the valley.",
+      "cardDescription": "A local favorite for a workout and sweeping Coachella Valley views.",
       "image": "/assets/things-to-do/bump-and-grind-trail.jpg",
       "images": [],
       "address": "",
@@ -705,11 +817,68 @@
           "Palm Desert"
         ]
       ],
-      "goodToKnow": "Go early and bring plenty of water—the trail is exposed and the desert heats up quickly. The upper portion is closed February 1 through April 30 to protect Peninsular bighorn sheep.",
+      "goodToKnow": "Go early—the trail has very little shade and the desert heats up quickly. The upper vista section closes February 1–April 30; the main lower loop remains the primary hiking experience.",
       "photoCredit": {
         "label": "Coachella Valley desert hiking photo by TopSphere Media on Unsplash",
         "url": "https://unsplash.com/photos/IUEfY5GGPwY"
-      }
+      },
+      "hikingPickLabel": "Local Workout"
+    },
+    {
+      "placeId": "place-araby-trail",
+      "slug": "araby-trail",
+      "name": "Araby Trail",
+      "city": "Palm Springs",
+      "category": "Things to Do",
+      "categorySlug": "things-to-do",
+      "subcategory": "Hiking / Outdoors",
+      "description": "Araby Trail combines a challenging desert climb with panoramic Palm Springs views—and a unique look toward the iconic Bob Hope house along the mountainside.",
+      "cardDescription": "A challenging climb with valley views and a glimpse of iconic Palm Springs architecture.",
+      "image": "/assets/things-to-do/araby-trail.jpg",
+      "images": [],
+      "address": "",
+      "phone": "",
+      "email": "",
+      "website": "https://www.visitgreaterpalmsprings.com/listing/araby-trail/34268/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Araby+Trail+Rimcrest+Southridge+Palm+Springs+CA",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "TouristAttraction",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "More Info",
+      "directionsLabel": "Get Directions",
+      "quickInfo": [
+        [
+          "Distance",
+          "About 3.4 miles"
+        ],
+        [
+          "Difficulty",
+          "Challenging"
+        ],
+        [
+          "Best For",
+          "Great views"
+        ],
+        [
+          "Location",
+          "Palm Springs"
+        ]
+      ],
+      "goodToKnow": "Go early. The climb is exposed with very little shade, and parking near the trailhead is limited.",
+      "photoCredit": {
+        "label": "Palm Springs mountain-trail view by Visitor7 · CC BY-SA 3.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Coachella_Valley_from_the_Museum_Trail.jpg"
+      },
+      "hikingPickLabel": "Views + Architecture"
     },
     {
       "placeId": "place-villagefest",
@@ -772,18 +941,19 @@
     {
       "placeId": "place-palm-springs-aerial-tramway",
       "slug": "palm-springs-aerial-tramway",
-      "name": "Palm Springs Aerial Tramway",
-      "city": "Palm Springs",
+      "name": "Desert View Loop / Palm Springs Aerial Tramway",
+      "city": "Palm Springs / Mt. San Jacinto",
       "category": "Things to Do",
       "categorySlug": "things-to-do",
-      "subcategory": "Mountain Experience",
-      "description": "One of the most iconic Palm Springs experiences, with dramatic views, cooler mountain air, hiking, dining and that unforgettable ride up the canyon.",
-      "image": "/assets/things-to-do/palm-springs-aerial-tram.png",
+      "subcategory": "Hiking / Outdoors",
+      "description": "Trade the desert floor for cool mountain air. Ride the Palm Springs Aerial Tramway into the San Jacinto Mountains and enjoy an easy loop with beautiful high-country views.",
+      "cardDescription": "Ride the Tram into cool mountain air for an easy high-country hike.",
+      "image": "/assets/things-to-do/desert-view-loop.jpg",
       "images": [],
       "address": "",
       "phone": "",
       "email": "",
-      "website": "https://pstramway.com/",
+      "website": "https://pstramway.com/hiking/",
       "menu": "",
       "directions": "https://maps.google.com/?q=Palm+Springs+Aerial+Tramway",
       "teeTime": "",
@@ -792,11 +962,41 @@
       "longitude": null,
       "schemaType": "TouristAttraction",
       "providerId": "",
-      "aliases": [],
+      "aliases": [
+        "Palm Springs Aerial Tramway",
+        "Desert View Trail",
+        "Desert View Loop"
+      ],
       "serviceAreas": [],
       "startServiceUrl": "",
       "availabilityUrl": "",
-      "primaryAction": ""
+      "primaryAction": "",
+      "websiteLabel": "Tram Info",
+      "directionsLabel": "Get Directions",
+      "quickInfo": [
+        [
+          "Distance",
+          "About 1.5 miles"
+        ],
+        [
+          "Difficulty",
+          "Easy to moderately strenuous"
+        ],
+        [
+          "Setting",
+          "High elevation"
+        ],
+        [
+          "Location",
+          "Palm Springs / Mt. San Jacinto"
+        ]
+      ],
+      "goodToKnow": "Temperatures at Mountain Station can be dramatically cooler than the desert floor, so bring an extra layer and check Tram and trail conditions before heading up.",
+      "photoCredit": {
+        "label": "Mount San Jacinto State Park trail by Librarybell · CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Trail_at_Mount_San_Jacinto_State_Park_2021.jpg"
+      },
+      "hikingPickLabel": "Mountain Escape"
     },
     {
       "placeId": "place-palm-springs-air-museum",
@@ -2211,6 +2411,86 @@
       "detail": ""
     },
     {
+      "recommendationId": "darcey-my-desert-guide:place-indian-canyons",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-indian-canyons",
+      "personalNote": "",
+      "tags": [
+        "Hiking",
+        "Outdoor Activity",
+        "Palm Springs",
+        "Easy",
+        "Moderate"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "The iconic palm oasis experience",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "",
+      "quickInfo": [
+        [
+          "Andreas Canyon",
+          "1.2 miles · Easy"
+        ],
+        [
+          "Murray Canyon",
+          "4.7 miles · Moderate"
+        ],
+        [
+          "Palm Canyon",
+          "Choose a short walk or go farther"
+        ],
+        [
+          "Location",
+          "Palm Springs"
+        ]
+      ],
+      "goodToKnow": "Check current hours, admission and trail conditions before visiting."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-tahquitz-canyon",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-tahquitz-canyon",
+      "personalNote": "",
+      "tags": [
+        "Hiking",
+        "Outdoor Activity",
+        "Palm Springs",
+        "Moderate",
+        "Nature"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "The waterfall hike",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "",
+      "quickInfo": [
+        [
+          "Distance",
+          "About 2 miles"
+        ],
+        [
+          "Difficulty",
+          "Rocky · Moderate–challenging"
+        ],
+        [
+          "Time",
+          "About 2 hours"
+        ],
+        [
+          "Location",
+          "Palm Springs"
+        ]
+      ],
+      "goodToKnow": "Water is required on the trail. Check current admission, hours and waterfall conditions before visiting."
+    },
+    {
       "recommendationId": "darcey-my-desert-guide:place-bump-and-grind-trail",
       "guideId": "darcey-my-desert-guide",
       "profileId": "darcey-deetz",
@@ -2218,15 +2498,15 @@
       "personalNote": "",
       "tags": [
         "Hiking",
-        "Outdoors",
+        "Outdoor Activity",
         "Palm Desert",
-        "Hiking / Outdoors",
-        "A desert hike"
+        "Moderate",
+        "Great Views"
       ],
       "isFavorite": false,
       "isNew": true,
       "rating": null,
-      "bestFor": "A desert hike, a good workout and beautiful valley views",
+      "bestFor": "The local workout",
       "favoriteDish": "",
       "happyHour": "",
       "detail": "",
@@ -2248,7 +2528,47 @@
           "Palm Desert"
         ]
       ],
-      "goodToKnow": "Go early and bring plenty of water—the trail is exposed and the desert heats up quickly. The upper portion is closed February 1 through April 30 to protect Peninsular bighorn sheep."
+      "goodToKnow": "Go early—the trail has very little shade and the desert heats up quickly. The upper vista section closes February 1–April 30; the main lower loop remains the primary hiking experience."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-araby-trail",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-araby-trail",
+      "personalNote": "",
+      "tags": [
+        "Hiking",
+        "Outdoor Activity",
+        "Palm Springs",
+        "Challenging",
+        "Great Views"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "The views and architecture hike",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "",
+      "quickInfo": [
+        [
+          "Distance",
+          "About 3.4 miles"
+        ],
+        [
+          "Difficulty",
+          "Challenging"
+        ],
+        [
+          "Best For",
+          "Great views"
+        ],
+        [
+          "Location",
+          "Palm Springs"
+        ]
+      ],
+      "goodToKnow": "Go early. The climb is exposed with very little shade, and parking near the trailhead is limited."
     },
     {
       "recommendationId": "darcey-my-desert-guide:place-villagefest",
@@ -2293,18 +2613,40 @@
       "guideId": "darcey-my-desert-guide",
       "profileId": "darcey-deetz",
       "placeId": "place-palm-springs-aerial-tramway",
-      "personalNote": "The Tram is one of those experiences everyone should do at least once. You leave the desert floor and suddenly you are up in the mountains with completely different views and cooler air. Bring a light layer, even if it is warm in town, because the top can feel like a totally different season. Give yourself time to walk around, take photos, and enjoy the view before heading back down.",
+      "personalNote": "",
       "tags": [
-        "Mountain Experience",
-        "Big views"
+        "Hiking",
+        "Outdoor Activity",
+        "Palm Springs",
+        "Easy",
+        "Nature"
       ],
-      "isFavorite": true,
+      "isFavorite": false,
       "isNew": true,
-      "rating": 5,
-      "bestFor": "Big views and a completely different desert perspective",
+      "rating": null,
+      "bestFor": "The mountain escape",
       "favoriteDish": "",
       "happyHour": "",
-      "detail": "A rotating tram car climbs from the desert floor to the mountain station near Mt. San Jacinto."
+      "detail": "",
+      "quickInfo": [
+        [
+          "Distance",
+          "About 1.5 miles"
+        ],
+        [
+          "Difficulty",
+          "Easy to moderately strenuous"
+        ],
+        [
+          "Setting",
+          "High elevation"
+        ],
+        [
+          "Location",
+          "Palm Springs / Mt. San Jacinto"
+        ]
+      ],
+      "goodToKnow": "Temperatures at Mountain Station can be dramatically cooler than the desert floor, so bring an extra layer and check Tram and trail conditions before heading up."
     },
     {
       "recommendationId": "darcey-my-desert-guide:place-palm-springs-air-museum",

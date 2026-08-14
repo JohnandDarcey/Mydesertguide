@@ -23,6 +23,11 @@ if (categoryGrid) {
       if (show) visible += 1;
     });
 
+    categoryGrid.querySelectorAll("[data-card-section]").forEach((section) => {
+      const sectionCards = [...section.querySelectorAll("[data-recommendation-card]")];
+      section.hidden = sectionCards.length > 0 && sectionCards.every((card) => card.hidden);
+    });
+
     summary.textContent = `${visible} recommendation${visible === 1 ? "" : "s"}`;
     document.querySelector("[data-empty-results]").hidden = visible !== 0;
   }

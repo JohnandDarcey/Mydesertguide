@@ -123,7 +123,7 @@ function absoluteAsset(path = "") {
 }
 
 function normalizePlace(item, category) {
-  const slug = slugify(item.name);
+  const slug = item.slug || slugify(item.name);
   return {
     guideId: guideProfile.guideId,
     profileId: guideProfile.profileId,
@@ -172,6 +172,7 @@ function normalizePlace(item, category) {
     quickInfo: Array.isArray(item.quickInfo) ? item.quickInfo : undefined,
     goodToKnow: item.goodToKnow,
     photoCredit: item.photoCredit,
+    hikingPickLabel: item.hikingPickLabel,
     schemaType: category.schemaType,
   };
 }
@@ -225,6 +226,7 @@ export const masterPlaces = allPlaces.map((place) => ({
   quickInfo: place.quickInfo,
   goodToKnow: place.goodToKnow,
   photoCredit: place.photoCredit,
+  hikingPickLabel: place.hikingPickLabel,
 }));
 
 export const guideRecommendations = allPlaces.map((place) => ({

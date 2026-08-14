@@ -66,13 +66,25 @@ img { display: block; max-width: 100%; }
 .card-media .favorite-button { position: absolute; right: 12px; top: 12px; }
 .favorite-button[aria-pressed="true"] { background: var(--ink); color: var(--white); }
 .card-body { display: flex; flex: 1; flex-direction: column; padding: 21px; }
-.card-topline { color: var(--muted); font-size: .63rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.card-topline { color: var(--muted); display: flex; font-size: .63rem; font-weight: 600; gap: 10px; justify-content: space-between; letter-spacing: .1em; text-transform: uppercase; }
+.card-topline span:first-child { color: #9b7250; }
 .card-body h2 { font-family: var(--display); font-size: clamp(1.65rem,2.5vw,2.35rem); font-weight: 400; line-height: 1; margin: 9px 0 12px; }
 .card-body > p { color: var(--muted); font-family: "Cormorant Garamond",Georgia,serif; font-size: 1.12rem; line-height: 1.5; margin: 0; }
 .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 20px; }
 .tag-list span { background: var(--cream); border-radius: 5px; color: #554d46; font-size: .61rem; letter-spacing: .06em; padding: 7px 9px; text-transform: uppercase; }
 .favorite-mark { color: var(--gold); font-size: .65rem; font-weight: 600; letter-spacing: .11em; margin-top: 16px; text-transform: uppercase; }
 .empty-state { border: 1px solid var(--line); border-radius: 14px; color: var(--muted); font-family: "Cormorant Garamond",Georgia,serif; font-size: 1.35rem; padding: 34px; }
+
+.hiking-collection { margin: 34px 0 70px; }
+.hiking-collection-heading { align-items: end; display: grid; gap: clamp(28px,5vw,70px); grid-template-columns: minmax(0,1.2fr) minmax(280px,.8fr); margin-bottom: 24px; }
+.hiking-collection-heading h2 { font-family: var(--display); font-size: clamp(3rem,6vw,6rem); font-weight: 400; letter-spacing: -.025em; line-height: .92; margin: 0; }
+.hiking-collection-heading > div > p:last-child { color: var(--muted); font-family: "Cormorant Garamond",Georgia,serif; font-size: clamp(1.15rem,1.8vw,1.4rem); line-height: 1.5; margin: 20px 0 0; max-width: 700px; }
+.hiking-collection-heading aside { border-left: 2px solid var(--gold); display: grid; gap: 8px; padding: 5px 0 5px 20px; }
+.hiking-collection-heading aside strong { color: #9b7250; font-size: .64rem; letter-spacing: .13em; text-transform: uppercase; }
+.hiking-collection-heading aside span { color: var(--muted); font-family: "Cormorant Garamond",Georgia,serif; font-size: 1.08rem; line-height: 1.45; }
+.hiking-picks-grid { display: grid; gap: 22px; grid-template-columns: repeat(3,minmax(0,1fr)); }
+.more-things-section { border-top: 1px solid var(--line); padding-top: 54px; position: relative; }
+.more-things-section::before { background: var(--paper); color: var(--gold); content: "MORE THINGS TO DO"; font-size: .67rem; font-weight: 600; left: 0; letter-spacing: .16em; padding-right: 14px; position: absolute; text-transform: uppercase; top: -7px; }
 
 .place-hero { background: var(--white); border: 1px solid var(--line); border-radius: 18px; display: grid; grid-template-columns: 1.05fr .95fr; overflow: hidden; }
 .place-media { min-height: 590px; position: relative; }
@@ -181,6 +193,7 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 960px) {
   .recommendation-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .hiking-picks-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .category-hero { grid-template-columns: 1fr; }
   .category-hero-media { min-height: 300px; order: -1; }
   .category-hero-media::after { background: linear-gradient(0deg,#111 0,transparent 35%); }
@@ -202,6 +215,10 @@ img { display: block; max-width: 100%; }
   .category-hero-media { min-height: 250px; }
   .discovery-tools { align-items: stretch; grid-template-columns: 1fr; }
   .recommendation-grid { grid-template-columns: 1fr; }
+  .hiking-collection { margin: 28px 0 58px; }
+  .hiking-collection-heading { align-items: stretch; grid-template-columns: 1fr; }
+  .hiking-collection-heading aside { margin-top: -4px; }
+  .hiking-picks-grid { grid-template-columns: 1fr; }
   .card-media { aspect-ratio: 16/10; }
   .place-hero { border-radius: 13px; }
   .place-media { min-height: 360px; }
