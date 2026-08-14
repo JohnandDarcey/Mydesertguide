@@ -20,8 +20,38 @@ if (masterPlaces.length !== guideRecommendations.length || guideRecommendations.
 const homepage = await read("index.html");
 const homepageApp = await read("app.js");
 const homepageData = await read("data.js");
+const homepageStyles = await read("styles.css");
+const directoryStyles = await read("directory.css");
+const dashboardStyles = await read("admin/analytics-dashboard.css");
 for (const marker of ["The Desert", "my-desert-guide-hero-darcey.png", "Start With What You Need"]) {
   if (!`${homepage}\n${homepageApp}\n${homepageData}`.toLowerCase().includes(marker.toLowerCase())) throw new Error(`Homepage preservation marker is missing: ${marker}`);
+}
+for (const marker of [
+  '--font-display: "Libre Bodoni"',
+  '--font-sans: "Montserrat"',
+  "--type-page-title:",
+  "--type-section-title:",
+  "--type-card-title:",
+  "--leading-body:",
+]) {
+  if (!homepageStyles.includes(marker) || !directoryStyles.includes(marker)) {
+    throw new Error(`Shared typography token is missing: ${marker}`);
+  }
+}
+for (const marker of [
+  ".hero-live-copy h1",
+  "font-size: clamp(3.2rem, 7.3vw, 7.1rem)",
+  "letter-spacing: -0.02em",
+  ".hero-description",
+  "font-family: var(--font-editorial)",
+]) {
+  if (!homepageStyles.includes(marker)) throw new Error(`Approved hero typography marker is missing: ${marker}`);
+}
+for (const marker of ["--font-display:", "--font-sans:", "--type-page-title:", "--type-section-title:"]) {
+  if (!dashboardStyles.includes(marker)) throw new Error(`Dashboard typography token is missing: ${marker}`);
+}
+if (/Montserrat[^\n]*(700|800|900)/.test(homepage) || /Montserrat[^\n]*(700|800|900)/.test(homepageApp)) {
+  throw new Error("Homepage loads an unneeded heavy Montserrat weight.");
 }
 const homepageRender = homepageApp.slice(homepageApp.indexOf("function render()"), homepageApp.indexOf("const legacyCategoryRoutes"));
 for (const legacyHash of ["#guide", "#golf", "#things-to-do", "#shopping", "#utilities", "#professionals"]) {

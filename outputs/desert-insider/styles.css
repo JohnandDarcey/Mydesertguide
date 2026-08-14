@@ -16,6 +16,20 @@
   --sans: var(--font-sans);
   --tracking-label: 0.09em;
   --heading-line-height: 0.98;
+  --type-page-title: clamp(3.25rem, 6.4vw, 6.4rem);
+  --type-section-title: clamp(2.5rem, 4.7vw, 4.7rem);
+  --type-subsection-title: clamp(2rem, 3.4vw, 3.35rem);
+  --type-card-title: clamp(1.5rem, 2.2vw, 2.1rem);
+  --type-editorial: clamp(1.08rem, 1.45vw, 1.28rem);
+  --type-body: 1rem;
+  --type-small: 0.78rem;
+  --type-label: 0.68rem;
+  --tracking-heading: -0.022em;
+  --tracking-ui: 0.08em;
+  --tracking-eyebrow: 0.15em;
+  --leading-display: 0.96;
+  --leading-heading: 1.02;
+  --leading-body: 1.62;
   --control-radius: 8px;
   --card-radius: 8px;
 }
@@ -558,7 +572,9 @@ h1 {
 }
 
 .welcome-note h2 {
-  font-size: clamp(2.25rem, 5vw, 5rem);
+  font-size: var(--type-section-title);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-display);
   max-width: 760px;
 }
 
@@ -566,10 +582,10 @@ h1 {
   align-self: center;
   border-left: 1px solid var(--line);
   color: var(--muted);
-  font-family: var(--font-editorial);
-  font-size: clamp(1.18rem, 1.8vw, 1.42rem);
-  font-weight: 500;
-  line-height: 1.48;
+  font-family: var(--font-sans);
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: var(--leading-body);
   max-width: 640px;
   padding-left: clamp(20px, 3vw, 38px);
 }
@@ -650,7 +666,9 @@ h1 {
 }
 
 .real-estate-cta h2 {
-  font-size: clamp(2.6rem, 4.8vw, 5rem);
+  font-size: var(--type-section-title);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-display);
   margin-bottom: 0;
 }
 
@@ -662,10 +680,10 @@ h1 {
 
 .real-estate-copy p:not(.eyebrow) {
   color: var(--muted);
-  font-family: var(--font-editorial);
-  font-size: clamp(1.15rem, 1.55vw, 1.34rem);
-  font-weight: 500;
-  line-height: 1.5;
+  font-family: var(--font-sans);
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: var(--leading-body);
   margin-bottom: 0;
 }
 
@@ -681,7 +699,7 @@ h1 {
   color: var(--charcoal);
   display: flex;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
   justify-content: space-between;
   letter-spacing: var(--tracking-label);
   min-width: min(100%, 250px);
@@ -696,7 +714,8 @@ h1 {
 .real-estate-cta .dre-line {
   color: var(--charcoal);
   font-size: clamp(0.48rem, 0.66vw, 0.62rem);
-  font-weight: 800;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   line-height: 1.2;
   margin: 0;
   text-align: center;
@@ -705,17 +724,19 @@ h1 {
 
 .section-heading h2,
 .contact h2 {
-  font-size: clamp(2.2rem, 5vw, 5.2rem);
+  font-size: var(--type-section-title);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-display);
 }
 
 .intro p,
 .section-heading p,
 .contact p {
   color: var(--muted);
-  font-family: var(--font-editorial);
-  font-size: clamp(1.12rem, 1.4vw, 1.3rem);
-  font-weight: 500;
-  line-height: 1.5;
+  font-family: var(--font-sans);
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: var(--leading-body);
 }
 
 .guide-categories {
@@ -727,7 +748,9 @@ h1 {
 }
 
 .category-heading h2 {
-  font-size: clamp(2.1rem, 4vw, 4rem);
+  font-size: var(--type-subsection-title);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
   margin-bottom: 0;
 }
 
@@ -897,7 +920,9 @@ h1 {
 }
 
 .featured-pick-card h3 {
-  font-size: clamp(2rem, 3.8vw, 3.8rem);
+  font-size: var(--type-subsection-title);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
   margin-bottom: 0;
 }
 
@@ -923,7 +948,7 @@ h1 {
 }
 
 .things-featured-listings .featured-pick-card h3 {
-  font-size: clamp(2rem, 3vw, 3.1rem);
+  font-size: var(--type-subsection-title);
 }
 
 .featured-pick-card p:not(.eyebrow),
@@ -956,7 +981,7 @@ h1 {
   cursor: pointer;
   font: inherit;
   font-size: 0.78rem;
-  font-weight: 900;
+  font-weight: 600;
   justify-self: start;
   padding: 0;
   text-decoration: underline;
@@ -977,7 +1002,7 @@ h1 {
 
 .featured-rating {
   color: var(--gold);
-  font-weight: 900;
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -991,7 +1016,8 @@ h1 {
 .featured-why span {
   color: var(--white);
   font-size: 0.72rem;
-  font-weight: 900;
+  font-weight: 600;
+  letter-spacing: var(--tracking-ui);
   text-transform: uppercase;
 }
 
@@ -1002,7 +1028,8 @@ h1 {
   color: var(--white);
   display: inline-flex;
   font-size: 0.68rem;
-  font-weight: 900;
+  font-weight: 600;
+  letter-spacing: var(--tracking-ui);
   justify-self: start;
   padding: 8px 11px;
   text-transform: uppercase;
@@ -2750,21 +2777,23 @@ dd {
 }
 
 .home-curated-card h3 {
-  font-size: clamp(1.55rem, 2.2vw, 2.2rem);
+  font-size: var(--type-card-title);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-heading);
   margin: 0;
 }
 
 .home-curated-card .featured-content > p:not(.eyebrow) {
   color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.55;
+  font-size: var(--type-small);
+  line-height: var(--leading-body);
   margin: 0;
 }
 
 .home-curated-category-link {
   color: var(--charcoal);
   font-size: 0.65rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
   margin-top: 5px;
   position: relative;
@@ -2798,8 +2827,9 @@ dd {
 
 .home-footer p {
   color: var(--muted);
-  font-family: var(--font-editorial);
-  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  line-height: var(--leading-body);
   margin: 12px 0 0;
 }
 
@@ -2860,15 +2890,17 @@ dd {
 
 .home-install-card h2 {
   font-family: var(--font-display);
-  font-size: clamp(2.7rem, 5vw, 5.2rem);
+  font-size: var(--type-section-title);
   font-weight: 400;
-  line-height: .95;
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-display);
   margin: 0 0 14px;
 }
 
 .home-install-card p:not(.eyebrow) {
   color: var(--muted);
-  line-height: 1.6;
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
   margin: 0;
   max-width: 760px;
 }
