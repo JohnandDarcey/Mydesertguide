@@ -89,7 +89,9 @@ export function renderDailyReportEmail(report) {
   const contacts = contactTotal(totals);
   const recentAverage = Math.round(Number(report.last7.totals.guideViews || 0) / 7);
   const isSilent = !totals.guideViews && !totals.placeViews && !contacts;
-  const realEstate = Number(totals.darceyWebsiteClicks || 0);
+  const homeSearches = Number(totals.darceyWebsiteClicks || 0);
+  const talkClicks = Number(totals.realEstateContactClicks || 0);
+  const realEstate = homeSearches + talkClicks;
   const subject = `Your Desert Guide Daily Report — ${displayDate}`;
 
   const detailSections = isSilent ? "" : `
@@ -115,7 +117,7 @@ export function renderDailyReportEmail(report) {
       </tr></table>
       <div style="border-top:1px solid #4b4540;margin-top:15px;padding-top:14px;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#d9ccbc;"><strong style="color:#ffffff;">${number(contacts)}</strong> total contact action${contacts === 1 ? "" : "s"}</div>
     </div></td></tr>
-    ${realEstate ? `<tr><td style="padding:0 28px 22px;"><div style="background:#f2e7d7;border:1px solid #d8c5aa;border-radius:16px;padding:22px;"><div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#756d63;">Real Estate Interest</div><div style="font-family:Georgia,serif;font-size:25px;line-height:32px;margin-top:8px;">${number(realEstate)} visit${realEstate === 1 ? "" : "s"} to Darcey's real estate website</div></div></td></tr>` : ""}
+    ${realEstate ? `<tr><td style="padding:0 28px 22px;"><div style="background:#f2e7d7;border:1px solid #d8c5aa;border-radius:16px;padding:22px;"><div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#756d63;">Real Estate Interest</div><div style="font-family:Georgia,serif;font-size:25px;line-height:32px;margin-top:8px;">${number(homeSearches)} home search${homeSearches === 1 ? "" : "es"} and ${number(talkClicks)} request${talkClicks === 1 ? "" : "s"} to talk with Darcey</div></div></td></tr>` : ""}
   `;
 
   const html = `<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>

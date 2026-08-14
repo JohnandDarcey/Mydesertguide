@@ -111,10 +111,15 @@ img { display: block; max-width: 100%; }
 .saved-hero { padding: clamp(48px,8vw,100px) 0 35px; }
 .saved-hero p:not(.eyebrow) { color: var(--muted); font-family: "Cormorant Garamond",Georgia,serif; font-size: 1.35rem; }
 
-.site-footer { background: var(--ink); color: var(--white); display: grid; gap: 25px; grid-template-columns: 1fr auto; padding: clamp(38px,6vw,72px) clamp(22px,5vw,72px); }
-.site-footer h2 { font-family: var(--display); font-size: clamp(2.5rem,5vw,5rem); font-weight: 400; line-height: .95; margin: 0; }
-.footer-contact { align-items: center; display: flex; flex-wrap: wrap; gap: 9px; }
-.footer-contact .button { border-color: #666; color: var(--white); }
+.site-footer { align-items: center; background: var(--ink); color: var(--white); display: grid; gap: clamp(34px,6vw,90px); grid-template-columns: minmax(0,1.25fr) minmax(280px,.75fr); padding: clamp(44px,6vw,78px) clamp(22px,5vw,72px); }
+.site-footer h2 { font-family: var(--display); font-size: clamp(2.7rem,5vw,5.4rem); font-weight: 400; letter-spacing: -.025em; line-height: .94; margin: 0; max-width: 820px; }
+.footer-real-estate-copy > p:last-child { color: #d8d0c8; font-family: "Cormorant Garamond",Georgia,serif; font-size: clamp(1.12rem,1.55vw,1.38rem); line-height: 1.5; margin: 24px 0 0; max-width: 760px; }
+.footer-real-estate-actions { align-items: stretch; display: grid; gap: 17px; justify-items: stretch; }
+.footer-homes-button { background: var(--paper); border-color: var(--paper); color: var(--ink); min-width: 250px; }
+.footer-homes-button:hover { background: var(--gold); border-color: var(--gold); }
+.footer-talk-link { color: #eee7df; font-size: .7rem; font-weight: 600; letter-spacing: .11em; padding: 8px 4px; text-align: center; text-decoration: none; text-transform: uppercase; }
+.footer-talk-link span { color: var(--gold); display: inline-block; margin-left: 5px; transition: transform .18s ease; }
+.footer-talk-link:hover span { transform: translateX(4px); }
 
 .mobile-bottom-nav { display: none; }
 .install-dialog { background: var(--paper); border: 0; border-radius: 16px; box-shadow: 0 20px 70px rgba(0,0,0,.25); max-width: 500px; padding: 0; width: calc(100% - 28px); }
@@ -158,7 +163,10 @@ img { display: block; max-width: 100%; }
   .detail-list div { grid-template-columns: 90px 1fr; }
   .install-card, .site-footer { align-items: stretch; grid-template-columns: 1fr; }
   .install-card .button { width: 100%; }
-  .footer-contact { display: grid; }
+  .site-footer { gap: 28px; padding-block: 38px; }
+  .site-footer h2 { font-size: clamp(2.55rem,12vw,4.25rem); }
+  .footer-real-estate-copy > p:last-child { font-size: 1.1rem; margin-top: 18px; }
+  .footer-homes-button { min-width: 0; width: 100%; }
   .mobile-bottom-nav { background: rgba(255,255,255,.97); border-top: 1px solid var(--line); bottom: 0; display: grid; grid-template-columns: repeat(4,1fr); left: 0; padding: 8px 6px max(8px,env(safe-area-inset-bottom)); position: fixed; right: 0; z-index: 50; }
   .mobile-bottom-nav a { align-items: center; color: var(--muted); display: flex; flex-direction: column; font-size: .58rem; font-weight: 600; gap: 4px; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }
   .mobile-bottom-nav span { color: var(--ink); font-family: var(--display); font-size: 1.35rem; line-height: 1; }

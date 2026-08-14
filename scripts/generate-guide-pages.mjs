@@ -47,7 +47,7 @@ function pageHead({ title, description, canonical, image, type = "website", noin
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Libre+Bodoni:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/directory.css?v=20260814-guide-architecture">
+    <link rel="stylesheet" href="/directory.css?v=20260814-real-estate-bridge">
     ${schema ? `<script type="application/ld+json">${jsonLd(schema)}</script>` : ""}`;
 }
 
@@ -63,19 +63,22 @@ function header() {
 }
 
 function footer() {
-  return `<footer class="site-footer" id="darcey">
-    <div><p class="eyebrow">Your local connection</p><h2>Need Darcey's help?</h2></div>
-    <div class="footer-contact">
-      <a class="button" href="sms:${guideProfile.phoneHref}">Text Darcey</a>
-      <a class="button" href="tel:${guideProfile.phoneHref}">Call Darcey</a>
-      <a class="button" href="mailto:${guideProfile.email}">Email Darcey</a>
+  return `<footer class="site-footer" id="darcey" aria-label="Coachella Valley real estate with Darcey">
+    <div class="footer-real-estate-copy">
+      <p class="eyebrow">Love Where You Live</p>
+      <h2>Thinking about making the desert home?</h2>
+      <p>Whether you're buying, selling, or simply exploring what's possible, Darcey can help you navigate Coachella Valley real estate with the same local knowledge behind this guide.</p>
+    </div>
+    <div class="footer-real-estate-actions">
+      <a class="button footer-homes-button" href="${guideProfile.homeSearchUrl}" target="_blank" rel="noreferrer">Explore Desert Homes</a>
+      <a class="footer-talk-link" href="/#contact" data-analytics-event="real_estate_contact_click" data-analytics-label="Talk With Darcey">Talk With Darcey <span aria-hidden="true">→</span></a>
     </div>
   </footer>`;
 }
 
 function scripts() {
   return `<script src="/analytics-config.js?v=20260814-guide-architecture"></script>
-    <script src="/analytics.js?v=20260814-guide-architecture"></script>
+    <script src="/analytics.js?v=20260814-real-estate-bridge"></script>
     <script type="module" src="/directory.js?v=20260814-guide-architecture-v2"></script>
     <script type="module" src="/site-features.js?v=20260814-guide-architecture-v2"></script>`;
 }

@@ -17,6 +17,7 @@ export const guideProfile = {
   phoneHref: "+17608081449",
   email: "darcey@darceydeetz.com",
   website: "https://darceydeetz.com",
+  homeSearchUrl: "https://darceydeetz.com/home-search/listings",
   siteUrl: "https://mydesertguide.com",
 };
 

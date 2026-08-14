@@ -20,6 +20,7 @@ function blankTotals() {
     placeViews: 0,
     clientEngagements: 0,
     darceyWebsiteClicks: 0,
+    realEstateContactClicks: 0,
     darceyCallClicks: 0,
     darceyTextClicks: 0,
     darceyEmailClicks: 0,

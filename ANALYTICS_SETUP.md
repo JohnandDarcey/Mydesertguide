@@ -10,6 +10,7 @@ The browser sends these event names to `/api/analytics/collect`:
 - `category_view`
 - `place_view`
 - `darcey_website_click`
+- `real_estate_contact_click`
 - `darcey_call_click`
 - `darcey_text_click`
 - `darcey_email_click`

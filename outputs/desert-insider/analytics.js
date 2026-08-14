@@ -226,6 +226,16 @@
           actionText: anchor.textContent.trim().slice(0, 80),
         });
       }
+
+      const explicitEvent = anchor.dataset.analyticsEvent;
+      if (explicitEvent && explicitEvent !== classified?.[0]) {
+        send(explicitEvent, {
+          ...cardPayload(anchor),
+          category: "Real Estate",
+          actionUrl: anchor.href,
+          actionText: anchor.dataset.analyticsLabel || anchor.textContent.trim().slice(0, 80),
+        });
+      }
     }
 
     const filter = event.target.closest(".filter-chip");

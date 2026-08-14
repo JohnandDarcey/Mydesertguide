@@ -29,6 +29,10 @@ for (const category of categoryDefinitions) {
   for (const marker of ["<h1>", "rel=\"canonical\"", "application/ld+json", "data-category-grid"]) {
     if (!html.includes(marker)) throw new Error(`${category.slug} is missing ${marker}.`);
   }
+  for (const marker of ["Love Where You Live", "Thinking about making the desert home?", "https://darceydeetz.com/home-search/listings", "real_estate_contact_click"]) {
+    if (!html.includes(marker)) throw new Error(`${category.slug} is missing real-estate footer marker: ${marker}`);
+  }
+  if (html.includes("Need Darcey's help?")) throw new Error(`${category.slug} still contains the retired footer.`);
 }
 
 for (const place of allPlaces) {

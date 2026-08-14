@@ -23,6 +23,7 @@ export const TRACKED_EVENTS = new Set([
   "category_view",
   "place_view",
   "darcey_website_click",
+  "real_estate_contact_click",
   "darcey_call_click",
   "darcey_text_click",
   "darcey_email_click",
@@ -47,6 +48,7 @@ export const CLIENT_ENGAGEMENT_EVENTS = new Set([
   "darcey_email_click",
   "maps_click",
   "favorite_save",
+  "real_estate_contact_click",
 ]);
 
 export const EVENT_TOTAL_KEYS = {
@@ -54,6 +56,7 @@ export const EVENT_TOTAL_KEYS = {
   category_view: "categoryViews",
   place_view: "placeViews",
   darcey_website_click: "darceyWebsiteClicks",
+  real_estate_contact_click: "realEstateContactClicks",
   darcey_call_click: "darceyCallClicks",
   darcey_text_click: "darceyTextClicks",
   darcey_email_click: "darceyEmailClicks",
