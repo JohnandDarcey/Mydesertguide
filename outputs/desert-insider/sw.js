@@ -1,10 +1,11 @@
-const CACHE_NAME = "darceys-guide-v17-shopping-collection";
+const CACHE_NAME = "darceys-guide-v18-spa-shopping-refresh";
 const APP_SHELL = [
   "/",
   "/food-drink/",
   "/golf/",
   "/things-to-do/",
   "/shopping/",
+  "/spa-beauty/",
   "/utilities/",
   "/trusted-professionals/",
   "/saved/",

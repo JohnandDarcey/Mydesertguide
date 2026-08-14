@@ -8,6 +8,7 @@ import {
   restaurants,
   services,
   shopping,
+  spaBeauty,
   thingsToDo,
 } from "./data.js?v=20260814-trail-hero-nav";
 
@@ -106,6 +107,7 @@ function allSearchablePlaces() {
     ...professionals.map((item) => ({ ...item, type: "Trusted Professional" })),
     ...thingsToDo.map((item) => ({ ...item, type: "Thing To Do" })),
     ...shopping.map((item) => ({ ...item, type: "Shopping" })),
+    ...spaBeauty.map((item) => ({ ...item, type: "Spa & Beauty" })),
   ];
 }
 
@@ -115,6 +117,7 @@ function mapPlaces() {
     ...golfCourses.map((item) => ({ ...item, type: "Golf" })),
     ...thingsToDo.map((item) => ({ ...item, type: "Thing To Do" })),
     ...shopping.map((item) => ({ ...item, type: "Shopping" })),
+    ...spaBeauty.map((item) => ({ ...item, type: "Spa & Beauty" })),
   ].sort((a, b) => a.location.localeCompare(b.location) || a.name.localeCompare(b.name));
 }
 
@@ -872,6 +875,7 @@ function render() {
             <a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a>
             <a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a>
             <a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a>
+            <a href="/spa-beauty/" data-category-link data-category-name="Spa &amp; Beauty" data-category-slug="spa-beauty">Spa &amp; Beauty</a>
           </nav>
           <details class="hero-mobile-menu">
             <summary>Menu</summary>
@@ -880,6 +884,7 @@ function render() {
               <a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a>
               <a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a>
               <a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a>
+              <a href="/spa-beauty/" data-category-link data-category-name="Spa &amp; Beauty" data-category-slug="spa-beauty">Spa &amp; Beauty</a>
               <a href="/utilities/" data-category-link data-category-name="Utilities" data-category-slug="utilities">Utilities</a>
               <a href="/trusted-professionals/" data-category-link data-category-name="Trusted Professionals" data-category-slug="trusted-professionals">Trusted Pros</a>
               <a href="#about-darcey">About Darcey</a>
@@ -908,6 +913,7 @@ function render() {
             <a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a>
             <a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a>
             <a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a>
+            <a href="/spa-beauty/" data-category-link data-category-name="Spa &amp; Beauty" data-category-slug="spa-beauty">Spa &amp; Beauty</a>
             <a href="/utilities/" data-category-link data-category-name="Utilities" data-category-slug="utilities">Utilities</a>
             <a href="/trusted-professionals/" data-category-link data-category-name="Trusted Professionals" data-category-slug="trusted-professionals">Trusted Pros</a>
           </nav>

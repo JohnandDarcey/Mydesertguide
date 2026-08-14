@@ -1935,8 +1935,8 @@
       "websiteLabel": "Visit Website",
       "directionsLabel": "Get Directions",
       "photoCredit": {
-        "label": "Photo by Zooey Li on Unsplash",
-        "url": "https://unsplash.com/photos/lkDZJL5psKU"
+        "label": "Photo courtesy of The Shag Store",
+        "url": "https://shagstore.com/pages/shag-store-location"
       },
       "experienceTypes": [
         "Gifts",
@@ -1982,8 +1982,8 @@
       "websiteLabel": "Visit Website",
       "directionsLabel": "Get Directions",
       "photoCredit": {
-        "label": "Photo by Frederik Rosar on Unsplash",
-        "url": "https://unsplash.com/photos/aHqW2AChF6M"
+        "label": "Palm Desert storefront photo via Loc8NearMe",
+        "url": "https://www.loc8nearme.com/california/palm-desert/pga-tour-superstore/3187642/"
       },
       "experienceTypes": [
         "Golf + Sport"
@@ -2030,8 +2030,8 @@
       "websiteLabel": "Visit Website",
       "directionsLabel": "Get Directions",
       "photoCredit": {
-        "label": "Photo by Meg von Haartman on Unsplash",
-        "url": "https://unsplash.com/photos/zAdJZZgNogo"
+        "label": "Photo courtesy of Destination PSP",
+        "url": "https://destinationpsp.com/pages/about-destination-psp"
       },
       "experienceTypes": [
         "Gifts",
@@ -2078,8 +2078,8 @@
       "websiteLabel": "Visit Website",
       "directionsLabel": "Get Directions",
       "photoCredit": {
-        "label": "Photo by shawn kim on Unsplash",
-        "url": "https://unsplash.com/photos/auZY3byMjig"
+        "label": "Photo courtesy of Visit Greater Palm Springs / Just Fabulous",
+        "url": "https://www.visitgreaterpalmsprings.com/listing/just-fabulous/24505/"
       },
       "experienceTypes": [
         "Gifts",
@@ -2102,7 +2102,7 @@
       "subcategory": "Home & Design",
       "description": "One of Palm Springs' best places to browse. This stylish design collective brings together art, vintage finds, jewelry, fashion, furniture and beautiful objects for the home.",
       "cardDescription": "A stylish design collective for art, vintage finds, fashion and beautiful home objects.",
-      "image": "/assets/shopping/the-shops-at-thirteen-forty-five.jpg",
+      "image": "/assets/shopping/the-shops-at-thirteen-forty-five.png",
       "images": [],
       "address": "1345 N Palm Canyon Dr, Palm Springs, CA 92262",
       "phone": "",
@@ -2125,8 +2125,7 @@
       "websiteLabel": "Visit Website",
       "directionsLabel": "Get Directions",
       "photoCredit": {
-        "label": "Photo by Robert on Unsplash",
-        "url": "https://unsplash.com/photos/3KNrZ7ssKFY"
+        "label": "Photo provided for My Desert Guide"
       },
       "experienceTypes": [
         "Fashion",
@@ -2196,8 +2195,8 @@
         ]
       ],
       "photoCredit": {
-        "label": "Photo by Tamanna Rumee on Unsplash",
-        "url": "https://unsplash.com/photos/7TiZjxU41lc"
+        "label": "Photo courtesy of Brandini Toffee",
+        "url": "https://brandinitoffee.com/pages/locations"
       },
       "experienceTypes": [
         "Gifts"
@@ -2289,8 +2288,8 @@
       "websiteLabel": "Visit Website",
       "directionsLabel": "Get Directions",
       "photoCredit": {
-        "label": "Photo by Jie Yeu Teoh on Unsplash",
-        "url": "https://unsplash.com/photos/uNnx31GSPxk"
+        "label": "Photo courtesy of Visit Greater Palm Springs",
+        "url": "https://www.visitgreaterpalmsprings.com/listing/saks-fifth-avenue-at-the-gardens/18856/"
       },
       "experienceTypes": [
         "Fashion",
@@ -2337,8 +2336,8 @@
       "websiteLabel": "Visit Website",
       "directionsLabel": "Get Directions",
       "photoCredit": {
-        "label": "Photo by Albert Stoynov on Unsplash",
-        "url": "https://unsplash.com/photos/XmfAjdvSZIU"
+        "label": "Palm Desert store photo via Foursquare",
+        "url": "https://foursquare.com/v/macys/4b68c3b6f964a520718d2be3"
       },
       "experienceTypes": [
         "Fashion",
@@ -2386,8 +2385,8 @@
       "websiteLabel": "Explore El Paseo",
       "directionsLabel": "Get Directions",
       "photoCredit": {
-        "label": "Photo by Jeffrey Eisen on Unsplash",
-        "url": "https://unsplash.com/photos/ytIqTxhYW4o"
+        "label": "Photo courtesy of El Paseo Catalogue",
+        "url": "https://elpaseocatalogue.com/the-shops-on-el-paseo-plans-for-new-restaurants-renewed-shopping/"
       },
       "experienceTypes": [
         "Fashion",
@@ -2398,6 +2397,55 @@
       "attributes": [
         "Art",
         "Home"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-tommy-bahama-home",
+      "slug": "tommy-bahama-home",
+      "name": "Tommy Bahama Home",
+      "city": "Palm Desert",
+      "category": "Shopping",
+      "categorySlug": "shopping",
+      "subcategory": "Home & Design",
+      "description": "A relaxed, polished stop on El Paseo for island-inspired furniture, outdoor living pieces, lighting and accessories, with complimentary design help available in store.",
+      "cardDescription": "Island-inspired furnishings, outdoor living and polished home accents on El Paseo.",
+      "image": "/assets/shopping/tommy-bahama-home.jpg",
+      "images": [],
+      "address": "73540 El Paseo, Palm Desert, CA 92260",
+      "phone": "442-256-8199",
+      "email": "",
+      "website": "https://tommybahamafurniture.com/palmdesert",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Tommy+Bahama+Home+73540+El+Paseo+Palm+Desert+CA+92260",
+      "teeTime": "",
+      "hours": "Monday–Saturday 10 AM–5 PM; Sunday 11 AM–5 PM",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "Store",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Visit Store Website",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo courtesy of Tommy Bahama Home",
+        "url": "https://tommybahamafurniture.com/palmdesert"
+      },
+      "experienceTypes": [
+        "Home + Design",
+        "Luxury"
+      ],
+      "attributes": [
+        "Home",
+        "Design",
+        "Furniture",
+        "Outdoor Living",
+        "El Paseo"
       ],
       "editorialLabels": []
     },
@@ -2480,6 +2528,187 @@
         "furniture",
         "gourmet foods",
         "gifts"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-sunstone-spa-at-agua-caliente",
+      "slug": "sunstone-spa-at-agua-caliente",
+      "name": "Sunstone Spa at Agua Caliente",
+      "city": "Rancho Mirage",
+      "category": "Spa & Beauty",
+      "categorySlug": "spa-beauty",
+      "subcategory": "Resort Spa",
+      "description": "A serene resort spa for massages, facials, body treatments, nail services and an easy day of desert relaxation.",
+      "cardDescription": "A serene resort-spa day for treatments, beauty services and desert relaxation.",
+      "image": "/assets/spa-beauty/sunstone-spa.png",
+      "images": [],
+      "address": "32250 Bob Hope Dr, Rancho Mirage, CA 92270",
+      "phone": "760-202-2121",
+      "email": "",
+      "website": "https://www.aguacalientecasinos.com/spa/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Sunstone+Spa+32250+Bob+Hope+Dr+Rancho+Mirage+CA+92270",
+      "teeTime": "",
+      "hours": "Daily 9 AM–7 PM",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "HealthAndBeautyBusiness",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Explore the Spa",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo courtesy of Visit Greater Palm Springs / Sunstone Spa",
+        "url": "https://www.visitgreaterpalmsprings.com/listing/sunstone-spa-at-agua-caliente-resort-casino-spa-rancho-mirage/21083/"
+      },
+      "experienceTypes": [],
+      "attributes": [
+        "Spa",
+        "Massage",
+        "Facials",
+        "Nails",
+        "Hair"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-the-spa-at-sec-he",
+      "slug": "the-spa-at-sec-he",
+      "name": "The Spa at Séc-he",
+      "city": "Palm Springs",
+      "category": "Spa & Beauty",
+      "categorySlug": "spa-beauty",
+      "subcategory": "Mineral Spa",
+      "description": "A beautiful downtown wellness destination centered on the Agua Caliente Hot Mineral Spring, with private mineral baths, massage and restorative experiences.",
+      "cardDescription": "Hot mineral baths and restorative spa experiences in downtown Palm Springs.",
+      "image": "/assets/spa-beauty/the-spa-at-seche.jpg",
+      "images": [],
+      "address": "200 E Tahquitz Canyon Way, Palm Springs, CA 92262",
+      "phone": "866-777-3243",
+      "email": "",
+      "website": "https://thespaatseche.com/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=The+Spa+at+Seche+200+E+Tahquitz+Canyon+Way+Palm+Springs+CA+92262",
+      "teeTime": "",
+      "hours": "Daily 8 AM–7 PM",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "HealthAndBeautyBusiness",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Explore the Spa",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo courtesy of The Spa at Séc-he",
+        "url": "https://thespaatseche.com/"
+      },
+      "experienceTypes": [],
+      "attributes": [
+        "Spa",
+        "Mineral Baths",
+        "Massage",
+        "Wellness"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-eden-nails",
+      "slug": "eden-nails",
+      "name": "Eden Nails",
+      "city": "Palm Springs",
+      "category": "Spa & Beauty",
+      "categorySlug": "spa-beauty",
+      "subcategory": "Nail Salon",
+      "description": "A convenient Palm Springs stop for manicures, pedicures and a polished little refresh before dinner, an event or a weekend away.",
+      "cardDescription": "An easy Palm Springs stop for manicures, pedicures and a polished refresh.",
+      "image": "/assets/spa-beauty/eden-nails.jpg",
+      "images": [],
+      "address": "1751 N Sunrise Way, Suite F3, Palm Springs, CA 92262",
+      "phone": "760-416-2426",
+      "email": "",
+      "website": "https://www.fresha.com/lvp/eden-nail-salon-spa-aka-jacly-nails-north-sunrise-way-palm-springs-NoqKl7",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Eden+Nails+1751+N+Sunrise+Way+Palm+Springs+CA+92262",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "HealthAndBeautyBusiness",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "View Salon Info",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo by Giorgio Trovato on Unsplash",
+        "url": "https://unsplash.com/photos/gb6gtiTZKB8"
+      },
+      "experienceTypes": [],
+      "attributes": [
+        "Nails",
+        "Manicure",
+        "Pedicure",
+        "Beauty"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-josh-fuller-at-salon-jarick",
+      "slug": "josh-fuller-at-salon-jarick",
+      "name": "Josh Fuller at Salon Jarick",
+      "city": "Palm Springs",
+      "category": "Spa & Beauty",
+      "categorySlug": "spa-beauty",
+      "subcategory": "Hair & Makeup",
+      "description": "Palm Springs hair and makeup artist Josh Fuller brings a polished eye to cuts, color, styling and special-event beauty at Salon Jarick.",
+      "cardDescription": "Polished hair, color, styling and makeup at Salon Jarick in Palm Springs.",
+      "image": "/assets/spa-beauty/josh-fuller.jpg",
+      "images": [],
+      "address": "333 S Indian Canyon Dr, Suite J, Palm Springs, CA 92262",
+      "phone": "305-301-3191",
+      "email": "joshfullerdesigns@gmail.com",
+      "website": "https://www.joshfullerdesigns.com/contact",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Salon+Jarick+333+S+Indian+Canyon+Dr+Palm+Springs+CA+92262",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "HealthAndBeautyBusiness",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "Contact Josh",
+      "directionsLabel": "Get Directions",
+      "photoCredit": {
+        "label": "Photo courtesy of Josh Fuller Designs",
+        "url": "https://www.joshfullerdesigns.com/"
+      },
+      "experienceTypes": [],
+      "attributes": [
+        "Hair",
+        "Hair Color",
+        "Styling",
+        "Makeup"
       ],
       "editorialLabels": []
     },
@@ -5203,6 +5432,39 @@
       "detail": ""
     },
     {
+      "recommendationId": "darcey-my-desert-guide:place-tommy-bahama-home",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-tommy-bahama-home",
+      "personalNote": "",
+      "tags": [
+        "Home",
+        "Design",
+        "Furniture",
+        "Outdoor Living",
+        "El Paseo"
+      ],
+      "experienceTypes": [
+        "Home + Design",
+        "Luxury"
+      ],
+      "attributes": [
+        "Home",
+        "Design",
+        "Furniture",
+        "Outdoor Living",
+        "El Paseo"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Island-inspired indoor and outdoor furnishings and design help",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
+    },
+    {
       "recommendationId": "darcey-my-desert-guide:place-gelsons-rancho-mirage",
       "guideId": "darcey-my-desert-guide",
       "profileId": "darcey-deetz",
@@ -5265,6 +5527,123 @@
       "favoriteDish": "",
       "happyHour": "",
       "detail": "Affordable finds from around the world, with especially fun seasonal displays."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-sunstone-spa-at-agua-caliente",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-sunstone-spa-at-agua-caliente",
+      "personalNote": "",
+      "tags": [
+        "Spa",
+        "Massage",
+        "Facials",
+        "Nails",
+        "Hair"
+      ],
+      "experienceTypes": [],
+      "attributes": [
+        "Spa",
+        "Massage",
+        "Facials",
+        "Nails",
+        "Hair"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "A full resort-spa day with treatments and relaxing amenities",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-the-spa-at-sec-he",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-the-spa-at-sec-he",
+      "personalNote": "",
+      "tags": [
+        "Spa",
+        "Mineral Baths",
+        "Massage",
+        "Wellness",
+        "Palm Springs"
+      ],
+      "experienceTypes": [],
+      "attributes": [
+        "Spa",
+        "Mineral Baths",
+        "Massage",
+        "Wellness"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Hot mineral baths, restorative treatments and a special wellness day",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-eden-nails",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-eden-nails",
+      "personalNote": "",
+      "tags": [
+        "Nails",
+        "Manicure",
+        "Pedicure",
+        "Beauty",
+        "Palm Springs"
+      ],
+      "experienceTypes": [],
+      "attributes": [
+        "Nails",
+        "Manicure",
+        "Pedicure",
+        "Beauty"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Manicures, pedicures and an easy beauty refresh",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-josh-fuller-at-salon-jarick",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-josh-fuller-at-salon-jarick",
+      "personalNote": "",
+      "tags": [
+        "Hair",
+        "Hair Color",
+        "Styling",
+        "Makeup",
+        "Palm Springs"
+      ],
+      "experienceTypes": [],
+      "attributes": [
+        "Hair",
+        "Hair Color",
+        "Styling",
+        "Makeup"
+      ],
+      "editorialLabels": [],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Professional hair, color, styling and makeup",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": ""
     },
     {
       "recommendationId": "darcey-my-desert-guide:place-southern-california-edison",

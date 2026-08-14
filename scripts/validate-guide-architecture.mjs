@@ -6,8 +6,8 @@ import { allPlaces, categoryDefinitions, guideRecommendations, masterPlaces } fr
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../outputs/desert-insider");
 const read = (relative) => fs.readFile(path.join(root, relative), "utf8");
 
-if (categoryDefinitions.length !== 6) throw new Error(`Expected 6 primary categories, found ${categoryDefinitions.length}.`);
-if (allPlaces.length !== 75) throw new Error(`Expected 75 source recommendations and utility resources, found ${allPlaces.length}.`);
+if (categoryDefinitions.length !== 7) throw new Error(`Expected 7 primary categories, found ${categoryDefinitions.length}.`);
+if (allPlaces.length !== 80) throw new Error(`Expected 80 source recommendations and utility resources, found ${allPlaces.length}.`);
 
 const slugs = new Set(allPlaces.map((place) => place.slug));
 const ids = new Set(allPlaces.map((place) => place.placeId));
@@ -163,7 +163,7 @@ if ((thingsToDoPage.match(/specialized_collection_recommendation_clicked/g) || [
 const shoppingPage = await read("shopping/index.html");
 for (const marker of [
   "What are you shopping for?", "Fashion", "Gifts + Palm Springs", "Home + Design", "Art + Vintage", "Golf + Sport", "Luxury",
-  "Darcey&#39;s Desert Shopping Picks", "The Shag Store", "PGA TOUR Superstore", "Destination PSP", "The Shops at Thirteen Forty Five", "Brandini Toffee", "El Paseo Shopping District",
+  "Darcey&#39;s Desert Shopping Picks", "The Shag Store", "PGA TOUR Superstore", "Destination PSP", "The Shops at Thirteen Forty Five", "Brandini Toffee", "El Paseo Shopping District", "Tommy Bahama Home",
   "Explore Shopping", "Familiar Favorites", "All Desert", "Palm Springs", "Rancho Mirage", "Palm Desert", "shopping_experience_tile_selected", "shopping_pick_clicked",
 ]) {
   if (!shoppingPage.includes(marker)) throw new Error(`Shopping discovery page is missing: ${marker}`);
@@ -180,6 +180,7 @@ const shoppingRecommendations = [
   ["saks-fifth-avenue", ["73555 El Paseo", "Get Directions", "Visit Website"]],
   ["macys", ["72780 Highway 111", "Get Directions", "Visit Website"]],
   ["el-paseo-shopping-district", ["Highway 74 and Portola Ave", "Get Directions", "Explore El Paseo"]],
+  ["tommy-bahama-home", ["73540 El Paseo", "442-256-8199", "Get Directions", "Visit Store Website"]],
 ];
 for (const [slug, markers] of shoppingRecommendations) {
   const html = await read(`place/${slug}/index.html`);
@@ -187,6 +188,44 @@ for (const [slug, markers] of shoppingRecommendations) {
     if (!html.includes(marker)) throw new Error(`${slug} is missing Shopping marker: ${marker}`);
   }
   if (html.includes("Darcey's Take")) throw new Error(`${slug} must not include an invented Darcey's Take.`);
+}
+for (const [slug, credit] of [
+  ["the-shag-store", "Photo courtesy of The Shag Store"],
+  ["the-shops-at-thirteen-forty-five", "Photo provided for My Desert Guide"],
+  ["pga-tour-superstore", "Palm Desert storefront photo via Loc8NearMe"],
+  ["destination-psp", "Photo courtesy of Destination PSP"],
+  ["just-fabulous", "Photo courtesy of Visit Greater Palm Springs / Just Fabulous"],
+  ["brandini-toffee", "Photo courtesy of Brandini Toffee"],
+  ["saks-fifth-avenue", "Photo courtesy of Visit Greater Palm Springs"],
+  ["macys", "Palm Desert store photo via Foursquare"],
+  ["el-paseo-shopping-district", "Photo courtesy of El Paseo Catalogue"],
+  ["tommy-bahama-home", "Photo courtesy of Tommy Bahama Home"],
+]) {
+  const html = await read(`place/${slug}/index.html`);
+  if (!html.includes(credit)) throw new Error(`${slug} is missing its real-world photo credit.`);
+}
+
+const spaBeautyPage = await read("spa-beauty/index.html");
+for (const marker of ["Spa &amp; Beauty", "Sunstone Spa at Agua Caliente", "The Spa at Séc-he", "Eden Nails", "Josh Fuller at Salon Jarick"]) {
+  if (!spaBeautyPage.includes(marker)) throw new Error(`Spa & Beauty is missing: ${marker}`);
+}
+for (const [slug, markers] of [
+  ["sunstone-spa-at-agua-caliente", ["32250 Bob Hope Dr", "760-202-2121", "Explore the Spa"]],
+  ["the-spa-at-sec-he", ["200 E Tahquitz Canyon Way", "866-777-3243", "Explore the Spa"]],
+  ["eden-nails", ["1751 N Sunrise Way", "760-416-2426", "View Salon Info"]],
+  ["josh-fuller-at-salon-jarick", ["333 S Indian Canyon Dr", "305-301-3191", "Contact Josh"]],
+]) {
+  const html = await read(`place/${slug}/index.html`);
+  for (const marker of markers) {
+    if (!html.includes(marker)) throw new Error(`${slug} is missing Spa & Beauty marker: ${marker}`);
+  }
+  if (html.includes("Darcey's Take")) throw new Error(`${slug} must not include an invented Darcey's Take.`);
+}
+
+const professionalsPage = await read("trusted-professionals/index.html");
+if (!professionalsPage.includes("/assets/services/mr-beez-pest-control.png")) throw new Error("Trusted Professionals must use the Mr. Beez category image.");
+for (const removedFilter of ["beautifully designed desserts", "custom cakes"]) {
+  if (professionalsPage.toLowerCase().includes(`data-tag-filter=\"${removedFilter}`)) throw new Error(`Trusted Professionals still exposes removed navigation filter: ${removedFilter}`);
 }
 for (const place of allPlaces.filter((place) => ["food-drink", "things-to-do", "shopping"].includes(place.categorySlug))) {
   if (!Array.isArray(place.experienceTypes) || !place.experienceTypes.length) throw new Error(`${place.slug} is missing normalized experience types.`);
@@ -229,4 +268,4 @@ if (!robots.includes("Sitemap: https://mydesertguide.com/sitemap.xml") || !robot
   throw new Error("robots.txt does not expose the sitemap or protect admin routes.");
 }
 
-console.log(`Validated 6 categories, ${allPlaces.length} recommendation pages, utilities concierge, favorites, PWA navigation, robots.txt and ${sitemapUrls} sitemap URLs.`);
+console.log(`Validated 7 categories, ${allPlaces.length} recommendation pages, utilities concierge, favorites, PWA navigation, robots.txt and ${sitemapUrls} sitemap URLs.`);

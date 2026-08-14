@@ -333,7 +333,10 @@ function categoryPage(category) {
   const cities = [...new Set(category.places.map((place) => place.city).filter(Boolean))].sort();
   const tagCounts = new Map();
   category.places.flatMap((place) => place.tags).forEach((tag) => tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1));
-  const supportedTags = [...tagCounts.entries()].filter(([, count]) => count >= 1).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0])).slice(0, 10).map(([tag]) => tag);
+  const hiddenTags = category.slug === "trusted-professionals"
+    ? new Set(["beautifully designed desserts", "custom cakes", "custom cakes & desserts"])
+    : new Set();
+  const supportedTags = [...tagCounts.entries()].filter(([tag, count]) => count >= 1 && !hiddenTags.has(tag.toLowerCase())).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0])).slice(0, 10).map(([tag]) => tag);
   const isUtilities = category.slug === "utilities";
   const editorialConfig = categoryLandingConfigs[category.slug];
   const discovery = isUtilities ? utilityConcierge(category) : editorialConfig ? editorialCategoryLanding(category, editorialConfig) : `<section aria-label="Filter ${escapeHtml(category.label)} recommendations">
