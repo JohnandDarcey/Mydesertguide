@@ -9,7 +9,7 @@ import {
   services,
   shopping,
   thingsToDo,
-} from "./data.js?v=20260814-guide-refine";
+} from "./data.js?v=20260814-mobile-hero";
 
 const app = document.querySelector("#app");
 
@@ -798,12 +798,19 @@ function render() {
     <main id="top">
       <section class="hero hero-image-map" aria-label="My Desert Guide featured navigation">
         <img
-          class="hero-art"
+          class="hero-art hero-art-desktop"
           src="${assets.hero}"
           srcset="${assets.heroSmall} 960w, ${assets.heroLarge} 1536w"
           sizes="100vw"
           alt="My Desert Guide featuring Darcey Deetz and a Palm Springs desert landscape"
           fetchpriority="high"
+          decoding="async"
+        />
+        <img
+          class="hero-art hero-art-mobile"
+          src="${assets.heroMobile}"
+          alt=""
+          aria-hidden="true"
           decoding="async"
         />
         <header class="hero-live-header">

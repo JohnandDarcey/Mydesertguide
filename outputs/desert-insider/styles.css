@@ -137,6 +137,10 @@ nav a {
   width: 100%;
 }
 
+.hero-art-mobile {
+  display: none;
+}
+
 .hero-overlay {
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.22) 54%, rgba(0, 0, 0, 0.06)),
@@ -2259,6 +2263,39 @@ dd {
 
   .hero-live-copy h1 {
     font-size: clamp(4rem, 10vw, 5.2rem);
+  }
+}
+
+@media (max-width: 599px) {
+  .hero-image-map {
+    --mobile-hero-photo-height: clamp(480px, 143vw, 570px);
+    min-height: calc(var(--mobile-hero-photo-height) + 748px);
+  }
+
+  .hero-art-desktop,
+  .hero-image-map::after {
+    display: none;
+  }
+
+  .hero-image-map .hero-art-mobile {
+    display: block;
+    height: var(--mobile-hero-photo-height);
+    left: 0;
+    object-fit: cover;
+    object-position: center top;
+    top: 68px;
+    width: 100%;
+  }
+
+  .hero-live-copy {
+    top: calc(68px + var(--mobile-hero-photo-height));
+  }
+
+  .hero-live-actions .button,
+  .hero-mobile-nav a,
+  .hero-contact-actions a,
+  .hero-mobile-curated {
+    border-radius: var(--control-radius);
   }
 }
 
