@@ -1,5 +1,5 @@
 export const assets = {
-  hero: "./assets/ig_0e3d77dee4f981a0016a4158c7a0448199ba2561148808bc2a.png",
+  hero: "./assets/my-desert-guide-hero-darcey.png",
   restaurants: "./assets/ig_0e3d77dee4f981a0016a4158fcc6cc8199adf58a6a4e4acdd4.png",
   happyHour: "./assets/ig_0e3d77dee4f981a0016a41593366a88199baafbc65d93660f5.png",
   neighborhoods: "./assets/ig_0e3d77dee4f981a0016a4159753f708199a185eb187fc2be32.png",

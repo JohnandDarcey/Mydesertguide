@@ -790,42 +790,36 @@ function renderMap() {
 
 function render() {
   app.innerHTML = `
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="My Desert Guide home">
-        <span>My Desert Guide</span>
-        <small>Darcey's favorites all in one place</small>
-      </a>
-      <nav aria-label="Primary navigation">
+    <main id="top">
+      <section class="hero hero-image-map" aria-label="My Desert Guide featured navigation">
+        <img src="${assets.hero}" alt="My Desert Guide featuring Darcey Deetz and the Coachella Valley" />
+        <a class="hero-hotspot hotspot-brand" href="#top" aria-label="My Desert Guide home"></a>
+        <a class="hero-hotspot hotspot-restaurants" href="#guide" aria-label="Restaurants"></a>
+        <a class="hero-hotspot hotspot-happy-hours" href="#happy-hour" aria-label="Happy Hours"></a>
+        <a class="hero-hotspot hotspot-golf" href="#golf" aria-label="Golf"></a>
+        <a class="hero-hotspot hotspot-things" href="#things-to-do" aria-label="Things To Do"></a>
+        <a class="hero-hotspot hotspot-shopping" href="#shopping" aria-label="Shopping"></a>
+        <a class="hero-hotspot hotspot-neighborhoods" href="#map" aria-label="Neighborhoods and map"></a>
+        <a class="hero-hotspot hotspot-events" href="#things-to-do" aria-label="Events"></a>
+        <a class="hero-hotspot hotspot-essentials" href="#utilities" aria-label="Desert Essentials"></a>
+        <a class="hero-hotspot hotspot-explore" href="#browse-guide" aria-label="Explore the Desert"></a>
+        <a class="hero-hotspot hotspot-curated" href="#guide" aria-label="Curated Favorites"></a>
+        <a class="hero-hotspot hotspot-insider" href="#browse-guide" aria-label="Local Insider Tips"></a>
+        <a class="hero-hotspot hotspot-trusted" href="#professionals" aria-label="Trusted Recommendations"></a>
+        <a class="hero-hotspot hotspot-love" href="https://darceydeetz.com" target="_blank" rel="noreferrer" aria-label="Love Where You Live — visit Darcey's real estate website"></a>
+      </section>
+
+      <nav class="hero-mobile-links" aria-label="Mobile guide navigation">
+        <a class="button dark" href="#browse-guide">Explore the Desert</a>
         <a href="#guide">Restaurants</a>
+        <a href="#happy-hour">Happy Hours</a>
         <a href="#golf">Golf</a>
         <a href="#things-to-do">Things To Do</a>
         <a href="#shopping">Shopping</a>
-        <a href="#utilities">Utilities</a>
-        <a href="#professionals">Pros</a>
-        <a href="#map">Map</a>
-        <a href="#contact">Contact</a>
+        <a href="#map">Neighborhoods</a>
+        <a href="#utilities">Desert Essentials</a>
+        <a href="#professionals">Trusted Pros</a>
       </nav>
-    </header>
-
-    <main id="top">
-      <section class="hero">
-        <img src="${assets.hero}" alt="Elegant Coachella Valley desert patio at golden hour" />
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <div class="hero-title-wrap">
-            <h1>
-              <span class="hero-title-line hero-title-my">My</span>
-              <span class="hero-title-line hero-title-desert">Desert<span class="hero-heart" aria-hidden="true">${icon("heart")}</span></span>
-              <span class="hero-title-line">Guide</span>
-            </h1>
-          </div>
-          <p>Restaurants, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by Darcey.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#browse-guide">${icon("compass")} Explore the Guide</a>
-            <a class="button secondary" href="https://darceydeetz.com" target="_blank" rel="noreferrer">${icon("heart")} Visit Darcey's Real Estate Website</a>
-          </div>
-        </div>
-      </section>
 
       <section class="section intro welcome-note">
         <img class="darcey-note-photo" src="./assets/people/darcey-headshot-web.jpg" alt="Darcey Deetz smiling in the desert" />
