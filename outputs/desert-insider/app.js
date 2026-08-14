@@ -9,7 +9,7 @@ import {
   services,
   shopping,
   thingsToDo,
-} from "./data.js?v=20260814-hero-realtor-identifier-v2";
+} from "./data.js?v=20260814-new-hero-art";
 
 const app = document.querySelector("#app");
 
@@ -846,8 +846,6 @@ function render() {
         <img
           class="hero-art hero-art-desktop"
           src="${assets.hero}"
-          srcset="${assets.heroSmall} 960w, ${assets.heroLarge} 1536w"
-          sizes="100vw"
           alt="My Desert Guide featuring Darcey Deetz and a Palm Springs desert landscape"
           fetchpriority="high"
           decoding="async"
@@ -904,14 +902,12 @@ function render() {
             <span aria-hidden="true">☆</span> Curated Favorites
           </a>
         </div>
-        <div class="hero-curator hero-curator-desktop" aria-label="${realtorProfile.fullName}, ${realtorProfile.professionalIdentifier}">
-          <p class="hero-curator-name">${realtorProfile.curatorLabel} ${realtorProfile.fullName}</p>
-          <p class="hero-curator-role">${realtorProfile.professionalIdentifier}</p>
-        </div>
         <a class="hero-hotspot hotspot-header-food" href="/food-drink/" aria-label="Food &amp; Drink" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink"></a>
         <a class="hero-hotspot hotspot-header-golf" href="/golf/" aria-label="Golf" data-category-link data-category-name="Golf" data-category-slug="golf"></a>
         <a class="hero-hotspot hotspot-header-things" href="/things-to-do/" aria-label="Things to Do" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do"></a>
         <a class="hero-hotspot hotspot-header-shopping" href="/shopping/" aria-label="Shopping" data-category-link data-category-name="Shopping" data-category-slug="shopping"></a>
+        <a class="hero-hotspot hotspot-header-utilities" href="/utilities/" aria-label="Utilities" data-category-link data-category-name="Utilities" data-category-slug="utilities"></a>
+        <a class="hero-hotspot hotspot-header-trusted" href="/trusted-professionals/" aria-label="Trusted Professionals" data-category-link data-category-name="Trusted Professionals" data-category-slug="trusted-professionals"></a>
         <a class="hero-hotspot hotspot-header-text" href="sms:${realtorProfile.phoneHref}" aria-label="Text Darcey"></a>
         <a class="hero-hotspot hotspot-header-call" href="tel:${realtorProfile.phoneHref}" aria-label="Call Darcey"></a>
         <a class="hero-hotspot hotspot-header-email" href="mailto:${realtorProfile.email}" aria-label="Email Darcey"></a>
@@ -920,14 +916,6 @@ function render() {
         <a class="hero-hotspot hotspot-connect-text" href="sms:${realtorProfile.phoneHref}" aria-label="Text Darcey"></a>
         <a class="hero-hotspot hotspot-connect-call" href="tel:${realtorProfile.phoneHref}" aria-label="Call Darcey"></a>
         <a class="hero-hotspot hotspot-connect-email" href="mailto:${realtorProfile.email}" aria-label="Email Darcey"></a>
-        <a class="hero-hotspot hotspot-card-food" href="/food-drink/" aria-label="Explore Food & Drink" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink"></a>
-        <a class="hero-hotspot hotspot-card-golf" href="/golf/" aria-label="Explore Golf" data-category-link data-category-name="Golf" data-category-slug="golf"></a>
-        <a class="hero-hotspot hotspot-card-things" href="/things-to-do/" aria-label="Explore Things to Do" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do"></a>
-        <a class="hero-hotspot hotspot-card-shopping" href="/shopping/" aria-label="Explore Shopping" data-category-link data-category-name="Shopping" data-category-slug="shopping"></a>
-        <a class="hero-hotspot hotspot-curated" href="#browse-guide" aria-label="Curated Favorites — Start With What You Need"></a>
-        <a class="hero-hotspot hotspot-insider" href="#browse-guide" aria-label="Local Insider Tips"></a>
-        <a class="hero-hotspot hotspot-trusted" href="/trusted-professionals/" aria-label="Trusted Recommendations" data-category-link data-category-name="Trusted Professionals" data-category-slug="trusted-professionals"></a>
-        <a class="hero-hotspot hotspot-love" href="${realtorProfile.website}" target="_blank" rel="noreferrer" aria-label="Love Where You Live — visit Darcey's real estate website"></a>
       </section>
 
       <section class="section guide-categories" id="browse-guide" aria-label="Guide categories">
