@@ -4,21 +4,31 @@ if (categoryGrid) {
   const cards = [...categoryGrid.querySelectorAll("[data-recommendation-card]")];
   const search = document.querySelector("[data-category-search]");
   const location = document.querySelector("[data-location-filter]");
-  const filters = [...document.querySelectorAll("[data-tag-filter]")];
+  const filters = [...document.querySelectorAll("[data-filter-button], [data-tag-filter]")];
   const summary = document.querySelector("[data-results-summary]");
-  let activeTag = "All";
+  const requestedExperience = new URLSearchParams(window.location.search).get("experience");
+  let activeFilter = requestedExperience
+    ? { kind: "experience", value: requestedExperience }
+    : { kind: "experience", value: "All" };
+
+  const selectedButton = filters.find((filter) => (filter.dataset.filterValue || filter.dataset.tagFilter) === activeFilter.value);
+  if (selectedButton) filters.forEach((button) => button.classList.toggle("active", button === selectedButton));
+  else if (requestedExperience) filters.forEach((button) => button.classList.remove("active"));
 
   function render() {
-    const term = search.value.trim().toLowerCase();
-    const city = location.value;
+    const term = search?.value.trim().toLowerCase() || "";
+    const city = location?.value || "All";
     let visible = 0;
 
     cards.forEach((card) => {
       const matchesSearch = !term || card.dataset.search.includes(term);
       const matchesCity = city === "All" || card.dataset.city === city;
       const tags = card.dataset.tags.split("|");
-      const matchesTag = activeTag === "All" || tags.includes(activeTag);
-      const show = matchesSearch && matchesCity && matchesTag;
+      const experiences = (card.dataset.experiences || "").split("|").filter(Boolean);
+      const matchesFilter =
+        activeFilter.value === "All" ||
+        (activeFilter.kind === "tag" ? tags.includes(activeFilter.value) : experiences.includes(activeFilter.value));
+      const show = matchesSearch && matchesCity && matchesFilter;
       card.hidden = !show;
       if (show) visible += 1;
     });
@@ -28,19 +38,34 @@ if (categoryGrid) {
       section.hidden = sectionCards.length > 0 && sectionCards.every((card) => card.hidden);
     });
 
-    summary.textContent = `${visible} recommendation${visible === 1 ? "" : "s"}`;
+    if (summary) summary.textContent = `${visible} recommendation${visible === 1 ? "" : "s"}`;
     document.querySelector("[data-empty-results]").hidden = visible !== 0;
   }
 
-  search.addEventListener("input", render);
-  location.addEventListener("change", render);
+  search?.addEventListener("input", render);
+  location?.addEventListener("change", () => {
+    render();
+    document.dispatchEvent(new CustomEvent("mdg:analytics", {
+      detail: { eventName: "location_filter_selected", details: { category: document.body.dataset.category, location: location.value } },
+    }));
+  });
   filters.forEach((filter) => {
     filter.addEventListener("click", () => {
-      activeTag = filter.dataset.tagFilter;
+      activeFilter = {
+        kind: filter.dataset.filterKind || "tag",
+        value: filter.dataset.filterValue || filter.dataset.tagFilter,
+      };
       filters.forEach((button) => button.classList.toggle("active", button === filter));
       render();
+      const url = new URL(window.location.href);
+      if (activeFilter.kind === "experience" && activeFilter.value !== "All") url.searchParams.set("experience", activeFilter.value);
+      else url.searchParams.delete("experience");
+      window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
       document.dispatchEvent(new CustomEvent("mdg:analytics", {
-        detail: { eventName: "category_view", details: { category: document.body.dataset.category, filter: activeTag } },
+        detail: {
+          eventName: activeFilter.kind === "tag" ? "more_filter_selected" : "primary_filter_selected",
+          details: { category: document.body.dataset.category, filter: activeFilter.value },
+        },
       }));
     });
   });

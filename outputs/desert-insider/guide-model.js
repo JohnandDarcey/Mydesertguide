@@ -122,8 +122,46 @@ function absoluteAsset(path = "") {
   return path.replace(/^\.\//, "/");
 }
 
+function experienceTypes(item, category) {
+  const tags = Array.isArray(item.tags) ? item.tags : [];
+  const searchable = [item.name, item.category, item.bestFor, ...tags].filter(Boolean).join(" ").toLowerCase();
+  const isFavorite = Boolean(item.isFavorite || Number(item.rating) >= 5);
+  const experiences = [];
+
+  if (category.slug === "food-drink") {
+    if (!searchable.includes("coffee")) experiences.push("Dinner");
+    if (searchable.includes("happy hour")) experiences.push("Happy Hour");
+    if (searchable.includes("brunch") || searchable.includes("breakfast")) experiences.push("Brunch");
+    if (searchable.includes("coffee")) experiences.push("Coffee");
+    if (searchable.includes("casual")) experiences.push("Casual");
+    if (searchable.includes("patio") || searchable.includes("outdoor seating")) experiences.push("Patio Dining");
+  }
+
+  if (category.slug === "things-to-do") {
+    const isHiking = searchable.includes("hiking") || searchable.includes("outdoor activity");
+    if (isHiking) experiences.push("Outdoors");
+    if (
+      !isHiking && (
+        searchable.includes("art & culture") ||
+        searchable.includes("aviation history") ||
+        searchable.includes("gardens & culture") ||
+        searchable.includes("architecture")
+      )
+    ) experiences.push("Arts & Culture");
+    if (["Indian Canyons", "Tahquitz Canyon", "The Living Desert", "Desert View Loop / Palm Springs Aerial Tramway", "Sunnylands"].includes(item.name)) experiences.push("Desert Experiences");
+    if (searchable.includes("sports & entertainment") || searchable.includes("holiday event") || searchable.includes("street fair") || searchable.includes("live music")) experiences.push("Entertainment");
+    if (item.name === "VillageFest") experiences.push("Markets & Local Life");
+    if (["The Living Desert", "Palm Springs Air Museum", "Coachella Valley Firebirds", "Palm Springs Festival of Lights Parade", "VillageFest"].includes(item.name)) experiences.push("Family");
+  }
+
+  if (isFavorite) experiences.push("Darcey's Favorites");
+  return [...new Set(experiences)];
+}
+
 function normalizePlace(item, category) {
   const slug = item.slug || slugify(item.name);
+  const normalizedTags = usefulTags(item);
+  const normalizedExperiences = experienceTypes(item, category);
   return {
     guideId: guideProfile.guideId,
     profileId: guideProfile.profileId,
@@ -139,7 +177,10 @@ function normalizePlace(item, category) {
     description: item.description || "",
     cardDescription: item.cardDescription,
     darceysTake: item.tip || "",
-    tags: usefulTags(item),
+    tags: normalizedTags,
+    experienceTypes: normalizedExperiences,
+    attributes: normalizedTags.filter((tag) => !normalizedExperiences.includes(tag) && tag !== item.location && tag !== item.category),
+    editorialLabels: [item.hikingPickLabel, item.coffeePickLabel, item.familiarFavoriteLabel].filter(Boolean),
     isFavorite: Boolean(item.isFavorite || Number(item.rating) >= 5),
     isNew: Boolean(item.isNew),
     image: absoluteAsset(item.image || item.images?.[0] || category.image),
@@ -233,6 +274,9 @@ export const masterPlaces = allPlaces.map((place) => ({
   hikingPickLabel: place.hikingPickLabel,
   coffeePickLabel: place.coffeePickLabel,
   familiarFavoriteLabel: place.familiarFavoriteLabel,
+  experienceTypes: place.experienceTypes,
+  attributes: place.attributes,
+  editorialLabels: place.editorialLabels,
 }));
 
 export const guideRecommendations = allPlaces.map((place) => ({
@@ -242,6 +286,9 @@ export const guideRecommendations = allPlaces.map((place) => ({
   placeId: place.placeId,
   personalNote: place.darceysTake,
   tags: place.tags,
+  experienceTypes: place.experienceTypes,
+  attributes: place.attributes,
+  editorialLabels: place.editorialLabels,
   isFavorite: place.isFavorite,
   isNew: place.isNew,
   rating: place.rating,

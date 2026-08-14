@@ -96,8 +96,12 @@ for (const [slug, markers] of hikingPicks) {
   if (html.includes("Darcey's Take")) throw new Error(`${slug} must not include an invented Darcey's Take.`);
 }
 const thingsToDoPage = await read("things-to-do/index.html");
-for (const marker of ["Darcey's Desert Hiking Picks", "Hike the desert.", "Palm Oasis", "Waterfall", "Local Workout", "Views + Architecture", "Mountain Escape", "Desert temperatures climb quickly"]) {
-  if (!thingsToDoPage.includes(marker)) throw new Error(`Things to Do hiking collection is missing: ${marker}`);
+for (const marker of [
+  "What are you in the mood for?", "Hiking &amp; Outdoors", "Arts &amp; Culture", "Desert Experiences", "Entertainment", "Markets &amp; Local Life", "Darcey&#39;s Favorites",
+  "Darcey's Desert Picks", "VillageFest", "Indian Canyons", "The Living Desert", "Palm Springs Art Museum", "Coachella Valley Firebirds", "Sunnylands",
+  "Explore More", "data-filter-value=\"Outdoors\"", "data-filter-value=\"Family\"", "All Desert", "Hike the Desert", "Explore Hiking", "explore_hiking_clicked",
+]) {
+  if (!thingsToDoPage.includes(marker)) throw new Error(`Things to Do discovery page is missing: ${marker}`);
 }
 const coffeePicks = [
   ["koffi", ["Palm Springs Classic", "View All Locations", "Get Directions"]],
@@ -115,10 +119,21 @@ for (const [slug, markers] of coffeePicks) {
   if (html.includes("Darcey's Take")) throw new Error(`${slug} must not include an invented Darcey's Take.`);
 }
 const foodDrinkPage = await read("food-drink/index.html");
-for (const marker of ["Darcey's Coffee Picks", "Coffee in the desert.", "Palm Springs Classic", "Uptown Favorite", "Coffee Lover&#39;s Pick", "Easy Morning Stop", "East Valley Favorite", "Familiar Favorites", "Find a Starbucks"]) {
-  if (!foodDrinkPage.includes(marker)) throw new Error(`Food & Drink coffee collection is missing: ${marker}`);
+for (const marker of [
+  "What are you in the mood for?", "Dinner", "Happy Hour", "Brunch", "Coffee", "Darcey&#39;s Favorites", "Patio Dining",
+  "Darcey's Desert Picks", "Lulu", "Spencer&#39;s", "Cheeky&#39;s", "Las Casuelas Terraza", "Cactus Jack&#39;s", "Mitch&#39;s",
+  "Explore Food &amp; Drink", "data-filter-value=\"Coffee\"", "data-filter-value=\"Casual\"", "More Filters", "All Desert",
+  "Coffee in the Desert", "Explore Coffee", "explore_coffee_clicked", "Palm Springs Classic", "Uptown Favorite", "Coffee Lover&#39;s Pick", "Find a Starbucks",
+]) {
+  if (!foodDrinkPage.includes(marker)) throw new Error(`Food & Drink discovery page is missing: ${marker}`);
 }
 if ((foodDrinkPage.match(/data-guide-place="Starbucks"/g) || []).length !== 1) throw new Error("Starbucks should appear exactly once on Food & Drink.");
+if ((foodDrinkPage.match(/specialized_collection_recommendation_clicked/g) || []).length !== 3) throw new Error("Food & Drink should preview exactly three Coffee recommendations.");
+if ((thingsToDoPage.match(/specialized_collection_recommendation_clicked/g) || []).length !== 3) throw new Error("Things to Do should preview exactly three Hiking recommendations.");
+for (const place of allPlaces.filter((place) => ["food-drink", "things-to-do"].includes(place.categorySlug))) {
+  if (!Array.isArray(place.experienceTypes) || !place.experienceTypes.length) throw new Error(`${place.slug} is missing normalized experience types.`);
+  if (!Array.isArray(place.attributes) || !Array.isArray(place.editorialLabels)) throw new Error(`${place.slug} is missing normalized discovery metadata.`);
+}
 for (const providerName of ["Southern California Edison", "Imperial Irrigation District", "SoCalGas", "Desert Water Agency", "Coachella Valley Water District", "Mission Springs Water District", "Indio Water Authority", "Myoma Dunes Water Company", "City of Coachella Water Department", "Spectrum", "Frontier Communications", "AT&amp;T Internet", "T-Mobile Home Internet"]) {
   if (!utilitiesPage.includes(providerName)) throw new Error(`Utilities concierge is missing provider: ${providerName}`);
 }

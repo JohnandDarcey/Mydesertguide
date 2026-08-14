@@ -20,6 +20,18 @@
       "Casual",
       "Modern American"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Brunch",
+      "Casual",
+      "Patio Dining",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "American",
+      "Patio"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": false,
     "image": "/assets/restaurants/lulu-california-bistro.png",
@@ -69,6 +81,16 @@
       "Date Night",
       "Casual"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Happy Hour",
+      "Casual",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Date Night"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": false,
     "image": "/assets/restaurants/giuseppes.png",
@@ -117,6 +139,15 @@
       "Date Night",
       "Live Music"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Date Night",
+      "Live Music"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/restaurants/palmina-by-puglia.png",
@@ -165,6 +196,14 @@
       "Casual",
       "Hidden Gem"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Casual"
+    ],
+    "attributes": [
+      "Hidden Gem"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": false,
     "image": "/assets/restaurants/la-perlita-user.png",
@@ -215,6 +254,17 @@
       "Hidden Gem",
       "Classic Desert Bar"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Happy Hour",
+      "Casual",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Live Music",
+      "Hidden Gem"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": false,
     "image": "/assets/restaurants/cactus-jacks.png",
@@ -264,6 +314,16 @@
       "Happy Hour",
       "California Cuisine"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Happy Hour",
+      "Patio Dining"
+    ],
+    "attributes": [
+      "Patio",
+      "Date Night"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/restaurants/california-bistro.png",
@@ -312,6 +372,15 @@
       "Date Night",
       "Old-School Italian"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Italian",
+      "Date Night"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": false,
     "image": "/assets/restaurants/johnny-costas-exterior.png",
@@ -361,6 +430,17 @@
       "Brunch",
       "Fine Dining"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Brunch",
+      "Patio Dining",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Date Night",
+      "Patio"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": false,
     "image": "/assets/restaurants/spencers-patio.png",
@@ -409,6 +489,16 @@
       "Date Night",
       "Patio"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Patio Dining",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Date Night",
+      "Patio"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/restaurants/copleys.png",
@@ -458,6 +548,16 @@
       "Hidden Gem",
       "Burgers"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Casual",
+      "Patio Dining"
+    ],
+    "attributes": [
+      "Patio",
+      "Hidden Gem"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": false,
     "image": "/assets/restaurants/tylers-burgers.png",
@@ -506,6 +606,14 @@
       "Casual",
       "Hidden Gem"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Casual"
+    ],
+    "attributes": [
+      "Hidden Gem"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/restaurants/tonys-grill-and-bar.png",
@@ -556,6 +664,17 @@
       "Patio",
       "Barbecue & Brews"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Happy Hour",
+      "Casual",
+      "Patio Dining"
+    ],
+    "attributes": [
+      "American",
+      "Patio"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/restaurants/bubbas-bones-and-brews.png",
@@ -605,6 +724,17 @@
       "Dog Friendly",
       "Patio"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Brunch",
+      "Casual",
+      "Patio Dining"
+    ],
+    "attributes": [
+      "Dog Friendly",
+      "Patio"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": false,
     "image": "/assets/restaurants/bongo-johnnys.png",
@@ -652,6 +782,16 @@
       "Brunch",
       "Patio"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Brunch",
+      "Patio Dining",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Patio"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": false,
     "image": "/assets/restaurants/cheekys.jpg",
@@ -701,6 +841,16 @@
       "Live Music",
       "Happy Hour"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Happy Hour",
+      "Patio Dining"
+    ],
+    "attributes": [
+      "Patio",
+      "Live Music"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": false,
     "image": "/assets/restaurants/las-casuelas-terraza.png",
@@ -749,6 +899,16 @@
       "Patio",
       "Seafood & Sushi"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Patio Dining",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Date Night",
+      "Patio"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": false,
     "image": "/assets/restaurants/mitchs-patio.png",
@@ -797,6 +957,15 @@
       "Date Night",
       "Patio"
     ],
+    "experienceTypes": [
+      "Dinner",
+      "Patio Dining"
+    ],
+    "attributes": [
+      "Date Night",
+      "Patio"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/restaurants/cipolline-osteria.png",
@@ -847,6 +1016,18 @@
       "Palm Springs",
       "Pastries",
       "Outdoor Seating"
+    ],
+    "experienceTypes": [
+      "Coffee",
+      "Patio Dining"
+    ],
+    "attributes": [
+      "Local Favorite",
+      "Pastries",
+      "Outdoor Seating"
+    ],
+    "editorialLabels": [
+      "Palm Springs Classic"
     ],
     "isFavorite": false,
     "isNew": true,
@@ -921,6 +1102,17 @@
       "Local Favorite",
       "Specialty Coffee"
     ],
+    "experienceTypes": [
+      "Coffee"
+    ],
+    "attributes": [
+      "Uptown",
+      "Local Favorite",
+      "Specialty Coffee"
+    ],
+    "editorialLabels": [
+      "Uptown Favorite"
+    ],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/coffee/ernest-coffee-editorial.jpg",
@@ -993,6 +1185,17 @@
       "Coffee Roaster",
       "Specialty Coffee",
       "Unique Find"
+    ],
+    "experienceTypes": [
+      "Coffee"
+    ],
+    "attributes": [
+      "Coffee Roaster",
+      "Specialty Coffee",
+      "Unique Find"
+    ],
+    "editorialLabels": [
+      "Coffee Lover's Pick"
     ],
     "isFavorite": false,
     "isNew": true,
@@ -1067,6 +1270,18 @@
       "Chai",
       "Matcha"
     ],
+    "experienceTypes": [
+      "Brunch",
+      "Coffee"
+    ],
+    "attributes": [
+      "Breakfast",
+      "Chai",
+      "Matcha"
+    ],
+    "editorialLabels": [
+      "Easy Morning Stop"
+    ],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/coffee/iw-coffee-editorial.jpg",
@@ -1139,6 +1354,17 @@
       "Specialty Coffee",
       "Local Favorite",
       "East Valley"
+    ],
+    "experienceTypes": [
+      "Coffee"
+    ],
+    "attributes": [
+      "Specialty Coffee",
+      "Local Favorite",
+      "East Valley"
+    ],
+    "editorialLabels": [
+      "East Valley Favorite"
     ],
     "isFavorite": false,
     "isNew": true,
@@ -1213,6 +1439,19 @@
       "Familiar Favorite",
       "Multiple Locations"
     ],
+    "experienceTypes": [
+      "Brunch",
+      "Coffee"
+    ],
+    "attributes": [
+      "Breakfast",
+      "Grab & Go",
+      "Familiar Favorite",
+      "Multiple Locations"
+    ],
+    "editorialLabels": [
+      "Familiar Favorite"
+    ],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/coffee/starbucks-familiar-favorite.jpg",
@@ -1285,6 +1524,11 @@
     "tags": [
       "Classic Desert Golf"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": false,
     "image": "/assets/golf/indian-canyons-web.jpg",
@@ -1333,6 +1577,12 @@
       "Good conditions",
       "great prices"
     ],
+    "experienceTypes": [],
+    "attributes": [
+      "Good conditions",
+      "great prices"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": false,
     "image": "/assets/golf/cimarron-web.jpg",
@@ -1381,6 +1631,14 @@
       "Mid-century clubhouse",
       "big views"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Mid-century clubhouse",
+      "big views"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": false,
     "image": "/assets/golf/escena-web.jpg",
@@ -1429,6 +1687,14 @@
       "Two course options",
       "immaculate conditions"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Two course options",
+      "immaculate conditions"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": false,
     "image": "/assets/golf/desert-willow-web.jpg",
@@ -1477,6 +1743,12 @@
       "A serious round",
       "great practice facility"
     ],
+    "experienceTypes": [],
+    "attributes": [
+      "A serious round",
+      "great practice facility"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": false,
     "image": "/assets/golf/the-classic-club-web.jpg",
@@ -1527,6 +1799,19 @@
       "Palm Springs",
       "Easy",
       "Moderate"
+    ],
+    "experienceTypes": [
+      "Outdoors",
+      "Desert Experiences"
+    ],
+    "attributes": [
+      "Hiking",
+      "Outdoor Activity",
+      "Easy",
+      "Moderate"
+    ],
+    "editorialLabels": [
+      "Palm Oasis"
     ],
     "isFavorite": false,
     "isNew": true,
@@ -1605,6 +1890,19 @@
       "Moderate",
       "Nature"
     ],
+    "experienceTypes": [
+      "Outdoors",
+      "Desert Experiences"
+    ],
+    "attributes": [
+      "Hiking",
+      "Outdoor Activity",
+      "Moderate",
+      "Nature"
+    ],
+    "editorialLabels": [
+      "Waterfall"
+    ],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/things-to-do/tahquitz-canyon.jpg",
@@ -1681,6 +1979,18 @@
       "Palm Desert",
       "Moderate",
       "Great Views"
+    ],
+    "experienceTypes": [
+      "Outdoors"
+    ],
+    "attributes": [
+      "Hiking",
+      "Outdoor Activity",
+      "Moderate",
+      "Great Views"
+    ],
+    "editorialLabels": [
+      "Local Workout"
     ],
     "isFavorite": false,
     "isNew": true,
@@ -1759,6 +2069,18 @@
       "Challenging",
       "Great Views"
     ],
+    "experienceTypes": [
+      "Outdoors"
+    ],
+    "attributes": [
+      "Hiking",
+      "Outdoor Activity",
+      "Challenging",
+      "Great Views"
+    ],
+    "editorialLabels": [
+      "Views + Architecture"
+    ],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/things-to-do/araby-trail.jpg",
@@ -1835,6 +2157,19 @@
       "live music",
       "a classic Palm Springs evening"
     ],
+    "experienceTypes": [
+      "Entertainment",
+      "Markets & Local Life",
+      "Family",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Local makers",
+      "food vendors",
+      "live music",
+      "a classic Palm Springs evening"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/things-to-do/villagefest.png",
@@ -1881,6 +2216,13 @@
     "tags": [
       "Zoo & Gardens"
     ],
+    "experienceTypes": [
+      "Desert Experiences",
+      "Family",
+      "Darcey's Favorites"
+    ],
+    "attributes": [],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/things-to-do/the-living-desert.png",
@@ -1931,6 +2273,20 @@
       "Palm Springs",
       "Easy",
       "Nature"
+    ],
+    "experienceTypes": [
+      "Outdoors",
+      "Desert Experiences"
+    ],
+    "attributes": [
+      "Hiking",
+      "Outdoor Activity",
+      "Palm Springs",
+      "Easy",
+      "Nature"
+    ],
+    "editorialLabels": [
+      "Mountain Escape"
     ],
     "isFavorite": false,
     "isNew": true,
@@ -2011,6 +2367,17 @@
       "aviation history",
       "visiting guests"
     ],
+    "experienceTypes": [
+      "Arts & Culture",
+      "Family",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "A cool indoor outing",
+      "aviation history",
+      "visiting guests"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/things-to-do/palm-springs-air-museum.png",
@@ -2059,6 +2426,15 @@
       "Art",
       "architecture"
     ],
+    "experienceTypes": [
+      "Arts & Culture",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Art",
+      "architecture"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/things-to-do/palm-springs-art-museum.png",
@@ -2108,6 +2484,17 @@
       "gardens",
       "a peaceful desert outing"
     ],
+    "experienceTypes": [
+      "Arts & Culture",
+      "Desert Experiences",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Architecture",
+      "gardens",
+      "a peaceful desert outing"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/things-to-do/sunnylands.png",
@@ -2154,6 +2541,13 @@
     "tags": [
       "Sports & Entertainment"
     ],
+    "experienceTypes": [
+      "Entertainment",
+      "Family",
+      "Darcey's Favorites"
+    ],
+    "attributes": [],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/things-to-do/coachella-valley-firebirds.png",
@@ -2201,6 +2595,15 @@
       "Holiday Event",
       "friends or visiting guests"
     ],
+    "experienceTypes": [
+      "Entertainment",
+      "Family",
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "friends or visiting guests"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/things-to-do/palm-springs-festival-of-lights.png",
@@ -2251,6 +2654,16 @@
       "wine bar",
       "easy lunch"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Gourmet groceries",
+      "prepared foods",
+      "wine bar",
+      "easy lunch"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/gelsons-rancho-mirage.png",
@@ -2301,6 +2714,16 @@
       "gourmet foods",
       "gifts"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Home decor",
+      "furniture",
+      "gourmet foods",
+      "gifts"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/world-market-palm-springs.png",
@@ -2351,6 +2774,16 @@
       "Rancho Mirage",
       "Palm Desert"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Palm Springs",
+      "Cathedral City",
+      "Rancho Mirage",
+      "Palm Desert"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/southern-california-edison.png",
@@ -2411,6 +2844,16 @@
       "Palm Desert",
       "Indian Wells"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Cathedral City",
+      "Rancho Mirage",
+      "Palm Desert",
+      "Indian Wells"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/coachella-valley-water-district.png",
@@ -2472,6 +2915,16 @@
       "Indian Wells",
       "La Quinta"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Rancho Mirage",
+      "Palm Desert",
+      "Indian Wells",
+      "La Quinta"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/imperial-irrigation-district.png",
@@ -2534,6 +2987,14 @@
       "Rancho Mirage",
       "Palm Desert"
     ],
+    "experienceTypes": [],
+    "attributes": [
+      "Palm Springs",
+      "Cathedral City",
+      "Rancho Mirage",
+      "Palm Desert"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/services/icon-gas.svg",
@@ -2600,6 +3061,14 @@
       "DWA",
       "Desert Water Agency (DWA)"
     ],
+    "experienceTypes": [],
+    "attributes": [
+      "Palm Springs",
+      "Cathedral City",
+      "DWA",
+      "Desert Water Agency (DWA)"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/services/icon-water.svg",
@@ -2655,6 +3124,12 @@
       "MSWD",
       "Mission Springs WD"
     ],
+    "experienceTypes": [],
+    "attributes": [
+      "MSWD",
+      "Mission Springs WD"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/services/icon-water.svg",
@@ -2709,6 +3184,12 @@
       "IWA",
       "Water service in most of Indio"
     ],
+    "experienceTypes": [],
+    "attributes": [
+      "IWA",
+      "Water service in most of Indio"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/services/icon-water.svg",
@@ -2763,6 +3244,13 @@
       "Myoma Water",
       "Water service in Bermuda Dunes"
     ],
+    "experienceTypes": [],
+    "attributes": [
+      "Myoma Dunes Water Co.",
+      "Myoma Water",
+      "Water service in Bermuda Dunes"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/services/icon-water.svg",
@@ -2817,6 +3305,12 @@
       "Coachella Water Department",
       "City of Coachella Water"
     ],
+    "experienceTypes": [],
+    "attributes": [
+      "Coachella Water Department",
+      "City of Coachella Water"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/services/icon-water.svg",
@@ -2872,6 +3366,14 @@
       "Rancho Mirage",
       "Palm Desert"
     ],
+    "experienceTypes": [],
+    "attributes": [
+      "Palm Springs",
+      "Cathedral City",
+      "Rancho Mirage",
+      "Palm Desert"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/services/spectrum.png",
@@ -2937,6 +3439,14 @@
       "Rancho Mirage",
       "Palm Desert"
     ],
+    "experienceTypes": [],
+    "attributes": [
+      "Palm Springs",
+      "Cathedral City",
+      "Rancho Mirage",
+      "Palm Desert"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/services/icon-internet.svg",
@@ -3000,6 +3510,12 @@
       "AT&T",
       "ATT Internet"
     ],
+    "experienceTypes": [],
+    "attributes": [
+      "AT&T",
+      "ATT Internet"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/services/icon-internet.svg",
@@ -3051,6 +3567,12 @@
       "T-Mobile",
       "TMobile Home Internet"
     ],
+    "experienceTypes": [],
+    "attributes": [
+      "T-Mobile",
+      "TMobile Home Internet"
+    ],
+    "editorialLabels": [],
     "isFavorite": false,
     "isNew": true,
     "image": "/assets/services/icon-internet.svg",
@@ -3103,6 +3625,15 @@
       "special occasions",
       "beautifully designed desserts"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Custom cakes",
+      "special occasions",
+      "beautifully designed desserts"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/buttercake-studio-cake.png",
@@ -3155,6 +3686,15 @@
       "termite inspections",
       "desert pest issues"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Pest control",
+      "termite inspections",
+      "desert pest issues"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/mr-beez-pest-control.png",
@@ -3204,6 +3744,15 @@
       "garden care",
       "regular yard maintenance"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Landscaping",
+      "garden care",
+      "regular yard maintenance"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/orchid-landscape.png",
@@ -3253,6 +3802,15 @@
       "service",
       "regular maintenance"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Pool cleaning",
+      "service",
+      "regular maintenance"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/gali-pool-service.png",
@@ -3302,6 +3860,15 @@
       "refinancing",
       "fast pre-approvals"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Home loans",
+      "refinancing",
+      "fast pre-approvals"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/vanmar-lending.png",
@@ -3350,6 +3917,14 @@
       "Insurance guidance",
       "policy help"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Insurance guidance",
+      "policy help"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/ascend-insurance.svg",
@@ -3399,6 +3974,15 @@
       "recycling",
       "waste service"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Trash",
+      "recycling",
+      "waste service"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/burrtec.png",
@@ -3448,6 +4032,15 @@
       "gardening",
       "regular yard care"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Landscaping",
+      "gardening",
+      "regular yard care"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/jorge-arana-landscaping.png",
@@ -3496,6 +4089,14 @@
       "Tax preparation",
       "year-round tax support"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Tax preparation",
+      "year-round tax support"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/mj-tax-services.png",
@@ -3544,6 +4145,14 @@
       "Insurance questions",
       "policy help"
     ],
+    "experienceTypes": [
+      "Darcey's Favorites"
+    ],
+    "attributes": [
+      "Insurance questions",
+      "policy help"
+    ],
+    "editorialLabels": [],
     "isFavorite": true,
     "isNew": true,
     "image": "/assets/services/foremost-insurance.png",
