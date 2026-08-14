@@ -7,6 +7,8 @@
   --line: #ded5c7;
   --white: #ffffff;
   --shadow: 0 24px 70px rgba(17, 17, 17, 0.11);
+  --control-radius: 8px;
+  --font-display: "Libre Bodoni", Didot, Georgia, serif;
 }
 
 * {
@@ -46,8 +48,9 @@ input {
 .dashboard-hero h1,
 .panel h2,
 .test-report-panel h2 {
-  font-family: "Bodoni Moda", Georgia, serif;
-  letter-spacing: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.015em;
 }
 
 .dashboard-hero h1 {
@@ -77,11 +80,11 @@ input {
 
 .home-link,
 button {
-  border-radius: 999px;
+  border-radius: var(--control-radius);
   border: 1px solid var(--line);
   cursor: pointer;
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.08em;
   padding: 13px 18px;
   text-decoration: none;
@@ -129,7 +132,7 @@ button {
 .token-row input {
   background: #ffffff;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--control-radius);
   min-width: 0;
   padding: 13px 16px;
   width: 100%;
@@ -183,7 +186,8 @@ button {
 }
 
 .metric-line strong {
-  font-family: "Bodoni Moda", Georgia, serif;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: 2rem;
 }
 
@@ -241,7 +245,8 @@ button {
 }
 
 .trend-value {
-  font-family: "Bodoni Moda", Georgia, serif;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: 1.3rem;
   margin-top: 8px;
 }
@@ -283,7 +288,8 @@ button {
 }
 
 .rank-value {
-  font-family: "Bodoni Moda", Georgia, serif;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: 2rem;
 }
 
@@ -302,7 +308,8 @@ button {
 
 .action-card strong {
   display: block;
-  font-family: "Bodoni Moda", Georgia, serif;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: 2.1rem;
   line-height: 1;
 }

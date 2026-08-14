@@ -48,6 +48,20 @@ export const categories = [
     imageSmall: "./assets/category-cards/shopping-480.jpg",
     alt: "World Market in Palm Springs",
   },
+  {
+    label: "Utilities Setup",
+    href: "#utilities",
+    image: "./assets/category-cards/local-utilities-900.jpg",
+    imageSmall: "./assets/category-cards/local-utilities-480.jpg",
+    alt: "A beautifully maintained desert neighborhood ready to call home",
+  },
+  {
+    label: "Trusted Professionals",
+    href: "#professionals",
+    image: "./assets/category-cards/trusted-professionals-900.jpg",
+    imageSmall: "./assets/category-cards/trusted-professionals-480.jpg",
+    alt: "A trusted local artisan working in a welcoming home kitchen",
+  },
 ];
 
 export const filters = [

@@ -9,7 +9,7 @@ import {
   services,
   shopping,
   thingsToDo,
-} from "./data.js?v=20260814-new-hero";
+} from "./data.js?v=20260814-guide-refine";
 
 const app = document.querySelector("#app");
 
@@ -185,12 +185,12 @@ function icon(name) {
   return `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths[name]}</svg>`;
 }
 
-function contactActionLinks(className = "", fullLabels = false) {
+function contactActionLinks(className = "") {
   return `
     <div class="contact-actions ${className}" aria-label="Contact ${realtorProfile.firstName}">
       <a href="sms:${realtorProfile.phoneHref}">${icon("message")}<span>Text Darcey</span></a>
-      <a href="tel:${realtorProfile.phoneHref}">${icon("phone")}<span>${fullLabels ? "Call Darcey" : "Call"}</span></a>
-      <a href="mailto:${realtorProfile.email}">${icon("mail")}<span>${fullLabels ? "Email Darcey" : "Email"}</span></a>
+      <a href="tel:${realtorProfile.phoneHref}">${icon("phone")}<span>Call Darcey</span></a>
+      <a href="mailto:${realtorProfile.email}">${icon("mail")}<span>Email Darcey</span></a>
     </div>
   `;
 }
@@ -830,7 +830,10 @@ function render() {
             <a href="#things-to-do">Things to Do</a>
             <a href="#shopping">Shopping</a>
           </nav>
-          ${contactActionLinks("hero-contact-actions", true)}
+          ${contactActionLinks("hero-contact-actions")}
+          <a class="hero-mobile-curated" href="#browse-guide">
+            <span aria-hidden="true">☆</span> Curated Favorites
+          </a>
         </div>
         <a class="hero-hotspot hotspot-header-food" href="#guide" aria-label="Food &amp; Drink"></a>
         <a class="hero-hotspot hotspot-header-golf" href="#golf" aria-label="Golf"></a>
@@ -848,7 +851,7 @@ function render() {
         <a class="hero-hotspot hotspot-card-golf" href="#golf" aria-label="Explore Golf"></a>
         <a class="hero-hotspot hotspot-card-things" href="#things-to-do" aria-label="Explore Things to Do"></a>
         <a class="hero-hotspot hotspot-card-shopping" href="#shopping" aria-label="Explore Shopping"></a>
-        <a class="hero-hotspot hotspot-curated" href="#guide" aria-label="Curated Favorites"></a>
+        <a class="hero-hotspot hotspot-curated" href="#browse-guide" aria-label="Curated Favorites — Start With What You Need"></a>
         <a class="hero-hotspot hotspot-insider" href="#browse-guide" aria-label="Local Insider Tips"></a>
         <a class="hero-hotspot hotspot-trusted" href="#professionals" aria-label="Trusted Recommendations"></a>
         <a class="hero-hotspot hotspot-love" href="${realtorProfile.website}" target="_blank" rel="noreferrer" aria-label="Love Where You Live — visit Darcey's real estate website"></a>

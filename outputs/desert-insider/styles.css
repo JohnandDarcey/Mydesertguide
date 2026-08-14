@@ -16,8 +16,8 @@
   --sans: var(--font-sans);
   --tracking-label: 0.09em;
   --heading-line-height: 0.98;
-  --control-radius: 0;
-  --card-radius: 2px;
+  --control-radius: 8px;
+  --card-radius: 8px;
 }
 
 * {
@@ -84,14 +84,14 @@ svg {
 .brand span {
   font-family: var(--serif);
   font-size: 1.08rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .brand small,
 .eyebrow {
   color: var(--muted);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }
@@ -117,7 +117,7 @@ nav a {
 
 .nav-cta {
   border: 1px solid var(--charcoal);
-  border-radius: 999px;
+  border-radius: var(--control-radius);
   color: var(--charcoal);
   margin-top: -8px;
   padding: 8px 12px;
@@ -170,8 +170,8 @@ h1,
 h2,
 h3 {
   font-family: var(--serif);
-  font-weight: 500;
-  letter-spacing: -0.025em;
+  font-weight: 400;
+  letter-spacing: -0.018em;
   line-height: var(--heading-line-height);
 }
 
@@ -311,8 +311,8 @@ h1 {
 .hero-live-copy h1 {
   color: var(--charcoal);
   font-size: clamp(3.2rem, 7.3vw, 7.1rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  letter-spacing: -0.02em;
   word-spacing: 0.08em;
   line-height: 0.9;
   margin: 0;
@@ -408,7 +408,7 @@ h1 {
   align-items: center;
   border-radius: var(--control-radius);
   display: inline-flex;
-  font-weight: 700;
+  font-weight: 600;
   gap: 10px;
   letter-spacing: var(--tracking-label);
   min-height: 48px;
@@ -421,6 +421,14 @@ h1 {
 .category-tile:hover,
 .listing-card:hover {
   transform: translateY(-3px);
+}
+
+.button:focus-visible,
+.category-tile:focus-visible,
+.contact-actions a:focus-visible,
+.hero-mobile-curated:focus-visible {
+  outline: 3px solid #b8876f;
+  outline-offset: 3px;
 }
 
 .button.primary {
@@ -514,7 +522,7 @@ h1 {
   cursor: pointer;
   font: inherit;
   font-size: 0.8rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.08em;
   margin-top: 12px;
   padding: 0 0 4px;
@@ -619,7 +627,7 @@ h1 {
 .category-strip {
   display: grid;
   gap: clamp(12px, 1.6vw, 22px);
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   overflow: visible;
 }
 
@@ -663,6 +671,7 @@ h1 {
   bottom: 24px;
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: 400;
   left: 0;
   line-height: 1.05;
   padding: clamp(16px, 2vw, 24px);
@@ -1638,25 +1647,35 @@ dd {
 }
 
 .contact-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 9px;
   margin-top: 22px;
 }
 
 .contact-actions a {
   align-items: center;
-  border: 1px solid rgba(28, 25, 23, 0.18);
+  background: var(--charcoal);
+  border: 1px solid var(--charcoal);
   border-radius: var(--control-radius);
+  color: var(--white);
   display: inline-flex;
   font-size: 0.76rem;
-  font-weight: 800;
+  font-weight: 600;
   gap: 8px;
   letter-spacing: 0.045em;
   justify-content: center;
   min-height: 44px;
   padding: 10px 15px;
   text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  white-space: nowrap;
+}
+
+.contact-actions a:hover {
+  background: #2b2826;
+  border-color: #2b2826;
+  transform: translateY(-2px);
 }
 
 .contact-actions svg {
@@ -1670,8 +1689,9 @@ dd {
 }
 
 .contact-actions-dark a {
-  background: var(--white);
-  color: var(--charcoal);
+  background: var(--charcoal);
+  border-color: rgba(255, 255, 255, 0.42);
+  color: var(--white);
 }
 
 .contact-links {
@@ -1744,7 +1764,7 @@ dd {
   nav a {
     background: var(--white);
     border: 1px solid var(--line);
-    border-radius: 999px;
+    border-radius: var(--control-radius);
     box-shadow: 0 6px 18px rgba(5, 5, 5, 0.06);
     flex: 0 0 auto;
     font-size: 0.78rem;
@@ -1829,7 +1849,7 @@ dd {
     appearance: none;
     background: var(--charcoal);
     border: 0;
-    border-radius: 999px;
+    border-radius: var(--control-radius);
     color: var(--white);
     font: inherit;
     font-weight: 800;
@@ -2148,12 +2168,12 @@ dd {
   }
 
   .hero-contact-actions a {
-    background: transparent;
-    border-color: rgba(5, 5, 5, 0.34);
-    color: var(--charcoal);
-    font-size: 0.62rem;
+    background: var(--charcoal);
+    border-color: var(--charcoal);
+    color: var(--white);
+    font-size: 0.7rem;
     min-height: 48px;
-    padding: 8px 5px;
+    padding: 8px 7px;
   }
 
   .hero-contact-actions svg {
@@ -2172,6 +2192,45 @@ dd {
   .category-tile {
     aspect-ratio: 0.94;
     min-height: 0;
+  }
+}
+
+.hero-mobile-curated {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .hero-mobile-curated {
+    align-items: center;
+    background: var(--charcoal);
+    border: 1px solid var(--charcoal);
+    border-radius: var(--control-radius);
+    color: var(--white);
+    display: flex;
+    font-size: 0.75rem;
+    font-weight: 600;
+    gap: 9px;
+    justify-content: center;
+    letter-spacing: var(--tracking-label);
+    margin-top: 12px;
+    min-height: 44px;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-image-map {
+    min-height: 1100px;
+  }
+
+  .contact-actions,
+  .hero-contact-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-actions a:first-child,
+  .hero-contact-actions a:first-child {
+    grid-column: 1 / -1;
   }
 }
 
