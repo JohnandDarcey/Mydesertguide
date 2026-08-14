@@ -9,7 +9,7 @@ import {
   services,
   shopping,
   thingsToDo,
-} from "./data.js?v=20260814-food-drink";
+} from "./data.js?v=20260814-new-hero";
 
 const app = document.querySelector("#app");
 
@@ -185,12 +185,12 @@ function icon(name) {
   return `<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths[name]}</svg>`;
 }
 
-function contactActionLinks(className = "") {
+function contactActionLinks(className = "", fullLabels = false) {
   return `
     <div class="contact-actions ${className}" aria-label="Contact ${realtorProfile.firstName}">
       <a href="sms:${realtorProfile.phoneHref}">${icon("message")}<span>Text Darcey</span></a>
-      <a href="tel:${realtorProfile.phoneHref}">${icon("phone")}<span>Call</span></a>
-      <a href="mailto:${realtorProfile.email}">${icon("mail")}<span>Email</span></a>
+      <a href="tel:${realtorProfile.phoneHref}">${icon("phone")}<span>${fullLabels ? "Call Darcey" : "Call"}</span></a>
+      <a href="mailto:${realtorProfile.email}">${icon("mail")}<span>${fullLabels ? "Email Darcey" : "Email"}</span></a>
     </div>
   `;
 }
@@ -797,7 +797,15 @@ function render() {
   app.innerHTML = `
     <main id="top">
       <section class="hero hero-image-map" aria-label="My Desert Guide featured navigation">
-        <img class="hero-art" src="${assets.hero}" alt="Darcey Deetz with a Palm Springs desert landscape" />
+        <img
+          class="hero-art"
+          src="${assets.hero}"
+          srcset="${assets.heroSmall} 960w, ${assets.heroLarge} 1536w"
+          sizes="100vw"
+          alt="My Desert Guide featuring Darcey Deetz and a Palm Springs desert landscape"
+          fetchpriority="high"
+          decoding="async"
+        />
         <header class="hero-live-header">
           <a class="hero-live-brand" href="#top">My Desert Guide <span aria-hidden="true">♥</span></a>
           <nav class="hero-live-nav" aria-label="Primary guide navigation">
@@ -805,9 +813,6 @@ function render() {
             <a href="#golf">Golf</a>
             <a href="#things-to-do">Things to Do</a>
             <a href="#shopping">Shopping</a>
-            <a href="#utilities">Local Utilities</a>
-            <a href="#professionals">Trusted Professionals</a>
-            <a href="#map">Map</a>
           </nav>
         </header>
         <div class="hero-live-copy">
@@ -815,15 +820,41 @@ function render() {
           <h1>The Desert</h1>
           <div class="hero-divider" aria-hidden="true"><span>♥</span></div>
           <p class="hero-description">Food &amp; drink, happy hours, golf, things to do, trusted local pros, and all the best of desert living—recommended by <em>Darcey.</em></p>
-          <a class="button dark hero-explore" href="#browse-guide">Explore the Desert</a>
+          <div class="hero-live-actions">
+            <a class="button dark hero-explore" href="#browse-guide">Explore the Desert</a>
+            <a class="button hero-about" href="#about-darcey">About Darcey</a>
+          </div>
+          <nav class="hero-mobile-nav" aria-label="Mobile guide categories">
+            <a href="#guide">Food &amp; Drink</a>
+            <a href="#golf">Golf</a>
+            <a href="#things-to-do">Things to Do</a>
+            <a href="#shopping">Shopping</a>
+          </nav>
+          ${contactActionLinks("hero-contact-actions", true)}
         </div>
+        <a class="hero-hotspot hotspot-header-food" href="#guide" aria-label="Food &amp; Drink"></a>
+        <a class="hero-hotspot hotspot-header-golf" href="#golf" aria-label="Golf"></a>
+        <a class="hero-hotspot hotspot-header-things" href="#things-to-do" aria-label="Things to Do"></a>
+        <a class="hero-hotspot hotspot-header-shopping" href="#shopping" aria-label="Shopping"></a>
+        <a class="hero-hotspot hotspot-header-text" href="sms:${realtorProfile.phoneHref}" aria-label="Text Darcey"></a>
+        <a class="hero-hotspot hotspot-header-call" href="tel:${realtorProfile.phoneHref}" aria-label="Call Darcey"></a>
+        <a class="hero-hotspot hotspot-header-email" href="mailto:${realtorProfile.email}" aria-label="Email Darcey"></a>
+        <a class="hero-hotspot hotspot-explore" href="#browse-guide" aria-label="Explore the Desert"></a>
+        <a class="hero-hotspot hotspot-about" href="#about-darcey" aria-label="About Darcey"></a>
+        <a class="hero-hotspot hotspot-connect-text" href="sms:${realtorProfile.phoneHref}" aria-label="Text Darcey"></a>
+        <a class="hero-hotspot hotspot-connect-call" href="tel:${realtorProfile.phoneHref}" aria-label="Call Darcey"></a>
+        <a class="hero-hotspot hotspot-connect-email" href="mailto:${realtorProfile.email}" aria-label="Email Darcey"></a>
+        <a class="hero-hotspot hotspot-card-food" href="#guide" aria-label="Explore Food & Drink"></a>
+        <a class="hero-hotspot hotspot-card-golf" href="#golf" aria-label="Explore Golf"></a>
+        <a class="hero-hotspot hotspot-card-things" href="#things-to-do" aria-label="Explore Things to Do"></a>
+        <a class="hero-hotspot hotspot-card-shopping" href="#shopping" aria-label="Explore Shopping"></a>
         <a class="hero-hotspot hotspot-curated" href="#guide" aria-label="Curated Favorites"></a>
         <a class="hero-hotspot hotspot-insider" href="#browse-guide" aria-label="Local Insider Tips"></a>
         <a class="hero-hotspot hotspot-trusted" href="#professionals" aria-label="Trusted Recommendations"></a>
         <a class="hero-hotspot hotspot-love" href="${realtorProfile.website}" target="_blank" rel="noreferrer" aria-label="Love Where You Live — visit Darcey's real estate website"></a>
       </section>
 
-      <section class="section intro welcome-note">
+      <section class="section intro welcome-note" id="about-darcey">
         <img class="darcey-note-photo" src="${realtorProfile.headshot}" alt="${realtorProfile.fullName} smiling in the desert" />
         <div>
           <p class="eyebrow">A note from Darcey</p>
@@ -882,6 +913,7 @@ function render() {
                   />
                   <span class="category-tile-overlay" aria-hidden="true"></span>
                   <strong>${category.label}</strong>
+                  <span class="category-explore">Explore <span aria-hidden="true">→</span></span>
                 </a>
               `,
             )

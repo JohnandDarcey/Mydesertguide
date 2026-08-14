@@ -1,5 +1,7 @@
 export const assets = {
   hero: "./assets/my-desert-guide-hero-darcey.png",
+  heroSmall: "./assets/my-desert-guide-hero-960.jpg",
+  heroLarge: "./assets/my-desert-guide-hero-1536.jpg",
   restaurants: "./assets/ig_0e3d77dee4f981a0016a4158fcc6cc8199adf58a6a4e4acdd4.png",
   happyHour: "./assets/ig_0e3d77dee4f981a0016a41593366a88199baafbc65d93660f5.png",
   neighborhoods: "./assets/ig_0e3d77dee4f981a0016a4159753f708199a185eb187fc2be32.png",
@@ -45,20 +47,6 @@ export const categories = [
     image: "./assets/category-cards/shopping-900.jpg",
     imageSmall: "./assets/category-cards/shopping-480.jpg",
     alt: "World Market in Palm Springs",
-  },
-  {
-    label: "Local Utilities",
-    href: "#utilities",
-    image: "./assets/category-cards/local-utilities-900.jpg",
-    imageSmall: "./assets/category-cards/local-utilities-480.jpg",
-    alt: "A Palm Springs neighborhood at golden hour",
-  },
-  {
-    label: "Trusted Professionals",
-    href: "#professionals",
-    image: "./assets/category-cards/trusted-professionals-900.jpg",
-    imageSmall: "./assets/category-cards/trusted-professionals-480.jpg",
-    alt: "A trusted local professional in his kitchen studio",
   },
 ];
 
