@@ -9,7 +9,7 @@ import {
   services,
   shopping,
   thingsToDo,
-} from "./data.js?v=20260814-final-hero-art";
+} from "./data.js?v=20260814-trail-hero-nav";
 
 const app = document.querySelector("#app");
 
@@ -850,6 +850,14 @@ function render() {
           fetchpriority="high"
           decoding="async"
         />
+        <span class="hero-darcey-backdrop" aria-hidden="true"></span>
+        <img
+          class="hero-darcey-upscale"
+          src="${assets.heroMobile}"
+          alt=""
+          aria-hidden="true"
+          decoding="async"
+        />
         <img
           class="hero-art hero-art-mobile"
           src="${assets.heroMobile}"
@@ -872,6 +880,10 @@ function render() {
               <a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a>
               <a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a>
               <a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a>
+              <a href="/utilities/" data-category-link data-category-name="Utilities" data-category-slug="utilities">Utilities</a>
+              <a href="/trusted-professionals/" data-category-link data-category-name="Trusted Professionals" data-category-slug="trusted-professionals">Trusted Pros</a>
+              <a href="#about-darcey">About Darcey</a>
+              <a href="/saved/">Saved Favorites</a>
             </nav>
           </details>
         </header>
@@ -896,6 +908,8 @@ function render() {
             <a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a>
             <a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a>
             <a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a>
+            <a href="/utilities/" data-category-link data-category-name="Utilities" data-category-slug="utilities">Utilities</a>
+            <a href="/trusted-professionals/" data-category-link data-category-name="Trusted Professionals" data-category-slug="trusted-professionals">Trusted Pros</a>
           </nav>
           ${contactActionLinks("hero-contact-actions")}
           <a class="hero-mobile-curated" href="#browse-guide">
@@ -917,6 +931,25 @@ function render() {
         <a class="hero-hotspot hotspot-connect-call" href="tel:${realtorProfile.phoneHref}" aria-label="Call Darcey"></a>
         <a class="hero-hotspot hotspot-connect-email" href="mailto:${realtorProfile.email}" aria-label="Email Darcey"></a>
       </section>
+
+      <nav class="hero-return-nav" aria-label="Continue exploring My Desert Guide">
+        <a href="#browse-guide">
+          <span class="hero-return-icon" aria-hidden="true">☆</span>
+          <span><strong>Explore the Desert</strong><small>Browse every category</small></span>
+        </a>
+        <a href="#about-darcey">
+          <span class="hero-return-icon" aria-hidden="true">♡</span>
+          <span><strong>About Darcey</strong><small>Meet your local guide</small></span>
+        </a>
+        <a href="/saved/">
+          <span class="hero-return-icon" aria-hidden="true">♥</span>
+          <span><strong>Saved Favorites</strong><small>Open your desert list</small></span>
+        </a>
+        <a href="#contact">
+          <span class="hero-return-icon" aria-hidden="true">→</span>
+          <span><strong>Contact Darcey</strong><small>Text, call or email</small></span>
+        </a>
+      </nav>
 
       <section class="section guide-categories" id="browse-guide" aria-label="Guide categories">
         <div class="category-heading">

@@ -657,6 +657,61 @@
       "primaryAction": ""
     },
     {
+      "placeId": "place-bump-and-grind-trail",
+      "slug": "bump-and-grind-trail",
+      "name": "Bump and Grind Trail",
+      "city": "Palm Desert",
+      "category": "Things to Do",
+      "categorySlug": "things-to-do",
+      "subcategory": "Hiking / Outdoors",
+      "description": "One of Palm Desert's most popular local hikes, Bump and Grind is a great way to get outside, get a workout and take in beautiful views across the Coachella Valley.",
+      "cardDescription": "A local favorite for a desert hike, a good workout and beautiful valley views.",
+      "image": "/assets/things-to-do/bump-and-grind-trail.jpg",
+      "images": [],
+      "address": "",
+      "phone": "",
+      "email": "",
+      "website": "https://hikingguy.com/hikes/bump-and-grind-trail/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=72440+Painters+Path+Palm+Desert+CA+92260",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "TouristAttraction",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "websiteLabel": "More Trail Info",
+      "directionsLabel": "Get Directions",
+      "quickInfo": [
+        [
+          "Distance",
+          "4 miles"
+        ],
+        [
+          "Difficulty",
+          "Moderate"
+        ],
+        [
+          "Time",
+          "About 2 hours"
+        ],
+        [
+          "Location",
+          "Palm Desert"
+        ]
+      ],
+      "goodToKnow": "Go early and bring plenty of water—the trail is exposed and the desert heats up quickly. The upper portion is closed February 1 through April 30 to protect Peninsular bighorn sheep.",
+      "photoCredit": {
+        "label": "Coachella Valley desert hiking photo by TopSphere Media on Unsplash",
+        "url": "https://unsplash.com/photos/IUEfY5GGPwY"
+      }
+    },
+    {
       "placeId": "place-villagefest",
       "slug": "villagefest",
       "name": "VillageFest",
@@ -2154,6 +2209,46 @@
       "favoriteDish": "",
       "happyHour": "",
       "detail": ""
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-bump-and-grind-trail",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-bump-and-grind-trail",
+      "personalNote": "",
+      "tags": [
+        "Hiking",
+        "Outdoors",
+        "Palm Desert",
+        "Hiking / Outdoors",
+        "A desert hike"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "A desert hike, a good workout and beautiful valley views",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "",
+      "quickInfo": [
+        [
+          "Distance",
+          "4 miles"
+        ],
+        [
+          "Difficulty",
+          "Moderate"
+        ],
+        [
+          "Time",
+          "About 2 hours"
+        ],
+        [
+          "Location",
+          "Palm Desert"
+        ]
+      ],
+      "goodToKnow": "Go early and bring plenty of water—the trail is exposed and the desert heats up quickly. The upper portion is closed February 1 through April 30 to protect Peninsular bighorn sheep."
     },
     {
       "recommendationId": "darcey-my-desert-guide:place-villagefest",

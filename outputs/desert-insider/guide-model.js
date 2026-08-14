@@ -137,6 +137,7 @@ function normalizePlace(item, category) {
     categorySlug: category.slug,
     subcategory: item.category || "",
     description: item.description || "",
+    cardDescription: item.cardDescription,
     darceysTake: item.tip || "",
     tags: usefulTags(item),
     isFavorite: Boolean(item.isFavorite || Number(item.rating) >= 5),
@@ -166,6 +167,11 @@ function normalizePlace(item, category) {
     startServiceUrl: item.startServiceUrl || "",
     availabilityUrl: item.availabilityUrl || "",
     primaryAction: item.primaryAction || "",
+    websiteLabel: item.websiteLabel,
+    directionsLabel: item.directionsLabel,
+    quickInfo: Array.isArray(item.quickInfo) ? item.quickInfo : undefined,
+    goodToKnow: item.goodToKnow,
+    photoCredit: item.photoCredit,
     schemaType: category.schemaType,
   };
 }
@@ -194,6 +200,7 @@ export const masterPlaces = allPlaces.map((place) => ({
   categorySlug: place.categorySlug,
   subcategory: place.subcategory,
   description: place.description,
+  cardDescription: place.cardDescription,
   image: place.image,
   images: place.images,
   address: place.address,
@@ -213,6 +220,11 @@ export const masterPlaces = allPlaces.map((place) => ({
   startServiceUrl: place.startServiceUrl,
   availabilityUrl: place.availabilityUrl,
   primaryAction: place.primaryAction,
+  websiteLabel: place.websiteLabel,
+  directionsLabel: place.directionsLabel,
+  quickInfo: place.quickInfo,
+  goodToKnow: place.goodToKnow,
+  photoCredit: place.photoCredit,
 }));
 
 export const guideRecommendations = allPlaces.map((place) => ({
@@ -229,6 +241,8 @@ export const guideRecommendations = allPlaces.map((place) => ({
   favoriteDish: place.favoriteDish,
   happyHour: place.happyHour,
   detail: place.detail,
+  quickInfo: place.quickInfo,
+  goodToKnow: place.goodToKnow,
 }));
 
 export function getCategory(slug) {

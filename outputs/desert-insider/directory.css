@@ -75,8 +75,9 @@ img { display: block; max-width: 100%; }
 .empty-state { border: 1px solid var(--line); border-radius: 14px; color: var(--muted); font-family: "Cormorant Garamond",Georgia,serif; font-size: 1.35rem; padding: 34px; }
 
 .place-hero { background: var(--white); border: 1px solid var(--line); border-radius: 18px; display: grid; grid-template-columns: 1.05fr .95fr; overflow: hidden; }
-.place-media { min-height: 590px; }
+.place-media { min-height: 590px; position: relative; }
 .place-media img { height: 100%; object-fit: cover; width: 100%; }
+.photo-credit { background: rgba(7,6,5,.7); bottom: 10px; color: rgba(255,255,255,.84); font-size: .56rem; left: 10px; max-width: calc(100% - 20px); padding: 6px 8px; position: absolute; text-decoration: none; z-index: 2; }
 .place-copy { align-self: center; padding: clamp(28px,5vw,68px); }
 .place-copy h1 { font-size: clamp(3.4rem,7vw,7rem); line-height: .9; margin: 0 0 20px; }
 .place-deck { color: var(--muted); font-family: "Cormorant Garamond",Georgia,serif; font-size: clamp(1.25rem,2vw,1.55rem); line-height: 1.5; }
@@ -94,6 +95,8 @@ img { display: block; max-width: 100%; }
 .darcey-take { background: var(--ink); color: var(--white); }
 .darcey-take .eyebrow { color: var(--gold); }
 .darcey-take blockquote { color: #f3ebe3; font-family: "Cormorant Garamond",Georgia,serif; font-size: clamp(1.4rem,2.6vw,2rem); line-height: 1.45; margin: 0; }
+.good-to-know { background: var(--cream); }
+.good-to-know > p:last-child { color: var(--muted); font-family: "Cormorant Garamond",Georgia,serif; font-size: clamp(1.25rem,2vw,1.5rem); line-height: 1.5; margin: 0; }
 .detail-list { display: grid; gap: 0; margin: 0; }
 .detail-list div { border-top: 1px solid var(--line); display: grid; gap: 15px; grid-template-columns: 110px 1fr; padding: 16px 0; }
 .detail-list div:first-child { border-top: 0; }

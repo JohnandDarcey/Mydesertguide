@@ -100,7 +100,7 @@ function card(place) {
     <div class="card-body">
       <div class="card-topline">${escapeHtml(place.city)} · ${escapeHtml(place.subcategory || place.category)}</div>
       <h2>${escapeHtml(place.name)}</h2>
-      <p>${escapeHtml(place.description)}</p>
+      <p>${escapeHtml(place.cardDescription || place.description)}</p>
       ${place.isFavorite ? '<div class="favorite-mark">♡ Darcey&#39;s Favorite</div>' : ""}
       <div class="tag-list">${tags(place)}</div>
     </div>
@@ -193,9 +193,10 @@ function categoryPage(category) {
 }
 
 function detailRows(place) {
-  const rows = [
+  const standardRows = [
     ["Location", place.city], ["Category", place.subcategory || place.category], ["Address", place.address], ["Phone", place.phone], ["Hours", place.hours], ["Best For", place.bestFor], ["Favorite Dish", place.favoriteDish], ["Happy Hour", place.happyHour], ["Details", place.detail || place.restaurant],
-  ].filter(([, value]) => value);
+  ];
+  const rows = (place.quickInfo?.length ? place.quickInfo : standardRows).filter(([, value]) => value);
   return rows.map(([label,value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("");
 }
 
@@ -203,10 +204,10 @@ function actionLinks(place) {
   return [
     place.startServiceUrl && `<a class="button dark" href="${escapeHtml(place.startServiceUrl)}" target="_blank" rel="noreferrer" data-analytics-event="utility_start_service_click" data-analytics-label="Start Service - ${escapeHtml(place.name)}">Start Service</a>`,
     place.availabilityUrl && `<a class="button dark" href="${escapeHtml(place.availabilityUrl)}" target="_blank" rel="noreferrer" data-analytics-event="utility_check_availability_click" data-analytics-label="Check Availability - ${escapeHtml(place.name)}">Check Availability</a>`,
-    place.website && `<a class="button${place.startServiceUrl || place.availabilityUrl ? "" : " dark"}" href="${escapeHtml(place.website)}" target="_blank" rel="noreferrer"${place.categorySlug === "utilities" ? ` data-analytics-event="utility_provider_website_click" data-analytics-label="Website - ${escapeHtml(place.name)}"` : ""}>Website</a>`,
+    place.website && `<a class="button${place.startServiceUrl || place.availabilityUrl ? "" : " dark"}" href="${escapeHtml(place.website)}" target="_blank" rel="noreferrer"${place.categorySlug === "utilities" ? ` data-analytics-event="utility_provider_website_click" data-analytics-label="Website - ${escapeHtml(place.name)}"` : place.websiteLabel ? ` data-analytics-event="recommendation_external_click" data-analytics-label="${escapeHtml(`${place.websiteLabel} - ${place.name}`)}"` : ""}>${escapeHtml(place.websiteLabel || "Website")}</a>`,
     place.menu && `<a class="button" href="${escapeHtml(place.menu)}" target="_blank" rel="noreferrer">Menu</a>`,
     place.teeTime && `<a class="button" href="${escapeHtml(place.teeTime)}" target="_blank" rel="noreferrer">Book Tee Time</a>`,
-    place.directions && `<a class="button" href="${escapeHtml(place.directions)}" target="_blank" rel="noreferrer">Directions</a>`,
+    place.directions && `<a class="button" href="${escapeHtml(place.directions)}" target="_blank" rel="noreferrer"${place.directionsLabel ? ` data-analytics-event="recommendation_directions_click" data-analytics-label="Directions - ${escapeHtml(place.name)}"` : ""}>${escapeHtml(place.directionsLabel || "Directions")}</a>`,
     place.phone && `<a class="button" href="tel:${place.phone.replace(/\D/g,"")}"${place.categorySlug === "utilities" ? ` data-analytics-event="utility_phone_click" data-analytics-label="Call ${escapeHtml(place.name)}"` : ""}>Call</a>`,
     place.email && `<a class="button" href="mailto:${escapeHtml(place.email)}">Email</a>`,
   ].filter(Boolean).join("");
@@ -232,9 +233,9 @@ function placePage(place) {
   <body data-page-kind="place" data-guide-id="${place.guideId}" data-profile-id="${place.profileId}" data-category="${escapeHtml(place.category)}" data-category-slug="${place.categorySlug}" data-place-id="${place.placeId}" data-place-slug="${place.slug}" data-place-name="${escapeHtml(place.name)}" data-place-type="${place.schemaType}">
     ${header()}<main class="page-shell">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/${place.categorySlug}/">${escapeHtml(place.category)}</a><span>/</span><span aria-current="page">${escapeHtml(place.name)}</span></nav>
-      <article class="place-hero"><div class="place-media"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" fetchpriority="high"></div><div class="place-copy"><p class="eyebrow">${escapeHtml(place.city)} · ${escapeHtml(place.subcategory || place.category)}</p><h1>${escapeHtml(place.name)}</h1><p class="place-deck">${escapeHtml(place.description)}</p><div class="tag-list place-tags">${tags(place,5)}</div>${place.isFavorite && place.categorySlug !== "utilities" ? '<div class="favorite-mark">♡ Darcey&#39;s Favorite</div>' : ""}<div class="place-actions">${place.categorySlug === "utilities" ? "" : favoriteButton(place,"place-save")} ${actionLinks(place)}</div></div></article>
+      <article class="place-hero"><div class="place-media"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" fetchpriority="high">${place.photoCredit ? `<a class="photo-credit" href="${escapeHtml(place.photoCredit.url)}" target="_blank" rel="noreferrer">${escapeHtml(place.photoCredit.label)}</a>` : ""}</div><div class="place-copy"><p class="eyebrow">${escapeHtml(place.city)} · ${escapeHtml(place.subcategory || place.category)}</p><h1>${escapeHtml(place.name)}</h1><p class="place-deck">${escapeHtml(place.description)}</p><div class="tag-list place-tags">${tags(place,5)}</div>${place.isFavorite && place.categorySlug !== "utilities" ? '<div class="favorite-mark">♡ Darcey&#39;s Favorite</div>' : ""}<div class="place-actions">${place.categorySlug === "utilities" ? "" : favoriteButton(place,"place-save")} ${actionLinks(place)}</div></div></article>
       <div class="place-content">
-        ${place.darceysTake ? `<section class="place-section darcey-take"><p class="eyebrow">♡ Darcey's Take</p><blockquote>“${escapeHtml(place.darceysTake)}”</blockquote></section>` : ""}
+        ${place.darceysTake ? `<section class="place-section darcey-take"><p class="eyebrow">♡ Darcey's Take</p><blockquote>“${escapeHtml(place.darceysTake)}”</blockquote></section>` : ""}${place.goodToKnow ? `<section class="place-section good-to-know"><p class="eyebrow">Good to Know</p><p>${escapeHtml(place.goodToKnow)}</p></section>` : ""}
         ${detailRows(place) ? `<section class="place-section"><p class="eyebrow">Plan Your Visit</p><h2>Useful details.</h2><dl class="detail-list">${detailRows(place)}</dl></section>` : ""}
       </div>
       <section class="related-section"><div class="section-heading"><div><p class="eyebrow">Keep Exploring</p><h2>Related recommendations.</h2></div></div><div class="recommendation-grid">${related.map(card).join("")}</div></section>

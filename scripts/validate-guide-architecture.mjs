@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../outp
 const read = (relative) => fs.readFile(path.join(root, relative), "utf8");
 
 if (categoryDefinitions.length !== 6) throw new Error(`Expected 6 primary categories, found ${categoryDefinitions.length}.`);
-if (allPlaces.length !== 55) throw new Error(`Expected 55 source recommendations and utility resources, found ${allPlaces.length}.`);
+if (allPlaces.length !== 56) throw new Error(`Expected 56 source recommendations and utility resources, found ${allPlaces.length}.`);
 
 const slugs = new Set(allPlaces.map((place) => place.slug));
 const ids = new Set(allPlaces.map((place) => place.placeId));
@@ -75,6 +75,12 @@ const utilitiesPage = await read("utilities/index.html");
 for (const marker of ["Where is your home?", "data-utility-city-select", "Palm Springs", "Thermal / Mecca", "Service provider may vary by property address", "Darceys-Coachella-Valley-Utility-Guide.pdf", "utility_guide_download"]) {
   if (!utilitiesPage.includes(marker)) throw new Error(`Utilities concierge is missing: ${marker}`);
 }
+
+const bumpAndGrindPage = await read("place/bump-and-grind-trail/index.html");
+for (const marker of ["4 miles", "Moderate", "About 2 hours", "February 1 through April 30", "Get Directions", "More Trail Info"]) {
+  if (!bumpAndGrindPage.includes(marker)) throw new Error(`Bump and Grind Trail is missing: ${marker}`);
+}
+if (bumpAndGrindPage.includes("Darcey's Take")) throw new Error("Bump and Grind Trail must not include an invented Darcey's Take.");
 for (const providerName of ["Southern California Edison", "Imperial Irrigation District", "SoCalGas", "Desert Water Agency", "Coachella Valley Water District", "Mission Springs Water District", "Indio Water Authority", "Myoma Dunes Water Company", "City of Coachella Water Department", "Spectrum", "Frontier Communications", "AT&amp;T Internet", "T-Mobile Home Internet"]) {
   if (!utilitiesPage.includes(providerName)) throw new Error(`Utilities concierge is missing provider: ${providerName}`);
 }
