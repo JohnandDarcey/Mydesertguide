@@ -599,6 +599,30 @@ h1 {
   margin-bottom: 0;
 }
 
+.real-estate-actions {
+  align-items: start;
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+.real-estate-talk-link {
+  border-bottom: 1px solid rgba(155, 99, 71, 0.38);
+  color: var(--charcoal);
+  display: flex;
+  font-size: 0.72rem;
+  font-weight: 700;
+  justify-content: space-between;
+  letter-spacing: var(--tracking-label);
+  min-width: min(100%, 250px);
+  padding: 10px 2px;
+  text-transform: uppercase;
+}
+
+.real-estate-talk-link span {
+  color: #9b6347;
+}
+
 .real-estate-cta .dre-line {
   color: var(--charcoal);
   font-size: clamp(0.48rem, 0.66vw, 0.62rem);
@@ -1914,6 +1938,12 @@ dd {
     width: 100%;
   }
 
+  .real-estate-actions,
+  .real-estate-talk-link {
+    justify-items: stretch;
+    width: 100%;
+  }
+
   .welcome-copy {
     border-left: 0;
     border-top: 1px solid var(--line);
@@ -2637,64 +2667,6 @@ dd {
   margin-top: auto;
 }
 
-.home-love-section {
-  align-items: end;
-  background: var(--charcoal);
-  color: var(--white);
-  display: grid;
-  gap: clamp(30px, 7vw, 110px);
-  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
-  margin-top: clamp(42px, 7vw, 88px);
-}
-
-.home-love-section .eyebrow {
-  color: #d2ad87;
-}
-
-.home-love-section h2 {
-  font-size: clamp(3rem, 6.3vw, 6.8rem);
-  line-height: 0.92;
-  margin-bottom: 24px;
-  max-width: 980px;
-}
-
-.home-love-copy > p:last-child {
-  color: rgba(255, 255, 255, 0.72);
-  font-family: var(--font-editorial);
-  font-size: clamp(1.12rem, 1.6vw, 1.4rem);
-  line-height: 1.55;
-  margin: 0;
-  max-width: 760px;
-}
-
-.home-love-actions {
-  align-items: stretch;
-  display: grid;
-  gap: 18px;
-}
-
-.home-love-actions .home-search-button {
-  background: var(--white);
-  color: var(--charcoal);
-  justify-content: center;
-}
-
-.home-talk-link {
-  border-bottom: 1px solid rgba(210, 173, 135, 0.58);
-  color: rgba(255, 255, 255, 0.84);
-  display: flex;
-  font-size: 0.76rem;
-  font-weight: 600;
-  justify-content: space-between;
-  letter-spacing: var(--tracking-label);
-  padding: 12px 2px;
-  text-transform: uppercase;
-}
-
-.home-talk-link span {
-  color: #d2ad87;
-}
-
 .home-footer {
   background: #efeae2;
   border-top: 1px solid var(--line);
@@ -2720,6 +2692,18 @@ dd {
   font-family: var(--font-editorial);
   font-size: 1.05rem;
   margin: 12px 0 0;
+}
+
+.home-footer .home-footer-legal {
+  border-top: 1px solid rgba(38, 31, 27, 0.15);
+  color: rgba(38, 31, 27, 0.58);
+  font-family: var(--sans);
+  font-size: 0.58rem;
+  grid-column: 1 / -1;
+  letter-spacing: 0.07em;
+  margin: 0;
+  padding-top: 16px;
+  text-transform: uppercase;
 }
 
 .home-footer-nav,
@@ -2844,8 +2828,6 @@ dd {
   .home-curated-card .place-actions-inline { gap: 7px; margin-top: 7px; padding-top: 10px; }
   .home-curated-card .place-actions-inline a { font-size: .55rem; line-height: 1.25; }
   .home-curated-card .favorite-button { height: 34px; width: 34px; }
-  .home-love-section { align-items: stretch; grid-template-columns: 1fr; }
-  .home-love-section h2 { font-size: clamp(2.7rem, 12vw, 4.2rem); }
   .home-footer { grid-template-columns: 1fr; }
   .home-footer-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home-footer-contact { grid-template-columns: repeat(2, minmax(0, 1fr)); }

@@ -25,7 +25,9 @@
   const visitorKey = "mdg_visitor_id";
   const sessionKey = "mdg_session_id";
   const placeViewsSent = new Set();
+  const impressionEventsSent = new Set();
   let observer = null;
+  let impressionObserver = null;
   let bindTimer = null;
 
   function randomId(prefix) {
@@ -209,16 +211,48 @@
     document.querySelectorAll("[data-guide-place][data-track-impression='true']").forEach((card) => observer.observe(card));
   }
 
+  function bindImpressionObserver() {
+    if (impressionObserver) impressionObserver.disconnect();
+    if (!("IntersectionObserver" in window)) return;
+
+    impressionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const eventName = entry.target.dataset.analyticsImpression;
+          if (!eventName || impressionEventsSent.has(eventName)) {
+            impressionObserver.unobserve(entry.target);
+            return;
+          }
+
+          impressionEventsSent.add(eventName);
+          send(eventName, {
+            category: entry.target.dataset.analyticsCategory || "",
+            actionText: entry.target.dataset.analyticsLabel || "",
+          });
+          impressionObserver.unobserve(entry.target);
+        });
+      },
+      { root: null, rootMargin: "0px 0px -15% 0px", threshold: 0.3 },
+    );
+
+    document.querySelectorAll("[data-analytics-impression]").forEach((element) => impressionObserver.observe(element));
+  }
+
   function scheduleBinding() {
     window.clearTimeout(bindTimer);
-    bindTimer = window.setTimeout(bindPlaceObserver, 250);
+    bindTimer = window.setTimeout(() => {
+      bindPlaceObserver();
+      bindImpressionObserver();
+    }, 250);
   }
 
   document.addEventListener("click", (event) => {
     const anchor = event.target.closest("a[href]");
     if (anchor) {
       const classified = classifyLink(anchor);
-      if (classified) {
+      const explicitEvent = anchor.dataset.analyticsEvent;
+      if (classified && !explicitEvent) {
         const [eventName, payload] = classified;
         send(eventName, {
           ...payload,
@@ -227,8 +261,7 @@
         });
       }
 
-      const explicitEvent = anchor.dataset.analyticsEvent;
-      if (explicitEvent && explicitEvent !== classified?.[0]) {
+      if (explicitEvent) {
         const explicitPayload = cardPayload(anchor);
         send(explicitEvent, {
           ...explicitPayload,

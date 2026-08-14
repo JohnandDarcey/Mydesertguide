@@ -9,7 +9,7 @@ import {
   services,
   shopping,
   thingsToDo,
-} from "./data.js?v=20260814-mobile-reference-v4";
+} from "./data.js?v=20260814-real-estate-restored";
 
 const app = document.querySelector("#app");
 
@@ -973,6 +973,33 @@ function render() {
         </div>
       </section>
 
+      <section
+        class="section real-estate-cta"
+        id="contact"
+        aria-label="Coachella Valley real estate with Darcey"
+        data-analytics-impression="real_estate_cta_impression"
+        data-analytics-category="Real Estate"
+        data-analytics-label="Homepage real estate CTA"
+      >
+        <div class="real-estate-lead">
+          <div class="darcey-cta-card">
+            <img class="darcey-cta-photo" src="${realtorProfile.portrait}" alt="${realtorProfile.fullName}" />
+            <p class="dre-line">${realtorProfile.fullName} · ${realtorProfile.dre}</p>
+          </div>
+          <div>
+            <p class="eyebrow">Love Where You Live</p>
+            <h2>Thinking about making the desert home?</h2>
+          </div>
+        </div>
+        <div class="real-estate-copy">
+          <p>Whether you're buying, selling, or simply exploring what's possible, Darcey can help you navigate Coachella Valley real estate with the same local knowledge behind this guide.</p>
+          <div class="real-estate-actions">
+            <a class="button dark" href="${realtorProfile.homeSearchUrl}" target="_blank" rel="noreferrer" data-analytics-event="real_estate_home_search_click" data-analytics-category="Real Estate" data-analytics-label="Explore Desert Homes">Explore Desert Homes</a>
+            <a class="real-estate-talk-link" href="sms:${realtorProfile.phoneHref}" data-analytics-event="real_estate_contact_click" data-analytics-category="Real Estate" data-analytics-label="Talk With Darcey">Talk With Darcey <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
       ${curatedFavoritesSection()}
 
       <section class="section home-install-card" data-install-card hidden aria-label="Add Darcey's Guide to your phone">
@@ -982,18 +1009,6 @@ function render() {
           <p>Keep Darcey's favorite places, local recommendations and trusted resources close whenever you need them.</p>
         </div>
         <button class="button dark" type="button" data-install-button>Add to My Phone</button>
-      </section>
-
-      <section class="section home-love-section" id="contact" aria-label="Coachella Valley real estate with Darcey">
-        <div class="home-love-copy">
-          <p class="eyebrow">Love Where You Live</p>
-          <h2>Thinking about making the desert home?</h2>
-          <p>Whether you're buying, selling, or simply exploring what's possible, Darcey can help you navigate Coachella Valley real estate with the same local knowledge behind this guide.</p>
-        </div>
-        <div class="home-love-actions">
-          <a class="button home-search-button" href="${realtorProfile.homeSearchUrl}" target="_blank" rel="noreferrer">Explore Desert Homes</a>
-          <a class="home-talk-link" href="sms:${realtorProfile.phoneHref}" data-analytics-event="real_estate_contact_click" data-analytics-category="Real Estate" data-analytics-label="Talk With Darcey">Talk With Darcey <span aria-hidden="true">→</span></a>
-        </div>
       </section>
 
       <footer class="home-footer">
@@ -1010,6 +1025,7 @@ function render() {
           <a href="tel:${realtorProfile.phoneHref}">Call Darcey</a>
           <a href="mailto:${realtorProfile.email}">Email Darcey</a>
         </div>
+        <p class="home-footer-legal">${realtorProfile.fullName} · ${realtorProfile.dre} · ${realtorProfile.brokerage} · ${realtorProfile.brokerageDre}</p>
       </footer>
     </main>
   `;

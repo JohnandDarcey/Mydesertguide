@@ -39,9 +39,15 @@ for (const marker of [
   "World Market",
   "home-install-card",
   "Love Where You Live",
+  "real-estate-cta",
+  "real_estate_cta_impression",
+  "real_estate_home_search_click",
   "home-footer",
 ]) {
   if (!homepageApp.includes(marker)) throw new Error(`Hybrid homepage marker is missing: ${marker}`);
+}
+if (!homepageData.includes("Pinnacle Realty Advisors") || !homepageData.includes("CA DRE 02220139")) {
+  throw new Error("Homepage real-estate brokerage disclosure is missing.");
 }
 for (const category of categoryDefinitions) {
   if (!homepageData.includes(`/${category.slug}/`)) throw new Error(`Homepage gateway is missing: /${category.slug}/`);
@@ -53,6 +59,9 @@ for (const category of categoryDefinitions) {
   for (const marker of ["Love Where You Live", "Thinking about making the desert home?", "https://darceydeetz.com/home-search/listings", "real_estate_contact_click"]) {
     if (!html.includes(marker)) throw new Error(`${category.slug} is missing real-estate footer marker: ${marker}`);
   }
+  for (const marker of ["Darcey Deetz", "CA DRE 01374659", "Pinnacle Realty Advisors", "CA DRE 02220139"]) {
+    if (!html.includes(marker)) throw new Error(`${category.slug} is missing real-estate legal marker: ${marker}`);
+  }
   if (html.includes("Need Darcey's help?")) throw new Error(`${category.slug} still contains the retired footer.`);
 }
 
@@ -61,7 +70,15 @@ for (const place of allPlaces) {
   for (const marker of ["<h1>", "rel=\"canonical\"", "application/ld+json", place.placeId, "data-favorite-slug"]) {
     if (!html.includes(marker)) throw new Error(`${place.slug} is missing ${marker}.`);
   }
+  for (const marker of ["Darcey Deetz", "CA DRE 01374659", "Pinnacle Realty Advisors", "CA DRE 02220139"]) {
+    if (!html.includes(marker)) throw new Error(`${place.slug} is missing real-estate legal marker: ${marker}`);
+  }
   if (place.darceysTake && !html.includes("Darcey's Take")) throw new Error(`${place.slug} is missing Darcey's Take.`);
+}
+
+const savedPage = await read("saved/index.html");
+for (const marker of ["Darcey Deetz", "CA DRE 01374659", "Pinnacle Realty Advisors", "CA DRE 02220139"]) {
+  if (!savedPage.includes(marker)) throw new Error(`Saved page is missing real-estate legal marker: ${marker}`);
 }
 
 const manifest = JSON.parse(await read("manifest.webmanifest"));

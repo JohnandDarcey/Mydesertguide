@@ -12,6 +12,8 @@ export const realtorProfile = {
   firstName: "Darcey",
   fullName: "Darcey Deetz",
   dre: "CA DRE 01374659",
+  brokerage: "Pinnacle Realty Advisors",
+  brokerageDre: "CA DRE 02220139",
   phoneDisplay: "760-808-1449",
   phoneHref: "+17608081449",
   email: "darcey@darceydeetz.com",
