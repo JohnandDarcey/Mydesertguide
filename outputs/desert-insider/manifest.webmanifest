@@ -1,9 +1,12 @@
 {
-  "name": "My Desert Guide",
-  "short_name": "My Desert Guide",
+  "id": "/",
+  "name": "Darcey's Guide",
+  "short_name": "Darcey's Guide",
   "description": "Darcey's favorite Coachella Valley recommendations all in one place.",
-  "start_url": "./index.html",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#f5f2ee",
   "theme_color": "#f5f2ee",
   "icons": [
@@ -19,5 +22,10 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
+  ],
+  "shortcuts": [
+    { "name": "Food & Drink", "url": "/food-drink/" },
+    { "name": "Things to Do", "url": "/things-to-do/" },
+    { "name": "Saved Places", "url": "/saved/" }
   ]
 }

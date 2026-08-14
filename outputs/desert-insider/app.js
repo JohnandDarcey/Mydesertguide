@@ -9,7 +9,7 @@ import {
   services,
   shopping,
   thingsToDo,
-} from "./data.js?v=20260814-mobile-hero";
+} from "./data.js?v=20260814-guide-architecture";
 
 const app = document.querySelector("#app");
 
@@ -154,11 +154,22 @@ function attr(value) {
     .replaceAll(">", "&gt;");
 }
 
+function placeSlug(value = "") {
+  return String(value)
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 function analyticsAttrs(item, type) {
   const image = item.image || item.images?.[0] || "";
   return `data-guide-place="${attr(item.name)}" data-guide-category="${attr(
     item.category || type,
-  )}" data-guide-type="${attr(type)}" data-guide-image="${attr(image)}" data-guide-rating="${attr(
+  )}" data-guide-type="${attr(type)}" data-guide-slug="${placeSlug(item.name)}" data-track-impression="true" data-guide-image="${attr(image)}" data-guide-rating="${attr(
     item.rating || "",
   )}"`;
 }
@@ -929,6 +940,15 @@ function render() {
             )
             .join("")}
         </div>
+      </section>
+
+      <section class="section home-install-card" data-install-card hidden aria-label="Add Darcey's Guide to your phone">
+        <div>
+          <p class="eyebrow">Take Darcey's Guide With You ♡</p>
+          <h2>Add the guide to your phone.</h2>
+          <p>Keep Darcey's favorite places, local recommendations and trusted resources close whenever you need them.</p>
+        </div>
+        <button class="button dark" type="button" data-install-button>Add to My Phone</button>
       </section>
 
       <section class="section guide" id="guide">

@@ -27,6 +27,12 @@ function blankTotals() {
     businessWebsiteClicks: 0,
     menuClicks: 0,
     favoriteSaves: 0,
+    installCtaDisplayed: 0,
+    installCtaClicked: 0,
+    iosInstructionsOpened: 0,
+    nativePromptOpened: 0,
+    nativePromptAccepted: 0,
+    nativePromptDismissed: 0,
     pwaInstallConfirmed: 0,
     pwaStandaloneLaunches: 0,
   };
@@ -280,13 +286,17 @@ export async function recordEvent(payload = {}, request, context) {
   const placeName = sanitize(payload.placeName);
   if (placeName) {
     const place = ensureCounter(day.places, placeName, {
+      placeId: sanitize(payload.placeId),
       category,
+      categorySlug: sanitize(payload.categorySlug),
       type: sanitize(payload.placeType || payload.type),
       image: sanitize(payload.image),
       rating: sanitize(payload.rating),
     });
     const lifetimePlace = ensureCounter(lifetime.places, placeName, {
+      placeId: sanitize(payload.placeId),
       category,
+      categorySlug: sanitize(payload.categorySlug),
       type: sanitize(payload.placeType || payload.type),
       image: sanitize(payload.image),
       rating: sanitize(payload.rating),

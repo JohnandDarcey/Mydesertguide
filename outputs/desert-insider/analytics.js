@@ -53,6 +53,15 @@
 
   const visitorId = storageId(window.localStorage, visitorKey, "visitor");
   const sessionId = storageId(window.sessionStorage, sessionKey, "session");
+  const pageContext = {
+    guideId: document.body.dataset.guideId || analyticsConfig.guideId || "darcey-my-desert-guide",
+    profileId: document.body.dataset.profileId || analyticsConfig.profileId || "darcey-deetz",
+    category: document.body.dataset.category || "",
+    categorySlug: document.body.dataset.categorySlug || "",
+    placeId: document.body.dataset.placeId || "",
+    placeName: document.body.dataset.placeName || "",
+    placeType: document.body.dataset.placeType || "",
+  };
 
   function sectionFromHash(hash = window.location.hash) {
     const id = hash.replace(/^#/, "");
@@ -77,7 +86,9 @@
     if (card) {
       return {
         placeName: card.dataset.guidePlace,
+        placeId: card.dataset.placeId || (card.dataset.guideSlug ? `place-${card.dataset.guideSlug}` : ""),
         category: card.dataset.guideCategory,
+        categorySlug: card.dataset.categorySlug || pageContext.categorySlug,
         placeType: card.dataset.guideType,
         image: card.dataset.guideImage,
         rating: card.dataset.guideRating,
@@ -93,14 +104,13 @@
       };
     }
 
-    return {};
+    return { ...pageContext };
   }
 
   function send(eventName, details = {}) {
     const payload = {
       eventName,
-      guideId: analyticsConfig.guideId || "darcey-my-desert-guide",
-      profileId: analyticsConfig.profileId || "darcey-deetz",
+      ...pageContext,
       visitorId,
       sessionId,
       url: window.location.href,
@@ -196,7 +206,7 @@
       { root: null, rootMargin: "0px 0px -20% 0px", threshold: 0.35 },
     );
 
-    document.querySelectorAll("[data-guide-place]").forEach((card) => observer.observe(card));
+    document.querySelectorAll("[data-guide-place][data-track-impression='true']").forEach((card) => observer.observe(card));
   }
 
   function scheduleBinding() {
@@ -249,11 +259,22 @@
     scheduleBinding();
   });
 
+  document.addEventListener("mdg:analytics", (event) => {
+    const { eventName, details } = event.detail || {};
+    if (eventName) send(eventName, details || {});
+  });
+
   const mutationObserver = new MutationObserver(scheduleBinding);
   mutationObserver.observe(document.documentElement, { childList: true, subtree: true });
 
   window.addEventListener("load", () => {
-    send("guide_view", { category: sectionFromHash() });
+    send("guide_view", { category: pageContext.category || sectionFromHash() });
+    if (document.body.dataset.pageKind === "category" && pageContext.category) {
+      send("category_view", pageContext);
+    }
+    if (document.body.dataset.pageKind === "place" && pageContext.placeName) {
+      send("place_view", pageContext);
+    }
     if (window.matchMedia?.("(display-mode: standalone)")?.matches || window.navigator.standalone === true) {
       send("pwa_standalone_launch", { category: "Guide App" });
     }

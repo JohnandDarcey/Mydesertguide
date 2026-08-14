@@ -17,10 +17,16 @@ The browser sends these event names to `/api/analytics/collect`:
 - `business_website_click`
 - `menu_click`
 - `favorite_save`
+- `install_cta_displayed`
+- `install_cta_clicked`
+- `ios_instructions_opened`
+- `native_prompt_opened`
+- `native_prompt_accepted`
+- `native_prompt_dismissed`
 - `pwa_install_confirmed`
 - `pwa_standalone_launch`
 
-`favorite_save` is reserved for the future. Favorites were not added as part of this project.
+Favorites are device-local and shared across the homepage, category pages, recommendation pages, and installed mode. Installation events intentionally distinguish interest, instructions, native prompt outcomes, confirmed installation, and standalone launches.
 
 ## Client Engagements
 
@@ -31,7 +37,7 @@ Client Engagements are the sum of:
 - Darcey text clicks
 - Darcey email/contact clicks
 - Google Maps/directions clicks
-- Favorites saved, if that feature exists later
+- Favorites saved
 
 Business website and menu clicks are shown separately as guide engagement, but they are not included in Client Engagements.
 

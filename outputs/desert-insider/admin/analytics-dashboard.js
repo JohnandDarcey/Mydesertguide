@@ -105,9 +105,9 @@
     const realEstate = Number(totals.darceyWebsiteClicks || 0);
     elements.realEstatePanel.hidden = !realEstate;
     elements.realEstateContent.innerHTML = `<strong class="opportunity-number">${number(realEstate)}</strong><p>visits to Darcey's real estate website from the guide.</p>`;
-    const installs = Number(totals.pwaInstallConfirmed || 0); const launches = Number(totals.pwaStandaloneLaunches || 0);
-    elements.appPanel.hidden = !(installs || launches);
-    elements.appContent.innerHTML = `<div class="app-stats"><div><strong>${number(installs)}</strong><span>Confirmed installs</span></div><div><strong>${number(launches)}</strong><span>Standalone app launches</span></div></div>`;
+    const interest = Number(totals.installCtaClicked || 0); const installs = Number(totals.pwaInstallConfirmed || 0); const launches = Number(totals.pwaStandaloneLaunches || 0);
+    elements.appPanel.hidden = !(interest || installs || launches);
+    elements.appContent.innerHTML = `<div class="app-stats"><div><strong>${number(interest)}</strong><span>Add-to-phone interest</span></div><div><strong>${number(installs)}</strong><span>Confirmed installs</span></div><div><strong>${number(launches)}</strong><span>Standalone app launches</span></div></div>`;
   }
 
   function localPreviewData() {

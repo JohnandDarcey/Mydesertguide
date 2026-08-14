@@ -1,6 +1,6 @@
 [build]
   publish = "outputs/desert-insider"
-  command = "node scripts/validate-analytics.mjs"
+  command = "npm run build"
 
 [functions]
   directory = "netlify/functions"
@@ -12,6 +12,22 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+    Service-Worker-Allowed = "/"
+
+[[redirects]]
+  from = "/restaurants"
+  to = "/food-drink/"
+  status = 301
+
+[[redirects]]
+  from = "/professionals"
+  to = "/trusted-professionals/"
+  status = 301
 
 [[redirects]]
   from = "/api/analytics/collect"
@@ -31,9 +47,4 @@
 [[redirects]]
   from = "/api/analytics/preview-report"
   to = "/.netlify/functions/analytics-preview-report"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
   status = 200
