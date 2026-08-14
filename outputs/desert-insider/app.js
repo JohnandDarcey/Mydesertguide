@@ -9,7 +9,7 @@ import {
   services,
   shopping,
   thingsToDo,
-} from "./data.js?v=20260814-original-mobile-darcey";
+} from "./data.js?v=20260814-mobile-reference-v4";
 
 const app = document.querySelector("#app");
 

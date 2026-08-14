@@ -2861,7 +2861,7 @@ dd {
     display: flex;
     flex-direction: column;
     height: auto;
-    min-height: max(100svh, 720px);
+    min-height: clamp(620px, 162vw, 700px);
     overflow: hidden;
     padding: 0 0 env(safe-area-inset-bottom, 0px);
     position: relative;
@@ -2869,7 +2869,7 @@ dd {
 
   @supports (min-height: 100dvh) {
     .hero-image-map {
-      min-height: max(100dvh, 720px);
+      min-height: clamp(620px, 162vw, 700px);
     }
   }
 
@@ -2880,7 +2880,7 @@ dd {
     background-size: cover;
     bottom: auto;
     content: "";
-    height: clamp(470px, 66svh, 620px);
+    height: clamp(450px, 124vw, 535px);
     inset-inline: 0;
     pointer-events: none;
     position: absolute;
@@ -2889,27 +2889,28 @@ dd {
   }
 
   .hero-image-map::after {
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.12) 32%, rgba(0, 0, 0, 0.72) 58%, #050505 72%, #050505 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.76) 58%, #050505 72%, #050505 100%);
     content: "";
     display: block;
+    height: auto;
     inset: 0;
     pointer-events: none;
     position: absolute;
+    width: auto;
     z-index: 3;
   }
 
   .hero-image-map .hero-art-mobile {
     display: block;
     height: auto;
-    left: clamp(5px, 1.8vw, 8px);
-    -webkit-mask-image: linear-gradient(90deg, #fff 0 76%, rgba(255, 255, 255, 0.8) 84%, rgba(255, 255, 255, 0) 100%);
-    mask-image: linear-gradient(90deg, #fff 0 76%, rgba(255, 255, 255, 0.8) 84%, rgba(255, 255, 255, 0) 100%);
-    mask-mode: alpha;
+    left: clamp(-30px, -7vw, -22px);
+    -webkit-mask-image: none;
+    mask-image: none;
     object-fit: contain;
     object-position: left top;
     position: absolute;
-    top: calc(66px + env(safe-area-inset-top, 0px));
-    width: min(69vw, 280px);
+    top: calc(70px + env(safe-area-inset-top, 0px));
+    width: min(80vw, 320px);
     z-index: 2;
   }
 
@@ -2968,7 +2969,7 @@ dd {
     display: grid;
     margin-top: auto;
     min-height: 0;
-    padding: clamp(265px, 36svh, 310px) 18px 18px;
+    padding: clamp(265px, 36svh, 310px) 18px 14px;
     position: relative;
     text-align: center;
     top: auto;
@@ -2986,7 +2987,7 @@ dd {
 
   .hero-live-copy h1 {
     color: #fff;
-    font-size: clamp(2.82rem, 14vw, 3.65rem);
+    font-size: clamp(2.45rem, 12vw, 3.2rem);
     letter-spacing: -0.035em;
     line-height: 0.92;
     text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
@@ -3006,7 +3007,7 @@ dd {
     color: #bd8240;
     gap: 12px;
     justify-content: center;
-    margin: 13px 0 11px;
+    margin: 10px 0 8px;
   }
 
   .hero-divider::before,
@@ -3017,8 +3018,8 @@ dd {
 
   .hero-description {
     color: rgba(255, 255, 255, 0.96);
-    font-size: clamp(0.92rem, 4.35vw, 1.08rem);
-    line-height: 1.35;
+    font-size: clamp(0.82rem, 3.55vw, 0.96rem);
+    line-height: 1.3;
     margin: 0 auto;
     max-width: 36rem;
   }
@@ -3034,7 +3035,7 @@ dd {
     display: grid;
     gap: 8px;
     grid-template-columns: 1fr;
-    margin-top: 14px;
+    margin-top: 12px;
   }
 
   .hero-live-actions .button {
@@ -3046,7 +3047,7 @@ dd {
     font-weight: 500;
     justify-content: center;
     letter-spacing: 0.09em;
-    min-height: 46px;
+    min-height: 40px;
     padding: 9px 12px;
   }
 
@@ -3054,7 +3055,7 @@ dd {
     display: grid;
     gap: 6px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-top: 12px;
+    margin-top: 10px;
     overflow: visible;
     white-space: normal;
   }
@@ -3084,7 +3085,7 @@ dd {
     gap: 5px;
     justify-content: center;
     letter-spacing: 0.02em;
-    min-height: 44px;
+    min-height: 38px;
     padding: 7px 4px;
   }
 
@@ -3178,7 +3179,7 @@ dd {
 
 @media (max-width: 350px) {
   .hero-image-map {
-    min-height: max(100svh, 680px);
+    min-height: 620px;
   }
 
   .hero-live-header {
@@ -3196,7 +3197,7 @@ dd {
   }
 
   .hero-description {
-    font-size: 0.88rem;
+    font-size: 0.78rem;
   }
 
   .hero-live-actions {

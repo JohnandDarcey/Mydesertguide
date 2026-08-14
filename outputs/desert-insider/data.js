@@ -1,6 +1,6 @@
 export const assets = {
   hero: "./assets/my-desert-guide-hero-darcey.png",
-  heroMobile: "./assets/my-desert-guide-darcey-mobile.jpg",
+  heroMobile: "./assets/darcey-mobile-cutout-v4.png",
   heroSmall: "./assets/my-desert-guide-hero-960.jpg",
   heroLarge: "./assets/my-desert-guide-hero-1536.jpg",
   restaurants: "./assets/ig_0e3d77dee4f981a0016a4158fcc6cc8199adf58a6a4e4acdd4.png",
