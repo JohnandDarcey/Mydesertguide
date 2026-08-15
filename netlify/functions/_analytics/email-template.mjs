@@ -74,7 +74,7 @@ function placeList(places = []) {
 function quietMessage(report) {
   const totals = report.day.totals;
   const topCategory = report.day.topCategories[0];
-  if (!totals.guideViews && !totals.placeViews && !contactTotal(totals)) {
+  if (!totals.guideViews && !totals.placeViews && !contactTotal(totals) && !Number(totals.leadSubmissions || 0)) {
     return "Your guide didn't record visitor activity yesterday, but we're continuing to track its performance.";
   }
   if (Number(totals.guideViews || 0) < 10) {
@@ -87,9 +87,10 @@ export function renderDailyReportEmail(report) {
   const totals = report.day.totals;
   const displayDate = formatDisplayDate(report.date, true);
   const contacts = contactTotal(totals);
+  const confirmedLeads = Number(totals.leadSubmissions || 0);
   const recentAverage = Math.round(Number(report.last7.totals.guideViews || 0) / 7);
-  const isSilent = !totals.guideViews && !totals.placeViews && !contacts;
-  const homeSearches = Number(totals.darceyWebsiteClicks || 0);
+  const isSilent = !totals.guideViews && !totals.placeViews && !contacts && !confirmedLeads;
+  const homeSearches = Number(totals.realEstateHomeSearchClicks || totals.darceyWebsiteClicks || 0);
   const talkClicks = Number(totals.realEstateContactClicks || 0);
   const realEstate = homeSearches + talkClicks;
   const subject = `Your Desert Guide Daily Report — ${displayDate}`;
@@ -117,7 +118,7 @@ export function renderDailyReportEmail(report) {
       </tr></table>
       <div style="border-top:1px solid #4b4540;margin-top:15px;padding-top:14px;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#d9ccbc;"><strong style="color:#ffffff;">${number(contacts)}</strong> total contact action${contacts === 1 ? "" : "s"}</div>
     </div></td></tr>
-    ${realEstate ? `<tr><td style="padding:0 28px 22px;"><div style="background:#f2e7d7;border:1px solid #d8c5aa;border-radius:16px;padding:22px;"><div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#756d63;">Real Estate Interest</div><div style="font-family:Georgia,serif;font-size:25px;line-height:32px;margin-top:8px;">${number(homeSearches)} home search${homeSearches === 1 ? "" : "es"} and ${number(talkClicks)} request${talkClicks === 1 ? "" : "s"} to talk with Darcey</div></div></td></tr>` : ""}
+    ${(realEstate || confirmedLeads) ? `<tr><td style="padding:0 28px 22px;"><div style="background:#f2e7d7;border:1px solid #d8c5aa;border-radius:16px;padding:22px;"><div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#756d63;">Real Estate Results</div><div style="font-family:Georgia,serif;font-size:25px;line-height:32px;margin-top:8px;">${number(confirmedLeads)} confirmed lead${confirmedLeads === 1 ? "" : "s"}, ${number(homeSearches)} home-search click${homeSearches === 1 ? "" : "s"}, and ${number(talkClicks)} conversation CTA click${talkClicks === 1 ? "" : "s"}</div></div></td></tr>` : ""}
   `;
 
   const html = `<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>
@@ -131,7 +132,7 @@ export function renderDailyReportEmail(report) {
           <div style="font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:48px;font-weight:400;margin-top:7px;">Good morning, Darcey.</div>
           <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#d9ccbc;margin-top:10px;">Here's how your Desert Guide performed yesterday.<br>${escapeHtml(displayDate)}</div>
         </td></tr>
-        <tr><td class="pad" style="padding:25px 21px 10px;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr>${metric(totals.guideViews,"Guide Views")}${metric(totals.uniqueVisitors,"Visitors")}</tr><tr>${metric(totals.placeViews,"Places Viewed")}${metric(contacts,"People Connected")}</tr></table></td></tr>
+        <tr><td class="pad" style="padding:25px 21px 10px;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr>${metric(totals.guideViews,"Guide Views")}${metric(totals.uniqueVisitors,"Visitors")}</tr><tr>${metric(totals.placeViews,"Places Viewed")}${metric(confirmedLeads,"Confirmed Leads")}</tr></table></td></tr>
         <tr><td style="padding:5px 28px 22px;"><div style="background:#f2e7d7;border-left:3px solid #b18b62;padding:18px 19px;font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:29px;color:#2e2925;">${escapeHtml(quietMessage(report))}</div></td></tr>
         ${detailSections}
         <tr><td style="padding:4px 28px 32px;text-align:center;"><a href="${escapeHtml(dashboardUrl())}" style="display:inline-block;background:#111111;color:#ffffff;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:15px 24px;border-radius:8px;">View Full Analytics</a><div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:16px;color:#81786d;margin-top:18px;">${escapeHtml(GUIDE_CONFIG.realtorName)} · ${escapeHtml(GUIDE_CONFIG.realtorDre)}</div></td></tr>
@@ -147,6 +148,7 @@ export function renderDailyReportEmail(report) {
     `Visitors: ${number(totals.uniqueVisitors)}`,
     `Places Viewed: ${number(totals.placeViews)}`,
     `People Connected: ${number(contacts)}`,
+    `Confirmed Leads: ${number(confirmedLeads)}`,
     "",
     quietMessage(report),
     ...report.day.topPlaces.slice(0, 3).map((place, index) => `${index + 1}. ${place.name} — ${number(place.views)} views`),

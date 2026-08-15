@@ -97,6 +97,9 @@ for (const marker of [
   "hero-curator",
   "realtorProfile.curatorLabel",
   "realtorProfile.professionalIdentifier",
+  "realEstateLeadForm()",
+  'id="lead-form"',
+  "/api/leads/submit",
 ]) {
   if (!homepageApp.includes(marker)) throw new Error(`Hybrid homepage marker is missing: ${marker}`);
 }
@@ -106,8 +109,8 @@ if (!homepageData.includes("Pinnacle Realty Advisors") || !homepageData.includes
 if (!homepageData.includes("Curated by") || !homepageData.includes("Palm Springs & Coachella Valley Realtor®")) {
   throw new Error("Homepage Realtor identifier profile data is missing.");
 }
-if (!homepage.includes("app.js?v=20260814-spa-beauty-v2") || !homepageApp.includes("data.js?v=20260814-spa-beauty-v2")) {
-  throw new Error("Homepage Spa & Beauty cache-busting versions are missing.");
+if (!homepage.includes("app.js?v=20260815-lead-engine-v4") || !homepageApp.includes("data.js?v=20260814-spa-beauty-v2")) {
+  throw new Error("Homepage lead-engine or Spa & Beauty cache-busting versions are missing.");
 }
 for (const category of categoryDefinitions) {
   if (!homepageData.includes(`/${category.slug}/`)) throw new Error(`Homepage gateway is missing: /${category.slug}/`);

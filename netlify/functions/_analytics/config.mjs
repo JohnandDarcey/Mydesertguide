@@ -3,6 +3,11 @@ const reportRecipients = (process.env.ANALYTICS_REPORT_TO || "john@darceydeetz.c
   .map((email) => email.trim())
   .filter(Boolean);
 
+const leadRecipients = (process.env.LEAD_NOTIFICATION_TO || process.env.ANALYTICS_REPORT_TO || "john@darceydeetz.com,darcey@darceydeetz.com")
+  .split(",")
+  .map((email) => email.trim())
+  .filter(Boolean);
+
 export const GUIDE_CONFIG = {
   guideId: "darcey-my-desert-guide",
   profileId: "darcey-deetz",
@@ -13,6 +18,7 @@ export const GUIDE_CONFIG = {
   realtorName: "Darcey Deetz",
   realtorDre: "CA DRE 01374659",
   recipient: reportRecipients,
+  leadRecipient: leadRecipients,
   fromEmail: process.env.ANALYTICS_FROM_EMAIL || "My Desert Guide <reports@mydesertguide.com>",
   siteUrl: (process.env.SITE_URL || process.env.URL || "https://mydesertguide.com").replace(/\/$/, ""),
   dashboardPath: "/admin/analytics.html",
@@ -42,6 +48,32 @@ export const TRACKED_EVENTS = new Set([
   "native_prompt_dismissed",
   "pwa_install_confirmed",
   "pwa_standalone_launch",
+  "experience_tile_clicked",
+  "darceys_desert_pick_clicked",
+  "recommendation_clicked",
+  "recommendation_directions_click",
+  "recommendation_external_click",
+  "shopping_experience_tile_selected",
+  "shopping_pick_clicked",
+  "specialized_collection_recommendation_clicked",
+  "explore_hiking_clicked",
+  "explore_coffee_clicked",
+  "find_starbucks_click",
+  "location_filter_selected",
+  "primary_filter_selected",
+  "more_filter_selected",
+  "utilities_page_viewed",
+  "utility_check_availability_click",
+  "utility_guide_download",
+  "utility_phone_click",
+  "utility_provider_click",
+  "utility_provider_website_click",
+  "utility_start_service_click",
+  "real_estate_cta_impression",
+  "real_estate_home_search_click",
+  "lead_form_started",
+  "lead_form_submitted",
+  "buyer_guide_requested",
 ]);
 
 export const CLIENT_ENGAGEMENT_EVENTS = new Set([
@@ -52,6 +84,7 @@ export const CLIENT_ENGAGEMENT_EVENTS = new Set([
   "maps_click",
   "favorite_save",
   "real_estate_contact_click",
+  "lead_form_submitted",
 ]);
 
 export const EVENT_TOTAL_KEYS = {
@@ -78,6 +111,11 @@ export const EVENT_TOTAL_KEYS = {
   native_prompt_dismissed: "nativePromptDismissed",
   pwa_install_confirmed: "pwaInstallConfirmed",
   pwa_standalone_launch: "pwaStandaloneLaunches",
+  real_estate_cta_impression: "realEstateCtaImpressions",
+  real_estate_home_search_click: "realEstateHomeSearchClicks",
+  lead_form_started: "leadFormStarts",
+  lead_form_submitted: "leadSubmissions",
+  buyer_guide_requested: "buyerGuideRequests",
 };
 
 const categoryImages = {

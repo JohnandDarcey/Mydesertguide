@@ -244,6 +244,63 @@ function contactActionLinks(className = "") {
   `;
 }
 
+function realEstateLeadForm() {
+  return `
+    <div class="real-estate-inquiry" id="real-estate-inquiry">
+      <div class="lead-form-intro">
+        <p class="eyebrow">A personal next step</p>
+        <h3>What are you considering?</h3>
+        <p>Share a little about what you have in mind. Darcey will follow up personally—no pressure and no automated sales pitch.</p>
+      </div>
+      <form class="lead-form" id="lead-form" novalidate>
+        <input type="hidden" name="startedAt" value="${Date.now()}" />
+        <input class="lead-honeypot" name="company" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="lead-form-grid">
+          <label>How can Darcey help?
+            <select name="interest" required>
+              <option value="">Choose one</option>
+              <option value="buying">I'm thinking about buying</option>
+              <option value="selling">I'm thinking about selling</option>
+              <option value="relocating">I'm relocating to the desert</option>
+              <option value="exploring">I'm just exploring</option>
+              <option value="general">I have a real estate question</option>
+            </select>
+          </label>
+          <label>Timing
+            <select name="timeframe">
+              <option value="researching">Still researching</option>
+              <option value="now">As soon as possible</option>
+              <option value="3-months">Within 3 months</option>
+              <option value="6-months">Within 6 months</option>
+              <option value="12-months">Within a year</option>
+            </select>
+          </label>
+          <label>Your name<input name="name" type="text" autocomplete="name" maxlength="120" required /></label>
+          <label>Email<input name="email" type="email" autocomplete="email" maxlength="180" /></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" /></label>
+          <label class="lead-message">Anything Darcey should know?<textarea name="message" rows="4" maxlength="1500" placeholder="A neighborhood, timeline, question, or simply where you are in the process."></textarea></label>
+        </div>
+        <label class="buyer-guide-option" id="buyer-guide-option" hidden>
+          <input name="buyerGuideRequested" type="checkbox" checked />
+          <span><strong>Email me Darcey's 2026 First-Time Homebuyer Guide</strong><small>A practical 20-page guide to the buying process, key terms, financing questions and next steps.</small></span>
+        </label>
+        <label class="lead-consent"><input name="consent" type="checkbox" required /><span>I agree that Darcey may contact me about my real estate question. No spam.</span></label>
+        <div class="lead-submit-row">
+          <button class="button dark" type="submit">Send to Darcey</button>
+          <span>Or call or text <a href="tel:${realtorProfile.phoneHref}">${realtorProfile.phoneDisplay}</a></span>
+        </div>
+        <p class="lead-form-status" id="lead-form-status" role="status" aria-live="polite"></p>
+      </form>
+      <div class="lead-success" id="lead-success" hidden tabindex="-1">
+        <p class="eyebrow">Message received</p>
+        <h3>Thank you. Darcey will be in touch personally.</h3>
+        <p id="lead-success-detail">Your inquiry has been saved and sent securely.</p>
+        <a class="button" id="buyer-guide-download" href="/assets/downloads/darcey-first-time-homebuyer-2026.pdf" target="_blank" rel="noreferrer" hidden>Open the Buyer Guide</a>
+      </div>
+    </div>
+  `;
+}
+
 function expandableTip(label, text) {
   if (text.length < 165) {
     return `<div class="tip"><strong>${label}</strong><span>${text}</span></div>`;
@@ -1030,9 +1087,10 @@ function render() {
           <p>Whether you're buying, selling, or simply exploring what's possible, Darcey can help you navigate Coachella Valley real estate with the same local knowledge behind this guide.</p>
           <div class="real-estate-actions">
             <a class="button dark" href="${realtorProfile.homeSearchUrl}" target="_blank" rel="noreferrer" data-analytics-event="real_estate_home_search_click" data-analytics-category="Real Estate" data-analytics-label="Explore Desert Homes">Explore Desert Homes</a>
-            <a class="real-estate-talk-link" href="sms:${realtorProfile.phoneHref}" data-analytics-event="real_estate_contact_click" data-analytics-category="Real Estate" data-analytics-label="Talk With Darcey">Talk With Darcey <span aria-hidden="true">→</span></a>
+            <a class="real-estate-talk-link" href="#real-estate-inquiry" data-analytics-event="real_estate_contact_click" data-analytics-category="Real Estate" data-analytics-label="Start a conversation with Darcey">Start a Conversation <span aria-hidden="true">→</span></a>
           </div>
         </div>
+        ${realEstateLeadForm()}
       </section>
 
       ${curatedFavoritesSection()}
@@ -1073,6 +1131,93 @@ function render() {
     event.currentTarget.textContent = isExpanded ? "Show Less" : "Read More";
   });
 
+  const leadForm = document.querySelector("#lead-form");
+  const leadStatus = document.querySelector("#lead-form-status");
+  const interestField = leadForm.elements.interest;
+  const buyerGuideOption = document.querySelector("#buyer-guide-option");
+  let leadFormStarted = false;
+
+  leadForm.addEventListener("input", () => {
+    if (leadFormStarted) return;
+    leadFormStarted = true;
+    document.dispatchEvent(new CustomEvent("mdg:analytics", {
+      detail: { eventName: "lead_form_started", details: { category: "Real Estate" } },
+    }));
+  });
+
+  interestField.addEventListener("change", () => {
+    buyerGuideOption.hidden = interestField.value !== "buying";
+  });
+
+  leadForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    leadStatus.classList.remove("error");
+    const data = new FormData(leadForm);
+    const email = String(data.get("email") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
+    if (!leadForm.reportValidity()) return;
+    if (!email && !phone) {
+      leadStatus.textContent = "Please provide an email address or phone number so Darcey can respond.";
+      leadStatus.classList.add("error");
+      return;
+    }
+    const wantsBuyerGuide = data.get("buyerGuideRequested") === "on" && data.get("interest") === "buying";
+    if (wantsBuyerGuide && !email) {
+      leadStatus.textContent = "Please add your email address to receive the buyer guide, or uncheck the guide option.";
+      leadStatus.classList.add("error");
+      return;
+    }
+
+    const submitButton = leadForm.querySelector("button[type='submit']");
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending…";
+    leadStatus.textContent = "Saving your inquiry securely…";
+    const leadContext = window.MDG_LEAD_CONTEXT || {};
+    const buyerGuideRequested = wantsBuyerGuide && Boolean(email);
+    try {
+      const response = await fetch("/api/leads/submit", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          startedAt: Number(data.get("startedAt")),
+          company: data.get("company"),
+          interest: data.get("interest"),
+          timeframe: data.get("timeframe"),
+          name: data.get("name"),
+          email,
+          phone,
+          message: data.get("message"),
+          consent: data.get("consent") === "on",
+          buyerGuideRequested,
+          visitorId: leadContext.visitorId || "",
+          sessionId: leadContext.sessionId || "",
+          attribution: leadContext.attribution?.() || {},
+          path: window.location.pathname,
+          referrer: document.referrer,
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.error || "Your inquiry could not be sent.");
+      leadForm.hidden = true;
+      const success = document.querySelector("#lead-success");
+      const successDetail = document.querySelector("#lead-success-detail");
+      const guideDownload = document.querySelector("#buyer-guide-download");
+      if (buyerGuideRequested) {
+        guideDownload.hidden = false;
+        successDetail.textContent = result.resourceStatus === "sent"
+          ? "Your inquiry is saved, and the buyer guide is on its way to your email. You can also open it below."
+          : "Your inquiry is saved. You can open your buyer guide below.";
+      }
+      success.hidden = false;
+      success.focus();
+    } catch (error) {
+      leadStatus.textContent = error.message;
+      leadStatus.classList.add("error");
+      submitButton.disabled = false;
+      submitButton.textContent = "Send to Darcey";
+    }
+  });
+
   document.addEventListener("click", (event) => {
     const toggle = event.target.closest(".featured-note-toggle, .tip-note-toggle");
     if (!toggle) return;
@@ -1100,4 +1245,13 @@ const legacyCategoryRoutes = {
 
 const legacyCategoryRoute = legacyCategoryRoutes[window.location.hash.toLowerCase()];
 if (legacyCategoryRoute) window.location.replace(legacyCategoryRoute);
-else render();
+else {
+  render();
+  const requestedSectionId = decodeURIComponent(window.location.hash.slice(1));
+  if (requestedSectionId) {
+    const scrollToRequestedSection = () => document.getElementById(requestedSectionId)?.scrollIntoView();
+    if (document.readyState === "complete") requestAnimationFrame(scrollToRequestedSection);
+    else window.addEventListener("load", scrollToRequestedSection, { once: true });
+    window.setTimeout(scrollToRequestedSection, 350);
+  }
+}

@@ -37,6 +37,8 @@ const totals = {
   darceyCallClicks: 1,
   darceyEmailClicks: 1,
   darceyWebsiteClicks: 3,
+  realEstateHomeSearchClicks: 3,
+  leadSubmissions: 2,
 };
 const report = {
   date: "2026-08-13",
@@ -57,7 +59,7 @@ const rendered = renderDailyReportEmail(report);
 if (!rendered.subject.startsWith("Your Desert Guide Daily Report —")) {
   throw new Error("Daily report subject is incorrect.");
 }
-for (const required of ["Good morning, Darcey.", "People Connected With You", "View Full Analytics"]) {
+for (const required of ["Good morning, Darcey.", "People Connected With You", "Confirmed Leads", "View Full Analytics"]) {
   if (!rendered.html.includes(required)) throw new Error(`Daily report is missing: ${required}`);
 }
 const quietRendered = renderDailyReportEmail({

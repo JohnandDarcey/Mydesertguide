@@ -39,6 +39,11 @@ function blankTotals() {
     nativePromptDismissed: 0,
     pwaInstallConfirmed: 0,
     pwaStandaloneLaunches: 0,
+    realEstateCtaImpressions: 0,
+    realEstateHomeSearchClicks: 0,
+    leadFormStarts: 0,
+    leadSubmissions: 0,
+    buyerGuideRequests: 0,
   };
 }
 
@@ -56,6 +61,9 @@ function blankDay(date) {
     sources: {},
     devices: {},
     countries: {},
+    leadTypes: {},
+    leadSources: {},
+    leadOrigins: {},
     visitorHashes: [],
     returningVisitorHashes: [],
     sessionKeys: [],
@@ -73,6 +81,9 @@ function blankHour(hourStart) {
     sources: {},
     devices: {},
     countries: {},
+    leadTypes: {},
+    leadSources: {},
+    leadOrigins: {},
     visitorHashes: [],
     returningVisitorHashes: [],
     sessionKeys: [],
@@ -88,6 +99,9 @@ function blankLifetime() {
     totals: blankTotals(),
     categories: {},
     places: {},
+    leadTypes: {},
+    leadSources: {},
+    leadOrigins: {},
     uniqueVisitorHashes: [],
   };
 }
@@ -218,6 +232,17 @@ function recordHourlyEvent(hour, {
   if (totalKey) incrementTotal(hour.totals, totalKey);
   hour.eventCounts[eventName] = Number(hour.eventCounts[eventName] || 0) + 1;
   if (CLIENT_ENGAGEMENT_EVENTS.has(eventName)) incrementTotal(hour.totals, "clientEngagements");
+  if (eventName === "lead_form_submitted") {
+    const leadType = sanitize(payload.leadType, "General");
+    const leadSource = sanitize(payload.leadSource, "Direct");
+    const leadOrigin = sanitize(payload.leadOrigin, "/");
+    hour.leadTypes ||= {};
+    hour.leadSources ||= {};
+    hour.leadOrigins ||= {};
+    hour.leadTypes[leadType] = Number(hour.leadTypes[leadType] || 0) + 1;
+    hour.leadSources[leadSource] = Number(hour.leadSources[leadSource] || 0) + 1;
+    hour.leadOrigins[leadOrigin] = Number(hour.leadOrigins[leadOrigin] || 0) + 1;
+  }
 
   const category = normalizeCategory(payload);
   if (eventName === "category_view" || eventName === "homepage_category_click" || eventName === "place_view") {
@@ -289,6 +314,9 @@ export async function recordEvent(payload = {}, request, context) {
   const lifetime = await getLifetime();
   lifetime.categories ||= {};
   lifetime.places ||= {};
+  lifetime.leadTypes ||= {};
+  lifetime.leadSources ||= {};
+  lifetime.leadOrigins ||= {};
   const visitorProfile = await loadVisitorProfile(visitorHash);
   const isKnownVisitor = Boolean(visitorProfile?.firstSeen);
   day.hours ||= {};
@@ -341,6 +369,21 @@ export async function recordEvent(payload = {}, request, context) {
   if (CLIENT_ENGAGEMENT_EVENTS.has(eventName)) {
     incrementTotal(day.totals, "clientEngagements");
     incrementTotal(lifetime.totals, "clientEngagements");
+  }
+
+  if (eventName === "lead_form_submitted") {
+    const leadType = sanitize(payload.leadType, "General");
+    const leadSource = sanitize(payload.leadSource, "Direct");
+    const leadOrigin = sanitize(payload.leadOrigin, "/");
+    day.leadTypes ||= {};
+    day.leadSources ||= {};
+    day.leadOrigins ||= {};
+    day.leadTypes[leadType] = Number(day.leadTypes[leadType] || 0) + 1;
+    day.leadSources[leadSource] = Number(day.leadSources[leadSource] || 0) + 1;
+    day.leadOrigins[leadOrigin] = Number(day.leadOrigins[leadOrigin] || 0) + 1;
+    lifetime.leadTypes[leadType] = Number(lifetime.leadTypes[leadType] || 0) + 1;
+    lifetime.leadSources[leadSource] = Number(lifetime.leadSources[leadSource] || 0) + 1;
+    lifetime.leadOrigins[leadOrigin] = Number(lifetime.leadOrigins[leadOrigin] || 0) + 1;
   }
 
   const category = normalizeCategory(payload);
@@ -460,6 +503,9 @@ export function rollup(days) {
   const sources = {};
   const devices = {};
   const countries = {};
+  const leadTypes = {};
+  const leadSources = {};
+  const leadOrigins = {};
 
   days.forEach((day) => {
     Object.entries(day?.totals || {}).forEach(([key, value]) => {
@@ -474,6 +520,9 @@ export function rollup(days) {
     sumNumberMap(sources, day?.sources);
     sumNumberMap(devices, day?.devices);
     sumNumberMap(countries, day?.countries);
+    sumNumberMap(leadTypes, day?.leadTypes);
+    sumNumberMap(leadSources, day?.leadSources);
+    sumNumberMap(leadOrigins, day?.leadOrigins);
   });
 
   totals.uniqueVisitors = visitorHashes.size;
@@ -487,6 +536,9 @@ export function rollup(days) {
     sources,
     devices,
     countries,
+    leadTypes,
+    leadSources,
+    leadOrigins,
   };
 }
 
@@ -518,6 +570,7 @@ export async function getDashboardSummary() {
       guideViews: Number(hour?.totals?.guideViews || 0),
       uniqueVisitors: Number(hour?.totals?.uniqueVisitors || 0),
       placeViews: Number(hour?.totals?.placeViews || 0),
+      leadSubmissions: Number(hour?.totals?.leadSubmissions || 0),
       contactActions: Number(hour?.totals?.darceyCallClicks || 0) + Number(hour?.totals?.darceyTextClicks || 0) + Number(hour?.totals?.darceyEmailClicks || 0),
     };
   });
@@ -528,6 +581,7 @@ export async function getDashboardSummary() {
       guideViews: Number(dayMap[date]?.totals?.guideViews || 0),
       uniqueVisitors: Number(dayMap[date]?.totals?.uniqueVisitors || 0),
       placeViews: Number(dayMap[date]?.totals?.placeViews || 0),
+      leadSubmissions: Number(dayMap[date]?.totals?.leadSubmissions || 0),
       contactActions:
         Number(dayMap[date]?.totals?.darceyCallClicks || 0) +
         Number(dayMap[date]?.totals?.darceyTextClicks || 0) +
@@ -558,6 +612,9 @@ export async function getDashboardSummary() {
     topPlaces: lifetime.places && Object.keys(lifetime.places).length
       ? topEntries(lifetime.places, "views", 8)
       : last90.topPlaces,
+    leadTypes: lifetime.leadTypes || last90.leadTypes,
+    leadSources: lifetime.leadSources || last90.leadSources,
+    leadOrigins: lifetime.leadOrigins || last90.leadOrigins,
   };
 
   return {

@@ -38,6 +38,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -63,7 +67,8 @@ a {
 
 button,
 input,
-select {
+select,
+textarea {
   font: inherit;
 }
 
@@ -724,6 +729,173 @@ h1 {
   margin: 0;
   text-align: center;
   text-transform: uppercase;
+}
+
+.real-estate-inquiry {
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  display: grid;
+  gap: clamp(26px, 5vw, 70px);
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(220px, 0.65fr) minmax(0, 1.35fr);
+  padding: clamp(24px, 4vw, 46px);
+}
+
+.lead-form-intro h3,
+.lead-success h3 {
+  font-size: var(--type-subsection-title);
+  margin-bottom: 16px;
+}
+
+.lead-form-intro > p:last-child,
+.lead-success > p:not(.eyebrow) {
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  line-height: var(--leading-body);
+}
+
+.lead-form,
+.lead-form-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.lead-form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lead-form label:not(.lead-consent):not(.buyer-guide-option):not(.lead-honeypot) {
+  color: var(--charcoal);
+  display: grid;
+  font-size: 0.68rem;
+  font-weight: 600;
+  gap: 7px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.lead-form input[type="text"],
+.lead-form input[type="email"],
+.lead-form input[type="tel"],
+.lead-form select,
+.lead-form textarea {
+  background: var(--white);
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  border-radius: var(--control-radius);
+  color: var(--charcoal);
+  font-size: 0.92rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  min-height: 50px;
+  padding: 12px 14px;
+  text-transform: none;
+  width: 100%;
+}
+
+.lead-form textarea {
+  line-height: 1.5;
+  min-height: 116px;
+  resize: vertical;
+}
+
+.lead-form input:focus-visible,
+.lead-form select:focus-visible,
+.lead-form textarea:focus-visible {
+  border-color: var(--gold);
+  outline: 3px solid rgba(168, 137, 85, 0.24);
+  outline-offset: 1px;
+}
+
+.lead-message {
+  grid-column: 1 / -1;
+}
+
+.buyer-guide-option,
+.lead-consent {
+  align-items: start;
+  display: flex;
+  gap: 12px;
+}
+
+.buyer-guide-option {
+  background: var(--white);
+  border: 1px solid rgba(168, 137, 85, 0.45);
+  border-radius: var(--control-radius);
+  padding: 16px;
+}
+
+.buyer-guide-option input,
+.lead-consent input {
+  accent-color: var(--charcoal);
+  flex: 0 0 auto;
+  height: 18px;
+  margin: 2px 0 0;
+  width: 18px;
+}
+
+.buyer-guide-option strong,
+.buyer-guide-option small {
+  display: block;
+}
+
+.buyer-guide-option strong {
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.buyer-guide-option small,
+.lead-consent {
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+.buyer-guide-option small {
+  margin-top: 3px;
+}
+
+.lead-submit-row {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.lead-submit-row > span {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.lead-submit-row > span a {
+  border-bottom: 1px solid currentColor;
+  color: var(--charcoal);
+}
+
+.lead-form-status {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin: 0;
+  min-height: 1.2em;
+}
+
+.lead-form-status.error {
+  color: #8b3329;
+}
+
+.lead-honeypot {
+  left: -9999px;
+  position: absolute;
+}
+
+.lead-success {
+  align-self: center;
+}
+
+.lead-success .button {
+  margin-top: 8px;
 }
 
 .section-heading h2,
@@ -2038,6 +2210,25 @@ dd {
   .real-estate-cta .button {
     justify-content: center;
     width: 100%;
+  }
+
+  .real-estate-inquiry,
+  .lead-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .real-estate-inquiry {
+    gap: 22px;
+    padding: 24px 18px;
+  }
+
+  .lead-message {
+    grid-column: auto;
+  }
+
+  .lead-submit-row {
+    align-items: stretch;
+    display: grid;
   }
 
   .real-estate-actions,

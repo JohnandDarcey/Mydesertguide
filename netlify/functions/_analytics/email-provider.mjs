@@ -1,4 +1,4 @@
-export async function sendEmail({ from, to, subject, html, text }) {
+export async function sendEmail({ from, to, replyTo, subject, html, text }) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     throw new Error("RESEND_API_KEY is not configured in Netlify.");
@@ -16,6 +16,7 @@ export async function sendEmail({ from, to, subject, html, text }) {
       subject,
       html,
       text,
+      ...(replyTo ? { reply_to: replyTo } : {}),
     }),
   });
 

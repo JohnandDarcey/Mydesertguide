@@ -65,6 +65,75 @@
     placeType: document.body.dataset.placeType || "",
   };
 
+  function readStoredJson(storage, key, fallback) {
+    try {
+      return JSON.parse(storage.getItem(key) || "null") || fallback;
+    } catch {
+      return fallback;
+    }
+  }
+
+  function writeStoredJson(storage, key, value) {
+    try {
+      storage.setItem(key, JSON.stringify(value));
+    } catch {
+      // Analytics remains functional when storage is unavailable.
+    }
+  }
+
+  function referrerDetails(referrer = "") {
+    if (!referrer) return { host: "", source: "Direct" };
+    try {
+      const host = new URL(referrer).hostname.replace(/^www\./, "");
+      if (!host || host === window.location.hostname.replace(/^www\./, "")) return { host: "", source: "Direct" };
+      if (/google\.|bing\.|yahoo\.|duckduckgo\./i.test(host)) return { host, source: "Search" };
+      if (/instagram\./i.test(host)) return { host, source: "Instagram" };
+      if (/facebook\.|fb\./i.test(host)) return { host, source: "Facebook" };
+      if (/darceydeetz\.com$/i.test(host)) return { host, source: "DarceyDeetz.com" };
+      return { host, source: host };
+    } catch {
+      return { host: "", source: "Direct" };
+    }
+  }
+
+  const campaignParams = new URLSearchParams(window.location.search);
+  const referrer = referrerDetails(document.referrer);
+  const detectedAttribution = {
+    source: (campaignParams.get("utm_source") || referrer.source || "Direct").slice(0, 80),
+    medium: (campaignParams.get("utm_medium") || (referrer.host ? "referral" : "")).slice(0, 80),
+    campaign: (campaignParams.get("utm_campaign") || "").slice(0, 100),
+    content: (campaignParams.get("utm_content") || "").slice(0, 100),
+    referrerHost: referrer.host.slice(0, 120),
+    landingPath: `${window.location.pathname}${window.location.hash}`.slice(0, 180),
+    capturedAt: new Date().toISOString(),
+  };
+  const attributionKey = "mdg_first_attribution";
+  const sessionAttributionKey = "mdg_session_attribution";
+  const firstAttribution = readStoredJson(window.localStorage, attributionKey, null) || detectedAttribution;
+  if (!readStoredJson(window.localStorage, attributionKey, null)) writeStoredJson(window.localStorage, attributionKey, firstAttribution);
+  const sessionAttribution = readStoredJson(window.sessionStorage, sessionAttributionKey, null) || detectedAttribution;
+  if (!readStoredJson(window.sessionStorage, sessionAttributionKey, null)) writeStoredJson(window.sessionStorage, sessionAttributionKey, sessionAttribution);
+
+  const recentPageKey = "mdg_recent_guide_pages";
+  const recentPages = readStoredJson(window.localStorage, recentPageKey, []);
+  const currentPage = {
+    path: `${window.location.pathname}${window.location.hash}`.slice(0, 180),
+    title: document.title.slice(0, 160),
+    category: pageContext.category.slice(0, 80),
+    placeName: pageContext.placeName.slice(0, 120),
+  };
+  const updatedRecentPages = [...recentPages.filter((item) => item?.path !== currentPage.path), currentPage].slice(-5);
+  writeStoredJson(window.localStorage, recentPageKey, updatedRecentPages);
+
+  window.MDG_LEAD_CONTEXT = {
+    visitorId,
+    sessionId,
+    attribution() {
+      const active = sessionAttribution.source !== "Direct" ? sessionAttribution : firstAttribution;
+      return { ...active, recentPages: readStoredJson(window.localStorage, recentPageKey, []) };
+    },
+  };
+
   function sectionFromHash(hash = window.location.hash) {
     const id = hash.replace(/^#/, "");
     const sections = {

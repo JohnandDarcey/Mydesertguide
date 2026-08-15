@@ -2,7 +2,7 @@
   const $ = (selector) => document.querySelector(selector);
   const tokenKey = "mdg_admin_analytics_token";
   const nf = new Intl.NumberFormat("en-US");
-  const state = { data: null, range: "30" };
+  const state = { data: null, leads: [], range: "30" };
 
   const elements = {
     tokenForm: $("#token-form"), tokenInput: $("#token-input"), clearToken: $("#clear-token"),
@@ -13,6 +13,7 @@
     realEstatePanel: $("#real-estate-panel"), realEstateContent: $("#real-estate-content"),
     appPanel: $("#app-panel"), appContent: $("#app-content"), refresh: $("#refresh"),
     preview: $("#preview-report"), sendTest: $("#send-test"), rangeSelector: $("#range-selector"),
+    leadTotal: $("#lead-total"), leadContent: $("#lead-content"), recentLeads: $("#recent-leads"),
   };
 
   const number = (value) => nf.format(Number(value || 0));
@@ -96,7 +97,7 @@
   }
 
   function renderContacts(totals = {}, trend = []) {
-    const items = [["Texts", totals.darceyTextClicks, "Message"], ["Calls", totals.darceyCallClicks, "Phone"], ["Emails", totals.darceyEmailClicks, "Envelope"]];
+    const items = [["Text app opens", totals.darceyTextClicks, "Message"], ["Phone link clicks", totals.darceyCallClicks, "Phone"], ["Email app opens", totals.darceyEmailClicks, "Envelope"]];
     elements.contactCards.innerHTML = items.map(([label, value, icon]) => `<article><span>${icon}</span><strong>${number(value)}</strong><small>${label}</small></article>`).join("");
     const total = contactTotal(totals);
     elements.contactTotal.innerHTML = `<strong>${number(total)}</strong><span>Total contact actions</span>`;
@@ -104,12 +105,35 @@
     elements.contactTrend.innerHTML = trend.slice(-14).map((item) => `<i title="${item.date}: ${item.contactActions || 0}" style="height:${Math.max(4, Math.round((Number(item.contactActions || 0) / max) * 54))}px"></i>`).join("");
   }
 
+  function renderLeads(current = {}) {
+    const totals = current.totals || {};
+    const leads = Number(totals.leadSubmissions || 0);
+    const starts = Number(totals.leadFormStarts || 0);
+    const rate = starts ? Math.round((leads / starts) * 100) : 0;
+    const typeLabels = { buying: "Buying", selling: "Selling", relocating: "Relocating", exploring: "Exploring", general: "General question" };
+    const breakdown = Object.entries(current.leadTypes || {}).sort((a, b) => b[1] - a[1]);
+    const sources = Object.entries(current.leadSources || {}).sort((a, b) => b[1] - a[1]);
+    elements.leadTotal.innerHTML = `<strong>${number(leads)}</strong><span>confirmed in this period</span>`;
+    elements.leadContent.innerHTML = `<div class="lead-summary-cards"><article><strong>${number(starts)}</strong><span>Forms started</span></article><article><strong>${number(leads)}</strong><span>Forms submitted</span></article><article><strong>${number(rate)}%</strong><span>Form completion rate</span></article><article><strong>${number(totals.buyerGuideRequests || 0)}</strong><span>Buyer guides requested</span></article></div><div class="lead-breakdowns"><div><h3>Lead Type</h3>${breakdown.length ? breakdown.map(([name, value]) => `<p><span>${escapeHtml(typeLabels[name] || name)}</span><strong>${number(value)}</strong></p>`).join("") : `<p class="empty">Lead types will appear after the first confirmed inquiry.</p>`}</div><div><h3>Lead Source</h3>${sources.length ? sources.map(([name, value]) => `<p><span>${escapeHtml(name)}</span><strong>${number(value)}</strong></p>`).join("") : `<p class="empty">Sources will appear after the first confirmed inquiry.</p>`}</div></div>`;
+
+    if (!state.leads.length) {
+      elements.recentLeads.innerHTML = `<p class="empty">No confirmed inquiries yet. New leads will appear here and will also be emailed to John and Darcey.</p>`;
+      return;
+    }
+    elements.recentLeads.innerHTML = state.leads.map((lead) => {
+      const contact = [lead.email ? `<a href="mailto:${escapeHtml(lead.email)}">${escapeHtml(lead.email)}</a>` : "", lead.phone ? `<a href="tel:${escapeHtml(lead.phone)}">${escapeHtml(lead.phone)}</a>` : ""].filter(Boolean).join(" · ");
+      const source = [lead.attribution?.source, lead.attribution?.medium].filter(Boolean).join(" / ") || "Direct";
+      return `<article class="recent-lead"><div><p class="eyebrow">${escapeHtml(lead.interestLabel || lead.interest || "Real estate inquiry")}</p><h3>${escapeHtml(lead.name)}</h3><p>${contact}</p></div><div><span>${new Date(lead.submittedAt).toLocaleString()}</span><span>Source: ${escapeHtml(source)}</span><span>Timing: ${escapeHtml(lead.timeframeLabel || "Not specified")}</span></div>${lead.message ? `<p class="recent-lead-message">${escapeHtml(lead.message)}</p>` : ""}</article>`;
+    }).join("");
+  }
+
   function renderOpportunities(totals = {}) {
-    const homeSearches = Number(totals.darceyWebsiteClicks || 0);
+    const homeSearches = Number(totals.realEstateHomeSearchClicks || totals.darceyWebsiteClicks || 0);
     const talkClicks = Number(totals.realEstateContactClicks || 0);
-    const realEstate = homeSearches + talkClicks;
+    const confirmedLeads = Number(totals.leadSubmissions || 0);
+    const realEstate = homeSearches + talkClicks + confirmedLeads;
     elements.realEstatePanel.hidden = !realEstate;
-    elements.realEstateContent.innerHTML = `<strong class="opportunity-number">${number(realEstate)}</strong><p>real-estate interest actions from the guide: ${number(homeSearches)} home searches and ${number(talkClicks)} requests to talk with Darcey.</p>`;
+    elements.realEstateContent.innerHTML = `<strong class="opportunity-number">${number(realEstate)}</strong><p>real-estate interest actions from the guide: ${number(homeSearches)} home-search clicks, ${number(talkClicks)} conversation CTA clicks, and ${number(confirmedLeads)} confirmed lead${confirmedLeads === 1 ? "" : "s"}.</p>`;
     const interest = Number(totals.installCtaClicked || 0); const installs = Number(totals.pwaInstallConfirmed || 0); const launches = Number(totals.pwaStandaloneLaunches || 0);
     elements.appPanel.hidden = !(interest || installs || launches);
     elements.appContent.innerHTML = `<div class="app-stats"><div><strong>${number(interest)}</strong><span>Add-to-phone interest</span></div><div><strong>${number(installs)}</strong><span>Confirmed installs</span></div><div><strong>${number(launches)}</strong><span>Standalone app launches</span></div></div>`;
@@ -122,7 +146,9 @@
       return { date: date.toISOString().slice(0, 10), guideViews, uniqueVisitors: Math.max(3, guideViews - 4), placeViews: guideViews + 6, contactActions: index % 5 === 0 ? 2 : index % 3 === 0 ? 1 : 0 };
     });
     const current = {
-      totals: { guideViews: 324, uniqueVisitors: 218, returningVisitors: 61, placeViews: 487, darceyTextClicks: 4, darceyCallClicks: 3, darceyEmailClicks: 5, darceyWebsiteClicks: 9, pwaInstallConfirmed: 3, pwaStandaloneLaunches: 21 },
+      totals: { guideViews: 324, uniqueVisitors: 218, returningVisitors: 61, placeViews: 487, darceyTextClicks: 4, darceyCallClicks: 3, darceyEmailClicks: 5, realEstateHomeSearchClicks: 9, leadFormStarts: 8, leadSubmissions: 3, buyerGuideRequests: 2, pwaInstallConfirmed: 3, pwaStandaloneLaunches: 21 },
+      leadTypes: { buying: 2, relocating: 1 },
+      leadSources: { Google: 2, Instagram: 1 },
       topCategories: [{ name: "Food & Drink", views: 166 }, { name: "Things To Do", views: 90 }, { name: "Golf", views: 65 }, { name: "Shopping", views: 39 }],
       topPlaces: [
         { name: "Spencer's Restaurant", category: "Food & Drink", views: 42, image: "./assets/restaurants/spencers-patio.png" },
@@ -147,10 +173,11 @@
       kpi("Visitors", totals.uniqueVisitors, previousTotals.uniqueVisitors, trend, "uniqueVisitors"),
       kpi("Recommendations Viewed", totals.placeViews, previousTotals.placeViews, trend, "placeViews"),
       kpi("Darcey Contact Actions", contactTotal(totals), contactTotal(previousTotals), trend, "contactActions"),
+      kpi("Confirmed Leads", totals.leadSubmissions, previousTotals.leadSubmissions, trend, "leadSubmissions"),
     ].join("");
     elements.activity.innerHTML = lineChart(trend);
     renderVisitors(totals); renderCategories(current.topCategories || []); renderPlaces(current.topPlaces || []);
-    renderContacts(totals, trend); renderOpportunities(totals);
+    renderContacts(totals, trend); renderLeads(current); renderOpportunities(totals);
   }
 
   async function loadDashboard() {
@@ -164,9 +191,14 @@
     }
     setStatus("Loading Darcey's guide performance…");
     try {
-      const response = await fetch("/api/analytics/summary", { headers: headers() });
-      const data = await response.json();
-      if (!response.ok || !data.ok) throw new Error(data.error || "Could not load analytics.");
+      const [summaryResponse, leadsResponse] = await Promise.all([
+        fetch("/api/analytics/summary", { headers: headers() }),
+        fetch("/api/leads/recent", { headers: headers() }),
+      ]);
+      const data = await summaryResponse.json();
+      if (!summaryResponse.ok || !data.ok) throw new Error(data.error || "Could not load analytics.");
+      const leadData = await leadsResponse.json().catch(() => ({ ok: false }));
+      state.leads = leadsResponse.ok && leadData.ok ? leadData.leads || [] : [];
       state.data = data; render(); elements.access.classList.add("authenticated");
       setStatus(`Updated ${new Date(data.generatedAt).toLocaleString()}.`);
     } catch (error) { setStatus(error.message, true); }

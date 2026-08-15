@@ -11,6 +11,11 @@ The browser sends these event names to `/api/analytics/collect`:
 - `place_view`
 - `darcey_website_click`
 - `real_estate_contact_click`
+- `real_estate_cta_impression`
+- `real_estate_home_search_click`
+- `lead_form_started`
+- `lead_form_submitted`
+- `buyer_guide_requested`
 - `darcey_call_click`
 - `darcey_text_click`
 - `darcey_email_click`
@@ -46,7 +51,9 @@ Business website and menu clicks are shown separately as guide engagement, but t
 
 ## Privacy
 
-The site creates a random anonymous visitor ID in the visitor's browser. The server hashes that ID before storing it. No raw IP addresses are stored long-term, and the dashboard shows aggregate totals only.
+The site creates a random anonymous visitor ID in the visitor's browser. The server hashes that ID before storing it. No raw IP addresses are stored long-term. Aggregate analytics do not contain names, email addresses, phone numbers, or inquiry messages.
+
+People who explicitly submit the real-estate form create a separate private lead record in Netlify Blobs. Those records contain the contact details and consent needed for Darcey to respond, are available only through the admin-token-protected dashboard API, and are never mixed into aggregate event storage.
 
 The dashboard excludes `/admin` traffic, and the server ignores obvious bot and crawler user agents.
 
@@ -57,6 +64,7 @@ Add these in Netlify:
 ```text
 ANALYTICS_ADMIN_TOKEN=choose-a-long-private-password
 ANALYTICS_REPORT_TO=john@darceydeetz.com,darcey@darceydeetz.com
+LEAD_NOTIFICATION_TO=john@darceydeetz.com,darcey@darceydeetz.com
 ANALYTICS_FROM_EMAIL=My Desert Guide <reports@mydesertguide.com>
 RESEND_API_KEY=your-resend-api-key
 SITE_URL=https://mydesertguide.com
@@ -67,6 +75,7 @@ Notes:
 
 - `ANALYTICS_ADMIN_TOKEN` protects the private dashboard API and the test email button.
 - `ANALYTICS_REPORT_TO` accepts a comma-separated list of recipients.
+- `LEAD_NOTIFICATION_TO` accepts a comma-separated list for immediate new-lead alerts. If omitted, it uses `ANALYTICS_REPORT_TO`.
 - `RESEND_API_KEY` is required before emails can actually send.
 - `ANALYTICS_FROM_EMAIL` must be a sender address/domain verified in Resend.
 - `SITE_URL` is used to generate absolute dashboard and image URLs in email clients.
@@ -82,7 +91,13 @@ https://mydesertguide.com/admin/analytics.html
 
 Paste the `ANALYTICS_ADMIN_TOKEN` when prompted. The token is saved only in that browser's local storage and is not placed in the URL.
 
-The dashboard defaults to 30 days and also offers 7 days, 90 days, and all time. It shows four headline metrics, a views-and-visitors activity chart, new versus returning visitors, category interest, popular places, Darcey contact actions, real-estate interest, and reliable PWA activity when present.
+The dashboard defaults to 30 days and also offers 24 hours, 7 days, 90 days, and all time. It shows headline metrics, a views-and-visitors activity chart, new versus returning visitors, category interest, popular places, Darcey contact actions, real-estate interest, confirmed lead conversion, lead sources, buyer-guide requests, and reliable PWA activity when present. Recent lead names and contact details appear only after the private dashboard is unlocked.
+
+## Real-Estate Lead Flow
+
+The homepage real-estate section contains a short consent-based inquiry form. It captures buying, selling, relocation, exploratory, and general real-estate intent; timeframe; contact preference; and anonymous source/campaign context. A submitted form is a confirmed lead. Phone, text, email, home-search, and website clicks remain intent signals and must not be described as inquiries or missed messages.
+
+When a buyer asks for Darcey's first-time homebuyer guide and provides an email address, the system emails the PDF automatically and records the request as a conversion. The PDF also remains available from the post-submit confirmation screen.
 
 ## Daily Email Report
 

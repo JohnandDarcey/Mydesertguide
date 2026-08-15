@@ -48,3 +48,13 @@
   from = "/api/analytics/preview-report"
   to = "/.netlify/functions/analytics-preview-report"
   status = 200
+
+[[redirects]]
+  from = "/api/leads/submit"
+  to = "/.netlify/functions/lead-submit"
+  status = 200
+
+[[redirects]]
+  from = "/api/leads/recent"
+  to = "/.netlify/functions/leads-recent"
+  status = 200

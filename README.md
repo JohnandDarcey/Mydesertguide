@@ -15,9 +15,11 @@ Every committed change pushed to GitHub will be published by Netlify.
 
 ## Private Analytics
 
-The guide includes first-party aggregate analytics, a private dashboard, and a scheduled daily email report.
+The guide includes first-party aggregate analytics, a consent-based real-estate lead form, a private lead dashboard, and a scheduled daily email report.
 
 - Dashboard: `/admin/analytics.html`
+- Lead alerts: immediate email to John and Darcey
+- Buyer lead magnet: Darcey's 2026 First-Time Homebuyer Guide
 - Daily report: My Desert Guide Daily Pulse
 - Report recipient: `john@darceydeetz.com` by default
 - Storage: Netlify Blobs
