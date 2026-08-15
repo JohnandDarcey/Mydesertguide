@@ -124,8 +124,8 @@ export const restaurants = [
     value: 4.5,
     favoriteDish: "House pasta and a glass of red",
     happyHour: "Bar seating fills quickly",
-    website: "https://giuseppesps.com",
-    menu: "https://giuseppesps.com/menu",
+    website: "https://www.giuseppesrestaurants.com/palm-springs/",
+    menu: "https://www.giuseppesrestaurants.com/palm-springs/",
     maps: "https://maps.google.com/?q=Giuseppe's+Palm+Springs",
     description:
       "Warm, reliable Italian comfort with the kind of neighborhood feel that makes people come back again and again.",
@@ -992,8 +992,7 @@ export const services = [
     detail: "Electric service and local utility resources for parts of the Coachella Valley.",
     phone: "800-303-7756",
     website: "https://www.iid.com/",
-    startServiceUrl: "https://www.iid.com/start-service",
-    primaryAction: "START SERVICE",
+    primaryAction: "VISIT IID",
     serviceAreas: ["Rancho Mirage", "Palm Desert", "Indian Wells", "La Quinta", "Indio", "Coachella", "Bermuda Dunes", "Thousand Palms", "Thermal / Mecca"],
     maps: "https://maps.google.com/?q=Imperial+Irrigation+District+Coachella+Valley",
     description:

@@ -74,8 +74,8 @@
       "address": "",
       "phone": "",
       "email": "",
-      "website": "https://giuseppesps.com",
-      "menu": "https://giuseppesps.com/menu",
+      "website": "https://www.giuseppesrestaurants.com/palm-springs/",
+      "menu": "https://www.giuseppesrestaurants.com/palm-springs/",
       "directions": "https://maps.google.com/?q=Giuseppe's+Palm+Springs",
       "teeTime": "",
       "hours": "",
@@ -2867,9 +2867,9 @@
         "Thermal / Mecca"
       ],
       "additionalLocations": [],
-      "startServiceUrl": "https://www.iid.com/start-service",
+      "startServiceUrl": "",
       "availabilityUrl": "",
-      "primaryAction": "START SERVICE",
+      "primaryAction": "VISIT IID",
       "experienceTypes": [
         "Darcey's Favorites"
       ],
