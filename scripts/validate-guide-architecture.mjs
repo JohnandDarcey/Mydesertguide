@@ -21,6 +21,7 @@ const homepage = await read("index.html");
 const homepageApp = await read("app.js");
 const homepageData = await read("data.js");
 const homepageStyles = await read("styles.css");
+const homepageServiceWorker = await read("sw.js");
 const directoryStyles = await read("directory.css");
 const dashboardStyles = await read("admin/analytics-dashboard.css");
 for (const marker of ["The Desert", "my-desert-guide-hero-darcey.png", "Start With What You Need"]) {
@@ -110,6 +111,12 @@ if (!homepageData.includes("Curated by") || !homepageData.includes("Palm Springs
 }
 if (!homepage.includes("app.js?v=20260815-simple-lead-funnel") || !homepageApp.includes("data.js?v=20260814-spa-beauty-v2")) {
   throw new Error("Homepage lead-engine or Spa & Beauty cache-busting versions are missing.");
+}
+if (!homepage.includes("styles.css?v=20260815-real-estate-layout-fix") || !homepageServiceWorker.includes("darceys-guide-v20-real-estate-layout-fix")) {
+  throw new Error("Homepage real-estate layout cache-busting versions are missing.");
+}
+if (!homepageStyles.includes(".darcey-cta-photo") || !homepageStyles.includes("position: absolute")) {
+  throw new Error("Homepage real-estate portrait sizing guard is missing.");
 }
 
 const askDarceyPage = await read("ask-darcey/index.html");
