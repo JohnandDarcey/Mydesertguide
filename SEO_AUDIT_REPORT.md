@@ -1,6 +1,6 @@
 # MyDesertGuide.com Technical SEO Audit
 
-Generated: 2026-08-15T20:48:48.119Z
+Generated: 2026-08-15T20:50:28.768Z
 
 ## Audit summary
 
@@ -12,7 +12,7 @@ Generated: 2026-08-15T20:48:48.119Z
 - Duplicate meta descriptions: 0
 - Internal link target problems: 0
 - Missing local assets: 0
-- Live non-200 pages: not tested
+- Live non-200 pages: 0
 
 ## Public page inventory
 
