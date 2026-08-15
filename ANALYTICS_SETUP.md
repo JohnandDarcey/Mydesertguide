@@ -15,6 +15,8 @@ The browser sends these event names to `/api/analytics/collect`:
 - `real_estate_home_search_click`
 - `lead_form_started`
 - `lead_form_submitted`
+- `lead_form_error`
+- `ask_darcey_page_view`
 - `buyer_guide_requested`
 - `darcey_call_click`
 - `darcey_text_click`
@@ -91,11 +93,11 @@ https://mydesertguide.com/admin/analytics.html
 
 Paste the `ANALYTICS_ADMIN_TOKEN` when prompted. The token is saved only in that browser's local storage and is not placed in the URL.
 
-The dashboard defaults to 30 days and also offers 24 hours, 7 days, 90 days, and all time. It shows headline metrics, a views-and-visitors activity chart, new versus returning visitors, category interest, popular places, Darcey contact actions, real-estate interest, confirmed lead conversion, lead sources, buyer-guide requests, and reliable PWA activity when present. Recent lead names and contact details appear only after the private dashboard is unlocked.
+The dashboard defaults to 30 days and also offers 24 hours, 7 days, 90 days, and all time. It shows headline metrics, a views-and-visitors activity chart, new versus returning visitors, category interest, popular places, Darcey contact actions, Ask Darcey page visits, form starts and conversion, lead sources and types, content producing leads, buyer-guide requests, and reliable PWA activity when present. Recent lead names, contact details, messages, source pages, and New/Contacted status appear only after the private dashboard is unlocked.
 
 ## Real-Estate Lead Flow
 
-The homepage real-estate section contains a short consent-based inquiry form. It captures buying, selling, relocation, exploratory, and general real-estate intent; timeframe; contact preference; and anonymous source/campaign context. A submitted form is a confirmed lead. Phone, text, email, home-search, and website clicks remain intent signals and must not be described as inquiries or missed messages.
+The homepage real-estate section is an editorial invitation that sends visitors to the single consent-based form at `/ask-darcey/`. The form captures buying, selling, relocation, exploratory, and general-question intent plus name, email, optional phone/message, and anonymous source/campaign context. A submitted form is a confirmed lead. Phone, text, email, home-search, and website clicks remain intent signals and must not be described as inquiries or missed messages. Lead status can be changed from New to Contacted in the private dashboard.
 
 When a buyer asks for Darcey's first-time homebuyer guide and provides an email address, the system emails the PDF automatically and records the request as a conversion. The PDF also remains available from the post-submit confirmation screen.
 

@@ -72,8 +72,10 @@ export const TRACKED_EVENTS = new Set([
   "real_estate_cta_impression",
   "real_estate_home_search_click",
   "lead_form_started",
+  "lead_form_error",
   "lead_form_submitted",
   "buyer_guide_requested",
+  "ask_darcey_page_view",
 ]);
 
 export const CLIENT_ENGAGEMENT_EVENTS = new Set([
@@ -114,8 +116,10 @@ export const EVENT_TOTAL_KEYS = {
   real_estate_cta_impression: "realEstateCtaImpressions",
   real_estate_home_search_click: "realEstateHomeSearchClicks",
   lead_form_started: "leadFormStarts",
+  lead_form_error: "leadFormErrors",
   lead_form_submitted: "leadSubmissions",
   buyer_guide_requested: "buyerGuideRequests",
+  ask_darcey_page_view: "askDarceyPageViews",
 };
 
 const categoryImages = {

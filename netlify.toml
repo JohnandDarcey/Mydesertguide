@@ -58,3 +58,8 @@
   from = "/api/leads/recent"
   to = "/.netlify/functions/leads-recent"
   status = 200
+
+[[redirects]]
+  from = "/api/leads/status"
+  to = "/.netlify/functions/lead-status"
+  status = 200

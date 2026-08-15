@@ -42,8 +42,10 @@ function blankTotals() {
     realEstateCtaImpressions: 0,
     realEstateHomeSearchClicks: 0,
     leadFormStarts: 0,
+    leadFormErrors: 0,
     leadSubmissions: 0,
     buyerGuideRequests: 0,
+    askDarceyPageViews: 0,
   };
 }
 
@@ -64,6 +66,7 @@ function blankDay(date) {
     leadTypes: {},
     leadSources: {},
     leadOrigins: {},
+    realEstatePages: {},
     visitorHashes: [],
     returningVisitorHashes: [],
     sessionKeys: [],
@@ -84,6 +87,7 @@ function blankHour(hourStart) {
     leadTypes: {},
     leadSources: {},
     leadOrigins: {},
+    realEstatePages: {},
     visitorHashes: [],
     returningVisitorHashes: [],
     sessionKeys: [],
@@ -102,6 +106,7 @@ function blankLifetime() {
     leadTypes: {},
     leadSources: {},
     leadOrigins: {},
+    realEstatePages: {},
     uniqueVisitorHashes: [],
   };
 }
@@ -201,6 +206,17 @@ function incrementTotal(totals, key, amount = 1) {
   totals[key] = Number(totals[key] || 0) + amount;
 }
 
+function recordRealEstatePage(collection, eventName, payload = {}) {
+  const rawPath = eventName === "lead_form_submitted" ? payload.leadOrigin : payload.path;
+  const pagePath = sanitize(rawPath, "/");
+  if (!pagePath.startsWith("/")) return;
+  const page = collection[pagePath] || { name: pagePath, views: 0, ctaClicks: 0, leads: 0 };
+  if (eventName === "guide_view") page.views += 1;
+  if (eventName === "real_estate_contact_click") page.ctaClicks += 1;
+  if (eventName === "lead_form_submitted") page.leads += 1;
+  collection[pagePath] = page;
+}
+
 function recordHourlyEvent(hour, {
   eventName, payload, visitorHash, sessionKey, isKnownVisitor, source, device, country,
 }) {
@@ -243,6 +259,8 @@ function recordHourlyEvent(hour, {
     hour.leadSources[leadSource] = Number(hour.leadSources[leadSource] || 0) + 1;
     hour.leadOrigins[leadOrigin] = Number(hour.leadOrigins[leadOrigin] || 0) + 1;
   }
+  hour.realEstatePages ||= {};
+  recordRealEstatePage(hour.realEstatePages, eventName, payload);
 
   const category = normalizeCategory(payload);
   if (eventName === "category_view" || eventName === "homepage_category_click" || eventName === "place_view") {
@@ -317,6 +335,7 @@ export async function recordEvent(payload = {}, request, context) {
   lifetime.leadTypes ||= {};
   lifetime.leadSources ||= {};
   lifetime.leadOrigins ||= {};
+  lifetime.realEstatePages ||= {};
   const visitorProfile = await loadVisitorProfile(visitorHash);
   const isKnownVisitor = Boolean(visitorProfile?.firstSeen);
   day.hours ||= {};
@@ -385,6 +404,9 @@ export async function recordEvent(payload = {}, request, context) {
     lifetime.leadSources[leadSource] = Number(lifetime.leadSources[leadSource] || 0) + 1;
     lifetime.leadOrigins[leadOrigin] = Number(lifetime.leadOrigins[leadOrigin] || 0) + 1;
   }
+  day.realEstatePages ||= {};
+  recordRealEstatePage(day.realEstatePages, eventName, { ...payload, path });
+  recordRealEstatePage(lifetime.realEstatePages, eventName, { ...payload, path });
 
   const category = normalizeCategory(payload);
   if (eventName === "category_view" || eventName === "homepage_category_click" || eventName === "place_view") {
@@ -493,6 +515,16 @@ function sumNumberMap(target, source) {
   });
 }
 
+function mergeRealEstatePages(target, source) {
+  Object.entries(source || {}).forEach(([path, values]) => {
+    const page = target[path] || { name: path, views: 0, ctaClicks: 0, leads: 0 };
+    page.views += Number(values?.views || 0);
+    page.ctaClicks += Number(values?.ctaClicks || 0);
+    page.leads += Number(values?.leads || 0);
+    target[path] = page;
+  });
+}
+
 export function rollup(days) {
   const visitorHashes = new Set();
   const returningHashes = new Set();
@@ -506,6 +538,7 @@ export function rollup(days) {
   const leadTypes = {};
   const leadSources = {};
   const leadOrigins = {};
+  const realEstatePages = {};
 
   days.forEach((day) => {
     Object.entries(day?.totals || {}).forEach(([key, value]) => {
@@ -523,6 +556,7 @@ export function rollup(days) {
     sumNumberMap(leadTypes, day?.leadTypes);
     sumNumberMap(leadSources, day?.leadSources);
     sumNumberMap(leadOrigins, day?.leadOrigins);
+    mergeRealEstatePages(realEstatePages, day?.realEstatePages);
   });
 
   totals.uniqueVisitors = visitorHashes.size;
@@ -539,6 +573,7 @@ export function rollup(days) {
     leadTypes,
     leadSources,
     leadOrigins,
+    realEstatePages: Object.values(realEstatePages).sort((a, b) => b.leads - a.leads || b.ctaClicks - a.ctaClicks || b.views - a.views),
   };
 }
 
@@ -615,6 +650,9 @@ export async function getDashboardSummary() {
     leadTypes: lifetime.leadTypes || last90.leadTypes,
     leadSources: lifetime.leadSources || last90.leadSources,
     leadOrigins: lifetime.leadOrigins || last90.leadOrigins,
+    realEstatePages: lifetime.realEstatePages && Object.keys(lifetime.realEstatePages).length
+      ? Object.values(lifetime.realEstatePages).sort((a, b) => b.leads - a.leads || b.ctaClicks - a.ctaClicks || b.views - a.views)
+      : last90.realEstatePages,
   };
 
   return {

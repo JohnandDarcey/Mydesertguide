@@ -57,7 +57,7 @@ function header() {
     <nav class="site-nav" aria-label="Guide navigation">
       <a href="/#browse-guide">Explore</a>
       <a href="/saved/">Saved ♡</a>
-      <a class="site-contact" href="/#contact">Darcey</a>
+      <a class="site-contact" href="/ask-darcey/">Ask Darcey</a>
     </nav>
   </header>`;
 }
@@ -67,11 +67,11 @@ function footer() {
     <div class="footer-real-estate-copy">
       <p class="eyebrow">Love Where You Live</p>
       <h2>Thinking about making the desert home?</h2>
-      <p>Whether you're buying, selling, or simply exploring what's possible, Darcey can help you navigate Coachella Valley real estate with the same local knowledge behind this guide.</p>
+      <p>Whether you're buying, selling, relocating, or simply exploring what's possible, Darcey can help you navigate Coachella Valley real estate with the same local knowledge behind this guide.</p>
     </div>
     <div class="footer-real-estate-actions">
       <a class="button footer-homes-button" href="${guideProfile.homeSearchUrl}" target="_blank" rel="noreferrer">Explore Desert Homes</a>
-      <a class="footer-talk-link" href="/#contact" data-analytics-event="real_estate_contact_click" data-analytics-label="Talk With Darcey">Talk With Darcey <span aria-hidden="true">→</span></a>
+      <a class="footer-talk-link" href="/ask-darcey/" data-analytics-event="real_estate_contact_click" data-analytics-label="Ask Darcey">Ask Darcey <span aria-hidden="true">→</span></a>
     </div>
     <p class="footer-legal">${guideProfile.realtorName} · ${guideProfile.realtorDre} · ${guideProfile.brokerage} · ${guideProfile.brokerageDre}</p>
   </footer>`;
@@ -79,7 +79,7 @@ function footer() {
 
 function scripts() {
   return `<script src="/analytics-config.js?v=20260814-guide-architecture"></script>
-    <script src="/analytics.js?v=20260814-utility-concierge"></script>
+    <script src="/analytics.js?v=20260815-ask-darcey"></script>
     <script type="module" src="/directory.js?v=20260814-category-discovery"></script>
     <script type="module" src="/site-features.js?v=20260814-hybrid-homepage"></script>`;
 }
@@ -276,6 +276,54 @@ function installCard() {
   </section>`;
 }
 
+function contextualRealEstateCta(category) {
+  const copy = {
+    golf: ["Thinking beyond your next round?", "If the desert lifestyle is starting to feel like home, Darcey can help you explore what living here could look like."],
+    "things-to-do": ["Thinking beyond your next visit?", "See what it could look like to call the Coachella Valley home—with personal guidance from someone who knows it well."],
+    utilities: ["Getting settled in the desert?", "Darcey can help make a move to the Coachella Valley feel clearer, more local and a little less overwhelming."],
+  }[category.slug];
+  if (!copy) return "";
+  return `<aside class="contextual-real-estate" aria-label="Ask Darcey about Coachella Valley real estate"><div><p class="eyebrow">Love Where You Live</p><h2>${escapeHtml(copy[0])}</h2><p>${escapeHtml(copy[1])}</p></div><a class="contextual-real-estate-link" href="/ask-darcey/" data-analytics-event="real_estate_contact_click" data-analytics-category="Real Estate" data-analytics-label="Contextual Ask Darcey - ${escapeHtml(category.label)}">Ask Darcey <span aria-hidden="true">→</span></a></aside>`;
+}
+
+function askDarceyPage() {
+  const canonical = `${guideProfile.siteUrl}/ask-darcey/`;
+  const description = "Tell Darcey what you are considering about buying, selling or relocating in Palm Springs and the Coachella Valley.";
+  return `<!doctype html><html lang="en"><head>${pageHead({ title: "Ask Darcey | Palm Springs & Coachella Valley Real Estate", description, canonical, image: "/assets/people/darcey-front-web.jpg" })}<link rel="stylesheet" href="/ask-darcey.css?v=20260815-simple-funnel"></head>
+  <body data-page-kind="real-estate" data-guide-id="${guideProfile.guideId}" data-profile-id="${guideProfile.profileId}" data-category="Real Estate">
+    ${header()}<main class="ask-shell">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Ask Darcey</span></nav>
+      <section class="ask-layout" aria-labelledby="ask-title">
+        <div class="ask-story">
+          <div class="ask-photo"><img src="/assets/people/darcey-front-web.jpg" alt="Darcey Deetz, Palm Springs and Coachella Valley Realtor" fetchpriority="high"><p>${escapeHtml(guideProfile.realtorName)} · ${escapeHtml(guideProfile.realtorDre)}</p></div>
+          <div class="ask-story-copy"><p class="eyebrow">Love Where You Live</p><h1 id="ask-title">Thinking About Making the Desert Home?</h1><p>Whether you're considering buying, selling, relocating, or simply exploring what's possible, tell Darcey a little about what you have in mind. She'll personally follow up.</p><div class="ask-trust-note"><span>Local knowledge</span><span>Personal response</span><span>No pressure</span></div></div>
+        </div>
+        <div class="ask-form-card">
+          <div class="ask-form-heading"><p class="eyebrow">A personal next step</p><h2>Ask Darcey</h2><p>Share only what feels useful. Name and email are all Darcey needs to start the conversation.</p></div>
+          <form class="ask-form" id="lead-form" novalidate>
+            <input type="hidden" name="startedAt" value="${Date.now()}"><input class="lead-honeypot" name="company" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <fieldset class="interest-fieldset"><legend>I'm interested in</legend><div class="interest-pills">
+              <label><input type="radio" name="interest" value="buying" required><span>Buying</span></label>
+              <label><input type="radio" name="interest" value="selling"><span>Selling</span></label>
+              <label><input type="radio" name="interest" value="relocating"><span>Relocating</span></label>
+              <label><input type="radio" name="interest" value="exploring"><span>Just Exploring</span></label>
+              <label><input type="radio" name="interest" value="general"><span>I Have a Question</span></label>
+            </div></fieldset>
+            <div class="ask-form-grid"><label><span>Name</span><input name="name" type="text" autocomplete="name" maxlength="120" required></label><label><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="180" required></label></div>
+            <label class="field-label"><span>Phone <small>Optional</small></span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40"></label>
+            <label class="field-label"><span>Anything you'd like Darcey to know? <small>Optional</small></span><textarea name="message" rows="4" maxlength="1500"></textarea></label>
+            <label class="buyer-guide-option" id="buyer-guide-option" hidden><input name="buyerGuideRequested" type="checkbox" checked><span><strong>Email me Darcey's 2026 First-Time Homebuyer Guide</strong><small>A practical introduction to the buying process and next steps.</small></span></label>
+            <label class="lead-consent"><input name="consent" type="checkbox" required><span>I agree that Darcey may contact me about my real estate question.</span></label>
+            <button class="button dark ask-submit" type="submit">Send to Darcey</button><p class="no-pitch">No automated sales pitch. Just Darcey.</p><p class="lead-form-status" id="lead-form-status" role="status" aria-live="polite"></p>
+          </form>
+          <div class="lead-success" id="lead-success" hidden tabindex="-1"><p class="eyebrow">Message received</p><h2>Thank you. Darcey will be in touch personally.</h2><p id="lead-success-detail">Your inquiry has been saved and sent securely.</p><a class="button" id="buyer-guide-download" href="/assets/downloads/darcey-first-time-homebuyer-2026.pdf" target="_blank" rel="noreferrer" hidden>Open the Buyer Guide</a></div>
+        </div>
+      </section>
+    </main><footer class="ask-footer"><a class="site-brand" href="/">My Desert Guide <span>♥</span></a><div><a href="/#browse-guide">Explore the Guide</a><a href="${guideProfile.homeSearchUrl}" target="_blank" rel="noreferrer" data-analytics-event="real_estate_home_search_click" data-analytics-category="Real Estate">Explore Desert Homes</a></div><p>${guideProfile.realtorName} · ${guideProfile.realtorDre} · ${guideProfile.brokerage} · ${guideProfile.brokerageDre}</p></footer>
+    <script src="/analytics-config.js?v=20260814-guide-architecture"></script><script src="/analytics.js?v=20260815-ask-darcey"></script><script type="module" src="/ask-darcey.js?v=20260815-simple-funnel"></script>
+  </body></html>`;
+}
+
 const utilityGroups = [
   { key: "electric", label: "Electric", icon: "electric" },
   { key: "gas", label: "Gas", icon: "gas" },
@@ -355,6 +403,7 @@ function categoryPage(category) {
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">${escapeHtml(category.label)}</span></nav>
       <section class="category-hero"><div class="category-hero-copy"><p class="eyebrow">${escapeHtml(category.eyebrow)}</p><h1>${escapeHtml(category.label)}</h1><p>${escapeHtml(category.intro)}</p></div><div class="category-hero-media"><img src="${category.image}" alt="${escapeHtml(category.imageAlt)}" fetchpriority="high"></div></section>
       ${discovery}
+      ${contextualRealEstateCta(category)}
       ${installCard()}
     </main>${footer()}${scripts()}
   </body></html>`;
@@ -442,11 +491,13 @@ for (const entry of await fs.readdir(path.join(root, "place"), { withFileTypes: 
   if ((await fs.readdir(extraPath)).length === 0) await fs.rmdir(extraPath);
 }
 await write("saved/index.html", savedPage());
+await write("ask-darcey/index.html", askDarceyPage());
 await write("data/places.json", `${JSON.stringify(allPlaces, null, 2)}\n`);
 await write("data/catalog.json", `${JSON.stringify({ guide: guideProfile, places: masterPlaces, recommendations: guideRecommendations }, null, 2)}\n`);
 
 const urls = [
   `${guideProfile.siteUrl}/`,
+  `${guideProfile.siteUrl}/ask-darcey/`,
   ...categoryDefinitions.map((category) => `${guideProfile.siteUrl}/${category.slug}/`),
   ...allPlaces.map((place) => `${guideProfile.siteUrl}${place.url}`),
 ];

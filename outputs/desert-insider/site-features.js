@@ -212,7 +212,7 @@ function mobileNavigation() {
       <a href="/"><span>⌂</span>Home</a>
       <a href="/#browse-guide"><span>⌕</span>Explore</a>
       <a href="/saved/"><span>♡</span>Saved</a>
-      <a href="/#contact"><span>◇</span>Darcey</a>
+      <a href="/ask-darcey/"><span>◇</span>Ask Darcey</a>
     </nav>`);
 }
 

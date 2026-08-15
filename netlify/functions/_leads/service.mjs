@@ -71,20 +71,20 @@ function notificationEmail(lead) {
   const guideRequest = lead.buyerGuideRequested ? "Yes" : "No";
   const rows = [
     ["Interest", lead.interestLabel],
-    ["Timeframe", lead.timeframeLabel],
     ["Name", lead.name],
     ["Email", lead.email || "Not provided"],
     ["Phone", lead.phone || "Not provided"],
     ["First-time buyer guide", guideRequest],
+    ["Source page", lead.sourcePage],
     ["Source", source],
     ["Campaign", campaign],
     ["Landing page", lead.attribution.landingPath],
   ];
-  const htmlRows = rows.map(([label, value]) => `<tr><td style="padding:8px 12px 8px 0;color:#756d63;font:600 11px Arial;text-transform:uppercase;letter-spacing:1px;vertical-align:top;">${escapeHtml(label)}</td><td style="padding:8px 0;color:#111;font:15px Arial;">${escapeHtml(value)}</td></tr>`).join("");
+  const htmlRows = rows.filter(([, value]) => value).map(([label, value]) => `<tr><td style="padding:8px 12px 8px 0;color:#756d63;font:600 11px Arial;text-transform:uppercase;letter-spacing:1px;vertical-align:top;">${escapeHtml(label)}</td><td style="padding:8px 0;color:#111;font:15px Arial;">${escapeHtml(value)}</td></tr>`).join("");
   const html = `<!doctype html><html><body style="margin:0;background:#eee7dd;padding:24px 10px;"><div style="max-width:680px;margin:auto;background:#fffdf8;border-radius:18px;overflow:hidden;"><div style="background:#050505;color:#fff;padding:30px;"><div style="font:600 11px Arial;letter-spacing:2px;text-transform:uppercase;color:#d9ccbc;">My Desert Guide</div><h1 style="font:400 38px Georgia;margin:8px 0 0;">New confirmed inquiry</h1></div><div style="padding:26px 30px;"><table style="border-collapse:collapse;width:100%;">${htmlRows}</table><div style="border-top:1px solid #dfd4c5;margin-top:18px;padding-top:18px;"><div style="font:600 11px Arial;letter-spacing:1px;text-transform:uppercase;color:#756d63;">Message</div><p style="font:16px/1.6 Georgia;color:#111;white-space:pre-wrap;">${escapeHtml(lead.message || "No message provided")}</p></div><div style="border-top:1px solid #dfd4c5;margin-top:18px;padding-top:18px;"><div style="font:600 11px Arial;letter-spacing:1px;text-transform:uppercase;color:#756d63;">Recent guide activity</div><p style="font:14px/1.6 Arial;color:#333;white-space:pre-wrap;">${escapeHtml(recent)}</p></div><p style="font:12px/1.5 Arial;color:#756d63;margin-top:24px;">Lead ID: ${escapeHtml(lead.id)} · Submitted ${escapeHtml(lead.submittedAt)}</p></div></div></body></html>`;
   const text = [
     "NEW MY DESERT GUIDE INQUIRY",
-    ...rows.map(([label, value]) => `${label}: ${value}`),
+    ...rows.filter(([, value]) => value).map(([label, value]) => `${label}: ${value}`),
     `Message: ${lead.message || "No message provided"}`,
     "Recent guide activity:",
     recent,
@@ -112,15 +112,18 @@ export async function submitLead(payload, request, context) {
   const email = clean(payload.email, 180).toLowerCase();
   const phone = clean(payload.phone, 40);
   const interest = Object.hasOwn(INTERESTS, payload.interest) ? payload.interest : "";
-  const timeframe = Object.hasOwn(TIMEFRAMES, payload.timeframe) ? payload.timeframe : "researching";
+  const timeframe = Object.hasOwn(TIMEFRAMES, payload.timeframe) ? payload.timeframe : "";
   if (name.length < 2) return { ok: false, status: 400, error: "Please enter your name." };
   if (!interest) return { ok: false, status: 400, error: "Please tell us how Darcey can help." };
-  if (!email && !phone) return { ok: false, status: 400, error: "Please provide an email address or phone number." };
+  if (!email) return { ok: false, status: 400, error: "Please provide your email address." };
   if (email && !validEmail(email)) return { ok: false, status: 400, error: "Please enter a valid email address." };
   if (phone && !validPhone(phone)) return { ok: false, status: 400, error: "Please enter a valid phone number." };
   if (payload.consent !== true) return { ok: false, status: 400, error: "Please confirm that Darcey may contact you." };
 
   const submittedAt = new Date().toISOString();
+  const recentSourcePage = safeAttribution(payload.attribution).recentPages.filter((page) => page.path && !page.path.startsWith("/ask-darcey")).at(-1)?.path;
+  const submittedSourcePage = clean(payload.sourcePage, 180);
+  const sourcePage = submittedSourcePage.startsWith("/") ? submittedSourcePage : recentSourcePage || "/";
   const lead = {
     id: crypto.randomUUID(),
     guideId: GUIDE_CONFIG.guideId,
@@ -132,8 +135,10 @@ export async function submitLead(payload, request, context) {
     interest,
     interestLabel: INTERESTS[interest],
     timeframe,
-    timeframeLabel: TIMEFRAMES[timeframe],
+    timeframeLabel: TIMEFRAMES[timeframe] || "",
     message: clean(payload.message, 1500),
+    sourcePage,
+    status: "New",
     buyerGuideRequested: Boolean(payload.buyerGuideRequested && email && interest === "buying"),
     attribution: safeAttribution(payload.attribution),
     notificationStatus: "pending",
@@ -150,7 +155,7 @@ export async function submitLead(payload, request, context) {
     referrer: clean(payload.referrer, 300),
     leadType: interest,
     leadSource: lead.attribution.source,
-    leadOrigin: lead.attribution.landingPath,
+    leadOrigin: lead.sourcePage,
     category: "Real Estate",
   }, request, context).catch((error) => console.error("lead analytics failed", error));
 

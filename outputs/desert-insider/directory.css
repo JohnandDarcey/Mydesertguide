@@ -221,6 +221,13 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--display); font-weight: 400; letter-s
 .footer-talk-link span { color: var(--gold); display: inline-block; margin-left: 5px; transition: transform .18s ease; }
 .footer-talk-link:hover span { transform: translateX(4px); }
 
+.contextual-real-estate { align-items: center; background: #efe7dc; border: 1px solid var(--line); border-radius: 18px; display: grid; gap: clamp(26px,5vw,76px); grid-template-columns: minmax(0,1fr) auto; margin: clamp(52px,8vw,96px) 0 0; padding: clamp(30px,5vw,58px); }
+.contextual-real-estate h2 { font-family: var(--display); font-size: var(--type-section-title); font-weight: 400; letter-spacing: var(--tracking-heading); line-height: var(--leading-display); margin: 0; }
+.contextual-real-estate p:not(.eyebrow) { color: var(--muted); line-height: var(--leading-body); margin: 17px 0 0; max-width: 760px; }
+.contextual-real-estate-link { border-bottom: 1px solid var(--ink); font-size: .7rem; font-weight: 600; letter-spacing: .11em; min-width: 170px; padding: 13px 2px; text-align: center; text-decoration: none; text-transform: uppercase; }
+.contextual-real-estate-link span { color: var(--gold); display: inline-block; margin-left: 6px; transition: transform .18s ease; }
+.contextual-real-estate-link:hover span { transform: translateX(4px); }
+
 .mobile-bottom-nav { display: none; }
 .install-dialog { background: var(--paper); border: 0; border-radius: 16px; box-shadow: 0 20px 70px rgba(0,0,0,.25); max-width: 500px; padding: 0; width: calc(100% - 28px); }
 .install-dialog::backdrop { background: rgba(0,0,0,.62); }
@@ -297,6 +304,8 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--display); font-weight: 400; letter-s
   .site-footer h2 { font-size: var(--type-section-title); }
   .footer-real-estate-copy > p:last-child { font-size: 1.1rem; margin-top: 18px; }
   .footer-homes-button { min-width: 0; width: 100%; }
+  .contextual-real-estate { align-items: stretch; grid-template-columns: 1fr; padding: 30px 22px; }
+  .contextual-real-estate-link { text-align: left; }
   .mobile-bottom-nav { background: rgba(255,255,255,.97); border-top: 1px solid var(--line); bottom: 0; display: grid; grid-template-columns: repeat(4,1fr); left: 0; padding: 8px 6px max(8px,env(safe-area-inset-bottom)); position: fixed; right: 0; z-index: 50; }
   .mobile-bottom-nav a { align-items: center; color: var(--muted); display: flex; flex-direction: column; font-size: .58rem; font-weight: 600; gap: 4px; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }
   .mobile-bottom-nav span { color: var(--ink); font-family: var(--display); font-size: 1.35rem; line-height: 1; }

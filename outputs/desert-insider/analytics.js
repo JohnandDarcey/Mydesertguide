@@ -319,6 +319,19 @@
   document.addEventListener("click", (event) => {
     const anchor = event.target.closest("a[href]");
     if (anchor) {
+      try {
+        const destination = new URL(anchor.href, window.location.href);
+        if (destination.origin === window.location.origin && destination.pathname === "/ask-darcey/") {
+          sessionStorage.setItem("mdg_real_estate_source_page", JSON.stringify({
+            path: `${window.location.pathname}${window.location.search}${window.location.hash}`.slice(0, 180),
+            title: document.title.slice(0, 160),
+            category: pageContext.category.slice(0, 80),
+            placeName: pageContext.placeName.slice(0, 120),
+          }));
+        }
+      } catch {
+        // Navigation continues normally if storage is unavailable.
+      }
       const classified = classifyLink(anchor);
       const explicitEvent = anchor.dataset.analyticsEvent;
       if (classified && !explicitEvent) {

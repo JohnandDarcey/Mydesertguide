@@ -97,9 +97,8 @@ for (const marker of [
   "hero-curator",
   "realtorProfile.curatorLabel",
   "realtorProfile.professionalIdentifier",
-  "realEstateLeadForm()",
-  'id="lead-form"',
-  "/api/leads/submit",
+  'href="/ask-darcey/"',
+  "Ask Darcey",
 ]) {
   if (!homepageApp.includes(marker)) throw new Error(`Hybrid homepage marker is missing: ${marker}`);
 }
@@ -109,8 +108,17 @@ if (!homepageData.includes("Pinnacle Realty Advisors") || !homepageData.includes
 if (!homepageData.includes("Curated by") || !homepageData.includes("Palm Springs & Coachella Valley Realtor®")) {
   throw new Error("Homepage Realtor identifier profile data is missing.");
 }
-if (!homepage.includes("app.js?v=20260815-lead-engine-v4") || !homepageApp.includes("data.js?v=20260814-spa-beauty-v2")) {
+if (!homepage.includes("app.js?v=20260815-simple-lead-funnel") || !homepageApp.includes("data.js?v=20260814-spa-beauty-v2")) {
   throw new Error("Homepage lead-engine or Spa & Beauty cache-busting versions are missing.");
+}
+
+const askDarceyPage = await read("ask-darcey/index.html");
+for (const marker of ["Thinking About Making the Desert Home?", 'id="lead-form"', "I'm interested in", "Send to Darcey", "No automated sales pitch. Just Darcey."]) {
+  if (!askDarceyPage.includes(marker)) throw new Error(`Ask Darcey page is missing: ${marker}`);
+}
+const askDarceyScript = await read("ask-darcey.js");
+for (const marker of ["/api/leads/submit", "ask_darcey_page_view", "lead_form_started", "sourcePage"]) {
+  if (!askDarceyScript.includes(marker)) throw new Error(`Ask Darcey lead flow is missing: ${marker}`);
 }
 for (const category of categoryDefinitions) {
   if (!homepageData.includes(`/${category.slug}/`)) throw new Error(`Homepage gateway is missing: /${category.slug}/`);
@@ -292,7 +300,7 @@ if (!serviceWorker.includes("event.request.mode === \"navigate\"")) throw new Er
 
 const sitemap = await read("sitemap.xml");
 const sitemapUrls = sitemap.match(/<loc>/g)?.length || 0;
-if (sitemapUrls !== 1 + categoryDefinitions.length + allPlaces.length) throw new Error(`Sitemap contains ${sitemapUrls} URLs.`);
+if (sitemapUrls !== 2 + categoryDefinitions.length + allPlaces.length) throw new Error(`Sitemap contains ${sitemapUrls} URLs.`);
 
 const robots = await read("robots.txt");
 if (!robots.includes("Sitemap: https://mydesertguide.com/sitemap.xml") || !robots.includes("Disallow: /admin/")) {
