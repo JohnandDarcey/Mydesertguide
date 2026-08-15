@@ -59,7 +59,10 @@
       const step = Math.max(1, Math.ceil(trend.length / 6));
       if (index % step && index !== trend.length - 1) return "";
       const x = pad + (index / Math.max(1, trend.length - 1)) * (width - pad * 2);
-      const date = new Date(`${item.date}T12:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+      const isHourly = String(item.date).includes("T");
+      const date = new Date(isHourly ? item.date : `${item.date}T12:00:00Z`).toLocaleString("en-US", isHourly
+        ? { hour: "numeric", timeZone: "America/Los_Angeles" }
+        : { month: "short", day: "numeric", timeZone: "UTC" });
       return `<text x="${x}" y="252" text-anchor="middle">${date}</text>`;
     }).join("");
     return `<div class="chart-legend"><span><i class="views"></i>Guide views</span><span><i class="visitors"></i>Visitors</span></div><svg class="line-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="Guide views and visitors over time"><line x1="${pad}" y1="${height-pad}" x2="${width-pad}" y2="${height-pad}" class="axis"/><polyline points="${points("guideViews")}" class="views-line"/><polyline points="${points("uniqueVisitors")}" class="visitor-line"/>${labels}</svg>`;
@@ -131,7 +134,7 @@
     };
     const previous = { totals: { guideViews: 275, uniqueVisitors: 194, placeViews: 421, darceyTextClicks: 3, darceyCallClicks: 2, darceyEmailClicks: 4 } };
     const selected = { current, previous, trend };
-    return { ok: true, generatedAt: new Date().toISOString(), ranges: { "7": selected, "30": selected, "90": selected, all: { ...selected, previous: null } } };
+    return { ok: true, generatedAt: new Date().toISOString(), ranges: { "24h": selected, "7": selected, "30": selected, "90": selected, all: { ...selected, previous: null } } };
   }
 
   function render() {

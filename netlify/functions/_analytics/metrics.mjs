@@ -59,6 +59,23 @@ function blankDay(date) {
     visitorHashes: [],
     returningVisitorHashes: [],
     sessionKeys: [],
+    hours: {},
+  };
+}
+
+function blankHour(hourStart) {
+  return {
+    hourStart,
+    totals: blankTotals(),
+    eventCounts: {},
+    categories: {},
+    places: {},
+    sources: {},
+    devices: {},
+    countries: {},
+    visitorHashes: [],
+    returningVisitorHashes: [],
+    sessionKeys: [],
   };
 }
 
@@ -170,6 +187,59 @@ function incrementTotal(totals, key, amount = 1) {
   totals[key] = Number(totals[key] || 0) + amount;
 }
 
+function recordHourlyEvent(hour, {
+  eventName, payload, visitorHash, sessionKey, isKnownVisitor, source, device, country,
+}) {
+  const visitorHashes = toArraySet(hour.visitorHashes);
+  const returningHashes = toArraySet(hour.returningVisitorHashes);
+  const sessionKeys = toArraySet(hour.sessionKeys);
+
+  if (!visitorHashes.has(visitorHash)) {
+    visitorHashes.add(visitorHash);
+    hour.visitorHashes = Array.from(visitorHashes);
+    hour.totals.uniqueVisitors = visitorHashes.size;
+    if (isKnownVisitor) {
+      returningHashes.add(visitorHash);
+      hour.returningVisitorHashes = Array.from(returningHashes);
+      hour.totals.returningVisitors = returningHashes.size;
+    }
+    hour.sources[source] = Number(hour.sources[source] || 0) + 1;
+    hour.devices[device] = Number(hour.devices[device] || 0) + 1;
+    hour.countries[country] = Number(hour.countries[country] || 0) + 1;
+  }
+
+  if (sessionKey && !sessionKeys.has(sessionKey)) {
+    sessionKeys.add(sessionKey);
+    hour.sessionKeys = Array.from(sessionKeys);
+    hour.totals.sessions = sessionKeys.size;
+  }
+
+  const totalKey = EVENT_TOTAL_KEYS[eventName];
+  if (totalKey) incrementTotal(hour.totals, totalKey);
+  hour.eventCounts[eventName] = Number(hour.eventCounts[eventName] || 0) + 1;
+  if (CLIENT_ENGAGEMENT_EVENTS.has(eventName)) incrementTotal(hour.totals, "clientEngagements");
+
+  const category = normalizeCategory(payload);
+  if (eventName === "category_view" || eventName === "homepage_category_click" || eventName === "place_view") {
+    const categoryRecord = ensureCounter(hour.categories, category, { image: sanitize(payload.image) });
+    if (categoryRecord) {
+      categoryRecord.views += 1;
+      if (payload.image && !categoryRecord.image) categoryRecord.image = sanitize(payload.image);
+    }
+  }
+
+  const placeName = sanitize(payload.placeName);
+  if (placeName) {
+    const place = ensureCounter(hour.places, placeName, {
+      placeId: sanitize(payload.placeId), category, categorySlug: sanitize(payload.categorySlug),
+      type: sanitize(payload.placeType || payload.type), image: sanitize(payload.image), rating: sanitize(payload.rating),
+    });
+    if (eventName === "place_view") place.views += 1;
+    if (CLIENT_ENGAGEMENT_EVENTS.has(eventName) || eventName === "business_website_click" || eventName === "menu_click" || eventName === "curated_favorite_click") place.actions += 1;
+    place.lastEventAt = new Date().toISOString();
+  }
+}
+
 async function loadVisitorProfile(visitorHash) {
   return getJSON(`visitors/${visitorHash}`, null);
 }
@@ -209,7 +279,9 @@ export async function recordEvent(payload = {}, request, context) {
   const visitorId = sanitize(payload.visitorId);
   if (!visitorId || visitorId.length < 12) return { stored: false, reason: "missing-visitor" };
 
-  const date = localDateString(new Date());
+  const eventTime = new Date();
+  const date = localDateString(eventTime);
+  const hourStart = `${eventTime.toISOString().slice(0, 13)}:00:00.000Z`;
   const visitorHash = hashVisitorId(visitorId);
   const sessionId = sanitize(payload.sessionId);
   const sessionKey = sessionId ? `${visitorHash}:${sessionId}` : "";
@@ -219,6 +291,8 @@ export async function recordEvent(payload = {}, request, context) {
   lifetime.places ||= {};
   const visitorProfile = await loadVisitorProfile(visitorHash);
   const isKnownVisitor = Boolean(visitorProfile?.firstSeen);
+  day.hours ||= {};
+  const hour = day.hours[hourStart] || blankHour(hourStart);
 
   const visitorHashes = toArraySet(day.visitorHashes);
   const returningHashes = toArraySet(day.returningVisitorHashes);
@@ -326,6 +400,18 @@ export async function recordEvent(payload = {}, request, context) {
     }
   }
 
+  recordHourlyEvent(hour, {
+    eventName,
+    payload,
+    visitorHash,
+    sessionKey,
+    isKnownVisitor,
+    source: classifySource(payload.referrer),
+    device: classifyDevice(userAgent),
+    country: countryFromContext(context),
+  });
+  day.hours[hourStart] = hour;
+
   await saveVisitorProfile(visitorHash, {
     guideId: GUIDE_CONFIG.guideId,
     profileId: GUIDE_CONFIG.profileId,
@@ -405,7 +491,8 @@ export function rollup(days) {
 }
 
 export async function getDashboardSummary() {
-  const todayDate = localDateString(new Date());
+  const now = new Date();
+  const todayDate = localDateString(now);
   const last180Dates = datesEnding(todayDate, 180);
   const yesterdayDate = last180Dates.at(-2);
   const last7Dates = last180Dates.slice(-7);
@@ -417,6 +504,23 @@ export async function getDashboardSummary() {
   const dayEntries = await Promise.all(last180Dates.map(async (date) => [date, await getDay(date)]));
   const dayMap = Object.fromEntries(dayEntries);
   const lifetime = await getLifetime();
+
+  const currentHourStart = new Date(now);
+  currentHourStart.setUTCMinutes(0, 0, 0);
+  const hourKey = (hoursAgo) => new Date(currentHourStart.getTime() - hoursAgo * 60 * 60 * 1000).toISOString();
+  const current24Keys = Array.from({ length: 24 }, (_, index) => hourKey(23 - index));
+  const previous24Keys = Array.from({ length: 24 }, (_, index) => hourKey(47 - index));
+  const hourMap = Object.fromEntries(last180Dates.flatMap((date) => Object.entries(dayMap[date]?.hours || {})));
+  const trendForHours = (keys) => keys.map((key) => {
+    const hour = hourMap[key];
+    return {
+      date: key,
+      guideViews: Number(hour?.totals?.guideViews || 0),
+      uniqueVisitors: Number(hour?.totals?.uniqueVisitors || 0),
+      placeViews: Number(hour?.totals?.placeViews || 0),
+      contactActions: Number(hour?.totals?.darceyCallClicks || 0) + Number(hour?.totals?.darceyTextClicks || 0) + Number(hour?.totals?.darceyEmailClicks || 0),
+    };
+  });
 
   const trendFor = (dates) =>
     dates.map((date) => ({
@@ -473,6 +577,11 @@ export async function getDashboardSummary() {
     },
     trend: trendFor(last7Dates),
     ranges: {
+      "24h": {
+        current: rollup(current24Keys.map((key) => hourMap[key])),
+        previous: rollup(previous24Keys.map((key) => hourMap[key])),
+        trend: trendForHours(current24Keys),
+      },
       "7": range(last7Dates, previous7Dates),
       "30": range(last30Dates, previous30Dates),
       "90": range(last90Dates, previous90Dates),
