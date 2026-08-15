@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
+Disallow: /.netlify/functions/
 
 Sitemap: https://mydesertguide.com/sitemap.xml

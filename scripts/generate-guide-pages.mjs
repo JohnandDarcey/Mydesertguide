@@ -18,25 +18,46 @@ function jsonLd(value) {
   return JSON.stringify(value).replaceAll("<", "\\u003c");
 }
 
-function pageHead({ title, description, canonical, image, type = "website", noindex = false, schema }) {
-  const absoluteImage = image.startsWith("http") ? image : `${guideProfile.siteUrl}${image}`;
+function trimDescription(value, limit = 158) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  if (text.length <= limit) return text;
+  const shortened = text.slice(0, limit - 1).replace(/\s+\S*$/, "").replace(/[,:;—-]+$/, "");
+  return `${shortened}.`;
+}
+
+function optimizedImage(image, width, height = 0, fit = "cover") {
+  if (!image || image.startsWith("http") || image.startsWith("data:")) return image;
+  const params = new URLSearchParams({ url: image, w: String(width), q: "82", fm: "webp" });
+  if (height) params.set("h", String(height));
+  if (height) params.set("fit", fit);
+  return `/.netlify/images?${params.toString().replaceAll("&", "&amp;")}`;
+}
+
+function pageHead({ title, description, canonical, image, imageAlt = "", type = "website", noindex = false, schema }) {
+  const metaDescription = trimDescription(description);
+  const socialImage = optimizedImage(image, 1200, 630);
+  const absoluteImage = socialImage.startsWith("http") ? socialImage : `${guideProfile.siteUrl}${socialImage}`;
+  const socialImageAlt = imageAlt || `${title} on My Desert Guide`;
   return `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${escapeHtml(title)}</title>
-    <meta name="description" content="${escapeHtml(description)}">
+    <meta name="description" content="${escapeHtml(metaDescription)}">
     ${noindex ? '<meta name="robots" content="noindex,follow">' : '<meta name="robots" content="index,follow,max-image-preview:large">'}
     <link rel="canonical" href="${canonical}">
     <meta property="og:title" content="${escapeHtml(title)}">
-    <meta property="og:description" content="${escapeHtml(description)}">
+    <meta property="og:description" content="${escapeHtml(metaDescription)}">
     <meta property="og:image" content="${absoluteImage}">
+    <meta property="og:image:alt" content="${escapeHtml(socialImageAlt)}">
     <meta property="og:url" content="${canonical}">
     <meta property="og:type" content="${type}">
     <meta property="og:site_name" content="My Desert Guide">
+    <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${escapeHtml(title)}">
-    <meta name="twitter:description" content="${escapeHtml(description)}">
+    <meta name="twitter:description" content="${escapeHtml(metaDescription)}">
     <meta name="twitter:image" content="${absoluteImage}">
+    <meta name="twitter:image:alt" content="${escapeHtml(socialImageAlt)}">
     <meta name="theme-color" content="#f7f5f0">
     <meta name="application-name" content="Darcey's Guide">
     <meta name="apple-mobile-web-app-title" content="Darcey's Guide">
@@ -49,6 +70,13 @@ function pageHead({ title, description, canonical, image, type = "website", noin
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&family=Cormorant+Garamond:ital,wght@1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/directory.css?v=20260814-heading-scale-72">
     ${schema ? `<script type="application/ld+json">${jsonLd(schema)}</script>` : ""}`;
+}
+
+function breadcrumbSchema(items) {
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items.map(([name, url], index) => ({ "@type": "ListItem", position: index + 1, name, item: url })),
+  };
 }
 
 function header() {
@@ -97,7 +125,7 @@ function card(place, { editorialLabel = "", analyticsEvent = "", showTags = true
   const topLabel = editorialLabel || place.hikingPickLabel || place.coffeePickLabel || place.familiarFavoriteLabel;
   return `<article class="recommendation-card" data-recommendation-card data-guide-place="${escapeHtml(place.name)}" data-guide-slug="${place.slug}" data-guide-category="${escapeHtml(place.category)}" data-guide-type="${escapeHtml(place.schemaType)}" data-place-id="${place.placeId}" data-city="${escapeHtml(place.city)}" data-tags="${escapeHtml(place.tags.join("|"))}" data-experiences="${escapeHtml((place.experienceTypes || []).join("|"))}" data-search="${escapeHtml(search)}">
     <a class="card-link" href="${place.url}" aria-label="Open ${escapeHtml(place.name)}"${analyticsEvent ? ` data-analytics-event="${escapeHtml(analyticsEvent)}" data-analytics-label="${escapeHtml(place.name)}"` : ""}></a>
-    <div class="card-media"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" loading="lazy" decoding="async">${favoriteButton(place)}</div>
+    <div class="card-media"><img src="${optimizedImage(place.image, 720)}" alt="${escapeHtml(place.imageAlt)}" loading="lazy" decoding="async">${favoriteButton(place)}</div>
     <div class="card-body">
       <div class="card-topline">${topLabel ? `<span>${escapeHtml(topLabel)}</span><span>${escapeHtml(place.city)}</span>` : `${escapeHtml(place.city)} · ${escapeHtml(place.subcategory || place.category)}`}</div>
       <h2>${escapeHtml(place.name)}</h2>
@@ -111,7 +139,7 @@ function card(place, { editorialLabel = "", analyticsEvent = "", showTags = true
 function familiarFavoriteCard(place, analyticsEvent = "") {
   const search = [place.name, place.city, place.category, place.subcategory, place.description, ...(place.serviceAreas || []), ...place.tags].join(" ").toLowerCase();
   return `<article class="recommendation-card familiar-favorite-card" data-recommendation-card data-guide-place="${escapeHtml(place.name)}" data-guide-slug="${place.slug}" data-guide-category="${escapeHtml(place.category)}" data-guide-type="${escapeHtml(place.schemaType)}" data-place-id="${place.placeId}" data-city="${escapeHtml(place.city)}" data-tags="${escapeHtml(place.tags.join("|"))}" data-experiences="${escapeHtml((place.experienceTypes || []).join("|"))}" data-search="${escapeHtml(search)}">
-    <div class="card-media"><a href="${place.url}" aria-label="Open ${escapeHtml(place.name)}"${analyticsEvent ? ` data-analytics-event="${escapeHtml(analyticsEvent)}" data-analytics-label="${escapeHtml(place.name)}"` : ""}><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" loading="lazy" decoding="async"></a>${favoriteButton(place)}</div>
+    <div class="card-media"><a href="${place.url}" aria-label="Open ${escapeHtml(place.name)}"${analyticsEvent ? ` data-analytics-event="${escapeHtml(analyticsEvent)}" data-analytics-label="${escapeHtml(place.name)}"` : ""}><img src="${optimizedImage(place.image, 720)}" alt="${escapeHtml(place.imageAlt)}" loading="lazy" decoding="async"></a>${favoriteButton(place)}</div>
     <div class="card-body"><div class="card-topline"><span>${escapeHtml(place.familiarFavoriteLabel)}</span><span>${escapeHtml(place.city)}</span></div><h2><a href="${place.url}"${analyticsEvent ? ` data-analytics-event="${escapeHtml(analyticsEvent)}" data-analytics-label="${escapeHtml(place.name)}"` : ""}>${escapeHtml(place.name)}</a></h2><p>${escapeHtml(place.cardDescription || place.description)}</p><div class="tag-list">${tags(place)}</div><a class="button dark familiar-action" href="${escapeHtml(place.website)}" target="_blank" rel="noreferrer" data-analytics-event="${escapeHtml(place.websiteAnalyticsEvent || "recommendation_external_click")}" data-analytics-label="${escapeHtml(`${place.websiteLabel} - ${place.name}`)}">${escapeHtml(place.websiteLabel || "Website")}</a></div>
   </article>`;
 }
@@ -226,7 +254,7 @@ function experienceDiscovery(category, config) {
     <div class="editorial-heading"><p class="eyebrow">${escapeHtml(config.discoveryEyebrow || "Start with the feeling")}</p><h2 id="${category.slug}-mood-title">${escapeHtml(config.discoveryTitle || "What are you in the mood for?")}</h2></div>
     <div class="experience-tile-grid">${config.discoveryTiles.map(([label, filter, slug]) => {
       const place = placeBySlug(category, slug);
-      return `<a class="experience-tile" href="${filteredUrl(category, filter)}" data-analytics-event="${escapeHtml(config.discoveryAnalyticsEvent || "experience_tile_clicked")}" data-analytics-label="${escapeHtml(`${category.label} - ${label}`)}"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" loading="lazy" decoding="async"><span>${escapeHtml(label)}</span></a>`;
+      return `<a class="experience-tile" href="${filteredUrl(category, filter)}" data-analytics-event="${escapeHtml(config.discoveryAnalyticsEvent || "experience_tile_clicked")}" data-analytics-label="${escapeHtml(`${category.label} - ${label}`)}"><img src="${optimizedImage(place.image, 720)}" alt="${escapeHtml(place.imageAlt)}" loading="lazy" decoding="async"><span>${escapeHtml(label)}</span></a>`;
     }).join("")}</div>
   </section>`;
 }
@@ -289,13 +317,19 @@ function contextualRealEstateCta(category) {
 function askDarceyPage() {
   const canonical = `${guideProfile.siteUrl}/ask-darcey/`;
   const description = "Tell Darcey what you are considering about buying, selling or relocating in Palm Springs and the Coachella Valley.";
-  return `<!doctype html><html lang="en"><head>${pageHead({ title: "Ask Darcey | Palm Springs & Coachella Valley Real Estate", description, canonical, image: "/assets/people/darcey-front-web.jpg" })}<link rel="stylesheet" href="/ask-darcey.css?v=20260815-simple-funnel"></head>
+  const title = "Ask Darcey | Palm Springs & Coachella Valley Real Estate";
+  const schema = { "@context": "https://schema.org", "@graph": [
+    { "@type": "WebPage", "@id": `${canonical}#webpage`, name: title, description, url: canonical, isPartOf: { "@id": `${guideProfile.siteUrl}/#website` }, about: { "@id": `${guideProfile.siteUrl}/#darcey` } },
+    { "@type": "Person", "@id": `${guideProfile.siteUrl}/#darcey`, name: guideProfile.realtorName, jobTitle: "Palm Springs and Coachella Valley Realtor", url: guideProfile.realtorWebsite || "https://darceydeetz.com/" },
+    breadcrumbSchema([["Home", `${guideProfile.siteUrl}/`], ["Ask Darcey", canonical]]),
+  ] };
+  return `<!doctype html><html lang="en"><head>${pageHead({ title, description, canonical, image: "/assets/people/darcey-front-web.jpg", imageAlt: "Darcey Deetz, Palm Springs and Coachella Valley Realtor", schema })}<link rel="stylesheet" href="/ask-darcey.css?v=20260815-simple-funnel"></head>
   <body data-page-kind="real-estate" data-guide-id="${guideProfile.guideId}" data-profile-id="${guideProfile.profileId}" data-category="Real Estate">
     ${header()}<main class="ask-shell">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Ask Darcey</span></nav>
       <section class="ask-layout" aria-labelledby="ask-title">
         <div class="ask-story">
-          <div class="ask-photo"><img src="/assets/people/darcey-front-web.jpg" alt="Darcey Deetz, Palm Springs and Coachella Valley Realtor" fetchpriority="high"><p>${escapeHtml(guideProfile.realtorName)} · ${escapeHtml(guideProfile.realtorDre)}</p></div>
+          <div class="ask-photo"><img src="${optimizedImage("/assets/people/darcey-front-web.jpg", 1000)}" alt="Darcey Deetz, Palm Springs and Coachella Valley Realtor" fetchpriority="high" decoding="async"><p>${escapeHtml(guideProfile.realtorName)} · ${escapeHtml(guideProfile.realtorDre)}</p></div>
           <div class="ask-story-copy"><p class="eyebrow">Love Where You Live</p><h1 id="ask-title">Thinking About Making the Desert Home?</h1><p>Whether you're considering buying, selling, relocating, or simply exploring what's possible, tell Darcey a little about what you have in mind. She'll personally follow up.</p><div class="ask-trust-note"><span>Local knowledge</span><span>Personal response</span><span>No pressure</span></div></div>
         </div>
         <div class="ask-form-card">
@@ -337,7 +371,7 @@ function utilityProviderCard(provider, context = "browse") {
   const primaryLabel = provider.primaryAction || (provider.startServiceUrl ? "Start Service" : provider.availabilityUrl ? "Check Availability" : "Visit Provider");
   const search = [provider.name, provider.subcategory, provider.description, ...(provider.aliases || []), ...(provider.serviceAreas || [])].join(" ").toLowerCase();
   return `<article class="utility-provider-card" data-utility-provider-card data-track-impression="true" data-place-view-event="utility_provider_view" data-guide-place="${escapeHtml(provider.name)}" data-guide-slug="${provider.slug}" data-place-id="${provider.placeId}" data-guide-category="Utilities Setup" data-guide-type="UtilityProvider" data-utility-type="${escapeHtml(provider.subcategory)}" data-search="${escapeHtml(search)}" data-utility-context="${escapeHtml(context)}">
-    <div class="utility-provider-identity"><img src="${provider.image}" alt="${escapeHtml(provider.name)} logo or ${provider.subcategory.toLowerCase()} service icon" loading="lazy" decoding="async"><div><p>${escapeHtml(provider.subcategory)}</p><h3><a href="${provider.url}" data-analytics-event="utility_provider_click" data-analytics-label="${escapeHtml(provider.name)}">${escapeHtml(provider.name)}</a></h3></div></div>
+    <div class="utility-provider-identity"><img src="${optimizedImage(provider.image, 240)}" alt="${escapeHtml(provider.name)} logo or ${provider.subcategory.toLowerCase()} service icon" loading="lazy" decoding="async"><div><p>${escapeHtml(provider.subcategory)}</p><h3><a href="${provider.url}" data-analytics-event="utility_provider_click" data-analytics-label="${escapeHtml(provider.name)}">${escapeHtml(provider.name)}</a></h3></div></div>
     <p class="utility-provider-description">${escapeHtml(provider.detail || provider.description)}</p>
     <div class="utility-provider-actions">
       ${primaryUrl ? `<a class="button dark" href="${escapeHtml(primaryUrl)}" target="_blank" rel="noreferrer" data-analytics-event="${primaryEvent}" data-analytics-label="${escapeHtml(`${primaryLabel} - ${provider.name}`)}">${escapeHtml(primaryLabel)}</a>` : ""}
@@ -369,15 +403,12 @@ function utilityConcierge(category) {
 function categoryPage(category) {
   const canonical = `${guideProfile.siteUrl}/${category.slug}/`;
   const title = `${category.label} in the Coachella Valley | My Desert Guide`;
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: title,
-    description: category.intro,
-    url: canonical,
-    isPartOf: { "@type": "WebSite", name: guideProfile.siteName, url: guideProfile.siteUrl },
-    hasPart: category.places.map((place) => ({ "@type": "WebPage", name: place.name, url: `${guideProfile.siteUrl}${place.url}` })),
-  };
+  const schema = { "@context": "https://schema.org", "@graph": [
+    { "@type": "CollectionPage", "@id": `${canonical}#webpage`, name: title, description: category.intro, url: canonical,
+      isPartOf: { "@id": `${guideProfile.siteUrl}/#website` },
+      hasPart: category.places.map((place) => ({ "@type": "WebPage", name: place.name, url: `${guideProfile.siteUrl}${place.url}` })) },
+    breadcrumbSchema([["Home", `${guideProfile.siteUrl}/`], [category.label, canonical]]),
+  ] };
   const cities = [...new Set(category.places.map((place) => place.city).filter(Boolean))].sort();
   const tagCounts = new Map();
   category.places.flatMap((place) => place.tags).forEach((tag) => tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1));
@@ -397,11 +428,11 @@ function categoryPage(category) {
       </div>
       <div class="empty-state" data-empty-results hidden>No recommendations match those filters yet. Try another location or interest.</div>`;
 
-  return `<!doctype html><html lang="en"><head>${pageHead({ title, description: category.intro, canonical, image: category.image, schema })}</head>
+  return `<!doctype html><html lang="en"><head>${pageHead({ title, description: category.intro, canonical, image: category.image, imageAlt: category.imageAlt, schema })}</head>
   <body data-page-kind="category" data-guide-id="${guideProfile.guideId}" data-profile-id="${guideProfile.profileId}" data-category="${escapeHtml(category.label)}" data-category-slug="${category.slug}">
     ${header()}<main class="page-shell">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">${escapeHtml(category.label)}</span></nav>
-      <section class="category-hero"><div class="category-hero-copy"><p class="eyebrow">${escapeHtml(category.eyebrow)}</p><h1>${escapeHtml(category.label)}</h1><p>${escapeHtml(category.intro)}</p></div><div class="category-hero-media"><img src="${category.image}" alt="${escapeHtml(category.imageAlt)}" fetchpriority="high"></div></section>
+      <section class="category-hero"><div class="category-hero-copy"><p class="eyebrow">${escapeHtml(category.eyebrow)}</p><h1>${escapeHtml(category.label)}</h1><p>${escapeHtml(category.intro)}</p></div><div class="category-hero-media"><img src="${optimizedImage(category.image, 1200)}" alt="${escapeHtml(category.imageAlt)}" fetchpriority="high" decoding="async"></div></section>
       ${discovery}
       ${contextualRealEstateCta(category)}
       ${installCard()}
@@ -439,9 +470,9 @@ function actionLinks(place) {
   return links.join("");
 }
 
-function placeSchema(place) {
+function placeEntity(place) {
   const schema = {
-    "@context": "https://schema.org", "@type": place.schemaType, name: place.name,
+    "@type": place.schemaType, "@id": `${guideProfile.siteUrl}${place.url}#place`, name: place.name,
     description: place.description, image: `${guideProfile.siteUrl}${place.image}`, url: `${guideProfile.siteUrl}${place.url}`,
     address: place.address ? { "@type": "PostalAddress", streetAddress: place.address, addressLocality: place.city, addressRegion: "CA" } : place.city ? { "@type": "PostalAddress", addressLocality: place.city, addressRegion: "CA" } : undefined,
     telephone: place.phone || undefined, sameAs: place.website || undefined,
@@ -454,12 +485,21 @@ function placePage(place) {
   const category = categoryDefinitions.find((item) => item.slug === place.categorySlug);
   const related = category.places.filter((item) => item.slug !== place.slug).slice(0, 3);
   const canonical = `${guideProfile.siteUrl}${place.url}`;
-  const description = `${place.description} ${place.darceysTake ? `Read Darcey's personal take on ${place.name}.` : ""}`.trim();
-  return `<!doctype html><html lang="en"><head>${pageHead({ title: `${place.name} | Darcey's My Desert Guide`, description, canonical, image: place.image, type: "article", schema: placeSchema(place) })}</head>
+  const fullTitle = `${place.name} in ${place.city} | My Desert Guide`;
+  const brandedTitle = `${place.name} | My Desert Guide`;
+  const conciseName = place.name.includes("/") ? place.name.split("/").at(-1).trim() : place.name;
+  const title = fullTitle.length <= 65 ? fullTitle : brandedTitle.length <= 65 ? brandedTitle : `${conciseName} | My Desert Guide`;
+  const description = trimDescription(place.description);
+  const schema = { "@context": "https://schema.org", "@graph": [
+    { "@type": "WebPage", "@id": `${canonical}#webpage`, name: title, description, url: canonical, isPartOf: { "@id": `${guideProfile.siteUrl}/#website` }, mainEntity: { "@id": `${canonical}#place` } },
+    placeEntity(place),
+    breadcrumbSchema([["Home", `${guideProfile.siteUrl}/`], [place.category, `${guideProfile.siteUrl}/${place.categorySlug}/`], [place.name, canonical]]),
+  ] };
+  return `<!doctype html><html lang="en"><head>${pageHead({ title, description, canonical, image: place.image, imageAlt: place.imageAlt, schema })}</head>
   <body data-page-kind="place" data-guide-id="${place.guideId}" data-profile-id="${place.profileId}" data-category="${escapeHtml(place.category)}" data-category-slug="${place.categorySlug}" data-place-id="${place.placeId}" data-place-slug="${place.slug}" data-place-name="${escapeHtml(place.name)}" data-place-type="${place.schemaType}">
     ${header()}<main class="page-shell">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/${place.categorySlug}/">${escapeHtml(place.category)}</a><span>/</span><span aria-current="page">${escapeHtml(place.name)}</span></nav>
-      <article class="place-hero"><div class="place-media"><img src="${place.image}" alt="${escapeHtml(place.imageAlt)}" fetchpriority="high">${place.photoCredit ? `<a class="photo-credit" href="${escapeHtml(place.photoCredit.url)}" target="_blank" rel="noreferrer">${escapeHtml(place.photoCredit.label)}</a>` : ""}</div><div class="place-copy"><p class="eyebrow">${escapeHtml(place.city)} · ${escapeHtml(place.coffeePickLabel || place.familiarFavoriteLabel || place.subcategory || place.category)}</p><h1>${escapeHtml(place.name)}</h1><p class="place-deck">${escapeHtml(place.description)}</p><div class="tag-list place-tags">${tags(place,5)}</div>${place.isFavorite && place.categorySlug !== "utilities" ? '<div class="favorite-mark">♡ Darcey&#39;s Favorite</div>' : ""}<div class="place-actions">${place.categorySlug === "utilities" ? "" : favoriteButton(place,"place-save")} ${actionLinks(place)}</div></div></article>
+      <article class="place-hero"><div class="place-media"><img src="${optimizedImage(place.image, 1200)}" alt="${escapeHtml(place.imageAlt)}" fetchpriority="high" decoding="async">${place.photoCredit ? `<a class="photo-credit" href="${escapeHtml(place.photoCredit.url)}" target="_blank" rel="noreferrer">${escapeHtml(place.photoCredit.label)}</a>` : ""}</div><div class="place-copy"><p class="eyebrow">${escapeHtml(place.city)} · ${escapeHtml(place.coffeePickLabel || place.familiarFavoriteLabel || place.subcategory || place.category)}</p><h1>${escapeHtml(place.name)}</h1><p class="place-deck">${escapeHtml(place.description)}</p><div class="tag-list place-tags">${tags(place,5)}</div>${place.isFavorite && place.categorySlug !== "utilities" ? '<div class="favorite-mark">♡ Darcey&#39;s Favorite</div>' : ""}<div class="place-actions">${place.categorySlug === "utilities" ? "" : favoriteButton(place,"place-save")} ${actionLinks(place)}</div></div></article>
       <div class="place-content">
         ${place.darceysTake ? `<section class="place-section darcey-take"><p class="eyebrow">♡ Darcey's Take</p><blockquote>“${escapeHtml(place.darceysTake)}”</blockquote></section>` : ""}${place.goodToKnow ? `<section class="place-section good-to-know"><p class="eyebrow">Good to Know</p><p>${escapeHtml(place.goodToKnow)}</p></section>` : ""}
         ${detailRows(place) ? `<section class="place-section"><p class="eyebrow">Plan Your Visit</p><h2>Useful details.</h2><dl class="detail-list">${detailRows(place)}</dl></section>` : ""}
@@ -502,6 +542,6 @@ const urls = [
   ...allPlaces.map((place) => `${guideProfile.siteUrl}${place.url}`),
 ];
 await write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${url.replaceAll("&","&amp;")}</loc></url>`).join("\n")}\n</urlset>\n`);
-await write("robots.txt", `User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\n\nSitemap: ${guideProfile.siteUrl}/sitemap.xml\n`);
+await write("robots.txt", `User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\nDisallow: /.netlify/functions/\n\nSitemap: ${guideProfile.siteUrl}/sitemap.xml\n`);
 
 console.log(`Generated ${categoryDefinitions.length} category pages, ${allPlaces.length} recommendation pages, saved places, sitemap and robots.txt.`);

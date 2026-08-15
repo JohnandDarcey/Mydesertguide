@@ -264,12 +264,12 @@ for (const [slug, markers] of [
   if (html.includes("Darcey's Take")) throw new Error(`${slug} must not include an invented Darcey's Take.`);
 }
 const joshFullerPage = await read("place/josh-fuller-at-salon-jarick/index.html");
-if (!joshFullerPage.includes("Photo courtesy of Salon Jarick") || !joshFullerPage.includes("/assets/spa-beauty/josh-fuller.jpg")) {
+if (!joshFullerPage.includes("Photo courtesy of Salon Jarick") || !joshFullerPage.includes(encodeURIComponent("/assets/spa-beauty/josh-fuller.jpg"))) {
   throw new Error("Josh Fuller must use the official Salon Jarick interior photo.");
 }
 
 const professionalsPage = await read("trusted-professionals/index.html");
-if (!professionalsPage.includes("/assets/services/mr-beez-pest-control.png")) throw new Error("Trusted Professionals must use the Mr. Beez category image.");
+if (!professionalsPage.includes(encodeURIComponent("/assets/services/mr-beez-pest-control.png"))) throw new Error("Trusted Professionals must use the Mr. Beez category image.");
 for (const removedFilter of ["beautifully designed desserts", "custom cakes"]) {
   if (professionalsPage.toLowerCase().includes(`data-tag-filter=\"${removedFilter}`)) throw new Error(`Trusted Professionals still exposes removed navigation filter: ${removedFilter}`);
 }

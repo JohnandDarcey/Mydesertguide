@@ -6,7 +6,7 @@
     <title>My Desert Guide | The Best of the Coachella Valley</title>
     <meta
       name="description"
-      content="Discover Darcey Deetz’s curated guide to the best food and drink, golf, things to do, shopping, spa and beauty, local utilities, and trusted professionals throughout the Coachella Valley."
+      content="Explore Darcey Deetz’s curated Palm Springs and Coachella Valley guide to food, golf, shopping, things to do, spa and beauty, utilities and local pros."
     />
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <link rel="canonical" href="https://mydesertguide.com/" />
@@ -14,7 +14,7 @@
     <meta property="og:title" content="My Desert Guide | The Best of the Coachella Valley" />
     <meta
       property="og:description"
-      content="Discover Darcey Deetz’s curated guide to the best food and drink, golf, things to do, shopping, spa and beauty, local utilities, and trusted professionals throughout the Coachella Valley."
+      content="Explore Darcey Deetz’s curated Palm Springs and Coachella Valley guide to food, golf, shopping, things to do, spa and beauty, utilities and local pros."
     />
     <meta property="og:image" content="https://mydesertguide.com/.netlify/images?url=%2Fassets%2Fmy-desert-guide-hero-darcey.png&amp;w=1200&amp;h=630&amp;fit=cover" />
     <meta property="og:image:type" content="image/png" />
@@ -29,7 +29,7 @@
     <meta name="twitter:title" content="My Desert Guide | The Best of the Coachella Valley" />
     <meta
       name="twitter:description"
-      content="Discover Darcey Deetz’s curated guide to the best food and drink, golf, things to do, shopping, spa and beauty, local utilities, and trusted professionals throughout the Coachella Valley."
+      content="Explore Darcey Deetz’s curated Palm Springs and Coachella Valley guide to food, golf, shopping, things to do, spa and beauty, utilities and local pros."
     />
     <meta name="twitter:image" content="https://mydesertguide.com/.netlify/images?url=%2Fassets%2Fmy-desert-guide-hero-darcey.png&amp;w=1200&amp;h=630&amp;fit=cover" />
     <meta name="twitter:image:alt" content="My Desert Guide featuring Darcey Deetz and the Coachella Valley" />
@@ -50,12 +50,35 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "My Desert Guide",
-        "alternateName": "Darcey's Guide",
-        "url": "https://mydesertguide.com/",
-        "description": "Darcey Deetz's curated guide to food and drink, golf, things to do, shopping, spa and beauty, utilities and trusted professionals in the Coachella Valley.",
-        "publisher": { "@type": "Person", "name": "Darcey Deetz", "url": "https://darceydeetz.com" }
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://mydesertguide.com/#website",
+            "name": "My Desert Guide",
+            "alternateName": "Darcey's Guide",
+            "url": "https://mydesertguide.com/",
+            "description": "Darcey Deetz's curated guide to food, golf, shopping, things to do, spa and beauty, utilities and trusted professionals in the Coachella Valley.",
+            "publisher": { "@id": "https://mydesertguide.com/#darcey" },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://mydesertguide.com/#webpage",
+            "url": "https://mydesertguide.com/",
+            "name": "My Desert Guide | The Best of the Coachella Valley",
+            "isPartOf": { "@id": "https://mydesertguide.com/#website" },
+            "about": { "@id": "https://mydesertguide.com/#darcey" },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://mydesertguide.com/#darcey",
+            "name": "Darcey Deetz",
+            "jobTitle": "Palm Springs and Coachella Valley Realtor",
+            "url": "https://darceydeetz.com/",
+            "areaServed": ["Palm Springs", "Rancho Mirage", "Palm Desert", "Cathedral City", "Indian Wells", "La Quinta", "Coachella Valley"]
+          }
+        ]
       }
     </script>
   </head>

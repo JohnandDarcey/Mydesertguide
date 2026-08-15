@@ -19,6 +19,26 @@
     Cache-Control = "no-cache"
     Service-Worker-Allowed = "/"
 
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/saved/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
 [[redirects]]
   from = "/restaurants"
   to = "/food-drink/"
