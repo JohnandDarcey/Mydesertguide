@@ -203,8 +203,7 @@
     const body = JSON.stringify(payload);
     if (navigator.sendBeacon) {
       const blob = new Blob([body], { type: "application/json" });
-      navigator.sendBeacon(endpoint, blob);
-      return;
+      if (navigator.sendBeacon(endpoint, blob)) return;
     }
 
     fetch(endpoint, {

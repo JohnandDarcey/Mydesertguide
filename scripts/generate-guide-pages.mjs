@@ -107,7 +107,7 @@ function footer() {
 
 function scripts() {
   return `<script src="/analytics-config.js?v=20260814-guide-architecture"></script>
-    <script src="/analytics.js?v=20260815-ask-darcey"></script>
+    <script src="/analytics.js?v=20260822-analytics-consistency"></script>
     <script type="module" src="/directory.js?v=20260814-category-discovery"></script>
     <script type="module" src="/site-features.js?v=20260814-hybrid-homepage"></script>`;
 }
@@ -354,7 +354,7 @@ function askDarceyPage() {
         </div>
       </section>
     </main><footer class="ask-footer"><a class="site-brand" href="/">My Desert Guide <span>♥</span></a><div><a href="/#browse-guide">Explore the Guide</a><a href="${guideProfile.homeSearchUrl}" target="_blank" rel="noreferrer" data-analytics-event="real_estate_home_search_click" data-analytics-category="Real Estate">Explore Desert Homes</a></div><p>${guideProfile.realtorName} · ${guideProfile.realtorDre} · ${guideProfile.brokerage} · ${guideProfile.brokerageDre}</p></footer>
-    <script src="/analytics-config.js?v=20260814-guide-architecture"></script><script src="/analytics.js?v=20260815-ask-darcey"></script><script type="module" src="/ask-darcey.js?v=20260815-simple-funnel"></script>
+    <script src="/analytics-config.js?v=20260814-guide-architecture"></script><script src="/analytics.js?v=20260822-analytics-consistency"></script><script type="module" src="/ask-darcey.js?v=20260815-simple-funnel"></script>
   </body></html>`;
 }
 

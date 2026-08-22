@@ -52,6 +52,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .quiet-button { background: transparent; border: 1px solid var(--line); color: var(--ink); }
 .status { color: var(--muted); min-height: 34px; padding: 7px 3px 12px; }
 .status.error { color: #8b3329; }
+.metric-note { color: var(--muted); font-size: .72rem; line-height: 1.55; margin: 14px 3px 0; max-width: 980px; }
 
 .overview-section, .panel { margin-top: 20px; }
 .section-heading, .panel-heading { align-items: end; display: flex; gap: 22px; justify-content: space-between; }

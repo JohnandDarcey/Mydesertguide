@@ -6,7 +6,7 @@ import {
   TRACKED_EVENTS,
 } from "./config.mjs";
 import { datesEnding, localDateString } from "./time.mjs";
-import { getJSON, setJSON } from "./store.mjs";
+import { getJSON, updateJSON } from "./store.mjs";
 
 const MAX_LABEL_LENGTH = 120;
 
@@ -287,26 +287,167 @@ async function loadVisitorProfile(visitorHash) {
   return getJSON(`visitors/${visitorHash}`, null);
 }
 
-async function saveVisitorProfile(visitorHash, profile) {
-  return setJSON(`visitors/${visitorHash}`, profile);
-}
-
 export async function getDay(date) {
   return getJSON(`daily/${date}`, () => blankDay(date));
-}
-
-async function saveDay(day) {
-  day.updatedAt = new Date().toISOString();
-  return setJSON(`daily/${day.date}`, day);
 }
 
 async function getLifetime() {
   return getJSON("lifetime", blankLifetime);
 }
 
-async function saveLifetime(lifetime) {
+function applyDayEvent(day, event) {
+  const {
+    eventName, payload, path, visitorHash, sessionKey, isKnownVisitor,
+    source, device, country, date, hourStart,
+  } = event;
+
+  day.totals ||= blankTotals();
+  day.eventCounts ||= {};
+  day.categories ||= {};
+  day.places ||= {};
+  day.sources ||= {};
+  day.devices ||= {};
+  day.countries ||= {};
+  day.leadTypes ||= {};
+  day.leadSources ||= {};
+  day.leadOrigins ||= {};
+  day.realEstatePages ||= {};
+  day.hours ||= {};
+
+  const visitorHashes = toArraySet(day.visitorHashes);
+  const returningHashes = toArraySet(day.returningVisitorHashes);
+  const sessionKeys = toArraySet(day.sessionKeys);
+
+  if (!visitorHashes.has(visitorHash)) {
+    visitorHashes.add(visitorHash);
+    day.visitorHashes = Array.from(visitorHashes);
+    day.totals.uniqueVisitors = visitorHashes.size;
+
+    if (isKnownVisitor) {
+      returningHashes.add(visitorHash);
+      day.returningVisitorHashes = Array.from(returningHashes);
+      day.totals.returningVisitors = returningHashes.size;
+    }
+
+    day.sources[source] = Number(day.sources[source] || 0) + 1;
+    day.devices[device] = Number(day.devices[device] || 0) + 1;
+    day.countries[country] = Number(day.countries[country] || 0) + 1;
+  }
+
+  if (sessionKey && !sessionKeys.has(sessionKey)) {
+    sessionKeys.add(sessionKey);
+    day.sessionKeys = Array.from(sessionKeys);
+    day.totals.sessions = sessionKeys.size;
+  }
+
+  const totalKey = EVENT_TOTAL_KEYS[eventName];
+  if (totalKey) incrementTotal(day.totals, totalKey);
+  day.eventCounts[eventName] = Number(day.eventCounts[eventName] || 0) + 1;
+  if (CLIENT_ENGAGEMENT_EVENTS.has(eventName)) incrementTotal(day.totals, "clientEngagements");
+
+  if (eventName === "lead_form_submitted") {
+    const leadType = sanitize(payload.leadType, "General");
+    const leadSource = sanitize(payload.leadSource, "Direct");
+    const leadOrigin = sanitize(payload.leadOrigin, "/");
+    day.leadTypes[leadType] = Number(day.leadTypes[leadType] || 0) + 1;
+    day.leadSources[leadSource] = Number(day.leadSources[leadSource] || 0) + 1;
+    day.leadOrigins[leadOrigin] = Number(day.leadOrigins[leadOrigin] || 0) + 1;
+  }
+
+  recordRealEstatePage(day.realEstatePages, eventName, { ...payload, path });
+
+  const category = normalizeCategory(payload);
+  if (eventName === "category_view" || eventName === "homepage_category_click" || eventName === "place_view") {
+    const categoryRecord = ensureCounter(day.categories, category, { image: sanitize(payload.image) });
+    if (categoryRecord) {
+      categoryRecord.views += 1;
+      if (payload.image && !categoryRecord.image) categoryRecord.image = sanitize(payload.image);
+    }
+  }
+
+  const placeName = sanitize(payload.placeName);
+  if (placeName) {
+    const place = ensureCounter(day.places, placeName, {
+      placeId: sanitize(payload.placeId), category, categorySlug: sanitize(payload.categorySlug),
+      type: sanitize(payload.placeType || payload.type), image: sanitize(payload.image), rating: sanitize(payload.rating),
+    });
+    if (eventName === "place_view") place.views += 1;
+    if (CLIENT_ENGAGEMENT_EVENTS.has(eventName) || eventName === "business_website_click" || eventName === "menu_click" || eventName === "curated_favorite_click") {
+      place.actions += 1;
+    }
+    if (!place.image && payload.image) place.image = sanitize(payload.image);
+    if (!place.rating && payload.rating) place.rating = sanitize(payload.rating);
+    place.lastEventAt = new Date().toISOString();
+  }
+
+  const hour = day.hours[hourStart] || blankHour(hourStart);
+  recordHourlyEvent(hour, {
+    eventName, payload, visitorHash, sessionKey, isKnownVisitor, source, device, country,
+  });
+  day.hours[hourStart] = hour;
+  day.updatedAt = new Date().toISOString();
+  day.date ||= date;
+  return day;
+}
+
+function applyLifetimeEvent(lifetime, event) {
+  const { eventName, payload, path, visitorHash } = event;
+  lifetime.totals ||= blankTotals();
+  lifetime.categories ||= {};
+  lifetime.places ||= {};
+  lifetime.leadTypes ||= {};
+  lifetime.leadSources ||= {};
+  lifetime.leadOrigins ||= {};
+  lifetime.realEstatePages ||= {};
+
+  const lifetimeVisitors = toArraySet(lifetime.uniqueVisitorHashes);
+  if (!lifetimeVisitors.has(visitorHash)) {
+    lifetimeVisitors.add(visitorHash);
+    lifetime.uniqueVisitorHashes = Array.from(lifetimeVisitors);
+    lifetime.totals.uniqueVisitors = lifetimeVisitors.size;
+  }
+
+  const totalKey = EVENT_TOTAL_KEYS[eventName];
+  if (totalKey) incrementTotal(lifetime.totals, totalKey);
+  if (CLIENT_ENGAGEMENT_EVENTS.has(eventName)) incrementTotal(lifetime.totals, "clientEngagements");
+
+  if (eventName === "lead_form_submitted") {
+    const leadType = sanitize(payload.leadType, "General");
+    const leadSource = sanitize(payload.leadSource, "Direct");
+    const leadOrigin = sanitize(payload.leadOrigin, "/");
+    lifetime.leadTypes[leadType] = Number(lifetime.leadTypes[leadType] || 0) + 1;
+    lifetime.leadSources[leadSource] = Number(lifetime.leadSources[leadSource] || 0) + 1;
+    lifetime.leadOrigins[leadOrigin] = Number(lifetime.leadOrigins[leadOrigin] || 0) + 1;
+  }
+
+  recordRealEstatePage(lifetime.realEstatePages, eventName, { ...payload, path });
+
+  const category = normalizeCategory(payload);
+  if (eventName === "category_view" || eventName === "homepage_category_click" || eventName === "place_view") {
+    const categoryRecord = ensureCounter(lifetime.categories, category, { image: sanitize(payload.image) });
+    if (categoryRecord) {
+      categoryRecord.views += 1;
+      if (payload.image && !categoryRecord.image) categoryRecord.image = sanitize(payload.image);
+    }
+  }
+
+  const placeName = sanitize(payload.placeName);
+  if (placeName) {
+    const place = ensureCounter(lifetime.places, placeName, {
+      placeId: sanitize(payload.placeId), category, categorySlug: sanitize(payload.categorySlug),
+      type: sanitize(payload.placeType || payload.type), image: sanitize(payload.image), rating: sanitize(payload.rating),
+    });
+    if (eventName === "place_view") place.views += 1;
+    if (CLIENT_ENGAGEMENT_EVENTS.has(eventName) || eventName === "business_website_click" || eventName === "menu_click" || eventName === "curated_favorite_click") {
+      place.actions += 1;
+    }
+    if (!place.image && payload.image) place.image = sanitize(payload.image);
+    if (!place.rating && payload.rating) place.rating = sanitize(payload.rating);
+    place.lastEventAt = new Date().toISOString();
+  }
+
   lifetime.updatedAt = new Date().toISOString();
-  return setJSON("lifetime", lifetime);
+  return lifetime;
 }
 
 export async function recordEvent(payload = {}, request, context) {
@@ -328,164 +469,37 @@ export async function recordEvent(payload = {}, request, context) {
   const visitorHash = hashVisitorId(visitorId);
   const sessionId = sanitize(payload.sessionId);
   const sessionKey = sessionId ? `${visitorHash}:${sessionId}` : "";
-  const day = await getDay(date);
-  const lifetime = await getLifetime();
-  lifetime.categories ||= {};
-  lifetime.places ||= {};
-  lifetime.leadTypes ||= {};
-  lifetime.leadSources ||= {};
-  lifetime.leadOrigins ||= {};
-  lifetime.realEstatePages ||= {};
   const visitorProfile = await loadVisitorProfile(visitorHash);
-  const isKnownVisitor = Boolean(visitorProfile?.firstSeen);
-  day.hours ||= {};
-  const hour = day.hours[hourStart] || blankHour(hourStart);
-
-  const visitorHashes = toArraySet(day.visitorHashes);
-  const returningHashes = toArraySet(day.returningVisitorHashes);
-  const sessionKeys = toArraySet(day.sessionKeys);
-  const lifetimeVisitors = toArraySet(lifetime.uniqueVisitorHashes);
-  const isNewForDay = !visitorHashes.has(visitorHash);
-
-  if (isNewForDay) {
-    visitorHashes.add(visitorHash);
-    day.visitorHashes = Array.from(visitorHashes);
-    day.totals.uniqueVisitors = visitorHashes.size;
-
-    if (isKnownVisitor && visitorProfile.firstSeen !== date) {
-      returningHashes.add(visitorHash);
-      day.returningVisitorHashes = Array.from(returningHashes);
-      day.totals.returningVisitors = returningHashes.size;
-    }
-
-    const source = classifySource(payload.referrer);
-    const device = classifyDevice(userAgent);
-    const country = countryFromContext(context);
-    day.sources[source] = Number(day.sources[source] || 0) + 1;
-    day.devices[device] = Number(day.devices[device] || 0) + 1;
-    day.countries[country] = Number(day.countries[country] || 0) + 1;
-  }
-
-  if (sessionKey && !sessionKeys.has(sessionKey)) {
-    sessionKeys.add(sessionKey);
-    day.sessionKeys = Array.from(sessionKeys);
-    day.totals.sessions = sessionKeys.size;
-  }
-
-  if (!lifetimeVisitors.has(visitorHash)) {
-    lifetimeVisitors.add(visitorHash);
-    lifetime.uniqueVisitorHashes = Array.from(lifetimeVisitors);
-    lifetime.totals.uniqueVisitors = lifetimeVisitors.size;
-  }
-
-  const totalKey = EVENT_TOTAL_KEYS[eventName];
-  if (totalKey) {
-    incrementTotal(day.totals, totalKey);
-    incrementTotal(lifetime.totals, totalKey);
-  }
-  day.eventCounts[eventName] = Number(day.eventCounts[eventName] || 0) + 1;
-
-  if (CLIENT_ENGAGEMENT_EVENTS.has(eventName)) {
-    incrementTotal(day.totals, "clientEngagements");
-    incrementTotal(lifetime.totals, "clientEngagements");
-  }
-
-  if (eventName === "lead_form_submitted") {
-    const leadType = sanitize(payload.leadType, "General");
-    const leadSource = sanitize(payload.leadSource, "Direct");
-    const leadOrigin = sanitize(payload.leadOrigin, "/");
-    day.leadTypes ||= {};
-    day.leadSources ||= {};
-    day.leadOrigins ||= {};
-    day.leadTypes[leadType] = Number(day.leadTypes[leadType] || 0) + 1;
-    day.leadSources[leadSource] = Number(day.leadSources[leadSource] || 0) + 1;
-    day.leadOrigins[leadOrigin] = Number(day.leadOrigins[leadOrigin] || 0) + 1;
-    lifetime.leadTypes[leadType] = Number(lifetime.leadTypes[leadType] || 0) + 1;
-    lifetime.leadSources[leadSource] = Number(lifetime.leadSources[leadSource] || 0) + 1;
-    lifetime.leadOrigins[leadOrigin] = Number(lifetime.leadOrigins[leadOrigin] || 0) + 1;
-  }
-  day.realEstatePages ||= {};
-  recordRealEstatePage(day.realEstatePages, eventName, { ...payload, path });
-  recordRealEstatePage(lifetime.realEstatePages, eventName, { ...payload, path });
-
-  const category = normalizeCategory(payload);
-  if (eventName === "category_view" || eventName === "homepage_category_click" || eventName === "place_view") {
-    const categoryRecord = ensureCounter(day.categories, category, {
-      image: sanitize(payload.image),
-    });
-    const lifetimeCategory = ensureCounter(lifetime.categories, category, {
-      image: sanitize(payload.image),
-    });
-    if (categoryRecord) {
-      categoryRecord.views += 1;
-      if (payload.image && !categoryRecord.image) categoryRecord.image = sanitize(payload.image);
-    }
-    if (lifetimeCategory) {
-      lifetimeCategory.views += 1;
-      if (payload.image && !lifetimeCategory.image) lifetimeCategory.image = sanitize(payload.image);
-    }
-  }
-
-  const placeName = sanitize(payload.placeName);
-  if (placeName) {
-    const place = ensureCounter(day.places, placeName, {
-      placeId: sanitize(payload.placeId),
-      category,
-      categorySlug: sanitize(payload.categorySlug),
-      type: sanitize(payload.placeType || payload.type),
-      image: sanitize(payload.image),
-      rating: sanitize(payload.rating),
-    });
-    const lifetimePlace = ensureCounter(lifetime.places, placeName, {
-      placeId: sanitize(payload.placeId),
-      category,
-      categorySlug: sanitize(payload.categorySlug),
-      type: sanitize(payload.placeType || payload.type),
-      image: sanitize(payload.image),
-      rating: sanitize(payload.rating),
-    });
-
-    if (place) {
-      if (eventName === "place_view") place.views += 1;
-      if (CLIENT_ENGAGEMENT_EVENTS.has(eventName) || eventName === "business_website_click" || eventName === "menu_click" || eventName === "curated_favorite_click") {
-        place.actions += 1;
-      }
-      if (!place.image && payload.image) place.image = sanitize(payload.image);
-      if (!place.rating && payload.rating) place.rating = sanitize(payload.rating);
-      place.lastEventAt = new Date().toISOString();
-    }
-    if (lifetimePlace) {
-      if (eventName === "place_view") lifetimePlace.views += 1;
-      if (CLIENT_ENGAGEMENT_EVENTS.has(eventName) || eventName === "business_website_click" || eventName === "menu_click" || eventName === "curated_favorite_click") {
-        lifetimePlace.actions += 1;
-      }
-      if (!lifetimePlace.image && payload.image) lifetimePlace.image = sanitize(payload.image);
-      if (!lifetimePlace.rating && payload.rating) lifetimePlace.rating = sanitize(payload.rating);
-      lifetimePlace.lastEventAt = new Date().toISOString();
-    }
-  }
-
-  recordHourlyEvent(hour, {
+  const event = {
     eventName,
     payload,
+    path,
     visitorHash,
     sessionKey,
-    isKnownVisitor,
+    isKnownVisitor: Boolean(visitorProfile?.firstSeen && visitorProfile.firstSeen !== date),
     source: classifySource(payload.referrer),
     device: classifyDevice(userAgent),
     country: countryFromContext(context),
-  });
-  day.hours[hourStart] = hour;
+    date,
+    hourStart,
+  };
 
-  await saveVisitorProfile(visitorHash, {
+  await updateJSON(`daily/${date}`, () => blankDay(date), (day) => applyDayEvent(day, event));
+  await updateJSON("lifetime", blankLifetime, (lifetime) => applyLifetimeEvent(lifetime, event));
+  await updateJSON(`visitors/${visitorHash}`, () => ({
     guideId: GUIDE_CONFIG.guideId,
     profileId: GUIDE_CONFIG.profileId,
-    firstSeen: visitorProfile?.firstSeen || date,
+    firstSeen: date,
     lastSeen: date,
     lastEventAt: new Date().toISOString(),
-  });
-  await saveDay(day);
-  await saveLifetime(lifetime);
+  }), (profile) => ({
+    ...profile,
+    guideId: GUIDE_CONFIG.guideId,
+    profileId: GUIDE_CONFIG.profileId,
+    firstSeen: profile?.firstSeen || date,
+    lastSeen: date,
+    lastEventAt: new Date().toISOString(),
+  }));
 
   return { stored: true };
 }
