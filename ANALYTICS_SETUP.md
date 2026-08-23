@@ -93,7 +93,9 @@ https://mydesertguide.com/admin/analytics.html
 
 Paste the `ANALYTICS_ADMIN_TOKEN` when prompted. The token is saved only in that browser's local storage and is not placed in the URL.
 
-The dashboard defaults to 30 days and also offers 24 hours, 7 days, 90 days, and all time. It shows headline metrics, a views-and-visitors activity chart, new versus returning visitors, category interest, popular places, Darcey contact actions, Ask Darcey page visits, form starts and conversion, lead sources and types, content producing leads, buyer-guide requests, and reliable PWA activity when present. Recent lead names, contact details, messages, source pages, and New/Contacted status appear only after the private dashboard is unlocked.
+The dashboard defaults to 30 days and also offers 24 hours, 7 days, 90 days, and all time. It intentionally shows only first-party engagement and lead activity: recommendation opens, category interest, popular places, Darcey contact actions, Ask Darcey page activity, form starts and conversion, lead sources and types, content producing leads, buyer-guide requests, and reliable PWA activity when present. Recent lead names, contact details, messages, source pages, and New/Contacted status appear only after the private dashboard is unlocked.
+
+Netlify Web Analytics is the authoritative source for pageviews, unique visitors, locations, and traffic sources. Those server-side metrics are not duplicated in the private dashboard because Netlify does not provide them through a supported API. Keeping traffic in Netlify and engagement in the existing first-party dashboard avoids additional analytics-service costs.
 
 ## Real-Estate Lead Flow
 

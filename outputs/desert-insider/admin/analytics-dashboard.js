@@ -7,7 +7,6 @@
   const elements = {
     tokenForm: $("#token-form"), tokenInput: $("#token-input"), clearToken: $("#clear-token"),
     status: $("#status"), access: $("#access-panel"), summary: $("#summary"),
-    activity: $("#activity-chart"), donut: $("#visitor-donut"), visitorDetails: $("#visitor-details"),
     categories: $("#category-bars"), places: $("#popular-places"), contactCards: $("#contact-cards"),
     contactTotal: $("#contact-total"), contactTrend: $("#contact-trend"),
     realEstatePanel: $("#real-estate-panel"), realEstateContent: $("#real-estate-content"),
@@ -47,38 +46,6 @@
     return `<article class="kpi-card"><div class="kpi-top"><span>${escapeHtml(label)}</span>${sparkline(trend, key)}</div><strong>${number(value)}</strong><small>${escapeHtml(comparison(value, previous))}</small></article>`;
   }
 
-  function lineChart(trend = []) {
-    if (!trend.length) return `<p class="empty">Activity will appear here as visitors use the guide.</p>`;
-    const width = 900; const height = 260; const pad = 34;
-    const max = Math.max(1, ...trend.flatMap((item) => [Number(item.guideViews || 0), Number(item.uniqueVisitors || 0)]));
-    const points = (key) => trend.map((item, index) => {
-      const x = pad + (index / Math.max(1, trend.length - 1)) * (width - pad * 2);
-      const y = height - pad - (Number(item[key] || 0) / max) * (height - pad * 2);
-      return `${x.toFixed(1)},${y.toFixed(1)}`;
-    }).join(" ");
-    const labels = trend.map((item, index) => {
-      const step = Math.max(1, Math.ceil(trend.length / 6));
-      if (index % step && index !== trend.length - 1) return "";
-      const x = pad + (index / Math.max(1, trend.length - 1)) * (width - pad * 2);
-      const isHourly = String(item.date).includes("T");
-      const date = new Date(isHourly ? item.date : `${item.date}T12:00:00Z`).toLocaleString("en-US", isHourly
-        ? { hour: "numeric", timeZone: "America/Los_Angeles" }
-        : { month: "short", day: "numeric", timeZone: "UTC" });
-      return `<text x="${x}" y="252" text-anchor="middle">${date}</text>`;
-    }).join("");
-    return `<div class="chart-legend"><span><i class="views"></i>Guide views</span><span><i class="visitors"></i>Visitors</span></div><svg class="line-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="Guide views and visitors over time"><line x1="${pad}" y1="${height-pad}" x2="${width-pad}" y2="${height-pad}" class="axis"/><polyline points="${points("guideViews")}" class="views-line"/><polyline points="${points("uniqueVisitors")}" class="visitor-line"/>${labels}</svg>`;
-  }
-
-  function renderVisitors(totals = {}) {
-    const total = Number(totals.uniqueVisitors || 0);
-    const returning = Math.min(total, Number(totals.returningVisitors || 0));
-    const fresh = Math.max(0, total - returning);
-    const returningPercent = total ? Math.round((returning / total) * 100) : 0;
-    elements.donut.style.setProperty("--returning", `${returningPercent}%`);
-    elements.donut.innerHTML = `<strong>${returningPercent}%</strong><span>returning</span>`;
-    elements.visitorDetails.innerHTML = `<div><i class="new"></i><span>New visitors</span><strong>${number(fresh)}</strong></div><div><i class="returning"></i><span>Returning visitors</span><strong>${number(returning)}</strong></div><p>${total ? "A returning audience means people are using the guide as an ongoing local resource." : "Visitor loyalty will appear as people return to the guide."}</p>`;
-  }
-
   function renderCategories(items = []) {
     const allowed = ["Food & Drink", "Golf", "Things To Do", "Shopping"];
     const normalized = Object.fromEntries(allowed.map((name) => [name, 0]));
@@ -93,7 +60,7 @@
   function renderPlaces(items = []) {
     if (!items.length) { elements.places.innerHTML = `<p class="empty">Popular recommendations will appear once visitors begin opening places.</p>`; return; }
     const max = Math.max(1, ...items.map((item) => Number(item.views || 0)));
-    elements.places.innerHTML = items.slice(0, 8).map((item, index) => `<article class="place-row"><span class="place-rank">${index + 1}</span><img src="${escapeHtml(imageUrl(item.image))}" alt="" loading="lazy"><div class="place-copy"><strong>${escapeHtml(item.name)}</strong><small>${escapeHtml(item.category || item.type || "Guide")}</small><div class="place-bar"><i style="width:${Math.round((Number(item.views || 0) / max) * 100)}%"></i></div></div><span class="place-views">${number(item.views)}<small>views</small></span></article>`).join("");
+    elements.places.innerHTML = items.slice(0, 8).map((item, index) => `<article class="place-row"><span class="place-rank">${index + 1}</span><img src="${escapeHtml(imageUrl(item.image))}" alt="" loading="lazy"><div class="place-copy"><strong>${escapeHtml(item.name)}</strong><small>${escapeHtml(item.category || item.type || "Guide")}</small><div class="place-bar"><i style="width:${Math.round((Number(item.views || 0) / max) * 100)}%"></i></div></div><span class="place-views">${number(item.views)}<small>tracked opens</small></span></article>`).join("");
   }
 
   function renderContacts(totals = {}, trend = []) {
@@ -109,18 +76,16 @@
     const totals = current.totals || {};
     const leads = Number(totals.leadSubmissions || 0);
     const starts = Number(totals.leadFormStarts || 0);
-    const visitors = Number(totals.uniqueVisitors || 0);
     const startRate = starts ? Math.round((leads / starts) * 100) : 0;
-    const visitorRate = visitors ? ((leads / visitors) * 100).toFixed(leads && leads < visitors / 100 ? 1 : 0) : 0;
     const typeLabels = { buying: "Buying", selling: "Selling", relocating: "Relocating", exploring: "Just Exploring", general: "General Question" };
     const sourceLabels = { Search: "Organic Search", Direct: "Direct", Instagram: "Social · Instagram", Facebook: "Social · Facebook", "DarceyDeetz.com": "Referral · DarceyDeetz.com" };
     const breakdown = Object.entries(current.leadTypes || {}).sort((a, b) => b[1] - a[1]);
     const sources = Object.entries(current.leadSources || {}).sort((a, b) => b[1] - a[1]);
     elements.leadTotal.innerHTML = `<strong>${number(leads)}</strong><span>confirmed in this period</span>`;
-    elements.leadContent.innerHTML = `<div class="lead-summary-cards"><article><strong>${number(totals.realEstateContactClicks || 0)}</strong><span>Ask Darcey CTA clicks</span></article><article><strong>${number(totals.realEstateHomeSearchClicks || 0)}</strong><span>Explore homes clicks</span></article><article><strong>${number(totals.askDarceyPageViews || 0)}</strong><span>Ask Darcey page visits</span></article><article><strong>${number(starts)}</strong><span>Forms started</span></article><article><strong>${number(leads)}</strong><span>Confirmed leads</span></article><article><strong>${visitorRate}%</strong><span>Visitor-to-lead rate</span></article><article><strong>${number(startRate)}%</strong><span>Form-start conversion</span></article><article><strong>${number(totals.buyerGuideRequests || 0)}</strong><span>Buyer guides requested</span></article></div><div class="lead-breakdowns"><div><h3>Lead Type</h3>${breakdown.length ? breakdown.map(([name, value]) => `<p><span>${escapeHtml(typeLabels[name] || name)}</span><strong>${number(value)}</strong></p>`).join("") : `<p class="empty">Lead types will appear after the first confirmed inquiry.</p>`}</div><div><h3>Lead Source</h3>${sources.length ? sources.map(([name, value]) => `<p><span>${escapeHtml(sourceLabels[name] || name)}</span><strong>${number(value)}</strong></p>`).join("") : `<p class="empty">Sources will appear after the first confirmed inquiry.</p>`}</div></div>`;
+    elements.leadContent.innerHTML = `<div class="lead-summary-cards"><article><strong>${number(totals.realEstateContactClicks || 0)}</strong><span>Ask Darcey CTA clicks</span></article><article><strong>${number(totals.realEstateHomeSearchClicks || 0)}</strong><span>Explore homes clicks</span></article><article><strong>${number(totals.askDarceyPageViews || 0)}</strong><span>Ask Darcey page visits</span></article><article><strong>${number(starts)}</strong><span>Forms started</span></article><article><strong>${number(leads)}</strong><span>Confirmed leads</span></article><article><strong>${number(startRate)}%</strong><span>Form-start conversion</span></article><article><strong>${number(totals.buyerGuideRequests || 0)}</strong><span>Buyer guides requested</span></article></div><div class="lead-breakdowns"><div><h3>Lead Type</h3>${breakdown.length ? breakdown.map(([name, value]) => `<p><span>${escapeHtml(typeLabels[name] || name)}</span><strong>${number(value)}</strong></p>`).join("") : `<p class="empty">Lead types will appear after the first confirmed inquiry.</p>`}</div><div><h3>Lead Source</h3>${sources.length ? sources.map(([name, value]) => `<p><span>${escapeHtml(sourceLabels[name] || name)}</span><strong>${number(value)}</strong></p>`).join("") : `<p class="empty">Sources will appear after the first confirmed inquiry.</p>`}</div></div>`;
 
     const contributingPages = (current.realEstatePages || []).filter((page) => page.ctaClicks || page.leads).slice(0, 12);
-    elements.leadPages.innerHTML = contributingPages.length ? `<div class="lead-pages-table-wrap"><table><thead><tr><th>Source Page</th><th>Guide Views</th><th>Ask Darcey Clicks</th><th>Confirmed Leads</th><th>Lead Conversion</th></tr></thead><tbody>${contributingPages.map((page) => { const rate = page.views ? ((Number(page.leads || 0) / page.views) * 100).toFixed(page.leads ? 1 : 0) : 0; return `<tr><td><a href="${escapeHtml(page.name)}" target="_blank">${escapeHtml(page.name)}</a></td><td>${number(page.views)}</td><td>${number(page.ctaClicks)}</td><td>${number(page.leads)}</td><td>${rate}%</td></tr>`; }).join("")}</tbody></table></div>` : `<p class="empty">Pages will appear here after visitors use an Ask Darcey link or submit an inquiry.</p>`;
+    elements.leadPages.innerHTML = contributingPages.length ? `<div class="lead-pages-table-wrap"><table><thead><tr><th>Source Page</th><th>Ask Darcey Clicks</th><th>Confirmed Leads</th></tr></thead><tbody>${contributingPages.map((page) => `<tr><td><a href="${escapeHtml(page.name)}" target="_blank">${escapeHtml(page.name)}</a></td><td>${number(page.ctaClicks)}</td><td>${number(page.leads)}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty">Pages will appear here after visitors use an Ask Darcey link or submit an inquiry.</p>`;
 
     if (!state.leads.length) {
       elements.recentLeads.innerHTML = `<p class="empty">No confirmed inquiries yet. New leads will appear here and will also be emailed to John and Darcey.</p>`;
@@ -149,11 +114,11 @@
   function localPreviewData() {
     const trend = Array.from({ length: 30 }, (_, index) => {
       const date = new Date(); date.setUTCDate(date.getUTCDate() - 29 + index);
-      const guideViews = [8, 11, 9, 14, 12, 17, 15][index % 7] + Math.floor(index / 8);
-      return { date: date.toISOString().slice(0, 10), guideViews, uniqueVisitors: Math.max(3, guideViews - 4), placeViews: guideViews + 6, contactActions: index % 5 === 0 ? 2 : index % 3 === 0 ? 1 : 0 };
+      const placeViews = [14, 17, 15, 20, 18, 23, 21][index % 7] + Math.floor(index / 8);
+      return { date: date.toISOString().slice(0, 10), placeViews, contactActions: index % 5 === 0 ? 2 : index % 3 === 0 ? 1 : 0 };
     });
     const current = {
-      totals: { guideViews: 324, uniqueVisitors: 218, returningVisitors: 61, placeViews: 487, darceyTextClicks: 4, darceyCallClicks: 3, darceyEmailClicks: 5, realEstateContactClicks: 12, realEstateHomeSearchClicks: 9, askDarceyPageViews: 7, leadFormStarts: 5, leadSubmissions: 3, buyerGuideRequests: 2, pwaInstallConfirmed: 3, pwaStandaloneLaunches: 21 },
+      totals: { placeViews: 487, darceyTextClicks: 4, darceyCallClicks: 3, darceyEmailClicks: 5, realEstateContactClicks: 12, realEstateHomeSearchClicks: 9, askDarceyPageViews: 7, leadFormStarts: 5, leadSubmissions: 3, buyerGuideRequests: 2, pwaInstallConfirmed: 3, pwaStandaloneLaunches: 21 },
       leadTypes: { buying: 2, relocating: 1 },
       leadSources: { Google: 2, Instagram: 1 },
       realEstatePages: [{ name: "/golf/", views: 65, ctaClicks: 5, leads: 2 }, { name: "/things-to-do/", views: 90, ctaClicks: 4, leads: 1 }, { name: "/", views: 124, ctaClicks: 3, leads: 0 }],
@@ -166,7 +131,7 @@
         { name: "Palm Springs Aerial Tramway", category: "Things To Do", views: 19, image: "./assets/things-to-do/palm-springs-aerial-tram.png" },
       ],
     };
-    const previous = { totals: { guideViews: 275, uniqueVisitors: 194, placeViews: 421, darceyTextClicks: 3, darceyCallClicks: 2, darceyEmailClicks: 4 } };
+    const previous = { totals: { placeViews: 421, darceyTextClicks: 3, darceyCallClicks: 2, darceyEmailClicks: 4 } };
     const selected = { current, previous, trend };
     return { ok: true, generatedAt: new Date().toISOString(), ranges: { "24h": selected, "7": selected, "30": selected, "90": selected, all: { ...selected, previous: null } } };
   }
@@ -177,14 +142,11 @@
     const current = selected.current || {}; const previous = selected.previous || {};
     const totals = current.totals || {}; const previousTotals = previous?.totals || {}; const trend = selected.trend || [];
     elements.summary.innerHTML = [
-      kpi("Guide Views", totals.guideViews, previousTotals.guideViews, trend, "guideViews"),
-      kpi("Visitors", totals.uniqueVisitors, previousTotals.uniqueVisitors, trend, "uniqueVisitors"),
       kpi("Recommendations Viewed", totals.placeViews, previousTotals.placeViews, trend, "placeViews"),
       kpi("Darcey Contact Actions", contactTotal(totals), contactTotal(previousTotals), trend, "contactActions"),
       kpi("Confirmed Leads", totals.leadSubmissions, previousTotals.leadSubmissions, trend, "leadSubmissions"),
     ].join("");
-    elements.activity.innerHTML = lineChart(trend);
-    renderVisitors(totals); renderCategories(current.topCategories || []); renderPlaces(current.topPlaces || []);
+    renderCategories(current.topCategories || []); renderPlaces(current.topPlaces || []);
     renderContacts(totals, trend); renderLeads(current); renderOpportunities(totals);
   }
 

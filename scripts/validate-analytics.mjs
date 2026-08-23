@@ -68,7 +68,7 @@ const quietRendered = renderDailyReportEmail({
   last7: { totals: {}, sources: {} },
   trend: report.trend.map((item) => ({ ...item, guideViews: 0 })),
 });
-if (!quietRendered.html.includes("record visitor activity yesterday")) {
+if (!quietRendered.html.includes("record recommendation engagement, contact actions, or confirmed leads yesterday")) {
   throw new Error("Quiet-day report copy is missing.");
 }
 console.log("Validated active and quiet daily report templates.");

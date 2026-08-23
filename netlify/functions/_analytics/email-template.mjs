@@ -1,5 +1,5 @@
 import { dashboardUrl, GUIDE_CONFIG } from "./config.mjs";
-import { formatDisplayDate, shortDisplayDate, weekdayLabel } from "./time.mjs";
+import { formatDisplayDate } from "./time.mjs";
 
 const nf = new Intl.NumberFormat("en-US");
 
@@ -29,19 +29,6 @@ function metric(value, label) {
       <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;text-transform:uppercase;letter-spacing:1.6px;color:#756d63;margin-top:7px;">${escapeHtml(label)}</div>
     </div>
   </td>`;
-}
-
-function trendChart(trend = []) {
-  const max = Math.max(1, ...trend.map((item) => Number(item.guideViews || 0)));
-  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
-    <tr>${trend.map((item) => {
-      const height = Math.max(6, Math.round((Number(item.guideViews || 0) / max) * 78));
-      return `<td valign="bottom" style="height:92px;padding:0 4px;text-align:center;">
-        <div style="display:inline-block;width:100%;max-width:30px;height:${height}px;background:#b18b62;border-radius:5px 5px 2px 2px;"></div>
-      </td>`;
-    }).join("")}</tr>
-    <tr>${trend.map((item) => `<td style="font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#81786d;text-align:center;padding-top:7px;">${weekdayLabel(item.date)}</td>`).join("")}</tr>
-  </table>`;
 }
 
 function categoryBars(categories = []) {
@@ -74,13 +61,13 @@ function placeList(places = []) {
 function quietMessage(report) {
   const totals = report.day.totals;
   const topCategory = report.day.topCategories[0];
-  if (!totals.guideViews && !totals.placeViews && !contactTotal(totals) && !Number(totals.leadSubmissions || 0)) {
-    return "Your guide didn't record visitor activity yesterday, but we're continuing to track its performance.";
+  if (!totals.placeViews && !contactTotal(totals) && !Number(totals.leadSubmissions || 0)) {
+    return "Your guide didn't record recommendation engagement, contact actions, or confirmed leads yesterday.";
   }
-  if (Number(totals.guideViews || 0) < 10) {
-    return `Your guide had a quieter day with ${number(totals.guideViews)} visit${totals.guideViews === 1 ? "" : "s"} and ${number(totals.uniqueVisitors)} visitor${totals.uniqueVisitors === 1 ? "" : "s"}.${topCategory ? ` ${topCategory.name} was the most explored section.` : ""}`;
+  if (Number(totals.placeViews || 0) < 10) {
+    return `Your guide recorded ${number(totals.placeViews)} recommendation view${totals.placeViews === 1 ? "" : "s"} and ${number(contactTotal(totals))} contact action${contactTotal(totals) === 1 ? "" : "s"}.${topCategory ? ` ${topCategory.name} was the most explored section.` : ""}`;
   }
-  return `Your guide welcomed ${number(totals.uniqueVisitors)} visitor${totals.uniqueVisitors === 1 ? "" : "s"} and recorded ${number(totals.placeViews)} recommendation view${totals.placeViews === 1 ? "" : "s"} yesterday.`;
+  return `Your guide recorded ${number(totals.placeViews)} recommendation view${totals.placeViews === 1 ? "" : "s"} and ${number(contactTotal(totals))} contact action${contactTotal(totals) === 1 ? "" : "s"} yesterday.`;
 }
 
 export function renderDailyReportEmail(report) {
@@ -88,19 +75,13 @@ export function renderDailyReportEmail(report) {
   const displayDate = formatDisplayDate(report.date, true);
   const contacts = contactTotal(totals);
   const confirmedLeads = Number(totals.leadSubmissions || 0);
-  const recentAverage = Math.round(Number(report.last7.totals.guideViews || 0) / 7);
-  const isSilent = !totals.guideViews && !totals.placeViews && !contacts && !confirmedLeads;
+  const isSilent = !totals.placeViews && !contacts && !confirmedLeads;
   const homeSearches = Number(totals.realEstateHomeSearchClicks || totals.darceyWebsiteClicks || 0);
   const talkClicks = Number(totals.realEstateContactClicks || 0);
   const realEstate = homeSearches + talkClicks;
   const subject = `Your Desert Guide Daily Report — ${displayDate}`;
 
   const detailSections = isSilent ? "" : `
-    <tr><td style="padding:0 28px 22px;"><div style="background:#ffffff;border:1px solid #dfd4c5;border-radius:16px;padding:22px;">
-      <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#81786d;">Yesterday's Activity</div>
-      <div style="font-family:Georgia,'Times New Roman',serif;font-size:25px;line-height:32px;color:#111111;margin-top:7px;">${number(totals.guideViews)} views yesterday <span style="color:#b18b62;">·</span> 7-day average ${number(recentAverage)}</div>
-      <div style="margin-top:16px;">${trendChart(report.trend)}</div>
-    </div></td></tr>
     <tr><td style="padding:0 28px 22px;"><div style="background:#ffffff;border:1px solid #dfd4c5;border-radius:16px;padding:22px;">
       <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.7px;text-transform:uppercase;color:#81786d;">What People Loved</div>
       ${categoryBars(report.day.topCategories)}
@@ -124,7 +105,7 @@ export function renderDailyReportEmail(report) {
   const html = `<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>
     @media (max-width:620px){.wrap{width:100%!important}.metric{display:block!important;width:100%!important}.pad{padding-left:16px!important;padding-right:16px!important}}
   </style></head><body style="margin:0;background:#eee7dd;padding:0;">
-    <div style="display:none;max-height:0;overflow:hidden;">Here's how your Desert Guide performed yesterday.</div>
+    <div style="display:none;max-height:0;overflow:hidden;">Your Desert Guide engagement and lead results.</div>
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#eee7dd;"><tr><td align="center" style="padding:22px 8px;">
       <table class="wrap" role="presentation" width="680" cellspacing="0" cellpadding="0" style="width:680px;max-width:680px;background:#fbf7ef;border-collapse:separate;border-spacing:0;border-radius:20px;overflow:hidden;">
         <tr><td style="background:#050505;padding:34px 28px;text-align:center;color:#ffffff;">
@@ -132,7 +113,7 @@ export function renderDailyReportEmail(report) {
           <div style="font-family:Georgia,'Times New Roman',serif;font-size:42px;line-height:48px;font-weight:400;margin-top:7px;">Good morning, Darcey.</div>
           <div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#d9ccbc;margin-top:10px;">Here's how your Desert Guide performed yesterday.<br>${escapeHtml(displayDate)}</div>
         </td></tr>
-        <tr><td class="pad" style="padding:25px 21px 10px;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr>${metric(totals.guideViews,"Guide Views")}${metric(totals.uniqueVisitors,"Visitors")}</tr><tr>${metric(totals.placeViews,"Places Viewed")}${metric(confirmedLeads,"Confirmed Leads")}</tr></table></td></tr>
+        <tr><td class="pad" style="padding:25px 21px 10px;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr>${metric(totals.placeViews,"Recommendations Viewed")}${metric(contacts,"Contact Actions")}</tr><tr>${metric(totals.leadFormStarts,"Forms Started")}${metric(confirmedLeads,"Confirmed Leads")}</tr></table></td></tr>
         <tr><td style="padding:5px 28px 22px;"><div style="background:#f2e7d7;border-left:3px solid #b18b62;padding:18px 19px;font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:29px;color:#2e2925;">${escapeHtml(quietMessage(report))}</div></td></tr>
         ${detailSections}
         <tr><td style="padding:4px 28px 32px;text-align:center;"><a href="${escapeHtml(dashboardUrl())}" style="display:inline-block;background:#111111;color:#ffffff;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:15px 24px;border-radius:8px;">View Full Analytics</a><div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:16px;color:#81786d;margin-top:18px;">${escapeHtml(GUIDE_CONFIG.realtorName)} · ${escapeHtml(GUIDE_CONFIG.realtorDre)}</div></td></tr>
@@ -144,9 +125,7 @@ export function renderDailyReportEmail(report) {
     `Good morning, Darcey.`,
     `Here's how your Desert Guide performed yesterday — ${displayDate}.`,
     "",
-    `Guide Views: ${number(totals.guideViews)}`,
-    `Visitors: ${number(totals.uniqueVisitors)}`,
-    `Places Viewed: ${number(totals.placeViews)}`,
+    `Recommendations Viewed: ${number(totals.placeViews)}`,
     `People Connected: ${number(contacts)}`,
     `Confirmed Leads: ${number(confirmedLeads)}`,
     "",

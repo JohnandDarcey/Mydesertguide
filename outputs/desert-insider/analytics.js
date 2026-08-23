@@ -134,24 +134,6 @@
     },
   };
 
-  function sectionFromHash(hash = window.location.hash) {
-    const id = hash.replace(/^#/, "");
-    const sections = {
-      "browse-guide": "Browse Guide",
-      guide: "Food & Drink",
-      "date-night": "Date Night",
-      "happy-hour": "Happy Hour",
-      golf: "Golf",
-      "things-to-do": "Things To Do",
-      shopping: "Shopping",
-      utilities: "Local Utilities",
-      professionals: "Darcey's Trusted Professionals",
-      map: "Map",
-      contact: "Contact",
-    };
-    return sections[id] || "Guide";
-  }
-
   function cardPayload(element) {
     const card = element?.closest?.("[data-guide-place]");
     if (card) {
@@ -395,7 +377,6 @@
   mutationObserver.observe(document.documentElement, { childList: true, subtree: true });
 
   window.addEventListener("load", () => {
-    send("guide_view", { category: pageContext.category || sectionFromHash() });
     if (document.body.dataset.pageKind === "category" && pageContext.category) {
       send("category_view", pageContext);
     }
