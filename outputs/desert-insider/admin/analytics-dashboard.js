@@ -7,6 +7,7 @@
   const elements = {
     tokenForm: $("#token-form"), tokenInput: $("#token-input"), clearToken: $("#clear-token"),
     status: $("#status"), access: $("#access-panel"), summary: $("#summary"),
+    interestPanel: $("#interest-panel"), popularPanel: $("#popular-panel"), contactPanel: $("#contact-panel"),
     categories: $("#category-bars"), places: $("#popular-places"), contactCards: $("#contact-cards"),
     contactTotal: $("#contact-total"), contactTrend: $("#contact-trend"),
     realEstatePanel: $("#real-estate-panel"), realEstateContent: $("#real-estate-content"),
@@ -21,6 +22,15 @@
   const headers = () => ({ authorization: `Bearer ${token()}`, "content-type": "application/json" });
   const contactTotal = (totals = {}) => Number(totals.darceyTextClicks || 0) + Number(totals.darceyCallClicks || 0) + Number(totals.darceyEmailClicks || 0);
   const imageUrl = (path = "") => path.startsWith("./") ? `/${path.slice(2)}` : path;
+  const savedLeadsInRange = () => {
+    if (state.range === "all") return state.leads;
+    const milliseconds = state.range === "24h" ? 86400000 : Number(state.range || 30) * 86400000;
+    const cutoff = Date.now() - milliseconds;
+    return state.leads.filter((lead) => {
+      const submittedAt = new Date(lead.submittedAt).getTime();
+      return Number.isFinite(submittedAt) && submittedAt >= cutoff;
+    });
+  };
 
   function setStatus(message, error = false) {
     elements.status.textContent = message;
@@ -43,7 +53,8 @@
   }
 
   function kpi(label, value, previous, trend, key) {
-    return `<article class="kpi-card"><div class="kpi-top"><span>${escapeHtml(label)}</span>${sparkline(trend, key)}</div><strong>${number(value)}</strong><small>${escapeHtml(comparison(value, previous))}</small></article>`;
+    const trendMarkup = key && trend?.length ? sparkline(trend, key) : "";
+    return `<article class="kpi-card"><div class="kpi-top"><span>${escapeHtml(label)}</span>${trendMarkup}</div><strong>${number(value)}</strong><small>${escapeHtml(comparison(value, previous))}</small></article>`;
   }
 
   function renderCategories(items = []) {
@@ -74,15 +85,33 @@
 
   function renderLeads(current = {}) {
     const totals = current.totals || {};
-    const leads = Number(totals.leadSubmissions || 0);
+    const savedLeads = savedLeadsInRange();
+    const leads = savedLeads.length;
     const starts = Number(totals.leadFormStarts || 0);
     const startRate = starts ? Math.round((leads / starts) * 100) : 0;
     const typeLabels = { buying: "Buying", selling: "Selling", relocating: "Relocating", exploring: "Just Exploring", general: "General Question" };
     const sourceLabels = { Search: "Organic Search", Direct: "Direct", Instagram: "Social · Instagram", Facebook: "Social · Facebook", "DarceyDeetz.com": "Referral · DarceyDeetz.com" };
-    const breakdown = Object.entries(current.leadTypes || {}).sort((a, b) => b[1] - a[1]);
-    const sources = Object.entries(current.leadSources || {}).sort((a, b) => b[1] - a[1]);
-    elements.leadTotal.innerHTML = `<strong>${number(leads)}</strong><span>confirmed in this period</span>`;
-    elements.leadContent.innerHTML = `<div class="lead-summary-cards"><article><strong>${number(totals.realEstateContactClicks || 0)}</strong><span>Ask Darcey CTA clicks</span></article><article><strong>${number(totals.realEstateHomeSearchClicks || 0)}</strong><span>Explore homes clicks</span></article><article><strong>${number(totals.askDarceyPageViews || 0)}</strong><span>Ask Darcey page visits</span></article><article><strong>${number(starts)}</strong><span>Forms started</span></article><article><strong>${number(leads)}</strong><span>Confirmed leads</span></article><article><strong>${number(startRate)}%</strong><span>Form-start conversion</span></article><article><strong>${number(totals.buyerGuideRequests || 0)}</strong><span>Buyer guides requested</span></article></div><div class="lead-breakdowns"><div><h3>Lead Type</h3>${breakdown.length ? breakdown.map(([name, value]) => `<p><span>${escapeHtml(typeLabels[name] || name)}</span><strong>${number(value)}</strong></p>`).join("") : `<p class="empty">Lead types will appear after the first confirmed inquiry.</p>`}</div><div><h3>Lead Source</h3>${sources.length ? sources.map(([name, value]) => `<p><span>${escapeHtml(sourceLabels[name] || name)}</span><strong>${number(value)}</strong></p>`).join("") : `<p class="empty">Sources will appear after the first confirmed inquiry.</p>`}</div></div>`;
+    const leadTypes = savedLeads.reduce((items, lead) => { const key = lead.interest || "general"; items[key] = (items[key] || 0) + 1; return items; }, {});
+    const leadSources = savedLeads.reduce((items, lead) => { const key = lead.attribution?.source || "Direct"; items[key] = (items[key] || 0) + 1; return items; }, {});
+    const breakdown = Object.entries(leadTypes).sort((a, b) => b[1] - a[1]);
+    const sources = Object.entries(leadSources).sort((a, b) => b[1] - a[1]);
+    const hasLeadActivity = leads || starts || Number(totals.realEstateContactClicks || 0) || Number(totals.realEstateHomeSearchClicks || 0) || Number(totals.askDarceyPageViews || 0) || Number(totals.buyerGuideRequests || 0);
+    elements.leadTotal.innerHTML = leads ? `<strong>${number(leads)}</strong><span>saved in this period</span>` : `<span>No saved leads in this period</span>`;
+    if (!hasLeadActivity) {
+      elements.leadContent.innerHTML = `<div class="dashboard-empty-state compact"><h3>No lead activity in this period</h3><p>Submitted inquiries are saved separately and will appear here as soon as one is received.</p></div>`;
+    } else {
+      const metrics = [
+        [totals.realEstateContactClicks, "Ask Darcey CTA clicks"],
+        [totals.realEstateHomeSearchClicks, "Explore homes clicks"],
+        [totals.askDarceyPageViews, "Ask Darcey page visits"],
+        [starts, "Forms started"],
+        [leads, "Saved leads"],
+        [totals.buyerGuideRequests, "Buyer guides requested"],
+      ].filter(([value]) => Number(value || 0));
+      const metricCards = metrics.map(([value, label]) => `<article><strong>${number(value)}</strong><span>${escapeHtml(label)}</span></article>`).join("");
+      const conversionCard = starts && leads ? `<article><strong>${number(startRate)}%</strong><span>Form-start conversion</span></article>` : "";
+      elements.leadContent.innerHTML = `<div class="lead-summary-cards">${metricCards}${conversionCard}</div><div class="lead-breakdowns"><div><h3>Lead Type</h3>${breakdown.length ? breakdown.map(([name, value]) => `<p><span>${escapeHtml(typeLabels[name] || name)}</span><strong>${number(value)}</strong></p>`).join("") : `<p class="empty">Lead types will appear after the first confirmed inquiry.</p>`}</div><div><h3>Lead Source</h3>${sources.length ? sources.map(([name, value]) => `<p><span>${escapeHtml(sourceLabels[name] || name)}</span><strong>${number(value)}</strong></p>`).join("") : `<p class="empty">Sources will appear after the first confirmed inquiry.</p>`}</div></div>`;
+    }
 
     const contributingPages = (current.realEstatePages || []).filter((page) => page.ctaClicks || page.leads).slice(0, 12);
     elements.leadPages.innerHTML = contributingPages.length ? `<div class="lead-pages-table-wrap"><table><thead><tr><th>Source Page</th><th>Ask Darcey Clicks</th><th>Confirmed Leads</th></tr></thead><tbody>${contributingPages.map((page) => `<tr><td><a href="${escapeHtml(page.name)}" target="_blank">${escapeHtml(page.name)}</a></td><td>${number(page.ctaClicks)}</td><td>${number(page.leads)}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty">Pages will appear here after visitors use an Ask Darcey link or submit an inquiry.</p>`;
@@ -99,10 +128,9 @@
     }).join("")}</tbody></table></div>`;
   }
 
-  function renderOpportunities(totals = {}) {
+  function renderOpportunities(totals = {}, confirmedLeads = 0) {
     const homeSearches = Number(totals.realEstateHomeSearchClicks || totals.darceyWebsiteClicks || 0);
     const talkClicks = Number(totals.realEstateContactClicks || 0);
-    const confirmedLeads = Number(totals.leadSubmissions || 0);
     const realEstate = homeSearches + talkClicks + confirmedLeads;
     elements.realEstatePanel.hidden = !realEstate;
     elements.realEstateContent.innerHTML = `<strong class="opportunity-number">${number(realEstate)}</strong><p>real-estate interest actions from the guide: ${number(homeSearches)} home-search clicks, ${number(talkClicks)} conversation CTA clicks, and ${number(confirmedLeads)} confirmed lead${confirmedLeads === 1 ? "" : "s"}.</p>`;
@@ -141,13 +169,28 @@
     const selected = state.data.ranges?.[state.range] || state.data.ranges?.["30"];
     const current = selected.current || {}; const previous = selected.previous || {};
     const totals = current.totals || {}; const previousTotals = previous?.totals || {}; const trend = selected.trend || [];
-    elements.summary.innerHTML = [
-      kpi("Recommendations Viewed", totals.placeViews, previousTotals.placeViews, trend, "placeViews"),
-      kpi("Darcey Contact Actions", contactTotal(totals), contactTotal(previousTotals), trend, "contactActions"),
-      kpi("Confirmed Leads", totals.leadSubmissions, previousTotals.leadSubmissions, trend, "leadSubmissions"),
-    ].join("");
-    renderCategories(current.topCategories || []); renderPlaces(current.topPlaces || []);
-    renderContacts(totals, trend); renderLeads(current); renderOpportunities(totals);
+    const recommendationCount = Number(totals.placeViews || 0);
+    const contactCount = contactTotal(totals);
+    const leadCount = savedLeadsInRange().length;
+    const hasSummaryActivity = recommendationCount || contactCount || leadCount;
+    elements.summary.classList.toggle("has-empty-state", !hasSummaryActivity);
+    elements.summary.innerHTML = hasSummaryActivity ? [
+      recommendationCount ? kpi("Recommendations Viewed", recommendationCount, previousTotals.placeViews, trend, "placeViews") : "",
+      contactCount ? kpi("Darcey Contact Actions", contactCount, contactTotal(previousTotals), trend, "contactActions") : "",
+      leadCount ? kpi("Saved Leads", leadCount, null, [], "") : "",
+    ].join("") : `<article class="dashboard-empty-state"><p class="eyebrow">No tracked actions in this period</p><h3>Nothing needs your attention right now.</h3><p>Netlify remains the source for pageviews and visitors. Recommendation opens, contact actions, and submitted inquiries will appear here when they are recorded.</p><a href="https://app.netlify.com/" target="_blank" rel="noreferrer">Open Netlify Traffic</a></article>`;
+
+    const categories = current.topCategories || [];
+    const places = (current.topPlaces || []).filter((place) => Number(place.views || 0));
+    const categoryCount = categories.reduce((sum, category) => sum + Number(category.views || 0), 0);
+    elements.interestPanel.hidden = !categoryCount;
+    elements.popularPanel.hidden = !places.length;
+    elements.contactPanel.hidden = !contactCount;
+    if (categoryCount) renderCategories(categories);
+    if (places.length) renderPlaces(places);
+    if (contactCount) renderContacts(totals, trend);
+    renderLeads(current);
+    renderOpportunities(totals, leadCount);
   }
 
   async function loadDashboard() {

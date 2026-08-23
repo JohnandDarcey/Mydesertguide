@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Your Desert Guide Performance</title>
+    <title>My Desert Guide Leads &amp; Actions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./analytics-dashboard.css?v=20260822-engagement-only" />
+    <link rel="stylesheet" href="./analytics-dashboard.css?v=20260822-leads-actions" />
   </head>
   <body>
     <main class="dashboard-shell">
       <header class="dashboard-hero">
         <div>
           <p class="eyebrow">Darcey's My Desert Guide</p>
-          <h1>Your Desert Guide Performance</h1>
-          <p>Review recommendation engagement, contact actions, and confirmed leads.</p>
+          <h1>Leads &amp; Actions</h1>
+          <p>Review saved inquiries and the meaningful actions recorded inside the guide.</p>
         </div>
         <div class="hero-links">
           <a href="https://app.netlify.com/" class="home-link" target="_blank" rel="noreferrer">Open Netlify Traffic</a>
@@ -39,7 +39,7 @@
 
       <section class="overview-section" aria-labelledby="overview-title">
         <div class="section-heading">
-          <div><p class="eyebrow">At a Glance</p><h2 id="overview-title">Guide Highlights</h2></div>
+          <div><p class="eyebrow">At a Glance</p><h2 id="overview-title">Tracked Actions</h2></div>
           <div class="overview-controls">
             <div class="range-selector" id="range-selector" aria-label="Analytics date range">
               <button type="button" data-range="24h">Last 24 Hours</button>
@@ -64,7 +64,7 @@
         <div id="recent-leads" class="recent-leads"></div>
       </section>
 
-      <section class="visual-grid">
+      <section class="visual-grid" id="interest-panel">
         <article class="panel category-panel full-width">
           <p class="eyebrow">Audience Interests</p>
           <h2>What People Are Exploring</h2>
@@ -72,12 +72,12 @@
         </article>
       </section>
 
-      <section class="panel popular-panel" aria-labelledby="popular-title">
+      <section class="panel popular-panel" id="popular-panel" aria-labelledby="popular-title">
         <div class="panel-heading"><div><p class="eyebrow">Darcey's Recommendations</p><h2 id="popular-title">Most Popular Places</h2></div></div>
         <div id="popular-places" class="popular-places"></div>
       </section>
 
-      <section class="panel contact-panel" aria-labelledby="contact-title">
+      <section class="panel contact-panel" id="contact-panel" aria-labelledby="contact-title">
         <div class="panel-heading"><div><p class="eyebrow">Meaningful Engagement</p><h2 id="contact-title">People Connecting With Darcey</h2></div><div id="contact-total" class="contact-total"></div></div>
         <div id="contact-cards" class="contact-grid"></div>
         <div id="contact-trend" class="mini-trend"></div>
@@ -94,9 +94,9 @@
 
       <section class="panel report-panel">
         <div>
-          <p class="eyebrow">Daily Performance Email</p>
+          <p class="eyebrow">Daily Leads &amp; Actions Email</p>
           <h2>Review Tomorrow's Report Today</h2>
-          <p>Preview the report using Darcey's actual analytics, or send a test copy now.</p>
+          <p>Preview the report using recorded engagement and lead activity, or send a test copy now.</p>
         </div>
         <div class="report-actions">
           <button id="preview-report" class="quiet-button" type="button">Preview Daily Report</button>
@@ -104,6 +104,6 @@
         </div>
       </section>
     </main>
-    <script src="./analytics-dashboard.js?v=20260822-engagement-only"></script>
+    <script src="./analytics-dashboard.js?v=20260822-leads-actions"></script>
   </body>
 </html>

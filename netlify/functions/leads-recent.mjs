@@ -7,7 +7,7 @@ export default async function handler(request) {
   const authorization = requireAdmin(request);
   if (!authorization.ok) return authorization.response;
   try {
-    return jsonResponse({ ok: true, leads: await recentLeads(20) });
+    return jsonResponse({ ok: true, leads: await recentLeads(50) });
   } catch (error) {
     console.error("leads-recent failed", error);
     return jsonResponse({ ok: false, error: "Recent leads could not be loaded." }, 500);
