@@ -3328,6 +3328,46 @@
       "editorialLabels": []
     },
     {
+      "placeId": "place-chicago-title",
+      "slug": "chicago-title",
+      "name": "Chicago Title",
+      "city": "Palm Springs",
+      "category": "Trusted Professionals",
+      "categorySlug": "trusted-professionals",
+      "subcategory": "Title & Escrow Services",
+      "description": "Christian and Shana Bailey are a Palm Springs title and escrow team helping buyers, sellers and real estate professionals move confidently from contract to closing.",
+      "image": "/assets/services/chicago-title-team.png",
+      "images": [],
+      "brandLogo": "/assets/services/chicago-title-logo.png",
+      "address": "901 E Tahquitz Canyon Way, Suite A-202, Palm Springs, CA 92262",
+      "phone": "310-701-7155",
+      "email": "christianandshana@chicagotitleca.com",
+      "website": "https://chicagotitleconnection.com/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=901+E+Tahquitz+Canyon+Way+Suite+A-202+Palm+Springs+CA+92262",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "experienceTypes": [],
+      "attributes": [
+        "Title insurance",
+        "escrow support",
+        "guidance through closing"
+      ],
+      "editorialLabels": [
+        "Featured Title & Escrow Team"
+      ]
+    },
+    {
       "placeId": "place-the-buttercake-studio",
       "slug": "the-buttercake-studio",
       "name": "The Buttercake Studio",
@@ -6025,6 +6065,35 @@
       "favoriteDish": "",
       "happyHour": "",
       "detail": "Included as an additional quick-contact provider; the source does not assign specific cities."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-chicago-title",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-chicago-title",
+      "personalNote": "Christian and Shana Bailey are a wonderful local resource when you need title and escrow guidance. They are responsive, knowledgeable and committed to keeping the closing process clear and moving forward. Whether you are buying, selling or helping a transaction come together, they are a trusted team to have in your corner.",
+      "tags": [
+        "Title & Escrow Services",
+        "Title insurance",
+        "escrow support",
+        "guidance through closing"
+      ],
+      "experienceTypes": [],
+      "attributes": [
+        "Title insurance",
+        "escrow support",
+        "guidance through closing"
+      ],
+      "editorialLabels": [
+        "Featured Title & Escrow Team"
+      ],
+      "isFavorite": false,
+      "isNew": true,
+      "rating": null,
+      "bestFor": "Title insurance, escrow support and guidance through closing",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Christian and Shana Bailey · 310-701-7155 · christianandshana@chicagotitleca.com"
     },
     {
       "recommendationId": "darcey-my-desert-guide:place-the-buttercake-studio",

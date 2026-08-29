@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../outp
 const read = (relative) => fs.readFile(path.join(root, relative), "utf8");
 
 if (categoryDefinitions.length !== 7) throw new Error(`Expected 7 primary categories, found ${categoryDefinitions.length}.`);
-if (allPlaces.length !== 80) throw new Error(`Expected 80 source recommendations and utility resources, found ${allPlaces.length}.`);
+if (allPlaces.length !== 81) throw new Error(`Expected 81 source recommendations and utility resources, found ${allPlaces.length}.`);
 
 const slugs = new Set(allPlaces.map((place) => place.slug));
 const ids = new Set(allPlaces.map((place) => place.placeId));
@@ -146,6 +146,26 @@ for (const category of categoryDefinitions) {
 const utilitiesPage = await read("utilities/index.html");
 for (const marker of ["Where is your home?", "data-utility-city-select", "Palm Springs", "Thermal / Mecca", "Service provider may vary by property address", "Darceys-Coachella-Valley-Utility-Guide.pdf", "utility_guide_download"]) {
   if (!utilitiesPage.includes(marker)) throw new Error(`Utilities concierge is missing: ${marker}`);
+}
+
+const trustedProfessionalsPage = await read("trusted-professionals/index.html");
+for (const marker of [
+  "Chicago Title",
+  "Featured Title &amp; Escrow Team",
+  "chicago-title-team.png",
+  "chicago-title-logo.png",
+]) {
+  if (!trustedProfessionalsPage.includes(marker)) throw new Error(`Trusted Professionals is missing Chicago Title marker: ${marker}`);
+}
+const chicagoTitlePage = await read("place/chicago-title/index.html");
+for (const marker of [
+  "Christian and Shana Bailey",
+  "901 E Tahquitz Canyon Way, Suite A-202, Palm Springs, CA 92262",
+  "310-701-7155",
+  "christianandshana@chicagotitleca.com",
+  "https://chicagotitleconnection.com/",
+]) {
+  if (!chicagoTitlePage.includes(marker)) throw new Error(`Chicago Title detail page is missing: ${marker}`);
 }
 
 const bumpAndGrindPage = await read("place/bump-and-grind-trail/index.html");

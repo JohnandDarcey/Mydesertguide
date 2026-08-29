@@ -1196,6 +1196,26 @@ export const utilityServiceAreas = {
 
 export const professionals = [
   {
+    name: "Chicago Title",
+    location: "Palm Springs",
+    category: "Title & Escrow Services",
+    featuredLabel: "Featured Title & Escrow Team",
+    bestFor: "Title insurance, escrow support and guidance through closing",
+    detail: "Christian and Shana Bailey · 310-701-7155 · christianandshana@chicagotitleca.com",
+    address: "901 E Tahquitz Canyon Way, Suite A-202, Palm Springs, CA 92262",
+    phone: "310-701-7155",
+    email: "christianandshana@chicagotitleca.com",
+    website: "https://chicagotitleconnection.com/",
+    maps: "https://www.google.com/maps/search/?api=1&query=901+E+Tahquitz+Canyon+Way+Suite+A-202+Palm+Springs+CA+92262",
+    description:
+      "Christian and Shana Bailey are a Palm Springs title and escrow team helping buyers, sellers and real estate professionals move confidently from contract to closing.",
+    tip: "Christian and Shana Bailey are a wonderful local resource when you need title and escrow guidance. They are responsive, knowledgeable and committed to keeping the closing process clear and moving forward. Whether you are buying, selling or helping a transaction come together, they are a trusted team to have in your corner.",
+    image: "./assets/services/chicago-title-team.png",
+    brandLogo: "./assets/services/chicago-title-logo.png",
+    imageStyle: "photo",
+    isNew: true,
+  },
+  {
     name: "The Buttercake Studio",
     location: "Coachella Valley",
     category: "Custom Cakes & Desserts",
