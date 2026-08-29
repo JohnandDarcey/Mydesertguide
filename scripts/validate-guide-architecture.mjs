@@ -154,6 +154,7 @@ for (const marker of [
   "Featured Title &amp; Escrow Team",
   "chicago-title-team.png",
   "chicago-title-logo.png",
+  "object-position:center top",
 ]) {
   if (!trustedProfessionalsPage.includes(marker)) throw new Error(`Trusted Professionals is missing Chicago Title marker: ${marker}`);
 }
@@ -164,6 +165,7 @@ for (const marker of [
   "310-701-7155",
   "christianandshana@chicagotitleca.com",
   "https://chicagotitleconnection.com/",
+  "object-position:center top",
 ]) {
   if (!chicagoTitlePage.includes(marker)) throw new Error(`Chicago Title detail page is missing: ${marker}`);
 }

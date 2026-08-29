@@ -1212,6 +1212,7 @@ export const professionals = [
     tip: "Christian and Shana Bailey are a wonderful local resource when you need title and escrow guidance. They are responsive, knowledgeable and committed to keeping the closing process clear and moving forward. Whether you are buying, selling or helping a transaction come together, they are a trusted team to have in your corner.",
     image: "./assets/services/chicago-title-team.png",
     brandLogo: "./assets/services/chicago-title-logo.png",
+    imagePosition: "center top",
     imageStyle: "photo",
     isNew: true,
   },
