@@ -3522,6 +3522,47 @@
       "editorialLabels": []
     },
     {
+      "placeId": "place-peace-solar-and-window-cleaning",
+      "slug": "peace-solar-and-window-cleaning",
+      "name": "Peace Solar & Window Cleaning",
+      "city": "Coachella Valley",
+      "category": "Trusted Professionals",
+      "categorySlug": "trusted-professionals",
+      "subcategory": "Window, Solar & Holiday Lighting",
+      "description": "A year-round exterior-care team for window cleaning, solar panel cleaning, bird proofing and professional holiday lighting throughout the Coachella Valley.",
+      "image": "/assets/services/peace-solar-window-cleaning.jpg",
+      "imagePosition": "center center",
+      "images": [],
+      "address": "",
+      "phone": "760-299-5187",
+      "email": "",
+      "website": "https://www.peace-services.com/",
+      "menu": "",
+      "directions": "https://www.google.com/maps/search/?api=1&query=Peace+Solar+%26+Window+Cleaning+Coachella+Valley",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "experienceTypes": [
+        "Darcey's Favorites"
+      ],
+      "attributes": [
+        "Window cleaning",
+        "solar panel cleaning",
+        "bird proofing",
+        "holiday lighting"
+      ],
+      "editorialLabels": []
+    },
+    {
       "placeId": "place-orchid-landscaping",
       "slug": "orchid-landscaping",
       "name": "Orchid Landscaping",
@@ -6233,6 +6274,37 @@
       "favoriteDish": "",
       "happyHour": "",
       "detail": "Barrett · Licensed, bonded and insured pest control."
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-peace-solar-and-window-cleaning",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-peace-solar-and-window-cleaning",
+      "personalNote": "Peace Solar & Window Cleaning is a convenient year-round resource for desert homeowners. Their team handles window and solar panel cleaning, bird proofing and holiday lighting, helping keep a home clean, protected and ready for every season.",
+      "tags": [
+        "Window, Solar & Holiday Lighting",
+        "Window cleaning",
+        "solar panel cleaning",
+        "bird proofing",
+        "holiday lighting"
+      ],
+      "experienceTypes": [
+        "Darcey's Favorites"
+      ],
+      "attributes": [
+        "Window cleaning",
+        "solar panel cleaning",
+        "bird proofing",
+        "holiday lighting"
+      ],
+      "editorialLabels": [],
+      "isFavorite": true,
+      "isNew": true,
+      "rating": 5,
+      "bestFor": "Window cleaning, solar panel cleaning, bird proofing and holiday lighting",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Jack and Ben · 760-299-5187 · Serving the Coachella Valley"
     },
     {
       "recommendationId": "darcey-my-desert-guide:place-orchid-landscaping",

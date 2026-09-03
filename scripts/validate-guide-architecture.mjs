@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../outp
 const read = (relative) => fs.readFile(path.join(root, relative), "utf8");
 
 if (categoryDefinitions.length !== 7) throw new Error(`Expected 7 primary categories, found ${categoryDefinitions.length}.`);
-if (allPlaces.length !== 81) throw new Error(`Expected 81 source recommendations and utility resources, found ${allPlaces.length}.`);
+if (allPlaces.length !== 82) throw new Error(`Expected 82 source recommendations and utility resources, found ${allPlaces.length}.`);
 
 const slugs = new Set(allPlaces.map((place) => place.slug));
 const ids = new Set(allPlaces.map((place) => place.placeId));
@@ -168,6 +168,30 @@ for (const marker of [
   "object-position:center top",
 ]) {
   if (!chicagoTitlePage.includes(marker)) throw new Error(`Chicago Title detail page is missing: ${marker}`);
+}
+
+for (const marker of [
+  "Peace Solar &amp; Window Cleaning",
+  "Window, Solar &amp; Holiday Lighting",
+  "peace-solar-window-cleaning.jpg",
+]) {
+  if (!trustedProfessionalsPage.includes(marker)) throw new Error(`Trusted Professionals is missing Peace Services marker: ${marker}`);
+}
+const mrBeezIndex = trustedProfessionalsPage.indexOf("Mr. Beez Termite &amp; Pest Control");
+const peaceServicesIndex = trustedProfessionalsPage.indexOf("Peace Solar &amp; Window Cleaning");
+if (mrBeezIndex < 0 || peaceServicesIndex < 0 || mrBeezIndex >= peaceServicesIndex) {
+  throw new Error("Mr. Beez must always appear ahead of Peace Solar & Window Cleaning.");
+}
+const peaceServicesPage = await read("place/peace-solar-and-window-cleaning/index.html");
+for (const marker of [
+  "Jack and Ben",
+  "760-299-5187",
+  "https://www.peace-services.com/",
+  "solar panel cleaning",
+  "bird proofing",
+  "holiday lighting",
+]) {
+  if (!peaceServicesPage.includes(marker)) throw new Error(`Peace Services detail page is missing: ${marker}`);
 }
 
 const bumpAndGrindPage = await read("place/bump-and-grind-trail/index.html");
