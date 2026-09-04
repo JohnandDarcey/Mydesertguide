@@ -3479,6 +3479,46 @@
       "editorialLabels": []
     },
     {
+      "placeId": "place-vanmar-lending",
+      "slug": "vanmar-lending",
+      "name": "VanMar Lending",
+      "city": "Coachella Valley",
+      "category": "Trusted Professionals",
+      "categorySlug": "trusted-professionals",
+      "subcategory": "Mortgage Lending",
+      "description": "A trusted mortgage-lending team for buyers, refinances and clients who need responsive guidance from pre-approval through closing.",
+      "image": "/assets/services/vanmar-lending.png",
+      "imagePosition": "",
+      "images": [],
+      "address": "",
+      "phone": "",
+      "email": "",
+      "website": "https://www.vanmarlending.com/",
+      "menu": "",
+      "directions": "https://maps.google.com/?q=VanMar+Lending+Coachella+Valley",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "experienceTypes": [
+        "Darcey's Favorites"
+      ],
+      "attributes": [
+        "Home loans",
+        "refinancing",
+        "fast pre-approvals"
+      ],
+      "editorialLabels": []
+    },
+    {
       "placeId": "place-peace-solar-and-window-cleaning",
       "slug": "peace-solar-and-window-cleaning",
       "name": "Peace Solar & Window Cleaning",
@@ -3639,46 +3679,6 @@
         "Pool cleaning",
         "service",
         "regular maintenance"
-      ],
-      "editorialLabels": []
-    },
-    {
-      "placeId": "place-vanmar-lending",
-      "slug": "vanmar-lending",
-      "name": "VanMar Lending",
-      "city": "Coachella Valley",
-      "category": "Trusted Professionals",
-      "categorySlug": "trusted-professionals",
-      "subcategory": "Mortgage Lending",
-      "description": "A trusted mortgage-lending team for buyers, refinances and clients who need responsive guidance from pre-approval through closing.",
-      "image": "/assets/services/vanmar-lending.png",
-      "imagePosition": "",
-      "images": [],
-      "address": "",
-      "phone": "",
-      "email": "",
-      "website": "https://www.vanmarlending.com/",
-      "menu": "",
-      "directions": "https://maps.google.com/?q=VanMar+Lending+Coachella+Valley",
-      "teeTime": "",
-      "hours": "",
-      "latitude": null,
-      "longitude": null,
-      "schemaType": "ProfessionalService",
-      "providerId": "",
-      "aliases": [],
-      "serviceAreas": [],
-      "additionalLocations": [],
-      "startServiceUrl": "",
-      "availabilityUrl": "",
-      "primaryAction": "",
-      "experienceTypes": [
-        "Darcey's Favorites"
-      ],
-      "attributes": [
-        "Home loans",
-        "refinancing",
-        "fast pre-approvals"
       ],
       "editorialLabels": []
     },
@@ -6247,6 +6247,35 @@
       "detail": "Barrett · Licensed, bonded and insured pest control."
     },
     {
+      "recommendationId": "darcey-my-desert-guide:place-vanmar-lending",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-vanmar-lending",
+      "personalNote": "If you are buying a home, refinancing or simply need a fast, reliable pre-approval, I cannot recommend VanMar Lending enough. Kristen and Carlos are basically family to us, and they have handled our mortgage needs time and time again. We trust them completely because they consistently deliver exactly what they promise: honest advice, lightning-fast pre-approvals, outstanding communication and a smooth, stress-free lending experience from start to finish. Since 2012, they have helped countless families throughout the Coachella Valley with Conventional, FHA, VA, USDA and Jumbo loans, earning a reputation for exceptional service, creative solutions and keeping clients informed every step of the way. Their philosophy is simple: communicate clearly, solve problems quickly and get the job done on time. Whether you are a first-time buyer, purchasing your dream home or refinancing, you will be treated like family from your very first conversation. Their outstanding client reviews speak for themselves, but for us, it is even more personal. They are the only team we trust with our own mortgages, and we are confident they will take just as great care of you.",
+      "tags": [
+        "Mortgage Lending",
+        "Home loans",
+        "refinancing",
+        "fast pre-approvals"
+      ],
+      "experienceTypes": [
+        "Darcey's Favorites"
+      ],
+      "attributes": [
+        "Home loans",
+        "refinancing",
+        "fast pre-approvals"
+      ],
+      "editorialLabels": [],
+      "isFavorite": true,
+      "isNew": true,
+      "rating": 5,
+      "bestFor": "Home loans, refinancing and fast pre-approvals",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Kristen and Carlos · Conventional, FHA, VA, USDA and Jumbo loans."
+    },
+    {
       "recommendationId": "darcey-my-desert-guide:place-peace-solar-and-window-cleaning",
       "guideId": "darcey-my-desert-guide",
       "profileId": "darcey-deetz",
@@ -6363,35 +6392,6 @@
       "favoriteDish": "",
       "happyHour": "",
       "detail": "760-324-8148 · galyrma@aol.com"
-    },
-    {
-      "recommendationId": "darcey-my-desert-guide:place-vanmar-lending",
-      "guideId": "darcey-my-desert-guide",
-      "profileId": "darcey-deetz",
-      "placeId": "place-vanmar-lending",
-      "personalNote": "If you are buying a home, refinancing or simply need a fast, reliable pre-approval, I cannot recommend VanMar Lending enough. Kristen and Carlos are basically family to us, and they have handled our mortgage needs time and time again. We trust them completely because they consistently deliver exactly what they promise: honest advice, lightning-fast pre-approvals, outstanding communication and a smooth, stress-free lending experience from start to finish. Since 2012, they have helped countless families throughout the Coachella Valley with Conventional, FHA, VA, USDA and Jumbo loans, earning a reputation for exceptional service, creative solutions and keeping clients informed every step of the way. Their philosophy is simple: communicate clearly, solve problems quickly and get the job done on time. Whether you are a first-time buyer, purchasing your dream home or refinancing, you will be treated like family from your very first conversation. Their outstanding client reviews speak for themselves, but for us, it is even more personal. They are the only team we trust with our own mortgages, and we are confident they will take just as great care of you.",
-      "tags": [
-        "Mortgage Lending",
-        "Home loans",
-        "refinancing",
-        "fast pre-approvals"
-      ],
-      "experienceTypes": [
-        "Darcey's Favorites"
-      ],
-      "attributes": [
-        "Home loans",
-        "refinancing",
-        "fast pre-approvals"
-      ],
-      "editorialLabels": [],
-      "isFavorite": true,
-      "isNew": true,
-      "rating": 5,
-      "bestFor": "Home loans, refinancing and fast pre-approvals",
-      "favoriteDish": "",
-      "happyHour": "",
-      "detail": "Kristen and Carlos · Conventional, FHA, VA, USDA and Jumbo loans."
     },
     {
       "recommendationId": "darcey-my-desert-guide:place-ascend-insurance",

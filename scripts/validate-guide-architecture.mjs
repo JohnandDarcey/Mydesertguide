@@ -183,8 +183,15 @@ if (mrBeezIndex < 0 || peaceServicesIndex < 0 || mrBeezIndex >= peaceServicesInd
   throw new Error("Mr. Beez must always appear ahead of Peace Solar & Window Cleaning.");
 }
 const buttercakeIndex = trustedProfessionalsPage.indexOf('data-guide-place="The Buttercake Studio"');
-if (buttercakeIndex < 0 || peaceServicesIndex >= buttercakeIndex) {
-  throw new Error("Peace Solar & Window Cleaning must appear ahead of The Buttercake Studio.");
+const cardsBetweenPeaceAndButtercake = buttercakeIndex > peaceServicesIndex
+  ? (trustedProfessionalsPage.slice(peaceServicesIndex, buttercakeIndex).match(/data-guide-place=/g) || []).length
+  : 0;
+if (buttercakeIndex < 0 || peaceServicesIndex >= buttercakeIndex || cardsBetweenPeaceAndButtercake !== 1) {
+  throw new Error("The Buttercake Studio must appear on the second row, directly after Peace Solar & Window Cleaning.");
+}
+const vanMarIndex = trustedProfessionalsPage.indexOf('data-guide-place="VanMar Lending"');
+if (vanMarIndex < 0 || vanMarIndex >= peaceServicesIndex || mrBeezIndex >= vanMarIndex) {
+  throw new Error("VanMar Lending must be on the first row, after Mr. Beez and ahead of Peace Solar & Window Cleaning.");
 }
 const peaceServicesPage = await read("place/peace-solar-and-window-cleaning/index.html");
 for (const marker of [
