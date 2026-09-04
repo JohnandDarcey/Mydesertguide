@@ -3439,49 +3439,6 @@
       ]
     },
     {
-      "placeId": "place-the-buttercake-studio",
-      "slug": "the-buttercake-studio",
-      "name": "The Buttercake Studio",
-      "city": "Coachella Valley",
-      "category": "Trusted Professionals",
-      "categorySlug": "trusted-professionals",
-      "subcategory": "Custom Cakes & Desserts",
-      "description": "A custom cake studio for clients planning birthdays, celebrations, dinner parties, milestone events or anything that calls for a memorable dessert.",
-      "image": "/assets/services/buttercake-studio-cake.png",
-      "imagePosition": "",
-      "images": [
-        "/assets/services/buttercake-studio-nathan.png",
-        "/assets/services/buttercake-studio-cake.png"
-      ],
-      "address": "",
-      "phone": "",
-      "email": "",
-      "website": "https://thebuttercakestudio.com/",
-      "menu": "",
-      "directions": "https://maps.google.com/?q=The+Buttercake+Studio+Coachella+Valley",
-      "teeTime": "",
-      "hours": "",
-      "latitude": null,
-      "longitude": null,
-      "schemaType": "ProfessionalService",
-      "providerId": "",
-      "aliases": [],
-      "serviceAreas": [],
-      "additionalLocations": [],
-      "startServiceUrl": "",
-      "availabilityUrl": "",
-      "primaryAction": "",
-      "experienceTypes": [
-        "Darcey's Favorites"
-      ],
-      "attributes": [
-        "Custom cakes",
-        "special occasions",
-        "beautifully designed desserts"
-      ],
-      "editorialLabels": []
-    },
-    {
       "placeId": "place-mr-beez-termite-and-pest-control",
       "slug": "mr-beez-termite-and-pest-control",
       "name": "Mr. Beez Termite & Pest Control",
@@ -3559,6 +3516,49 @@
         "solar panel cleaning",
         "bird proofing",
         "holiday lighting"
+      ],
+      "editorialLabels": []
+    },
+    {
+      "placeId": "place-the-buttercake-studio",
+      "slug": "the-buttercake-studio",
+      "name": "The Buttercake Studio",
+      "city": "Coachella Valley",
+      "category": "Trusted Professionals",
+      "categorySlug": "trusted-professionals",
+      "subcategory": "Custom Cakes & Desserts",
+      "description": "A custom cake studio for clients planning birthdays, celebrations, dinner parties, milestone events or anything that calls for a memorable dessert.",
+      "image": "/assets/services/buttercake-studio-cake.png",
+      "imagePosition": "",
+      "images": [
+        "/assets/services/buttercake-studio-nathan.png",
+        "/assets/services/buttercake-studio-cake.png"
+      ],
+      "address": "",
+      "phone": "",
+      "email": "",
+      "website": "https://thebuttercakestudio.com/",
+      "menu": "",
+      "directions": "https://maps.google.com/?q=The+Buttercake+Studio+Coachella+Valley",
+      "teeTime": "",
+      "hours": "",
+      "latitude": null,
+      "longitude": null,
+      "schemaType": "ProfessionalService",
+      "providerId": "",
+      "aliases": [],
+      "serviceAreas": [],
+      "additionalLocations": [],
+      "startServiceUrl": "",
+      "availabilityUrl": "",
+      "primaryAction": "",
+      "experienceTypes": [
+        "Darcey's Favorites"
+      ],
+      "attributes": [
+        "Custom cakes",
+        "special occasions",
+        "beautifully designed desserts"
       ],
       "editorialLabels": []
     },
@@ -6218,35 +6218,6 @@
       "detail": "Christian and Shana Bailey · 310-701-7155 · christianandshana@chicagotitleca.com"
     },
     {
-      "recommendationId": "darcey-my-desert-guide:place-the-buttercake-studio",
-      "guideId": "darcey-my-desert-guide",
-      "profileId": "darcey-deetz",
-      "placeId": "place-the-buttercake-studio",
-      "personalNote": "Nathan is a good friend of ours, and his cakes are simply amazing. They are true works of art, but what really makes them special is how beautiful the flavors are too. He can create all the classics beautifully, and he also has a gift for suggesting inventive flavor combinations that feel thoughtful, elevated, and completely memorable.",
-      "tags": [
-        "Custom Cakes & Desserts",
-        "Custom cakes",
-        "special occasions",
-        "beautifully designed desserts"
-      ],
-      "experienceTypes": [
-        "Darcey's Favorites"
-      ],
-      "attributes": [
-        "Custom cakes",
-        "special occasions",
-        "beautifully designed desserts"
-      ],
-      "editorialLabels": [],
-      "isFavorite": true,
-      "isNew": true,
-      "rating": 5,
-      "bestFor": "Custom cakes, special occasions and beautifully designed desserts",
-      "favoriteDish": "",
-      "happyHour": "",
-      "detail": "Nathan · Custom cakes and inventive flavor pairings."
-    },
-    {
       "recommendationId": "darcey-my-desert-guide:place-mr-beez-termite-and-pest-control",
       "guideId": "darcey-my-desert-guide",
       "profileId": "darcey-deetz",
@@ -6305,6 +6276,35 @@
       "favoriteDish": "",
       "happyHour": "",
       "detail": "Jack and Ben · 760-299-5187 · Serving the Coachella Valley"
+    },
+    {
+      "recommendationId": "darcey-my-desert-guide:place-the-buttercake-studio",
+      "guideId": "darcey-my-desert-guide",
+      "profileId": "darcey-deetz",
+      "placeId": "place-the-buttercake-studio",
+      "personalNote": "Nathan is a good friend of ours, and his cakes are simply amazing. They are true works of art, but what really makes them special is how beautiful the flavors are too. He can create all the classics beautifully, and he also has a gift for suggesting inventive flavor combinations that feel thoughtful, elevated, and completely memorable.",
+      "tags": [
+        "Custom Cakes & Desserts",
+        "Custom cakes",
+        "special occasions",
+        "beautifully designed desserts"
+      ],
+      "experienceTypes": [
+        "Darcey's Favorites"
+      ],
+      "attributes": [
+        "Custom cakes",
+        "special occasions",
+        "beautifully designed desserts"
+      ],
+      "editorialLabels": [],
+      "isFavorite": true,
+      "isNew": true,
+      "rating": 5,
+      "bestFor": "Custom cakes, special occasions and beautifully designed desserts",
+      "favoriteDish": "",
+      "happyHour": "",
+      "detail": "Nathan · Custom cakes and inventive flavor pairings."
     },
     {
       "recommendationId": "darcey-my-desert-guide:place-orchid-landscaping",

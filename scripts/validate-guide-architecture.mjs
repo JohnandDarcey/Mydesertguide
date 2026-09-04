@@ -177,10 +177,14 @@ for (const marker of [
 ]) {
   if (!trustedProfessionalsPage.includes(marker)) throw new Error(`Trusted Professionals is missing Peace Services marker: ${marker}`);
 }
-const mrBeezIndex = trustedProfessionalsPage.indexOf("Mr. Beez Termite &amp; Pest Control");
-const peaceServicesIndex = trustedProfessionalsPage.indexOf("Peace Solar &amp; Window Cleaning");
+const mrBeezIndex = trustedProfessionalsPage.indexOf('data-guide-place="Mr. Beez Termite &amp; Pest Control"');
+const peaceServicesIndex = trustedProfessionalsPage.indexOf('data-guide-place="Peace Solar &amp; Window Cleaning"');
 if (mrBeezIndex < 0 || peaceServicesIndex < 0 || mrBeezIndex >= peaceServicesIndex) {
   throw new Error("Mr. Beez must always appear ahead of Peace Solar & Window Cleaning.");
+}
+const buttercakeIndex = trustedProfessionalsPage.indexOf('data-guide-place="The Buttercake Studio"');
+if (buttercakeIndex < 0 || peaceServicesIndex >= buttercakeIndex) {
+  throw new Error("Peace Solar & Window Cleaning must appear ahead of The Buttercake Studio.");
 }
 const peaceServicesPage = await read("place/peace-solar-and-window-cleaning/index.html");
 for (const marker of [
