@@ -46,6 +46,13 @@ function blankTotals() {
     leadSubmissions: 0,
     buyerGuideRequests: 0,
     askDarceyPageViews: 0,
+    newsletterPopupShown: 0,
+    newsletterPopupDismissed: 0,
+    newsletterSignupsSubmitted: 0,
+    newsletterSignupsSuccessful: 0,
+    newsletterSignupsFailed: 0,
+    newsletterFooterSignupsSubmitted: 0,
+    newsletterFooterSignupsSuccessful: 0,
   };
 }
 

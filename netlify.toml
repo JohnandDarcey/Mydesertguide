@@ -83,3 +83,8 @@
   from = "/api/leads/status"
   to = "/.netlify/functions/lead-status"
   status = 200
+
+[[redirects]]
+  from = "/api/newsletter/signup"
+  to = "/.netlify/functions/newsletter-signup"
+  status = 200

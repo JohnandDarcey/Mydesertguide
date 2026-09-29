@@ -69,6 +69,10 @@ function pageHead({ title, description, canonical, image, imageAlt = "", type = 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&family=Cormorant+Garamond:ital,wght@1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/directory.css?v=20260814-heading-scale-72">
+    <link rel="stylesheet" href="/newsletter-signup.css?v=20260929">
+    <!-- begin Follow Up Boss Pixel -->
+    <script>(function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),(t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;e.parentNode.insertBefore(t,e);})(window,"https://widgetbe.com/agent",document,"widgetTracker");window.widgetTracker("create","WT-WCOHTMTK");window.widgetTracker("send","pageview");</script>
+    <!-- end Follow Up Boss Pixel -->
     ${schema ? `<script type="application/ld+json">${jsonLd(schema)}</script>` : ""}`;
 }
 
@@ -109,7 +113,8 @@ function scripts() {
   return `<script src="/analytics-config.js?v=20260814-guide-architecture"></script>
     <script src="/analytics.js?v=20260822-engagement-only"></script>
     <script type="module" src="/directory.js?v=20260814-category-discovery"></script>
-    <script type="module" src="/site-features.js?v=20260814-hybrid-homepage"></script>`;
+    <script type="module" src="/site-features.js?v=20260814-hybrid-homepage"></script>
+    <script type="module" src="/newsletter-signup.js?v=20260929"></script>`;
 }
 
 function favoriteButton(place, className = "") {
@@ -354,7 +359,7 @@ function askDarceyPage() {
         </div>
       </section>
     </main><footer class="ask-footer"><a class="site-brand" href="/">My Desert Guide <span>♥</span></a><div><a href="/#browse-guide">Explore the Guide</a><a href="${guideProfile.homeSearchUrl}" target="_blank" rel="noreferrer" data-analytics-event="real_estate_home_search_click" data-analytics-category="Real Estate">Explore Desert Homes</a></div><p>${guideProfile.realtorName} · ${guideProfile.realtorDre} · ${guideProfile.brokerage} · ${guideProfile.brokerageDre}</p></footer>
-    <script src="/analytics-config.js?v=20260814-guide-architecture"></script><script src="/analytics.js?v=20260822-engagement-only"></script><script type="module" src="/ask-darcey.js?v=20260815-simple-funnel"></script>
+    <script src="/analytics-config.js?v=20260814-guide-architecture"></script><script src="/analytics.js?v=20260822-engagement-only"></script><script type="module" src="/ask-darcey.js?v=20260815-simple-funnel"></script><script type="module" src="/newsletter-signup.js?v=20260929"></script>
   </body></html>`;
 }
 

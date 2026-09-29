@@ -76,6 +76,13 @@ export const TRACKED_EVENTS = new Set([
   "lead_form_submitted",
   "buyer_guide_requested",
   "ask_darcey_page_view",
+  "popup_shown",
+  "popup_dismissed",
+  "signup_submitted",
+  "signup_success",
+  "signup_failure",
+  "footer_signup_submitted",
+  "footer_signup_success",
 ]);
 
 export const CLIENT_ENGAGEMENT_EVENTS = new Set([
@@ -120,6 +127,13 @@ export const EVENT_TOTAL_KEYS = {
   lead_form_submitted: "leadSubmissions",
   buyer_guide_requested: "buyerGuideRequests",
   ask_darcey_page_view: "askDarceyPageViews",
+  popup_shown: "newsletterPopupShown",
+  popup_dismissed: "newsletterPopupDismissed",
+  signup_submitted: "newsletterSignupsSubmitted",
+  signup_success: "newsletterSignupsSuccessful",
+  signup_failure: "newsletterSignupsFailed",
+  footer_signup_submitted: "newsletterFooterSignupsSubmitted",
+  footer_signup_success: "newsletterFooterSignupsSuccessful",
 };
 
 const categoryImages = {

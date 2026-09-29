@@ -8,7 +8,8 @@
   },
   "scripts": {
     "generate": "node scripts/generate-guide-pages.mjs",
-    "build": "node scripts/generate-guide-pages.mjs && node scripts/validate-guide-architecture.mjs && node scripts/validate-analytics.mjs"
+    "test:newsletter": "node scripts/test-newsletter-signup.mjs",
+    "build": "node scripts/generate-guide-pages.mjs && node scripts/validate-guide-architecture.mjs && node scripts/validate-analytics.mjs && node scripts/test-newsletter-signup.mjs"
   },
   "dependencies": {
     "@netlify/blobs": "^10.7.10"
