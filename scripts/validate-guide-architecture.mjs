@@ -28,8 +28,8 @@ for (const marker of ["The Desert", "my-desert-guide-hero-darcey.png", "Start Wi
   if (!`${homepage}\n${homepageApp}\n${homepageData}`.toLowerCase().includes(marker.toLowerCase())) throw new Error(`Homepage preservation marker is missing: ${marker}`);
 }
 for (const marker of [
-  '--font-display: "Didot"',
-  '--font-sans: "Montserrat"',
+  '--font-display: "Montserrat"',
+  '--font-sans: "Lato"',
   "--type-page-title:",
   "--type-section-title:",
   "--type-card-title:",
@@ -46,8 +46,8 @@ if (!directoryStyles.includes("h1, h2, h3, h4, h5, h6") || !directoryStyles.incl
   throw new Error("Directory uppercase heading treatment is missing.");
 }
 for (const stylesheet of [homepageStyles, directoryStyles]) {
-  if (!stylesheet.includes('"Didot", "Bodoni 72", "Bodoni Moda"')) {
-    throw new Error("Hero-matched Didot/Bodoni display stack is missing.");
+  if (!stylesheet.includes('"Montserrat", "Avenir Next", Arial, sans-serif') || !stylesheet.includes('"Lato", "Avenir Next", Arial, sans-serif')) {
+    throw new Error("Darcey-matched Montserrat/Lato typography stack is missing.");
   }
 }
 for (const marker of [

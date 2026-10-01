@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap");
+
 :root {
   --paper: #f7f5f0;
   --paper-soft: #eeeeea;
@@ -8,9 +10,9 @@
   --white: #ffffff;
   --line: rgba(5, 5, 5, 0.12);
   --shadow: 0 14px 34px rgba(5, 5, 5, 0.09);
-  --font-display: "Didot", "Bodoni 72", "Bodoni Moda", "Times New Roman", serif;
-  --font-sans: "Montserrat", "Avenir Next", Arial, sans-serif;
-  --font-editorial: "Cormorant Garamond", "Baskerville", Georgia, serif;
+  --font-display: "Montserrat", "Avenir Next", Arial, sans-serif;
+  --font-sans: "Lato", "Avenir Next", Arial, sans-serif;
+  --font-editorial: "Lato", "Avenir Next", Arial, sans-serif;
   --font-signature: "Allura", "Snell Roundhand", cursive;
   --serif: var(--font-display);
   --sans: var(--font-sans);
@@ -30,8 +32,8 @@
   --leading-display: 0.96;
   --leading-heading: 1.02;
   --leading-body: 1.62;
-  --control-radius: 8px;
-  --card-radius: 8px;
+  --control-radius: 0;
+  --card-radius: 0;
 }
 
 * {
@@ -2724,6 +2726,219 @@ dd {
   }
 }
 
+/* Darcey Deetz brand alignment: visual styling only. */
+:root {
+  --paper: #ffffff;
+  --paper-soft: #f4f4f2;
+  --charcoal: #050505;
+  --ink-soft: #1c1c1c;
+  --muted: #666666;
+  --gold: #050505;
+  --line: rgba(5, 5, 5, 0.16);
+  --shadow: 0 12px 30px rgba(5, 5, 5, 0.08);
+  --tracking-heading: 0.01em;
+  --heading-line-height: 1.02;
+}
+
+body {
+  background: var(--white);
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hero-live-brand,
+.home-footer-brand {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.eyebrow,
+.kicker,
+.hero-kicker {
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  letter-spacing: 0.15em;
+}
+
+.button,
+.contact-actions a,
+.hero-live-nav a,
+.home-footer-nav a,
+.home-curated-category-link,
+.filter-chip,
+.admin-action {
+  border-radius: 0;
+  font-family: var(--font-sans);
+  letter-spacing: 0.1em;
+}
+
+.button:hover,
+.real-estate-cta .button:hover {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--white);
+}
+
+.category-tile,
+.listing-card,
+.featured-placeholder-card,
+.featured-pick-card,
+.category-featured-shelf,
+.category-featured-card,
+.feature,
+.guide-map,
+.map-detail,
+.map-place-list,
+.services-cta,
+.contact-photo,
+.real-estate-cta,
+.home-curated-card,
+.home-install-card,
+.install-dialog {
+  border-radius: 0;
+}
+
+.hero-return-nav {
+  background: var(--charcoal);
+}
+
+.hero-return-icon,
+.hero-return-nav strong,
+.hero-return-nav small {
+  color: var(--white);
+  font-family: var(--font-sans);
+}
+
+.hero-return-nav > a:hover,
+.hero-return-nav > a:focus-visible {
+  background: var(--white);
+  color: var(--charcoal);
+}
+
+.hero-return-nav > a:hover .hero-return-icon,
+.hero-return-nav > a:hover strong,
+.hero-return-nav > a:hover small,
+.hero-return-nav > a:focus-visible .hero-return-icon,
+.hero-return-nav > a:focus-visible strong,
+.hero-return-nav > a:focus-visible small {
+  color: var(--charcoal);
+}
+
+.hero-heart,
+.hero-divider,
+.hero-live-brand span,
+.hero-description em,
+.featured-rating,
+.stars,
+.favorite-mark,
+.category-explore span,
+.home-curated-category-link span {
+  color: var(--charcoal);
+}
+
+.featured-placeholder-card,
+.featured-pick-card,
+.category-featured-shelf,
+.real-estate-cta,
+.contact {
+  background: var(--charcoal);
+}
+
+.featured-placeholder-card .eyebrow,
+.featured-pick-card .eyebrow,
+.category-featured-shelf .eyebrow,
+.real-estate-cta .eyebrow,
+.contact .eyebrow,
+.map-detail .eyebrow {
+  color: var(--white);
+}
+
+.featured-why {
+  border-left-color: var(--white);
+}
+
+.placeholder-seal,
+.category-featured-topline span {
+  border-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0;
+}
+
+.welcome-note,
+.guide,
+.happy-hour-section,
+.professionals-section,
+.home-curated {
+  background: var(--white);
+}
+
+.spotlight-section,
+.things-section,
+.services-section,
+.golf-guide,
+.home-install-card {
+  background: var(--paper-soft);
+}
+
+.home-footer {
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+.home-footer .eyebrow,
+.home-footer a,
+.home-footer p,
+.home-footer h2,
+.home-footer-brand,
+.home-footer-brand span {
+  color: var(--white);
+}
+
+.home-footer-legal {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.62) !important;
+}
+
+:focus-visible,
+.button:focus-visible,
+.category-tile:focus-visible,
+.contact-actions a:focus-visible,
+.hero-mobile-curated:focus-visible {
+  outline-color: var(--charcoal);
+}
+
+@media (max-width: 760px) {
+  .hero-live-header {
+    background: rgba(5, 5, 5, 0.97);
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-live-brand,
+  .hero-live-brand span,
+  .hero-live-nav a,
+  .hero-mobile-menu summary {
+    color: var(--white);
+  }
+
+  .hero-mobile-menu summary::before,
+  .hero-mobile-menu summary::after,
+  .hero-mobile-menu summary span {
+    background: var(--white);
+  }
+
+  .hero-divider,
+  .hero-description em,
+  .hero-heart {
+    color: var(--white);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   html {
@@ -3414,5 +3629,102 @@ dd {
 
   .hero-live-actions {
     margin-top: 6px;
+  }
+}
+
+/* Final cascade guard for the Darcey black-and-white brand system. */
+.home-footer {
+  background: var(--charcoal);
+  border-top-color: rgba(255, 255, 255, 0.18);
+  color: var(--white);
+}
+
+.home-footer .eyebrow,
+.home-footer a,
+.home-footer p,
+.home-footer h2,
+.home-footer-brand,
+.home-footer-brand span,
+.home-footer-nav a,
+.home-footer-contact a {
+  color: var(--white);
+}
+
+.home-footer .home-footer-legal {
+  border-top-color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.home-curated-card,
+.home-install-card,
+.install-dialog,
+.category-tile,
+.hero-live-actions .button,
+.hero-contact-actions a {
+  border-radius: 0;
+}
+
+.home-curated-card-link:focus-visible {
+  outline-color: var(--charcoal);
+}
+
+@media (max-width: 599px) {
+  .hero-live-header {
+    background: rgba(5, 5, 5, 0.97);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .hero-live-brand,
+  .hero-live-brand span {
+    color: var(--white);
+    letter-spacing: 0.01em;
+  }
+
+  .hero-mobile-menu summary::before,
+  .hero-mobile-menu summary::after {
+    border-color: var(--white);
+  }
+
+  .hero-live-copy h1,
+  .hero-kicker,
+  .hero-description,
+  .hero-description-mobile em,
+  .hero-live-copy h1::after,
+  .hero-divider,
+  .hero-contact-actions::before {
+    color: var(--white);
+    font-family: var(--font-sans);
+  }
+
+  .hero-divider::before,
+  .hero-divider::after {
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  .hero-live-actions .button {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.9);
+    color: var(--white);
+  }
+
+  .hero-contact-actions a {
+    background: var(--white);
+    border-color: var(--white);
+    color: var(--charcoal);
+  }
+
+  .guide-categories {
+    background: var(--white);
+  }
+
+  .category-heading-mobile .eyebrow,
+  .category-heading-mobile h2,
+  .category-heading-divider {
+    color: var(--charcoal);
+  }
+
+  .category-heading-divider::before,
+  .category-heading-divider::after {
+    background: var(--charcoal);
   }
 }
