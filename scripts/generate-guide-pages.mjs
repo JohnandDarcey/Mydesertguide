@@ -68,8 +68,8 @@ function pageHead({ title, description, canonical, image, imageAlt = "", type = 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&family=Cormorant+Garamond:ital,wght@1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/directory.css?v=20260814-heading-scale-72">
-    <link rel="stylesheet" href="/newsletter-signup.css?v=20260929">
+    <link rel="stylesheet" href="/directory.css?v=20261001-darcey-brand">
+    <link rel="stylesheet" href="/newsletter-signup.css?v=20261001-darcey-brand">
     <!-- begin Follow Up Boss Pixel -->
     <script>(function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),(t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;e.parentNode.insertBefore(t,e);})(window,"https://widgetbe.com/agent",document,"widgetTracker");window.widgetTracker("create","WT-WCOHTMTK");window.widgetTracker("send","pageview");</script>
     <!-- end Follow Up Boss Pixel -->
@@ -328,7 +328,7 @@ function askDarceyPage() {
     { "@type": "Person", "@id": `${guideProfile.siteUrl}/#darcey`, name: guideProfile.realtorName, jobTitle: "Palm Springs and Coachella Valley Realtor", url: guideProfile.realtorWebsite || "https://darceydeetz.com/" },
     breadcrumbSchema([["Home", `${guideProfile.siteUrl}/`], ["Ask Darcey", canonical]]),
   ] };
-  return `<!doctype html><html lang="en"><head>${pageHead({ title, description, canonical, image: "/assets/people/darcey-front-web.jpg", imageAlt: "Darcey Deetz, Palm Springs and Coachella Valley Realtor", schema })}<link rel="stylesheet" href="/ask-darcey.css?v=20260815-simple-funnel"></head>
+  return `<!doctype html><html lang="en"><head>${pageHead({ title, description, canonical, image: "/assets/people/darcey-front-web.jpg", imageAlt: "Darcey Deetz, Palm Springs and Coachella Valley Realtor", schema })}<link rel="stylesheet" href="/ask-darcey.css?v=20261001-darcey-brand"></head>
   <body data-page-kind="real-estate" data-guide-id="${guideProfile.guideId}" data-profile-id="${guideProfile.profileId}" data-category="Real Estate">
     ${header()}<main class="ask-shell">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Ask Darcey</span></nav>
