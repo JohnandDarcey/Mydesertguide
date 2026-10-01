@@ -112,7 +112,7 @@ if (!homepageData.includes("Curated by") || !homepageData.includes("Palm Springs
 if (!homepage.includes("app.js?v=20261001-darcey-highres") || !homepageApp.includes("data.js?v=20260814-spa-beauty-v2")) {
   throw new Error("Homepage lead-engine or Spa & Beauty cache-busting versions are missing.");
 }
-if (!homepage.includes("styles.css?v=20261001-darcey-highres") || !homepageServiceWorker.includes("darceys-guide-v23-darcey-highres")) {
+if (!homepage.includes("styles.css?v=20261001-darcey-blend") || !homepageServiceWorker.includes("darceys-guide-v24-darcey-blend")) {
   throw new Error("Homepage real-estate layout cache-busting versions are missing.");
 }
 if (!homepageStyles.includes(".darcey-cta-photo") || !homepageStyles.includes("position: absolute")) {

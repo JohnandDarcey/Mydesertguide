@@ -1,4 +1,4 @@
-const CACHE_NAME = "darceys-guide-v23-darcey-highres";
+const CACHE_NAME = "darceys-guide-v24-darcey-blend";
 const APP_SHELL = [
   "/",
   "/food-drink/",
