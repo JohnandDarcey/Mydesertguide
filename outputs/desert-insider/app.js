@@ -853,6 +853,14 @@ function render() {
           fetchpriority="high"
           decoding="async"
         />
+        <img
+          class="hero-darcey-highres"
+          src="./assets/darcey-hero-highres.jpg"
+          alt=""
+          aria-hidden="true"
+          fetchpriority="high"
+          decoding="async"
+        />
         <span class="hero-darcey-backdrop" aria-hidden="true"></span>
         <img
           class="hero-darcey-upscale"

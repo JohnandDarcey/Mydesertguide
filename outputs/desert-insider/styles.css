@@ -290,6 +290,10 @@ h1 {
   z-index: 1;
 }
 
+.hero-darcey-highres {
+  display: none;
+}
+
 .hero-darcey-backdrop {
   background: url("./assets/mobile-desert-pool-background-v2.jpg") left 58% / auto 150% no-repeat;
   bottom: 0;
@@ -3925,6 +3929,18 @@ h6,
 
 /* Keep the desktop hero treatment authoritative after shared component refinements. */
 @media (min-width: 761px) {
+  .hero-image-map .hero-darcey-highres {
+    display: block;
+    height: calc(100% - 96px);
+    left: 0;
+    object-fit: cover;
+    object-position: 50% 32%;
+    position: absolute;
+    top: 96px;
+    width: clamp(285px, 23vw, 360px);
+    z-index: 5;
+  }
+
   .hero-image-map .hero-live-header {
     background: var(--charcoal);
   }
@@ -3961,5 +3977,12 @@ h6,
   .hero-image-map .hero-curator-name,
   .hero-image-map .hero-curator-role {
     color: var(--white);
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1120px) {
+  .hero-image-map .hero-darcey-highres {
+    height: calc(100% - 84px);
+    top: 84px;
   }
 }
