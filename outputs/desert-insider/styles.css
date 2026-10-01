@@ -2726,6 +2726,200 @@ dd {
   }
 }
 
+/* Desktop hero: retain the original Darcey photography and replace baked styling with live brand UI. */
+@media (min-width: 761px) {
+  .hero-image-map {
+    aspect-ratio: auto;
+    background: var(--charcoal);
+    height: clamp(680px, 57vw, 820px);
+    min-height: 680px;
+  }
+
+  .hero-image-map .hero-art-desktop {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
+
+  .hero-darcey-backdrop,
+  .hero-image-map .hero-darcey-upscale {
+    display: none;
+  }
+
+  .hero-live-header {
+    align-items: center;
+    background: rgba(5, 5, 5, 0.98);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    display: flex;
+    gap: clamp(24px, 3vw, 52px);
+    height: 96px;
+    justify-content: space-between;
+    left: 0;
+    padding: 0 clamp(28px, 4.6vw, 70px);
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 12;
+  }
+
+  .hero-live-brand,
+  .hero-live-brand span {
+    color: var(--white);
+    letter-spacing: 0.01em;
+  }
+
+  .hero-live-nav {
+    gap: clamp(12px, 1.55vw, 25px);
+  }
+
+  .hero-live-nav a,
+  .hero-live-nav a:hover,
+  .hero-live-nav a:focus-visible {
+    color: var(--white);
+    font-family: var(--font-sans);
+    font-size: clamp(0.57rem, 0.68vw, 0.72rem);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-live-copy {
+    align-content: center;
+    background: rgba(5, 5, 5, 0.96);
+    color: var(--white);
+    display: grid;
+    left: clamp(340px, 29vw, 500px);
+    max-width: 650px;
+    min-height: 510px;
+    padding: clamp(34px, 4.2vw, 64px);
+    position: absolute;
+    top: 140px;
+    width: min(44vw, 650px);
+    z-index: 10;
+  }
+
+  .hero-kicker,
+  .hero-live-copy h1,
+  .hero-description,
+  .hero-description em,
+  .hero-curator-name,
+  .hero-curator-role {
+    color: var(--white);
+  }
+
+  .hero-kicker {
+    font-family: var(--font-sans);
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+  }
+
+  .hero-live-copy h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3.1rem, 5.6vw, 5.7rem);
+    letter-spacing: 0.02em;
+    line-height: 0.96;
+    white-space: normal;
+  }
+
+  .hero-divider {
+    color: var(--white);
+    margin: 24px 0;
+  }
+
+  .hero-divider::before,
+  .hero-divider::after {
+    background: rgba(255, 255, 255, 0.55);
+  }
+
+  .hero-description {
+    font-family: var(--font-sans);
+    font-size: clamp(0.94rem, 1.18vw, 1.12rem);
+    font-style: normal;
+    line-height: 1.65;
+    max-width: 540px;
+  }
+
+  .hero-description em {
+    font-family: var(--font-sans);
+    font-size: 1em;
+    font-style: normal;
+  }
+
+  .hero-curator {
+    border-left-color: rgba(255, 255, 255, 0.42);
+    margin-top: 16px;
+  }
+
+  .hero-live-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .hero-live-actions .button {
+    background: transparent;
+    border: 1px solid var(--white);
+    color: var(--white);
+    margin: 0;
+    min-width: 185px;
+  }
+
+  .hero-live-actions .button.dark {
+    background: var(--white);
+    color: var(--charcoal);
+  }
+
+  .hero-contact-actions {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 14px;
+  }
+
+  .hero-contact-actions a {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.58);
+    color: var(--white);
+    font-size: 0.62rem;
+    min-height: 42px;
+    padding: 8px 10px;
+  }
+
+  .hero-mobile-nav,
+  .hero-mobile-curated,
+  .hero-mobile-menu,
+  .hero-mobile-extras,
+  .hero-hotspot {
+    display: none;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1120px) {
+  .hero-live-header {
+    height: 84px;
+    padding-inline: 24px;
+  }
+
+  .hero-live-nav {
+    gap: 12px;
+  }
+
+  .hero-live-nav a {
+    font-size: 0.54rem;
+  }
+
+  .hero-live-copy {
+    left: 28%;
+    min-height: 470px;
+    top: 120px;
+    width: 54%;
+  }
+}
+
 /* Darcey Deetz brand alignment: visual styling only. */
 :root {
   --paper: #ffffff;
@@ -3726,5 +3920,46 @@ h6,
   .category-heading-divider::before,
   .category-heading-divider::after {
     background: var(--charcoal);
+  }
+}
+
+/* Keep the desktop hero treatment authoritative after shared component refinements. */
+@media (min-width: 761px) {
+  .hero-image-map .hero-live-header {
+    background: var(--charcoal);
+  }
+
+  .hero-image-map .hero-live-copy {
+    background: var(--charcoal);
+    color: var(--white);
+    display: grid;
+    left: clamp(285px, 23vw, 360px);
+    width: min(49vw, 690px);
+  }
+
+  .hero-image-map .hero-kicker,
+  .hero-image-map .hero-divider,
+  .hero-image-map .hero-description,
+  .hero-image-map .hero-description em {
+    color: var(--white);
+  }
+
+  .hero-image-map .hero-divider::before,
+  .hero-image-map .hero-divider::after {
+    background: rgba(255, 255, 255, 0.55);
+  }
+
+  .hero-image-map .hero-live-actions {
+    margin-top: 24px;
+  }
+
+  .hero-image-map .hero-curator {
+    border-left-color: rgba(255, 255, 255, 0.42);
+    margin-top: 16px;
+  }
+
+  .hero-image-map .hero-curator-name,
+  .hero-image-map .hero-curator-role {
+    color: var(--white);
   }
 }

@@ -876,6 +876,8 @@ function render() {
             <a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a>
             <a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a>
             <a href="/spa-beauty/" data-category-link data-category-name="Spa &amp; Beauty" data-category-slug="spa-beauty">Spa &amp; Beauty</a>
+            <a href="/utilities/" data-category-link data-category-name="Utilities" data-category-slug="utilities">Utilities</a>
+            <a href="/trusted-professionals/" data-category-link data-category-name="Trusted Professionals" data-category-slug="trusted-professionals">Trusted Pros</a>
           </nav>
           <details class="hero-mobile-menu">
             <summary>Menu</summary>
