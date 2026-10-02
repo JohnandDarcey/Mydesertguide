@@ -3949,6 +3949,7 @@ h6,
 
   .hero-image-map .hero-live-copy {
     background: var(--charcoal);
+    border-radius: 24px;
     color: var(--white);
     display: grid;
     left: clamp(285px, 23vw, 360px);
