@@ -1,9 +1,9 @@
 .ask-shell { margin: 0 auto; max-width: 1420px; padding: 0 clamp(16px,3.5vw,50px) clamp(58px,8vw,110px); }
 .ask-layout { display: grid; gap: clamp(18px,3vw,38px); grid-template-columns: minmax(0,.88fr) minmax(520px,1.12fr); }
 .ask-story { background: var(--ink); border-radius: 0; color: var(--white); display: grid; grid-template-rows: minmax(360px,52vh) auto; overflow: hidden; }
-.ask-photo { min-height: 360px; overflow: hidden; position: relative; }
+.ask-photo { background: radial-gradient(circle at 50% 32%,#554940 0,#27221f 54%,#111 100%); min-height: 360px; overflow: hidden; position: relative; }
 .ask-photo::after { background: linear-gradient(180deg,transparent 65%,rgba(0,0,0,.72)); content: ""; inset: 0; position: absolute; }
-.ask-photo img { height: 100%; object-fit: cover; object-position: center 10%; width: 100%; }
+.ask-photo img { height: 100%; object-fit: contain; object-position: center bottom; padding: 18px 16px 0; width: 100%; }
 .ask-photo p { bottom: 20px; font-size: .58rem; font-weight: 600; left: 24px; letter-spacing: .1em; margin: 0; position: absolute; text-transform: uppercase; z-index: 1; }
 .ask-story-copy { padding: clamp(30px,4.5vw,58px); }
 .ask-story h1 { font-family: var(--display); font-size: var(--type-page-title); font-weight: 400; letter-spacing: var(--tracking-heading); line-height: var(--leading-display); margin: 0; text-transform: uppercase; }
