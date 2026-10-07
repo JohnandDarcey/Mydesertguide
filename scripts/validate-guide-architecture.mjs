@@ -24,8 +24,13 @@ const homepageStyles = await read("styles.css");
 const homepageServiceWorker = await read("sw.js");
 const directoryStyles = await read("directory.css");
 const dashboardStyles = await read("admin/analytics-dashboard.css");
-for (const marker of ["The Desert", "my-desert-guide-hero-darcey.png", "Start With What You Need"]) {
+for (const marker of ["The Desert", "darcey-cream-jumpsuit-cutout-v1.svg", "Start With What You Need"]) {
   if (!`${homepage}\n${homepageApp}\n${homepageData}`.toLowerCase().includes(marker.toLowerCase())) throw new Error(`Homepage preservation marker is missing: ${marker}`);
+}
+for (const retiredPortrait of ["darcey-hero-highres.jpg", "darcey-front-web.jpg", "darcey-headshot-web.jpg"]) {
+  if (`${homepage}\n${homepageApp}\n${homepageData}`.includes(retiredPortrait)) {
+    throw new Error(`Homepage still references retired Darcey portrait: ${retiredPortrait}`);
+  }
 }
 for (const marker of [
   '--font-display: "Montserrat"',
@@ -109,10 +114,10 @@ if (!homepageData.includes("Pinnacle Realty Advisors") || !homepageData.includes
 if (!homepageData.includes("Curated by") || !homepageData.includes("Palm Springs & Coachella Valley Realtor®")) {
   throw new Error("Homepage Realtor identifier profile data is missing.");
 }
-if (!homepage.includes("app.js?v=20261007-cream-jumpsuit") || !homepageApp.includes("data.js?v=20261007-cream-jumpsuit")) {
+if (!homepage.includes("app.js?v=20261007-darcey-everywhere") || !homepageApp.includes("data.js?v=20261007-darcey-everywhere")) {
   throw new Error("Homepage lead-engine or Spa & Beauty cache-busting versions are missing.");
 }
-if (!homepage.includes("styles.css?v=20261007-cream-jumpsuit") || !homepageServiceWorker.includes("darceys-guide-v26-cream-jumpsuit")) {
+if (!homepage.includes("styles.css?v=20261007-darcey-everywhere-v2") || !homepageServiceWorker.includes("darceys-guide-v28-darcey-everywhere")) {
   throw new Error("Homepage real-estate layout cache-busting versions are missing.");
 }
 if (!homepageStyles.includes(".darcey-cta-photo") || !homepageStyles.includes("position: absolute")) {
