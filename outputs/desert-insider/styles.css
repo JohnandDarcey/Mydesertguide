@@ -578,12 +578,22 @@ h1 {
   padding: clamp(28px, 5vw, 58px);
 }
 
-.darcey-note-photo {
+.darcey-note-photo-frame {
   aspect-ratio: 1;
+  background: linear-gradient(145deg, #eee7dc, #d4c2ae);
   border-radius: 999px;
-  height: auto;
-  object-fit: cover;
+  overflow: hidden;
+  position: relative;
   width: 100%;
+}
+
+.darcey-note-photo {
+  height: auto;
+  left: -8.5%;
+  max-width: none;
+  position: absolute;
+  top: -3%;
+  width: 145%;
 }
 
 .welcome-note h2 {
@@ -657,6 +667,7 @@ h1 {
 }
 
 .real-estate-portrait {
+  background: radial-gradient(circle at 50% 34%, #574b42 0, #27221f 52%, #111 100%);
   min-height: clamp(400px, 44vw, 590px);
   overflow: hidden;
   position: relative;
@@ -665,8 +676,9 @@ h1 {
 .darcey-cta-photo {
   height: 100%;
   inset: 0;
-  object-fit: cover;
-  object-position: center 12%;
+  object-fit: contain;
+  object-position: center bottom;
+  padding: clamp(18px, 3vw, 34px) 12px 0;
   position: absolute;
   width: 100%;
 }
@@ -2028,7 +2040,7 @@ dd {
     padding: 28px 22px;
   }
 
-  .darcey-note-photo {
+  .darcey-note-photo-frame {
     max-width: 116px;
   }
 
