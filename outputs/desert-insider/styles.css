@@ -2747,9 +2747,25 @@ dd {
     width: 100%;
   }
 
-  .hero-darcey-backdrop,
+  .hero-darcey-backdrop {
+    background-position: left 54%;
+    background-size: auto 145%;
+    bottom: 0;
+    display: block;
+    top: 96px;
+    width: 31%;
+    -webkit-mask-image: linear-gradient(90deg, #000 0 82%, transparent 100%);
+    mask-image: linear-gradient(90deg, #000 0 82%, transparent 100%);
+  }
+
   .hero-image-map .hero-darcey-upscale {
-    display: none;
+    display: block;
+    filter: drop-shadow(0 18px 22px rgba(28, 19, 13, 0.18));
+    height: calc(100% - 96px);
+    left: clamp(-72px, -3vw, -32px);
+    top: 96px;
+    width: auto;
+    z-index: 6;
   }
 
   .hero-live-header {
@@ -3930,7 +3946,7 @@ h6,
 /* Keep the desktop hero treatment authoritative after shared component refinements. */
 @media (min-width: 761px) {
   .hero-image-map .hero-darcey-highres {
-    display: block;
+    display: none;
     height: calc(100% - 96px);
     left: 0;
     -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 78%, rgba(0, 0, 0, 0.82) 86%, transparent 100%);
