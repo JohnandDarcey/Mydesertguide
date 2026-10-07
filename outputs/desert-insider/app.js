@@ -10,7 +10,7 @@ import {
   shopping,
   spaBeauty,
   thingsToDo,
-} from "./data.js?v=20260814-spa-beauty-v2";
+} from "./data.js?v=20261007-cream-jumpsuit";
 
 const app = document.querySelector("#app");
 
