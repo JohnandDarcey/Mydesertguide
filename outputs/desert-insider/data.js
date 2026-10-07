@@ -1,8 +1,6 @@
-import { darceyCreamJumpsuitCutout } from "./assets/darcey-cream-jumpsuit-cutout-v1.js";
-
 export const assets = {
   hero: "./assets/my-desert-guide-hero-final.png",
-  heroMobile: darceyCreamJumpsuitCutout,
+  heroMobile: "./assets/darcey-cream-jumpsuit-cutout-v1.svg",
   heroSmall: "./assets/my-desert-guide-hero-960.jpg",
   heroLarge: "./assets/my-desert-guide-hero-1536.jpg",
   restaurants: "./assets/ig_0e3d77dee4f981a0016a4158fcc6cc8199adf58a6a4e4acdd4.png",
@@ -23,8 +21,8 @@ export const realtorProfile = {
   email: "darcey@darceydeetz.com",
   website: "https://darceydeetz.com",
   homeSearchUrl: "https://darceydeetz.com/home-search/listings",
-  headshot: "./assets/people/darcey-headshot-web.jpg",
-  portrait: "./assets/people/darcey-front-web.jpg",
+  headshot: "./assets/darcey-cream-jumpsuit-cutout-v1.svg",
+  portrait: "./assets/darcey-cream-jumpsuit-cutout-v1.svg",
 };
 
 export const categories = [
