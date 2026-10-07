@@ -109,10 +109,10 @@ if (!homepageData.includes("Pinnacle Realty Advisors") || !homepageData.includes
 if (!homepageData.includes("Curated by") || !homepageData.includes("Palm Springs & Coachella Valley Realtor®")) {
   throw new Error("Homepage Realtor identifier profile data is missing.");
 }
-if (!homepage.includes("app.js?v=20261001-darcey-highres") || !homepageApp.includes("data.js?v=20260814-spa-beauty-v2")) {
+if (!homepage.includes("app.js?v=20261007-cream-jumpsuit") || !homepageApp.includes("data.js?v=20261007-cream-jumpsuit")) {
   throw new Error("Homepage lead-engine or Spa & Beauty cache-busting versions are missing.");
 }
-if (!homepage.includes("styles.css?v=20261002-rounded-hero") || !homepageServiceWorker.includes("darceys-guide-v25-rounded-hero")) {
+if (!homepage.includes("styles.css?v=20261007-cream-jumpsuit") || !homepageServiceWorker.includes("darceys-guide-v26-cream-jumpsuit")) {
   throw new Error("Homepage real-estate layout cache-busting versions are missing.");
 }
 if (!homepageStyles.includes(".darcey-cta-photo") || !homepageStyles.includes("position: absolute")) {
