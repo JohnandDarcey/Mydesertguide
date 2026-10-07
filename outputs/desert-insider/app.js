@@ -10,7 +10,7 @@ import {
   shopping,
   spaBeauty,
   thingsToDo,
-} from "./data.js?v=20261007-cream-jumpsuit";
+} from "./data.js?v=20261007-darcey-everywhere";
 
 const app = document.querySelector("#app");
 
@@ -853,14 +853,6 @@ function render() {
           fetchpriority="high"
           decoding="async"
         />
-        <img
-          class="hero-darcey-highres"
-          src="./assets/darcey-hero-highres.jpg"
-          alt=""
-          aria-hidden="true"
-          fetchpriority="high"
-          decoding="async"
-        />
         <span class="hero-darcey-backdrop" aria-hidden="true"></span>
         <img
           class="hero-darcey-upscale"
@@ -1003,7 +995,9 @@ function render() {
       </section>
 
       <section class="section intro welcome-note" id="about-darcey">
-        <img class="darcey-note-photo" src="${realtorProfile.headshot}" alt="${realtorProfile.fullName} smiling in the desert" />
+        <div class="darcey-note-photo-frame">
+          <img class="darcey-note-photo" src="${realtorProfile.headshot}" alt="${realtorProfile.fullName} in a cream jumpsuit" />
+        </div>
         <div>
           <p class="eyebrow">A note from Darcey</p>
           <h2>A personal guide to the desert <span class="no-break">I love.</span></h2>
