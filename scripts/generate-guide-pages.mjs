@@ -328,13 +328,13 @@ function askDarceyPage() {
     { "@type": "Person", "@id": `${guideProfile.siteUrl}/#darcey`, name: guideProfile.realtorName, jobTitle: "Palm Springs and Coachella Valley Realtor", url: guideProfile.realtorWebsite || "https://darceydeetz.com/" },
     breadcrumbSchema([["Home", `${guideProfile.siteUrl}/`], ["Ask Darcey", canonical]]),
   ] };
-  return `<!doctype html><html lang="en"><head>${pageHead({ title, description, canonical, image: "/assets/people/darcey-front-web.jpg", imageAlt: "Darcey Deetz, Palm Springs and Coachella Valley Realtor", schema })}<link rel="stylesheet" href="/ask-darcey.css?v=20261001-darcey-brand"></head>
+  return `<!doctype html><html lang="en"><head>${pageHead({ title, description, canonical, image: "/assets/darcey-cream-jumpsuit-cutout-v1.svg", imageAlt: "Darcey Deetz in a cream jumpsuit", schema })}<link rel="stylesheet" href="/ask-darcey.css?v=20261007-darcey-everywhere"></head>
   <body data-page-kind="real-estate" data-guide-id="${guideProfile.guideId}" data-profile-id="${guideProfile.profileId}" data-category="Real Estate">
     ${header()}<main class="ask-shell">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Ask Darcey</span></nav>
       <section class="ask-layout" aria-labelledby="ask-title">
         <div class="ask-story">
-          <div class="ask-photo"><img src="${optimizedImage("/assets/people/darcey-front-web.jpg", 1000)}" alt="Darcey Deetz, Palm Springs and Coachella Valley Realtor" fetchpriority="high" decoding="async"><p>${escapeHtml(guideProfile.realtorName)} · ${escapeHtml(guideProfile.realtorDre)}</p></div>
+          <div class="ask-photo"><img src="/assets/darcey-cream-jumpsuit-cutout-v1.svg" alt="Darcey Deetz in a cream jumpsuit" fetchpriority="high" decoding="async"><p>${escapeHtml(guideProfile.realtorName)} · ${escapeHtml(guideProfile.realtorDre)}</p></div>
           <div class="ask-story-copy"><p class="eyebrow">Love Where You Live</p><h1 id="ask-title">Thinking About Making the Desert Home?</h1><p>Whether you're considering buying, selling, relocating, or simply exploring what's possible, tell Darcey a little about what you have in mind. She'll personally follow up.</p><div class="ask-trust-note"><span>Local knowledge</span><span>Personal response</span><span>No pressure</span></div></div>
         </div>
         <div class="ask-form-card">
