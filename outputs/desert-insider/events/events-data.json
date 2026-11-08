@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "timezone": "America/Los_Angeles",
   "mode": "public-readonly",
-  "revision": 9,
+  "revision": 10,
   "lastChecked": "2026-11-06",
   "sync": {
     "enabled": true
@@ -18,7 +18,7 @@
       "category": "Arts & culture",
       "url": "https://sunnylands.org/event/coachella-valley-days-of-los-muertos-2026/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "Nov 6 evening: until 9 PM; Nov 7–8: 8:30 AM–4 PM PST",
       "scheduleNote": "Free. Nov 6 evening displays 5:30–9 PM. Check official program for changes.",
       "status": "scheduled"
@@ -207,7 +207,7 @@
       "category": "Arts & culture",
       "url": "https://sunnylands.org/event/cv-days-of-los-muertos-art-flying-aerial-2026/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "10 AM, 11 AM, noon, 1 PM, 2 PM & 3 PM PST",
       "scheduleNote": "Six 15-minute shows. Free admission. Program is weather-dependent.",
       "status": "scheduled"
@@ -221,7 +221,7 @@
       "category": "Family & festivals",
       "url": "https://www.pspride.org/festival",
       "sourceName": "Palm Springs Pride",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "Stages open at noon; closing times vary PST",
       "scheduleNote": "Arenas closes at 7 PM, Amado at 5 PM, Community at 4:30 PM.",
       "status": "scheduled"
@@ -235,7 +235,7 @@
       "category": "Family & festivals",
       "url": "https://www.pspride.org/parade",
       "sourceName": "Palm Springs Pride",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "10 AM PST",
       "status": "scheduled"
     },
@@ -246,10 +246,12 @@
       "city": "Palm Springs",
       "venue": "Plaza Theatre",
       "category": "Arts & Culture",
-      "url": "https://www.visitgreaterpalmsprings.com/event/fortune-feimster%3A-takin-care-of-biscuits-comedy-tour/14752/amp/",
-      "sourceName": "Visit Greater Palm Springs",
-      "checkedAt": "2026-11-07",
-      "timeLabel": "5:00 PM"
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/fortune-feimster",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "Encore: 8 PM PST; first show sold out",
+      "scheduleNote": "Official venue lists an added 8 PM encore. The first show is sold out; confirm its time with the venue. Separate tickets apply.",
+      "status": "scheduled"
     },
     {
       "id": "vgps-rare-market-15853-20261108",
@@ -265,6 +267,61 @@
       "status": "scheduled"
     },
     {
+      "id": "writer-s-block-20261108",
+      "title": "Writer's Block",
+      "startDate": "2026-11-08",
+      "city": "La Quinta",
+      "venue": "La Quinta Library, 78275 Calle Tampico",
+      "category": "Arts & culture",
+      "url": "https://www.playinlaquinta.com/events/e/writers-block-6ae9d99b95bc3baede30060a/",
+      "sourceName": "Play in La Quinta",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "1 PM–2 PM PST",
+      "status": "scheduled"
+    },
+    {
+      "id": "culinary-kids-ages-5-7-20261109",
+      "title": "Culinary Kids (Ages 5-7)",
+      "startDate": "2026-11-09",
+      "city": "La Quinta",
+      "venue": "La Quinta Library, 78275 Calle Tampico",
+      "category": "Family & festivals",
+      "url": "https://www.playinlaquinta.com/events/e/culinary-kids-ages-5-7-6ae9d99c95bc3baede300622/",
+      "sourceName": "Play in La Quinta",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "11 AM–12 PM PST",
+      "scheduleNote": "Ages 5–7; check organizer registration requirements.",
+      "status": "scheduled"
+    },
+    {
+      "id": "veterans-dinner-celebration-20261109",
+      "title": "Veterans Dinner Celebration",
+      "startDate": "2026-11-09",
+      "city": "Cathedral City",
+      "venue": "Cathedral City Senior Center",
+      "category": "Community",
+      "url": "https://www.discovercathedralcity.com/event/veterans-dinner-celebration/",
+      "sourceName": "Discover Cathedral City",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "2 PM–4 PM PST",
+      "scheduleNote": "For veterans and their guests. RSVP required through the senior center.",
+      "status": "scheduled"
+    },
+    {
+      "id": "between-nations-ambassador-20261111",
+      "title": "Between Nations: The Work of an Ambassador (Sold Out)",
+      "startDate": "2026-11-11",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands Center & Gardens",
+      "category": "Arts & culture",
+      "url": "https://sunnylands.org/event/discussion-between-nations-nov2026/",
+      "sourceName": "Sunnylands",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "6–7:30 PM PST",
+      "scheduleNote": "Sold out. For registered participants ages 18+ only.",
+      "status": "scheduled"
+    },
+    {
       "id": "cathedral-city-veterans-day-ceremony-20261111",
       "title": "Cathedral City Veterans Day Ceremony",
       "startDate": "2026-11-11",
@@ -273,9 +330,23 @@
       "category": "Community",
       "url": "https://www.discovercathedralcity.com/cathedral-city-councilmember-rita-lamb-and-local-students-featured-at-annual-veterans-day-ceremony-on-wednesday-nov-11-2026/",
       "sourceName": "Discover Cathedral City",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "10 AM PST",
       "scheduleNote": "Free and open to the public.",
+      "status": "scheduled"
+    },
+    {
+      "id": "plaza-toast-20261111",
+      "title": "Toast: The Best of Bread",
+      "startDate": "2026-11-11",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Music & entertainment",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/toast",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "7 PM PST",
+      "scheduleNote": "See the official venue page for tickets. No end time is published.",
       "status": "scheduled"
     },
     {
@@ -287,7 +358,7 @@
       "category": "Community",
       "url": "https://www.playinlaquinta.com/events/e/veterans-recognition-ceremony-6ac4d6938b066779d6baf4a4/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "9 AM PST",
       "status": "scheduled"
     },
@@ -327,7 +398,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free. One occurrence of the Thursday series. No Thanksgiving Day session; venue closed Nov 26.",
       "status": "scheduled"
@@ -341,7 +412,7 @@
       "category": "Arts & culture",
       "url": "https://www.discovercathedralcity.com/event/kiki-clay-club-grand-opening/",
       "sourceName": "Discover Cathedral City",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "11–11:30 AM PST",
       "scheduleNote": "Free admission. Venue name follows the official event listing.",
       "status": "scheduled"
@@ -370,7 +441,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/movement-and-mindfulness-nov2026/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "10–11 AM PST",
       "scheduleNote": "Free; no registration. Arrive 30 minutes early. Outdoor schedule is weather-dependent.",
       "status": "scheduled"
@@ -384,7 +455,7 @@
       "category": "Music & entertainment",
       "url": "https://www.discovercathedralcity.com/event/nice-n-easy/",
       "sourceName": "Discover Cathedral City",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "4:30 PM–6:30 PM PST",
       "status": "scheduled"
     },
@@ -397,7 +468,7 @@
       "category": "Arts & culture",
       "url": "https://www.playinlaquinta.com/events/e/torres-martinez-creation-story-6ae12b75726dd87dfdca1a0e/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "2 PM–3:30 PM PST",
       "status": "scheduled"
     },
@@ -410,7 +481,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/wellness-series-live-easy-mediation-nov-13-2026/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "9–10 AM PST",
       "scheduleNote": "Registration required; $11.91 per person, ages 12+. Outdoor session; check the official page for availability and weather changes.",
       "status": "scheduled"
@@ -427,6 +498,20 @@
       "checkedAt": "2026-11-07",
       "timeLabel": "Starts 5 PM PST; see organizer for schedule",
       "scheduleNote": "Opening reception is sold out. Organizer ticket details give Canopy 5–6:30 PM and Downtown Park Amphitheatre 6:30–8 PM; the home-page summary instead ends at 7 PM. Use the linked detailed schedule.",
+      "status": "scheduled"
+    },
+    {
+      "id": "plaza-fashion-20261113",
+      "title": "rePLAY: Fashion",
+      "startDate": "2026-11-13",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Arts & culture",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/fashion",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "7:30 PM PST",
+      "scheduleNote": "Friday performance. Separate tickets for each performance; see official venue page.",
       "status": "scheduled"
     },
     {
@@ -465,7 +550,7 @@
       "category": "Arts & culture",
       "url": "https://www.discovercathedralcity.com/public-arts-commission-invites-local-artists-to-showcase-talent-at-cathedral-city-librarys-2026-quarterly-art-exhibits/",
       "sourceName": "Discover Cathedral City",
-      "checkedAt": "2026-11-06",
+      "checkedAt": "2026-11-08",
       "timeLabel": "10 AM–3 PM PST",
       "status": "scheduled"
     },
@@ -478,7 +563,7 @@
       "category": "Arts & culture",
       "url": "https://www.playinlaquinta.com/events/e/genealogy-meet-up--6ae12d4b726dd87dfdd121a1/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "1 PM–3 PM PST",
       "status": "scheduled"
     },
@@ -491,7 +576,7 @@
       "category": "Community",
       "url": "https://www.discovercathedralcity.com/event/hands-only-cpr-and-stop-the-bleed-2/",
       "sourceName": "Discover Cathedral City",
-      "checkedAt": "2026-11-06",
+      "checkedAt": "2026-11-08",
       "timeLabel": "9 AM–11 AM PST",
       "status": "scheduled"
     },
@@ -536,6 +621,20 @@
       "status": "scheduled"
     },
     {
+      "id": "plaza-fashion-20261114",
+      "title": "rePLAY: Fashion",
+      "startDate": "2026-11-14",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Arts & culture",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/fashion",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "2 PM and 7:30 PM PST",
+      "scheduleNote": "Two Saturday performances with separate tickets; see official venue page.",
+      "status": "scheduled"
+    },
+    {
       "id": "rockyard-thats-what-i-like-bruno-mars-tribute-20261114",
       "title": "Rockyard: That’s What I Like – Bruno Mars Tribute",
       "startDate": "2026-11-14",
@@ -550,6 +649,20 @@
       "status": "scheduled"
     },
     {
+      "id": "sun-printing-workshop-20261114",
+      "title": "Art Workshop: Sun Printing",
+      "startDate": "2026-11-14",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands Center & Gardens",
+      "category": "Arts & culture",
+      "url": "https://sunnylands.org/event/art-workshop-sun-printing/",
+      "sourceName": "Sunnylands",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "10 AM–noon PST",
+      "scheduleNote": "Registration required. Ages 18+, or ages 8+ with an accompanying adult. Check organizer for availability.",
+      "status": "scheduled"
+    },
+    {
       "id": "tai-chi-20261114",
       "title": "Tai Chi in the Gardens",
       "startDate": "2026-11-14",
@@ -558,7 +671,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -585,7 +698,7 @@
       "category": "Arts & culture",
       "url": "https://www.discovercathedralcity.com/public-arts-commission-invites-local-artists-to-showcase-talent-at-cathedral-city-librarys-2026-quarterly-art-exhibits/",
       "sourceName": "Discover Cathedral City",
-      "checkedAt": "2026-11-06",
+      "checkedAt": "2026-11-08",
       "timeLabel": "10 AM–3 PM PST",
       "status": "scheduled"
     },
@@ -598,7 +711,7 @@
       "category": "Family & festivals",
       "url": "https://www.playinlaquinta.com/events/e/fall-family-festival-rsvp-and-wristbands-6ac0d2ca41a818bbce4bf99c/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "10 AM–5 PM PST",
       "status": "scheduled"
     },
@@ -630,6 +743,33 @@
       "status": "scheduled"
     },
     {
+      "id": "plaza-state-of-the-city-20261117",
+      "title": "Palm Springs State of the City",
+      "startDate": "2026-11-17",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Community",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/state-of-the-city",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "6 PM PST",
+      "scheduleNote": "Free event. See official venue page for reservation details.",
+      "status": "scheduled"
+    },
+    {
+      "id": "take-a-break-with-huell-20261117",
+      "title": "Take a Break with Huell",
+      "startDate": "2026-11-17",
+      "city": "La Quinta",
+      "venue": "La Quinta Museum, 77885 Avenida Montezuma",
+      "category": "Arts & culture",
+      "url": "https://www.playinlaquinta.com/events/e/take-a-break-with-huell-6ae12d8d726dd87dfdd21783/",
+      "sourceName": "Play in La Quinta",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "11 AM PST",
+      "status": "scheduled"
+    },
+    {
       "id": "tastes-sounds-shades-of-billy-20261117",
       "title": "Tastes & Sounds – Shades of Billy",
       "startDate": "2026-11-17",
@@ -638,7 +778,7 @@
       "category": "Music & entertainment",
       "url": "https://www.discovercathedralcity.com/event/tastes-sounds-shades-of-billy/",
       "sourceName": "Discover Cathedral City",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "5 PM–7:30 PM PST",
       "scheduleNote": "Doors open at 5 PM; show starts at 5:30 PM.",
       "status": "scheduled"
@@ -652,8 +792,35 @@
       "category": "Arts & culture",
       "url": "https://www.playinlaquinta.com/events/e/collage-club-with-the-scrap-gallery-6ae12dd0726dd87dfdd3b267/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "2 PM–4 PM PST",
+      "status": "scheduled"
+    },
+    {
+      "id": "outdoor-storytime-20261118",
+      "title": "Outdoor Storytime",
+      "startDate": "2026-11-18",
+      "city": "La Quinta",
+      "venue": "La Quinta Library",
+      "category": "Family & festivals",
+      "url": "https://www.playinlaquinta.com/events/e/outdoor-storytime-6ae9d9a795bc3baede30153f/",
+      "sourceName": "Play in La Quinta",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "10 AM–12 PM PST",
+      "status": "scheduled"
+    },
+    {
+      "id": "plaza-rachael-vilray-20261118",
+      "title": "Rachael & Vilray with Taylor Ashton",
+      "startDate": "2026-11-18",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Music & entertainment",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/rachael-vilray",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "7 PM PST",
+      "scheduleNote": "See the official venue page for tickets. No end time is published.",
       "status": "scheduled"
     },
     {
@@ -665,7 +832,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. No Thanksgiving session; outdoor programs may change with weather.",
       "status": "scheduled"
@@ -679,7 +846,7 @@
       "category": "Arts & culture",
       "url": "https://www.playinlaquinta.com/events/e/good-books-in-the-gallery-6ae12e0e726dd87dfdd562e2/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "3 PM PST",
       "status": "scheduled"
     },
@@ -692,8 +859,22 @@
       "category": "Community",
       "url": "https://www.discovercathedralcity.com/event/love-letters/",
       "sourceName": "Discover Cathedral City",
-      "checkedAt": "2026-11-06",
+      "checkedAt": "2026-11-08",
       "timeLabel": "7 PM–9 PM PST",
+      "status": "scheduled"
+    },
+    {
+      "id": "plaza-salute-to-sinatra-20261119",
+      "title": "Salute to Sinatra",
+      "startDate": "2026-11-19",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Music & entertainment",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/salute-to-sinatra",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "7 PM PST",
+      "scheduleNote": "With Gene Pietragallo and the Paul McDonald Big Band. See official venue page for tickets.",
       "status": "scheduled"
     },
     {
@@ -705,9 +886,22 @@
       "category": "Music & entertainment",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/brian-ray-presents-desert-scene",
       "sourceName": "Palm Springs Plaza Theatre",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "7 PM PST",
       "scheduleNote": "See the official venue page for tickets. No end time is published.",
+      "status": "scheduled"
+    },
+    {
+      "id": "pueblo-sessions-holy-water-landroid-20261120",
+      "title": "Pueblo Sessions: HOLY WATER | LANDROID",
+      "startDate": "2026-11-20",
+      "city": "Desert Hot Springs",
+      "venue": "Cabot’s Pueblo Museum",
+      "category": "Music & entertainment",
+      "url": "https://cabotsmuseum.org/events/",
+      "sourceName": "Cabot's Pueblo Museum",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "6–10 PM PST",
       "status": "scheduled"
     },
     {
@@ -733,7 +927,7 @@
       "category": "Arts & culture",
       "url": "https://www.playinlaquinta.com/events/e/sketchbook-journaling-6ae12cbe726dd87dfdcf8218/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "1–3 PM PST",
       "scheduleNote": "Basic art supplies provided.",
       "status": "scheduled"
@@ -747,7 +941,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/article/yoga-in-the-gardens-returns-with-a-new-monthly-schedule/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "9:00–10:00 AM PST",
       "scheduleNote": "Free. Date confirmed in the organizer’s program announcement.",
       "status": "scheduled"
@@ -761,9 +955,22 @@
       "category": "Family & festivals",
       "url": "https://www.discovercathedralcity.com/event/12th-annual-cathedral-city-hot-air-balloon-festival/2026-11-21/",
       "sourceName": "Discover Cathedral City",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "3 PM–9 PM PST",
       "scheduleNote": "This record is the Saturday Cathedral City event. Other festival activities run November 20–22 at separate locations.",
+      "status": "scheduled"
+    },
+    {
+      "id": "mindful-art-workshop-20261121",
+      "title": "Mindful Art Workshop",
+      "startDate": "2026-11-21",
+      "city": "La Quinta",
+      "venue": "La Quinta Museum, 77885 Avenida Montezuma",
+      "category": "Arts & culture",
+      "url": "https://www.playinlaquinta.com/events/e/mindful-art-workshop-6ae12e44726dd87dfdd7667f/",
+      "sourceName": "Play in La Quinta",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "1 PM–3 PM PST",
       "status": "scheduled"
     },
     {
@@ -803,7 +1010,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -817,7 +1024,7 @@
       "category": "Wellness & outdoors",
       "url": "https://www.playinlaquinta.com/events/e/la-quinta-cove-full-moon-hike-6ae46ec7796309b0a3b31601/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "7–9 PM PST",
       "scheduleNote": "Registration is required through the organizer. Reservations open one week before the hike.",
       "status": "scheduled"
@@ -833,6 +1040,20 @@
       "sourceName": "Discover Palm Desert",
       "checkedAt": "2026-11-06",
       "timeLabel": "4 PM PST",
+      "status": "scheduled"
+    },
+    {
+      "id": "star-gazing-under-a-desert-full-moon-20261122",
+      "title": "Star Gazing Under A Desert Full Moon",
+      "startDate": "2026-11-22",
+      "city": "La Quinta",
+      "venue": "La Quinta Cove Hiking Trails",
+      "category": "Wellness & outdoors",
+      "url": "https://www.playinlaquinta.com/events/e/star-gazing-under-a-desert-full-moon-6ae46ec6796309b0a3b315b2/",
+      "sourceName": "Play in La Quinta",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "7 PM–10 PM PST",
+      "scheduleNote": "Weather-dependent; check organizer for cancellation.",
       "status": "scheduled"
     },
     {
@@ -926,8 +1147,21 @@
       "category": "Arts & culture",
       "url": "https://www.playinlaquinta.com/events/e/art-on-main-street--old-town-la-quinta-6a881e99e707b15e79e6a3bc/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "9 AM–3 PM PST",
+      "status": "scheduled"
+    },
+    {
+      "id": "chestnut-roasting-dessert-demonstrations-20261128",
+      "title": "Chestnut Roasting & Dessert Demonstrations",
+      "startDate": "2026-11-28",
+      "city": "La Quinta",
+      "venue": "Lobby, La Quinta Resort & Club",
+      "category": "Arts & culture",
+      "url": "https://www.playinlaquinta.com/events/e/holiday-cooking-demonstrations-6ac0d2c841a818bbce4bf86d/",
+      "sourceName": "Play in La Quinta",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "10 AM PST",
       "status": "scheduled"
     },
     {
@@ -939,9 +1173,22 @@
       "category": "Arts & culture",
       "url": "https://www.playinlaquinta.com/events/e/holiday-art-market-6ac0d2c841a818bbce4bf82e/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "10 AM–4 PM PST",
       "scheduleNote": "Free admission.",
+      "status": "scheduled"
+    },
+    {
+      "id": "pippi-longstocking-workshop-20261128",
+      "title": "Pippi Longstocking Workshop",
+      "startDate": "2026-11-28",
+      "city": "La Quinta",
+      "venue": "La Quinta Museum, 77885 Avenida Montezuma",
+      "category": "Arts & culture",
+      "url": "https://www.playinlaquinta.com/events/e/pippi-longstocking-workshop-6ae12c69726dd87dfdcdd5c6/",
+      "sourceName": "Play in La Quinta",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "10 AM–12 PM PST",
       "status": "scheduled"
     },
     {
@@ -967,7 +1214,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -1022,7 +1269,7 @@
       "category": "Family & festivals",
       "url": "https://www.playinlaquinta.com/events/e/annual-holiday-casita-lighting-6ae12c18726dd87dfdcc640b/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "5–6 PM PST",
       "status": "scheduled"
     },
@@ -1035,7 +1282,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. No Thanksgiving session; outdoor programs may change with weather.",
       "status": "scheduled"
@@ -1049,7 +1296,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/movement-and-mindfulness-nov2026/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "10–11 AM PST",
       "scheduleNote": "Free; no registration. Arrive 30 minutes early. Outdoor schedule is weather-dependent.",
       "status": "scheduled"
@@ -1104,7 +1351,7 @@
       "category": "Community",
       "url": "https://www.discovercathedralcity.com/event/community-shredding-event-3/2026-11-07/",
       "sourceName": "Discover Cathedral City",
-      "checkedAt": "2026-11-06",
+      "checkedAt": "2026-11-08",
       "timeLabel": "8 AM–9 AM PST",
       "status": "scheduled"
     },
@@ -1117,7 +1364,7 @@
       "category": "Family & festivals",
       "url": "https://www.discovercathedralcity.com/event/feliz-navidog-2026/",
       "sourceName": "Discover Cathedral City",
-      "checkedAt": "2026-11-06",
+      "checkedAt": "2026-11-08",
       "timeLabel": "9 AM–10:30 AM PST",
       "scheduleNote": "Registration opens at 9 AM; contest begins at 9:30 AM.",
       "status": "scheduled"
@@ -1131,7 +1378,7 @@
       "category": "Wellness & outdoors",
       "url": "https://www.playinlaquinta.com/events/e/north-american-adaptive-skateboarding-championship-6a2e8df54ddec83d66a7a82b/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "9 AM–7 PM PST",
       "status": "scheduled"
     },
@@ -1157,7 +1404,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -1198,7 +1445,7 @@
       "category": "Wellness & outdoors",
       "url": "https://www.playinlaquinta.com/events/e/ironman-703-la-quinta-6ad9e086fd35149a0e3b9285/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "6:30 AM PST",
       "scheduleNote": "Check the organizer for race routes and road access.",
       "status": "scheduled"
@@ -1243,6 +1490,20 @@
       "status": "scheduled"
     },
     {
+      "id": "culinary-kids-ages-5-7-registration-required-20261207",
+      "title": "Culinary Kids | Ages 5-7 | Registration Required",
+      "startDate": "2026-12-07",
+      "city": "La Quinta",
+      "venue": "La Quinta Library",
+      "category": "Family & festivals",
+      "url": "https://www.playinlaquinta.com/events/e/culinary-kids-ages-5-7-registration-required-6a3966e9958c48b6aaa34cc5/",
+      "sourceName": "Play in La Quinta",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "10 AM–11 AM PST",
+      "scheduleNote": "Ages 5–7. Registration required.",
+      "status": "scheduled"
+    },
+    {
       "id": "bird-walk-20261210",
       "title": "Free Guided Bird Walk",
       "startDate": "2026-12-10",
@@ -1251,7 +1512,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. No Thanksgiving session; outdoor programs may change with weather.",
       "status": "scheduled"
@@ -1332,7 +1593,7 @@
       "category": "Family & festivals",
       "url": "https://www.playinlaquinta.com/events/e/gingerbread-lane-6ad3663007cb5daf7db704c8/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "11 AM–4 PM PST",
       "scheduleNote": "Free admission.",
       "status": "scheduled"
@@ -1360,7 +1621,7 @@
       "category": "Family & festivals",
       "url": "https://www.discovercathedralcity.com/event/snowfest-2026/",
       "sourceName": "Discover Cathedral City",
-      "checkedAt": "2026-11-06",
+      "checkedAt": "2026-11-08",
       "timeLabel": "4 PM–8 PM PST",
       "status": "scheduled"
     },
@@ -1373,7 +1634,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -1414,7 +1675,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. No Thanksgiving session; outdoor programs may change with weather.",
       "status": "scheduled"
@@ -1442,9 +1703,22 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/article/yoga-in-the-gardens-returns-with-a-new-monthly-schedule/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "9:00–10:00 AM PST",
       "scheduleNote": "Free monthly session on the third Friday, as published for November–April.",
+      "status": "scheduled"
+    },
+    {
+      "id": "pueblo-sessions-giselle-woo-the-night-owls-20261219",
+      "title": "Pueblo Sessions: Giselle Woo & the Night Owls",
+      "startDate": "2026-12-19",
+      "city": "Desert Hot Springs",
+      "venue": "Cabot’s Pueblo Museum",
+      "category": "Music & entertainment",
+      "url": "https://cabotsmuseum.org/events/",
+      "sourceName": "Cabot's Pueblo Museum",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "6–10 PM PST",
       "status": "scheduled"
     },
     {
@@ -1470,7 +1744,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -1567,7 +1841,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. No Thanksgiving session; outdoor programs may change with weather.",
       "status": "scheduled"
@@ -1595,7 +1869,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -1692,7 +1966,7 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. No Thanksgiving session; outdoor programs may change with weather.",
       "status": "scheduled"
@@ -1706,9 +1980,23 @@
       "category": "Wellness & outdoors",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "sourceName": "Sunnylands",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
+      "status": "scheduled"
+    },
+    {
+      "id": "bird-walk-20270107",
+      "title": "Free Guided Bird Walk",
+      "startDate": "2027-01-07",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands Center & Gardens",
+      "category": "Wellness & outdoors",
+      "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
+      "sourceName": "Sunnylands",
+      "checkedAt": "2026-11-08",
+      "timeLabel": "8:45–9:45 AM PST",
+      "scheduleNote": "Free Thursday session in the published November–May series. Outdoor programs may change with weather.",
       "status": "scheduled"
     },
     {
@@ -1721,7 +2009,7 @@
       "category": "Wellness & outdoors",
       "url": "https://www.playinlaquinta.com/events/e/the-american-express-6a4168434ddec83d66b76d68/",
       "sourceName": "Play in La Quinta",
-      "checkedAt": "2026-11-07",
+      "checkedAt": "2026-11-08",
       "scheduleNote": "Published tournament week is January 18–24. Check the organizer for daily admission and session times.",
       "status": "scheduled"
     }
