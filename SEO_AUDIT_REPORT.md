@@ -1,24 +1,24 @@
 # MyDesertGuide.com Technical SEO Audit
 
-Generated: 2026-08-15T20:50:28.768Z
+Generated: 2026-11-08T01:45:16.282Z
 
 ## Audit summary
 
-- Sitemap URLs: 89
-- Public routes inventoried: 90
-- Indexable public routes: 89
+- Sitemap URLs: 93
+- Public routes inventoried: 94
+- Indexable public routes: 93
 - Noindex public utility routes: 1
 - Duplicate SEO titles: 0
 - Duplicate meta descriptions: 0
 - Internal link target problems: 0
 - Missing local assets: 0
-- Live non-200 pages: 0
+- Live non-200 pages: not tested
 
 ## Public page inventory
 
 | URL | Page purpose | SEO title | Meta description | H1 | Indexable | Issue found | Recommended improvement |
 |---|---|---|---|---|---:|---|---|
-| https://mydesertguide.com/ | Homepage and entry point to Darcey's Coachella Valley guide | My Desert Guide \| The Best of the Coachella Valley | Explore Darcey Deetz’s curated Palm Springs and Coachella Valley guide to food, golf, shopping, things to do, spa and beauty, utilities and local pros. | Darcey's My Desert Guide to the Coachella Valley | Yes | Thin rendered HTML (55 words) | Add concise, original local context |
+| https://mydesertguide.com/ | Homepage and entry point to Darcey's Coachella Valley guide | My Desert Guide \| The Best of the Coachella Valley | Explore Darcey Deetz’s curated Palm Springs and Coachella Valley guide to food, golf, shopping, things to do, spa and beauty, utilities and local pros. | Darcey's My Desert Guide to the Coachella Valley | Yes | Thin rendered HTML (56 words) | Add concise, original local context |
 | https://mydesertguide.com/ask-darcey/ | Real-estate questions and lead contact page | Ask Darcey \| Palm Springs & Coachella Valley Real Estate | Tell Darcey what you are considering about buying, selling or relocating in Palm Springs and the Coachella Valley. | Thinking About Making the Desert Home? | Yes | None found | No change required |
 | https://mydesertguide.com/food-drink/ | Food & Drink category directory | Food & Drink in the Coachella Valley \| My Desert Guide | Darcey's personal picks for memorable dinners, lively happy hours, easy brunches and dependable local favorites. | Food & Drink | Yes | None found | No change required |
 | https://mydesertguide.com/golf/ | Golf category directory | Golf in the Coachella Valley \| My Desert Guide | Beautiful courses Darcey recommends for mountain views, excellent conditions, strong value and a complete desert day. | Golf | Yes | None found | No change required |
@@ -55,6 +55,7 @@ Generated: 2026-08-15T20:50:28.768Z
 | https://mydesertguide.com/place/escena-golf-club/ | Curated recommendation detail for Escena Golf Club | Escena Golf Club in Palm Springs \| My Desert Guide | A polished Palm Springs course where the architecture, clubhouse, and mountain views all feel deeply connected to the desert lifestyle. | Escena Golf Club | Yes | None found | No change required |
 | https://mydesertguide.com/place/desert-willow/ | Curated recommendation detail for Desert Willow | Desert Willow in Palm Desert \| My Desert Guide | A consistently beautiful Palm Desert golf destination with two courses and the kind of conditioning that makes it easy to recommend. | Desert Willow | Yes | None found | No change required |
 | https://mydesertguide.com/place/the-classic-club/ | Curated recommendation detail for The Classic Club | The Classic Club in Palm Desert \| My Desert Guide | A bigger, more challenging desert round with a strong practice facility and a clubhouse restaurant that makes it a full-day recommendation. | The Classic Club | Yes | None found | No change required |
+| https://mydesertguide.com/place/the-show-at-agua-caliente/ | Curated recommendation detail for The Show at Agua Caliente | The Show at Agua Caliente in Rancho Mirage \| My Desert Guide | A favorite Rancho Mirage night out for tribute bands and headliners, with loge seats at the top of our list. | The Show at Agua Caliente | Yes | None found | No change required |
 | https://mydesertguide.com/place/indian-canyons/ | Curated recommendation detail for Indian Canyons | Indian Canyons in Palm Springs \| My Desert Guide | Native palm oases, flowing streams and dramatic desert canyon scenery make Indian Canyons one of the signature outdoor experiences in Palm Springs. Choose. | Indian Canyons | Yes | None found | No change required |
 | https://mydesertguide.com/place/tahquitz-canyon/ | Curated recommendation detail for Tahquitz Canyon | Tahquitz Canyon in Palm Springs \| My Desert Guide | A beautiful canyon hike just minutes from downtown Palm Springs, Tahquitz Canyon leads through dramatic rock scenery to a seasonal 60-foot waterfall. | Tahquitz Canyon | Yes | None found | No change required |
 | https://mydesertguide.com/place/bump-and-grind-trail/ | Curated recommendation detail for Bump and Grind Trail | Bump and Grind Trail in Palm Desert \| My Desert Guide | A Palm Desert favorite for anyone looking for a real workout. Bump and Grind climbs into the Santa Rosa Mountains and rewards the effort with sweeping views. | Bump and Grind Trail | Yes | None found | No change required |
@@ -97,16 +98,19 @@ Generated: 2026-08-15T20:50:28.768Z
 | https://mydesertguide.com/place/frontier-communications/ | Curated recommendation detail for Frontier Communications | Frontier Communications in Coachella Valley \| My Desert Guide | An internet option identified throughout the Coachella Valley, subject to address-level availability. | Frontier Communications | Yes | None found | No change required |
 | https://mydesertguide.com/place/at-and-t-internet/ | Curated recommendation detail for AT&T Internet | AT&T Internet in Coachella Valley \| My Desert Guide | An additional internet provider from Darcey's quick-contact guide, with service determined by exact address. | AT&T Internet | Yes | None found | No change required |
 | https://mydesertguide.com/place/t-mobile-home-internet/ | Curated recommendation detail for T-Mobile Home Internet | T-Mobile Home Internet in Coachella Valley \| My Desert Guide | An additional home-internet provider from Darcey's quick-contact guide, with service determined by exact address. | T-Mobile Home Internet | Yes | None found | No change required |
-| https://mydesertguide.com/place/the-buttercake-studio/ | Curated recommendation detail for The Buttercake Studio | The Buttercake Studio in Coachella Valley \| My Desert Guide | A custom cake studio for clients planning birthdays, celebrations, dinner parties, milestone events or anything that calls for a memorable dessert. | The Buttercake Studio | Yes | None found | No change required |
+| https://mydesertguide.com/place/chicago-title/ | Curated recommendation detail for Chicago Title | Chicago Title in Palm Springs \| My Desert Guide | Christian and Shana Bailey are a Palm Springs title and escrow team helping buyers, sellers and real estate professionals move confidently from contract to. | Chicago Title | Yes | None found | No change required |
 | https://mydesertguide.com/place/mr-beez-termite-and-pest-control/ | Curated recommendation detail for Mr. Beez Termite & Pest Control | Mr. Beez Termite & Pest Control \| My Desert Guide | A dependable pest-control resource for regular service, termite inspections and the unexpected desert critters that come with homeownership. | Mr. Beez Termite & Pest Control | Yes | None found | No change required |
+| https://mydesertguide.com/place/vanmar-lending/ | Curated recommendation detail for VanMar Lending | VanMar Lending in Coachella Valley \| My Desert Guide | A trusted mortgage-lending team for buyers, refinances and clients who need responsive guidance from pre-approval through closing. | VanMar Lending | Yes | None found | No change required |
+| https://mydesertguide.com/place/peace-solar-and-window-cleaning/ | Curated recommendation detail for Peace Solar & Window Cleaning | Peace Solar & Window Cleaning \| My Desert Guide | A year-round exterior-care team for window cleaning, solar panel cleaning, bird proofing and professional holiday lighting throughout the Coachella Valley. | Peace Solar & Window Cleaning | Yes | None found | No change required |
+| https://mydesertguide.com/place/the-buttercake-studio/ | Curated recommendation detail for The Buttercake Studio | The Buttercake Studio in Coachella Valley \| My Desert Guide | A custom cake studio for clients planning birthdays, celebrations, dinner parties, milestone events or anything that calls for a memorable dessert. | The Buttercake Studio | Yes | None found | No change required |
 | https://mydesertguide.com/place/orchid-landscaping/ | Curated recommendation detail for Orchid Landscaping | Orchid Landscaping in Coachella Valley \| My Desert Guide | A trusted landscaping contact for regular maintenance, yard care and keeping a desert property looking polished. | Orchid Landscaping | Yes | None found | No change required |
 | https://mydesertguide.com/place/gali-pool-service/ | Curated recommendation detail for Gali Pool Service | Gali Pool Service in Coachella Valley \| My Desert Guide | A dependable pool-service contact for regular cleanings, maintenance and keeping a desert pool ready to enjoy. | Gali Pool Service | Yes | None found | No change required |
-| https://mydesertguide.com/place/vanmar-lending/ | Curated recommendation detail for VanMar Lending | VanMar Lending in Coachella Valley \| My Desert Guide | A trusted mortgage-lending team for buyers, refinances and clients who need responsive guidance from pre-approval through closing. | VanMar Lending | Yes | None found | No change required |
 | https://mydesertguide.com/place/ascend-insurance/ | Curated recommendation detail for Ascend Insurance | Ascend Insurance in Coachella Valley \| My Desert Guide | A local insurance resource for clients who want help reviewing coverage options, asking policy questions, or connecting with a trusted insurance professional. | Ascend Insurance | Yes | None found | No change required |
 | https://mydesertguide.com/place/burrtec/ | Curated recommendation detail for Burrtec | Burrtec in Coachella Valley \| My Desert Guide | A practical service link for trash, recycling, bulky item pickup and local waste-service questions. | Burrtec | Yes | None found | No change required |
 | https://mydesertguide.com/place/jorges-landscaping/ | Curated recommendation detail for Jorge's Landscaping | Jorge's Landscaping in Coachella Valley \| My Desert Guide | A trusted landscaping and garden-care contact for clients who need help keeping a desert home looking polished and well cared for. | Jorge's Landscaping | Yes | None found | No change required |
 | https://mydesertguide.com/place/m-and-j-tax-services/ | Curated recommendation detail for M&J Tax Services | M&J Tax Services in Coachella Valley \| My Desert Guide | A local tax-services resource for clients who want help with tax preparation, planning and practical financial paperwork. | M&J Tax Services | Yes | None found | No change required |
 | https://mydesertguide.com/place/foremost-insurance/ | Curated recommendation detail for Foremost Insurance | Foremost Insurance in Cathedral City \| My Desert Guide | An insurance contact for clients who need help with coverage questions, policy setup, or a local broker connection. | Foremost Insurance | Yes | None found | No change required |
+| https://mydesertguide.com/events/ | Good days. Great plans. category directory | Events Calendar \| My Desert Guide | Explore upcoming Coachella Valley events, browse the monthly calendar, and download a printable event guide with links to official details. | Good days. Great plans. | Yes | None found | No change required |
 | https://mydesertguide.com/saved/ | Private-on-device list of a visitor's saved recommendations | My Desert List \| My Desert Guide | Your saved recommendations from Darcey's My Desert Guide. | My Desert List ♡ | No | None found | No change required |
 
 ## Duplicate metadata

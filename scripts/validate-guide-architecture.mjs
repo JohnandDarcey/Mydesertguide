@@ -7,7 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../outp
 const read = (relative) => fs.readFile(path.join(root, relative), "utf8");
 
 if (categoryDefinitions.length !== 7) throw new Error(`Expected 7 primary categories, found ${categoryDefinitions.length}.`);
-if (allPlaces.length !== 82) throw new Error(`Expected 82 source recommendations and utility resources, found ${allPlaces.length}.`);
+if (allPlaces.length !== 83) throw new Error(`Expected 83 source recommendations and utility resources, found ${allPlaces.length}.`);
 
 const slugs = new Set(allPlaces.map((place) => place.slug));
 const ids = new Set(allPlaces.map((place) => place.placeId));
@@ -33,8 +33,8 @@ for (const retiredPortrait of ["darcey-hero-highres.jpg", "darcey-front-web.jpg"
   }
 }
 for (const marker of [
-  '--font-display: "Montserrat"',
-  '--font-sans: "Lato"',
+  "--font-display: 'Plus Jakarta Sans'",
+  "--font-sans: 'Plus Jakarta Sans'",
   "--type-page-title:",
   "--type-section-title:",
   "--type-card-title:",
@@ -51,8 +51,8 @@ if (!directoryStyles.includes("h1, h2, h3, h4, h5, h6") || !directoryStyles.incl
   throw new Error("Directory uppercase heading treatment is missing.");
 }
 for (const stylesheet of [homepageStyles, directoryStyles]) {
-  if (!stylesheet.includes('"Montserrat", "Avenir Next", Arial, sans-serif') || !stylesheet.includes('"Lato", "Avenir Next", Arial, sans-serif')) {
-    throw new Error("Darcey-matched Montserrat/Lato typography stack is missing.");
+  if (!stylesheet.includes("'Plus Jakarta Sans', sans-serif") || !stylesheet.includes("'Plus Jakarta Sans', Arial, sans-serif")) {
+    throw new Error("Approved Plus Jakarta Sans typography stack is missing.");
   }
 }
 for (const marker of [
@@ -108,16 +108,16 @@ for (const marker of [
 ]) {
   if (!homepageApp.includes(marker)) throw new Error(`Hybrid homepage marker is missing: ${marker}`);
 }
-if (!homepageData.includes("Pinnacle Realty Advisors") || !homepageData.includes("CA DRE 02220139")) {
+if (!homepageData.includes("SolCal Properties") || !homepageData.includes("CA DRE 01374659")) {
   throw new Error("Homepage real-estate brokerage disclosure is missing.");
 }
 if (!homepageData.includes("Curated by") || !homepageData.includes("Palm Springs & Coachella Valley Realtor®")) {
   throw new Error("Homepage Realtor identifier profile data is missing.");
 }
-if (!homepage.includes("app.js?v=20261007-darcey-everywhere") || !homepageApp.includes("data.js?v=20261007-darcey-everywhere")) {
+if (!homepage.includes("app.js?v=20261107-solcal-events") || !homepageApp.includes("data.js?v=20261107-solcal-events")) {
   throw new Error("Homepage lead-engine or Spa & Beauty cache-busting versions are missing.");
 }
-if (!homepage.includes("styles.css?v=20261007-darcey-everywhere-v2") || !homepageServiceWorker.includes("darceys-guide-v28-darcey-everywhere")) {
+if (!homepage.includes("styles.css?v=20261107-solcal-events") || !homepageServiceWorker.includes("darceys-guide-v29-solcal-events")) {
   throw new Error("Homepage real-estate layout cache-busting versions are missing.");
 }
 if (!homepageStyles.includes(".darcey-cta-photo") || !homepageStyles.includes("position: absolute")) {
@@ -142,7 +142,7 @@ for (const category of categoryDefinitions) {
   for (const marker of ["Love Where You Live", "Thinking about making the desert home?", "https://darceydeetz.com/home-search/listings", "real_estate_contact_click"]) {
     if (!html.includes(marker)) throw new Error(`${category.slug} is missing real-estate footer marker: ${marker}`);
   }
-  for (const marker of ["Darcey Deetz", "CA DRE 01374659", "Pinnacle Realty Advisors", "CA DRE 02220139"]) {
+  for (const marker of ["Darcey Deetz", "CA DRE 01374659", "SolCal Properties"]) {
     if (!html.includes(marker)) throw new Error(`${category.slug} is missing real-estate legal marker: ${marker}`);
   }
   if (html.includes("Need Darcey's help?")) throw new Error(`${category.slug} still contains the retired footer.`);
@@ -331,7 +331,7 @@ if (!joshFullerPage.includes("Photo courtesy of Salon Jarick") || !joshFullerPag
 }
 
 const professionalsPage = await read("trusted-professionals/index.html");
-if (!professionalsPage.includes(encodeURIComponent("/assets/services/mr-beez-pest-control.png"))) throw new Error("Trusted Professionals must use the Mr. Beez category image.");
+if (!["/assets/services/mr-beez-pest-control.png", encodeURIComponent("/assets/services/mr-beez-pest-control.png")].some(image => professionalsPage.includes(image))) throw new Error("Trusted Professionals must use the Mr. Beez category image.");
 for (const removedFilter of ["beautifully designed desserts", "custom cakes"]) {
   if (professionalsPage.toLowerCase().includes(`data-tag-filter=\"${removedFilter}`)) throw new Error(`Trusted Professionals still exposes removed navigation filter: ${removedFilter}`);
 }
@@ -348,14 +348,14 @@ for (const place of allPlaces) {
   for (const marker of ["<h1>", "rel=\"canonical\"", "application/ld+json", place.placeId, "data-favorite-slug"]) {
     if (!html.includes(marker)) throw new Error(`${place.slug} is missing ${marker}.`);
   }
-  for (const marker of ["Darcey Deetz", "CA DRE 01374659", "Pinnacle Realty Advisors", "CA DRE 02220139"]) {
+  for (const marker of ["Darcey Deetz", "CA DRE 01374659", "SolCal Properties"]) {
     if (!html.includes(marker)) throw new Error(`${place.slug} is missing real-estate legal marker: ${marker}`);
   }
   if (place.darceysTake && !html.includes("Darcey's Take")) throw new Error(`${place.slug} is missing Darcey's Take.`);
 }
 
 const savedPage = await read("saved/index.html");
-for (const marker of ["Darcey Deetz", "CA DRE 01374659", "Pinnacle Realty Advisors", "CA DRE 02220139"]) {
+for (const marker of ["Darcey Deetz", "CA DRE 01374659", "SolCal Properties"]) {
   if (!savedPage.includes(marker)) throw new Error(`Saved page is missing real-estate legal marker: ${marker}`);
 }
 
@@ -369,7 +369,7 @@ if (!serviceWorker.includes("event.request.mode === \"navigate\"")) throw new Er
 
 const sitemap = await read("sitemap.xml");
 const sitemapUrls = sitemap.match(/<loc>/g)?.length || 0;
-if (sitemapUrls !== 2 + categoryDefinitions.length + allPlaces.length) throw new Error(`Sitemap contains ${sitemapUrls} URLs.`);
+if (sitemapUrls !== 3 + categoryDefinitions.length + allPlaces.length) throw new Error(`Sitemap contains ${sitemapUrls} URLs.`);
 
 const robots = await read("robots.txt");
 if (!robots.includes("Sitemap: https://mydesertguide.com/sitemap.xml") || !robots.includes("Disallow: /admin/")) {

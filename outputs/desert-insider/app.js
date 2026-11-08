@@ -1,3 +1,4 @@
+import { monthSection, mountMonthEvents } from './home-events.mjs';
 import {
   assets,
   categories,
@@ -10,7 +11,7 @@ import {
   shopping,
   spaBeauty,
   thingsToDo,
-} from "./data.js?v=20261007-darcey-everywhere";
+} from "./data.js?v=20261107-solcal-events";
 
 const app = document.querySelector("#app");
 
@@ -33,7 +34,7 @@ const homepageCuratedFavorites = [
   { item: restaurants.find((place) => place.name === "Spencer's"), category: "Food & Drink", categoryHref: "/food-drink/", type: "Restaurant" },
   { item: golfCourses.find((place) => place.name === "The Classic Club"), category: "Golf", categoryHref: "/golf/", type: "GolfCourse" },
   { item: thingsToDo.find((place) => place.name === "The Living Desert"), category: "Things to Do", categoryHref: "/things-to-do/", type: "TouristAttraction" },
-  { item: shopping.find((place) => place.name === "World Market"), category: "Shopping", categoryHref: "/shopping/", type: "Store" },
+  { item: shopping.find((place) => place.name === "The Shops at Thirteen Forty Five"), category: "Shopping", categoryHref: "/shopping/", type: "Store" },
 ].filter(({ item }) => Boolean(item));
 const featuredRestaurantsByFilter = {
   American: ["Lulu", "Tony's Grill and Bar"],
@@ -868,32 +869,18 @@ function render() {
           aria-hidden="true"
           decoding="async"
         />
-        <header class="hero-live-header">
-          <a class="hero-live-brand" href="#top">My Desert Guide <span aria-hidden="true">♥</span></a>
-          <nav class="hero-live-nav" aria-label="Primary guide navigation">
-            <a href="/food-drink/" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink">Food &amp; Drink</a>
-            <a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a>
-            <a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a>
-            <a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a>
-            <a href="/spa-beauty/" data-category-link data-category-name="Spa &amp; Beauty" data-category-slug="spa-beauty">Spa &amp; Beauty</a>
-            <a href="/utilities/" data-category-link data-category-name="Utilities" data-category-slug="utilities">Utilities</a>
-            <a href="/trusted-professionals/" data-category-link data-category-name="Trusted Professionals" data-category-slug="trusted-professionals">Trusted Pros</a>
-          </nav>
-          <details class="hero-mobile-menu">
-            <summary>Menu</summary>
-            <nav aria-label="Mobile guide navigation">
-              <a href="/food-drink/" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink">Food &amp; Drink</a>
-              <a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a>
-              <a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a>
-              <a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a>
-              <a href="/spa-beauty/" data-category-link data-category-name="Spa &amp; Beauty" data-category-slug="spa-beauty">Spa &amp; Beauty</a>
-              <a href="/utilities/" data-category-link data-category-name="Utilities" data-category-slug="utilities">Utilities</a>
-              <a href="/trusted-professionals/" data-category-link data-category-name="Trusted Professionals" data-category-slug="trusted-professionals">Trusted Pros</a>
-              <a href="#about-darcey">About Darcey</a>
-              <a href="/saved/">Saved Favorites</a>
-            </nav>
-          </details>
-        </header>
+        <header class="hero-live-header mdg-header" aria-label="My Desert Guide">
+  <a class="mdg-brand" href="/" aria-label="My Desert Guide home"><span class="mdg-wordmark">My Desert <em>Guide</em></span><span class="mdg-heart" aria-hidden="true">♥</span></a>
+  <nav class="mdg-primary" aria-label="Primary guide navigation">
+    <a href="/food-drink/" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink">Food &amp; Drink</a><a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a><a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a><a href="/events/" data-category-link data-category-name="Events" data-category-slug="events">Events</a><a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a><a href="/spa-beauty/" data-category-link data-category-name="Spa &amp; Beauty" data-category-slug="spa-beauty">Spa &amp; Beauty</a><a href="/utilities/" data-category-link data-category-name="Utilities" data-category-slug="utilities">Utilities</a><a href="/trusted-professionals/" data-category-link data-category-name="Trusted Professionals" data-category-slug="trusted-professionals">Trusted Pros</a>
+  </nav>
+  <details class="mdg-menu">
+    <summary aria-label="Guide menu">Menu</summary>
+    <nav aria-label="Complete guide navigation">
+      <a href="/">Guide Home</a><a href="/food-drink/" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink">Food &amp; Drink</a><a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a><a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a><a href="/events/" data-category-link data-category-name="Events" data-category-slug="events">Events</a><a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a><a href="/spa-beauty/" data-category-link data-category-name="Spa &amp; Beauty" data-category-slug="spa-beauty">Spa &amp; Beauty</a><a href="/utilities/" data-category-link data-category-name="Utilities" data-category-slug="utilities">Utilities</a><a href="/trusted-professionals/" data-category-link data-category-name="Trusted Professionals" data-category-slug="trusted-professionals">Trusted Pros</a><a href="/saved/">Saved Favorites</a><a href="/#about-darcey">About Darcey</a><a href="/ask-darcey/">Ask Darcey</a>
+    </nav>
+  </details>
+</header>
         <div class="hero-live-copy">
           <p class="hero-kicker">Your Guide to</p>
           <h1>The Desert</h1>
@@ -914,6 +901,7 @@ function render() {
             <a href="/food-drink/" data-category-link data-category-name="Food &amp; Drink" data-category-slug="food-drink">Food &amp; Drink</a>
             <a href="/golf/" data-category-link data-category-name="Golf" data-category-slug="golf">Golf</a>
             <a href="/things-to-do/" data-category-link data-category-name="Things to Do" data-category-slug="things-to-do">Things to Do</a>
+            <a href="/events/" data-category-link data-category-name="Events" data-category-slug="events">Events</a>
             <a href="/shopping/" data-category-link data-category-name="Shopping" data-category-slug="shopping">Shopping</a>
             <a href="/spa-beauty/" data-category-link data-category-name="Spa &amp; Beauty" data-category-slug="spa-beauty">Spa &amp; Beauty</a>
             <a href="/utilities/" data-category-link data-category-name="Utilities" data-category-slug="utilities">Utilities</a>
@@ -958,6 +946,8 @@ function render() {
           <span><strong>Contact Darcey</strong><small>Text, call or email</small></span>
         </a>
       </nav>
+
+      ${monthSection()}
 
       <section class="section guide-categories" id="browse-guide" aria-label="Guide categories">
         <div class="category-heading">
@@ -1051,8 +1041,10 @@ function render() {
         <div>
           <a class="home-footer-brand" href="#top">My Desert Guide <span aria-hidden="true">♥</span></a>
           <p>Darcey's personal guide to the best of desert living.</p>
+          <span class="solcal-brand-frame"><img src="/assets/solcal-properties.png" width="377" height="281" alt="SolCal Properties" loading="lazy" decoding="async"></span>
         </div>
         <nav class="home-footer-nav" aria-label="Footer guide navigation">
+          <a href="/events/" data-category-link data-category-name="Events" data-category-slug="events">Events</a>
           ${categories.map((category) => `<a href="${category.href}" data-category-link data-category-name="${category.label}" data-category-slug="${category.href.replaceAll("/", "")}">${category.label}</a>`).join("")}
         </nav>
         <div class="home-footer-contact">
@@ -1061,7 +1053,7 @@ function render() {
           <a href="tel:${realtorProfile.phoneHref}">Call Darcey</a>
           <a href="mailto:${realtorProfile.email}">Email Darcey</a>
         </div>
-        <p class="home-footer-legal">${realtorProfile.fullName} · ${realtorProfile.dre} · ${realtorProfile.brokerage} · ${realtorProfile.brokerageDre}</p>
+        <p class="home-footer-legal">${realtorProfile.fullName} · ${realtorProfile.dre} · ${realtorProfile.brokerage}</p>
       </footer>
     </main>
   `;
@@ -1103,6 +1095,7 @@ const legacyCategoryRoute = legacyCategoryRoutes[window.location.hash.toLowerCas
 if (legacyCategoryRoute) window.location.replace(legacyCategoryRoute);
 else {
   render();
+  mountMonthEvents();
   const requestedSectionId = decodeURIComponent(window.location.hash.slice(1));
   if (requestedSectionId) {
     const scrollToRequestedSection = () => document.getElementById(requestedSectionId)?.scrollIntoView();

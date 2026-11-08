@@ -14,8 +14,8 @@ export const realtorProfile = {
   curatorLabel: "Curated by",
   professionalIdentifier: "Palm Springs & Coachella Valley Realtor®",
   dre: "CA DRE 01374659",
-  brokerage: "Pinnacle Realty Advisors",
-  brokerageDre: "CA DRE 02220139",
+  brokerage: "SolCal Properties",
+  brokerageDre: "",
   phoneDisplay: "760-808-1449",
   phoneHref: "+17608081449",
   email: "darcey@darceydeetz.com",
@@ -50,9 +50,9 @@ export const categories = [
   {
     label: "Shopping",
     href: "/shopping/",
-    image: "./assets/category-cards/shopping-900.jpg",
-    imageSmall: "./assets/category-cards/shopping-480.jpg",
-    alt: "World Market in Palm Springs",
+    image: "./assets/shopping/the-shag-store.jpg",
+    imageSmall: "./assets/shopping/the-shag-store.jpg",
+    alt: "The Shag Store illuminated at night in Palm Springs",
   },
   {
     label: "Spa & Beauty",
@@ -340,7 +340,7 @@ export const restaurants = [
     description:
       "A casual Cathedral City favorite for barbecue, cold drinks, and easygoing happy-hour energy.",
     tip: "Bubba's is a fun, casual spot for barbecue, drinks, and an easy happy hour. Do not miss the Jalapeno Sausage Wontons - they are so good. The patio is dog friendly too, which makes it a great choice when you want to bring your pup and keep things relaxed.",
-    image: "./assets/restaurants/bubbas-bones-and-brews.png",
+    image: "./assets/restaurants/bubbas-sign.jpeg",
     isNew: true,
     isFavorite: false,
   },
@@ -852,7 +852,7 @@ export const shopping = [
     description:
       "A fun Palm Springs stop for unique home pieces, host gifts, pantry finds and small treasures you did not know you needed.",
     tip: "World Market is one of my favorite places in Palm Springs for unique home decor, furniture, gourmet foods, gifts and entertaining essentials from around the world, all at surprisingly approachable prices. Whether you are decorating a new home, refreshing your patio or picking up a thoughtful hostess gift, there is always something interesting to discover. I especially love visiting during the holidays, when the seasonal displays are full of one-of-a-kind finds.",
-    image: "./assets/world-market-palm-springs.png",
+    image: "./assets/shopping/world-market-interior-elmwood.jpg",
     isNew: true,
   },
 ];
@@ -1391,6 +1391,29 @@ export const professionals = [
 ];
 
 export const thingsToDo = [
+  // BEGIN THE SHOW VENUE
+  {
+    "name": "The Show at Agua Caliente",
+    "location": "Rancho Mirage",
+    "category": "Live Music & Entertainment",
+    "tags": [
+      "Live Music",
+      "Tribute Bands",
+      "Headliners",
+      "Date Night"
+    ],
+    "bestFor": "Tribute bands, headliners and a night out with dinner or drinks",
+    "detail": "Inside Agua Caliente Resort Casino Spa Rancho Mirage. Loge is our favorite seating section.",
+    "website": "https://www.aguacalientecasinos.com/entertainment/rancho-mirage-shows/the-show/",
+    "websiteLabel": "Shows & Tickets",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Agua+Caliente+Rancho+Mirage+32-250+Bob+Hope+Drive",
+    "description": "A favorite Rancho Mirage night out for tribute bands and headliners, with loge seats at the top of our list.",
+    "tip": "We love this venue: great shows, amazing talent, and in our experience, not a bad seat in the house. We've been in floor seats, loge seats and even the last row in the upper deck. Every seat has been wonderful, but the loge is our favorite. The tribute bands are amazing, and so are the headliners. Don't miss dinner before the show or drinks afterward at The Steakhouse!",
+    "image": "./assets/things-to-do/the-show-venue-photo.png",
+    "imageAlt": "Audience and live performance inside The Show at Agua Caliente Rancho Mirage",
+    "isNew": true
+  },
+  // END THE SHOW VENUE
   {
     name: "Indian Canyons",
     location: "Palm Springs",

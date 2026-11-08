@@ -6,7 +6,7 @@ Darcey's personal Coachella Valley guide to food and drink, happy hours, golf, a
 
 This project is configured for Netlify using `netlify.toml`.
 
-- Netlify build command: `node scripts/validate-analytics.mjs`
+- Netlify build command: `npm run build`
 - Publish directory: `outputs/desert-insider`
 - Functions directory: `netlify/functions`
 
@@ -53,3 +53,27 @@ Then open:
 ```text
 http://127.0.0.1:4173/
 ```
+
+## Approved SolCal presentation and Events
+
+Run `npm run build` before publishing. The build first regenerates place data,
+production SEO heads, sitemap and robots, then applies the curated page bodies
+in `src/approved-pages/`. These body templates preserve the approved design and
+editorial additions independently of generated metadata. Edit a page's template
+for curated content/layout changes; edit `outputs/desert-insider/data.js` for
+place data and homepage content. Keep corresponding listing/detail templates in
+sync when editing place information. Brand styles live in `brand.css` and the
+shared menu in `guide-header.css` / `guide-header.js` within the publish folder.
+Production integration scripts and Netlify functions are not copied from previews.
+
+The single public Events snapshot is
+`outputs/desert-insider/events/events-data.json`. Builds preserve this file.
+The calendar and homepage fetch it without cache, and the service worker excludes
+it. Refresh only its public event fields; do not publish credentials, source
+maintenance records or private automation metadata. Calendar/PDF helpers are
+local browser modules under `outputs/desert-insider/events/`.
+
+`validate-production.mjs` checks prior page paths, immutable production
+integrations, canonical metadata, active forms, absence of preview restrictions,
+calendar filtering, and PDF generation. Newsletter tests use mocked requests and
+do not create live registrations.

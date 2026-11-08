@@ -1,6 +1,9 @@
-const CACHE_NAME = "darceys-guide-v28-darcey-everywhere";
+const CACHE_NAME = "darceys-guide-v29-solcal-events";
 const APP_SHELL = [
   "/",
+  "/events/",
+  "/brand.css",
+  "/guide-header.css",
   "/food-drink/",
   "/golf/",
   "/things-to-do/",
@@ -34,7 +37,7 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   const url = new URL(event.request.url);
-  if (url.origin !== self.location.origin || url.pathname.startsWith("/api/")) return;
+  if (url.origin !== self.location.origin || url.pathname.startsWith("/api/") || url.pathname === "/events/events-data.json") return;
 
   if (event.request.mode === "navigate") {
     event.respondWith(

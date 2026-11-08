@@ -1,0 +1,240 @@
+/* Approved SolCal colors and shared typography. */
+:root{--paper:#ffffff;--paper-soft:#faf8f5;--charcoal:#0b6e76;--ink-soft:#0b6e76;--muted:#6b7280;--gold:#c81c58;--white:#fff;--line:#dce7e8;--shadow:0 14px 34px rgba(17,24,39,.08);--font-display:'Plus Jakarta Sans',sans-serif;--font-sans:'Plus Jakarta Sans',Arial,sans-serif;--font-editorial:'Plus Jakarta Sans',Arial,sans-serif;--font-signature:'Plus Jakarta Sans',Arial,sans-serif}
+body{background:#ffffff;color:#0b6e76}h1,h2,h3,.home-footer-brand,.hero-live-brand{font-family:var(--font-display)}
+.hero-live-header,.hero-image-map .hero-live-header{background:#0b6e76}.hero-image-map .hero-live-copy{background:#0b6e76}.hero-return-nav,.home-footer{background:#0b6e76}.hero-return-icon{color:#fff1b3}.hero-live-brand span,.home-footer-brand span{color:#fff1b3}
+.hero-image-map .hero-divider,.hero-image-map .hero-description em{color:#fff1b3}.hero-image-map .hero-divider:before,.hero-image-map .hero-divider:after{background:#ffcb05}
+.hero-live-actions .button,.hero-explore,.real-estate-cta .button{background:#ffcb05;border-color:#ffcb05;color:#0b6e76}.hero-live-actions .button:hover,.real-estate-cta .button:hover{background:#fff1b3;border-color:#fff1b3;color:#0b6e76}
+.eyebrow,.category-explore span,.home-curated-category-link span{color:#c81c58}.home-footer .eyebrow,.featured-pick-card .eyebrow,.category-featured-shelf .eyebrow,.contact .eyebrow,.real-estate-cta .eyebrow{color:#fff1b3}
+.featured-pick-card,.category-featured-shelf,.real-estate-cta,.contact{background:#0b6e76}.hero-curator{border-color:#ffcb05}.filter-chip[aria-pressed=true],.favorite-button[aria-pressed=true]{background:#0b6e76;color:white}.category-tile,.home-curated-card{border-color:#dce7e8}
+:focus-visible{outline-color:#c81c58}
+@media(max-width:760px){.hero-live-header,.hero-image-map .hero-live-header{background:#0b6e76}.hero-image-map .hero-live-copy{background:transparent}.hero-image-map:after{background:linear-gradient(180deg,transparent 5%,rgba(6,55,59,.3) 25%,#0b6e76 66%)}}
+/* Shared directory tokens, including all original detail pages. */
+:root{--ink:#0b6e76;--cream:#faf8f5;--display:var(--font-display);--sans:var(--font-sans)}
+.site-header{background:rgba(255,255,255,.97)}.category-hero{background:#0b6e76}.category-hero-media:after{background:linear-gradient(90deg,#0b6e76 0,transparent 30%)}.tag-list span{background:#faf8f5;color:#6b7280}.ask-photo{background:radial-gradient(circle at 50% 32%,#00b2be 0,#0b6e76 54%,#0b6e76 100%)}
+.newsletter-submit,.home-footer .newsletter-submit{background:#ffcb05;border-color:#ffcb05;color:#0b6e76}.newsletter-submit:disabled{opacity:.7;cursor:not-allowed}.site-brand{font-family:var(--font-display)}
+/* Contrast guards for category and detail navigation. */
+.site-header{background:#0b6e76;color:#fff}.site-header a,.site-header .site-brand{color:#fff}.site-header .site-brand span{color:#fff1b3}.site-header .nav-contact{border-color:#ffcb05}
+.hero-image-map .hero-live-actions .hero-explore{background:#ffcb05;color:#0b6e76;border-color:#ffcb05}.hero-image-map .hero-live-actions .hero-about{background:transparent;color:white;border-color:#95bdc1}.hero-image-map .hero-live-actions .hero-explore:hover{background:#fff1b3}.hero-image-map .hero-live-actions .hero-about:hover{background:#0b6e76}
+
+/* Shared typography with Darcey's new website: all guide routes and controls. */
+body,button,input,select,textarea{font-family:'Plus Jakarta Sans',Arial,sans-serif}
+h1,h2,h3,h4,h5,h6,.site-brand,.hero-live-brand,.home-footer-brand{font-family:'Plus Jakarta Sans',sans-serif}
+/* Keep original guide sizing and layout; Plus Jakarta Sans remains the decorative accent. */
+:root{--font-signature:'Plus Jakarta Sans',Arial,sans-serif}
+/* Soft 24px cards and 26px portrait corners, shared with Darcey's new site. */
+:root{--guide-radius:24px;--guide-image-radius:24px;--control-radius:100px;--card-radius:24px}
+main section,.category-tile,.listing-card,.featured-placeholder-card,.featured-pick-card,.category-featured-shelf,.category-featured-card,.feature,.guide-map,.map-detail,.map-place-list,.services-cta,.contact-photo,.real-estate-cta,.home-curated-card,.home-install-card,.install-dialog,.recommendation-card,.experience-tile,.category-hero,.specialized-teaser,.familiar-favorites,.place-hero,.place-section,.utility-intro,.utility-city-picker,.utility-city-panel,.utility-provider-card,.utility-download,.contextual-real-estate,.empty-state,.ask-story,.ask-form-card,.newsletter-dialog{border-radius:var(--guide-radius)}
+.hero-image-map,.hero-return-nav,.home-footer,.site-footer,.ask-footer{border-radius:var(--guide-radius);margin-left:16px;margin-right:16px}
+.hero-image-map{margin-top:16px}.hero-return-nav{margin-top:16px}.home-footer,.site-footer,.ask-footer{margin-bottom:16px}
+.category-tile,.listing-card,.featured-pick-card,.category-featured-card,.home-curated-card,.recommendation-card,.experience-tile,.place-hero,.ask-story{overflow:hidden}
+img,.category-hero-media,.place-media,.home-curated-media,.card-media{border-radius:var(--guide-image-radius)}
+.hero-art,.hero-darcey-upscale,.hero-darcey-highres,.hero-art-mobile{border-radius:0}
+.contact-photo,.contact-photo img{border-radius:26px}
+.button,.contact-actions a,.hero-contact-actions a,.hero-image-map .hero-live-actions .button,.site-contact,.tag-filter,.filter-chip,.utility-tabs button,.favorite-button{border-radius:100px}
+.search-field,.location-field select,.utility-city-picker select,.ask-form input,.ask-form textarea,.newsletter-fields input,.utility-provider-identity img{border-radius:14px}
+@media(max-width:760px){:root{--guide-radius:20px;--guide-image-radius:20px}.hero-image-map,.hero-return-nav,.home-footer,.site-footer,.ask-footer{margin-left:10px;margin-right:10px}.hero-image-map,.hero-return-nav{margin-top:10px}.home-footer,.site-footer,.ask-footer{margin-bottom:10px}}
+
+/* User-provided Bubba's photos, with original full image proportions. */
+.bubbas-photo-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:24px;align-items:start;margin-top:24px}.bubbas-photo-grid figure{margin:0;min-width:0}.bubbas-photo-grid img{width:100%;height:auto;display:block;border-radius:var(--guide-image-radius)}.bubbas-photo-grid figcaption{font-size:13px;color:var(--muted);padding:12px 2px}.bubbas-photo-grid a{display:block}img[src$="bubbas-sign.jpeg"]{object-position:center 32%}
+@media(max-width:650px){.bubbas-photo-grid{grid-template-columns:1fr;gap:20px}}
+
+/* Keep The Shag Store sign visible in Shopping hero and category tile. */
+.category-hero-media img[src$="the-shag-store.jpg"],.category-tile img[src$="the-shag-store.jpg"]{object-position:65% 70%}
+
+.credited-photo{position:relative}.world-market-credit{position:absolute;left:10px;right:10px;bottom:10px;z-index:5;background:rgba(6,55,59,.94);color:white;border-radius:10px;padding:8px 10px;font:400 10px/1.45 'Plus Jakarta Sans',Arial,sans-serif}.world-market-credit a{color:white;text-decoration:underline}.world-market-credit a:hover{color:#fff1b3}
+
+/* November 7, 2026: SolCal color story, shared with Darcey's main preview.
+   Original content, imagery, component geometry and interactions are retained. */
+:root{--solcal-magenta:#e52565;--solcal-turquoise:#00b2be;--solcal-yellow:#ffcb05;--brand-teal:#0b6e76;--brand-ink:#111827;--brand-action:#df1f60;--brand-blush:#fff1f5;--brand-mist:#a2e8eb;--charcoal:#111827;--ink:#111827;--ink-soft:#0b6e76;--line:#dce7e8;--gold:#c81c58}
+body{color:var(--brand-ink);background:white}
+h1,h2,h3,h4,h5,h6{color:var(--brand-teal)}
+.hero-live-brand,.hero-image-map .hero-live-brand,.site-header .site-brand{color:white}
+.hero-live-brand span,.hero-image-map .hero-live-brand span,.site-header .site-brand span,.home-footer .home-footer-brand span{color:var(--solcal-yellow)}
+.hero-live-nav a:hover,.hero-live-nav a:focus-visible,.site-header .site-nav a:hover{color:var(--solcal-yellow)}
+.hero-image-map .hero-live-copy{background:white;color:var(--brand-ink);border:1px solid #cfe4e6;box-shadow:0 18px 45px #11182718}
+.hero-image-map .hero-live-copy h1{color:var(--brand-teal);font-family:var(--font-display);text-shadow:none}
+.hero-image-map :is(.hero-kicker,.hero-description,.hero-curator-name,.hero-curator-role){color:var(--muted)}
+.hero-image-map :is(.hero-divider,.hero-description em){color:#c81c58}
+.hero-image-map .hero-divider:before{background:var(--solcal-turquoise)}
+.hero-image-map .hero-divider:after{background:var(--solcal-yellow)}
+.hero-image-map .hero-curator{border-color:var(--solcal-turquoise)}
+.button.dark,.real-estate-cta .button,.hero-image-map .hero-live-actions .hero-explore,.newsletter-submit,.home-footer .newsletter-submit,.ask-submit{background:var(--brand-action);border-color:var(--brand-action);color:white}
+.button.dark:hover,.real-estate-cta .button:hover,.hero-image-map .hero-live-actions .hero-explore:hover,.newsletter-submit:hover,.ask-submit:hover{background:#c81c58;border-color:#c81c58;color:white}
+.hero-image-map .hero-live-actions .hero-about,.hero-image-map .hero-contact-actions a{background:white;border-color:#95bdc1;color:var(--brand-teal)}
+.hero-image-map .hero-live-actions .hero-about:hover,.hero-image-map .hero-contact-actions a:hover{background:var(--brand-mist);color:var(--brand-teal)}
+.hero-contact-actions:before{color:var(--brand-teal)}
+.hero-return-nav{background:#084146}
+.hero-return-icon{color:var(--solcal-yellow)}
+:is(.section-heading,.editorial-heading,.home-curated-card,.category-tile,.place-copy,.utility-intro,.utility-browse,.utility-download,.ask-form-card,.saved-hero,.contextual-real-estate) :is(h1,h2,h3){color:var(--brand-teal)}
+.category-explore span,.home-curated-category-link,.home-curated-category-link span,.card-topline span:first-child,.favorite-mark,.category-heading-divider,.home-curated .eyebrow{color:#c81c58}
+.category-heading-divider:before{background:var(--solcal-turquoise)}.category-heading-divider:after{background:var(--solcal-yellow)}
+.category-hero{background:white;color:var(--brand-ink);border:1px solid #cfe4e6}
+.category-hero p:not(.eyebrow){color:var(--muted)}.category-hero .eyebrow{color:#c81c58}
+.category-hero-media:after{background:linear-gradient(90deg,white 0,transparent 30%)}
+.featured-pick-card,.category-featured-shelf,.real-estate-cta,.contact{background:var(--brand-mist);color:var(--brand-ink);border-color:var(--solcal-turquoise)}
+:is(.featured-pick-card,.category-featured-shelf,.real-estate-cta,.contact) :is(h1,h2,h3){color:var(--brand-teal)}
+:is(.featured-pick-card,.category-featured-shelf,.real-estate-cta,.contact) .eyebrow{color:#084146}
+:is(.featured-pick-card,.category-featured-shelf,.real-estate-cta,.contact) p:not(.eyebrow){color:#111827}
+.filter-chip[aria-pressed=true],.favorite-button[aria-pressed=true],.tag-filter.active,.utility-tabs button.active,.interest-pills input:checked+span{background:var(--brand-teal);border-color:var(--brand-teal);color:white}
+.favorite-button:hover{border-color:var(--solcal-magenta);color:#c81c58}
+.favorite-button[aria-pressed=true]:hover{color:white}
+.darcey-take{background:var(--brand-mist);border-color:var(--solcal-turquoise);color:var(--brand-teal)}
+.darcey-take blockquote{color:var(--brand-teal)}.darcey-take .eyebrow{color:#084146}
+.good-to-know,.contextual-real-estate,.home-install-card,.install-card{background:#faf8f5}
+.utility-city-panel,.ask-story{background:#084146;color:white}
+.utility-city-panel :is(h2,h3),.ask-story h1{color:white}
+.utility-city-panel .utility-provider-card h3{color:var(--brand-teal)}
+.utility-address-warning strong,.utility-city-panel>.utility-city-heading>.eyebrow,.ask-story .eyebrow{color:var(--solcal-yellow)}
+.ask-story-copy>p:not(.eyebrow),.ask-trust-note span,.utility-address-warning{color:#e4f5f6}
+.ask-photo{background:radial-gradient(circle at 50% 32%,#a2e8eb 0,#00b2be 54%,#0b6e76 100%)}
+.ask-photo p{color:white}.interest-pills span{border-radius:100px}
+.home-footer,.site-footer,.ask-footer{background:#084146;color:white}
+:is(.home-footer,.site-footer,.ask-footer) :is(h2,h3,.eyebrow,a){color:white}
+:is(.home-footer,.site-footer,.ask-footer) .eyebrow{color:var(--solcal-yellow)}
+.home-footer .home-footer-legal,.site-footer .footer-legal,.ask-footer>p,.footer-real-estate-copy>p:last-child{color:#e4f5f6}
+.footer-homes-button{background:var(--brand-action);border-color:var(--brand-action);color:white}
+.footer-homes-button:hover{background:#c81c58;border-color:#c81c58;color:white}
+.footer-talk-link span{color:var(--solcal-yellow)}
+.solcal-brand-frame{display:block;width:146px;padding:12px;background:#fff;border-radius:18px;margin:20px 0 0}
+.solcal-brand-frame img{display:block;width:100%;height:auto;object-fit:contain;border-radius:0}
+.site-footer>.solcal-brand-frame,.ask-footer>.solcal-brand-frame{grid-column:1/-1;margin:0}
+.hero-mobile-menu nav{background:var(--brand-teal);border-color:var(--solcal-turquoise)}
+.hero-mobile-menu nav a{color:white}.hero-mobile-menu nav a:hover{background:#084146;color:white}
+:focus-visible{outline:3px solid #c81c58;outline-offset:4px}
+:is(.site-header,.hero-live-header,.hero-return-nav,.home-footer,.site-footer,.ask-footer) :focus-visible{outline-color:var(--solcal-yellow)}
+@media(max-width:760px){
+ .category-hero-media:after{background:linear-gradient(0deg,white 0,transparent 35%)}
+ .hero-image-map .hero-live-copy{background:transparent;border:0;box-shadow:none;color:white}
+ .hero-image-map .hero-live-copy h1,.hero-image-map :is(.hero-kicker,.hero-description,.hero-curator-name,.hero-curator-role),.hero-contact-actions:before{color:white}
+ .hero-image-map :is(.hero-divider,.hero-description em){color:var(--solcal-yellow)}
+ .hero-image-map .hero-live-copy h1:after{color:var(--solcal-yellow)}
+ .hero-image-map:after{background:linear-gradient(180deg,transparent 5%,rgba(6,55,59,.3) 25%,#0b6e76 66%)}
+ .hero-image-map .hero-live-actions .hero-about{background:transparent;color:white;border-color:#95bdc1}
+ .hero-image-map .hero-live-actions .hero-about:hover{background:#084146;color:white}
+ .solcal-brand-frame{width:130px}
+}
+/* Keep the existing three-line menu icon crisp over the teal masthead. */
+.hero-mobile-menu summary:before,.hero-mobile-menu summary:after{background:transparent}
+/* The navigation panel is a card, not a pill; keep every menu label visible. */
+.hero-mobile-menu nav{border-radius:18px}
+
+/* Refined homepage masthead: an editorial wordmark with SolCal accents.
+   Scoped to the existing header; original navigation and hero content retained. */
+.hero-image-map .hero-live-header{
+  background:#faf8f5;
+  border-bottom:1px solid #cfe4e6;
+  gap:24px;
+  padding-inline:clamp(24px,3.8vw,60px);
+  isolation:isolate;
+}
+.hero-image-map .hero-live-header:after{
+  content:"";position:absolute;bottom:-1px;left:clamp(24px,3.8vw,60px);
+  width:196px;height:3px;pointer-events:none;
+  background:linear-gradient(90deg,#00b2be 0 58%,#e52565 58% 83%,#ffcb05 83%);
+}
+.hero-image-map .hero-live-brand{
+  display:inline-flex;align-items:center;gap:15px;flex:0 0 auto;
+  color:#0b6e76;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1;
+  letter-spacing:0;text-decoration:none;white-space:nowrap;
+}
+.hero-image-map .hero-live-brand .guide-wordmark{
+  display:flex;flex-direction:column;gap:2px;color:#0b6e76;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.22em;line-height:1.2;text-transform:uppercase;
+}
+.hero-image-map .hero-live-brand .guide-wordmark em{
+  display:block;color:#0b6e76;font-family:'Plus Jakarta Sans',Arial,sans-serif;
+  font-size:43px;font-weight:400;font-style:normal;line-height:.95;
+  letter-spacing:-.035em;text-transform:none;
+}
+.hero-image-map .hero-live-brand .guide-heart{
+  order:-1;position:relative;display:grid;place-items:center;
+  flex:0 0 48px;width:48px;height:48px;border:1px solid #00b2be;
+  border-radius:50%;color:#e52565;background:#faf8f5;
+  font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:27px;line-height:1;
+  transform:rotate(-10deg);
+}
+.hero-image-map .guide-heart:after{
+  content:"";position:absolute;right:-3px;top:0;width:10px;height:10px;
+  border-radius:50%;background:#ffcb05;border:2px solid #faf8f5;
+}
+.hero-image-map .hero-live-nav{gap:clamp(16px,1.7vw,28px)}
+.hero-image-map .hero-live-nav a{
+  position:relative;color:#0b6e76;font-size:10px;line-height:1.6;
+  font-weight:600;letter-spacing:.075em;text-decoration:none;padding:12px 0;
+}
+.hero-image-map .hero-live-nav a:after{
+  content:"";position:absolute;left:0;right:0;bottom:5px;height:2px;
+  background:#00b2be;transform:scaleX(0);transform-origin:left;
+  transition:transform .18s ease;
+}
+.hero-image-map .hero-live-nav a:hover,
+.hero-image-map .hero-live-nav a:focus-visible{color:#c81c58}
+.hero-image-map .hero-live-nav a:hover:after,
+.hero-image-map .hero-live-nav a:focus-visible:after{transform:scaleX(1)}
+.hero-image-map .hero-live-header :focus-visible{outline:3px solid #c81c58;outline-offset:5px}
+.hero-image-map .hero-mobile-menu summary{
+  border:1px solid #c4dfe1;border-radius:50%;background:#fff;
+  color:transparent;font-size:0;height:44px;width:44px;padding:0;
+}
+.hero-image-map .hero-mobile-menu summary:before,
+.hero-image-map .hero-mobile-menu summary:after{
+  content:"";position:absolute;left:12px;width:18px;height:0;
+  background:transparent;border:0;border-top:2px solid #0b6e76;
+}
+.hero-image-map .hero-mobile-menu summary:before{top:16px}
+.hero-image-map .hero-mobile-menu summary:after{top:24px}
+.hero-image-map .hero-mobile-menu[open] summary{background:#a2e8eb;border-color:#00b2be}
+.hero-image-map .hero-mobile-menu[open] summary:before{top:20px;transform:rotate(45deg)}
+.hero-image-map .hero-mobile-menu[open] summary:after{top:20px;transform:rotate(-45deg)}
+.hero-image-map .hero-mobile-menu nav{
+  top:calc(100% + 14px);min-width:228px;padding:9px;
+  background:#faf8f5;border:1px solid #cfe4e6;
+  box-shadow:0 15px 35px #06373b26;border-radius:18px;
+}
+.hero-image-map .hero-mobile-menu nav a{
+  color:#0b6e76;padding:12px 14px;min-height:42px;
+  font-size:12px;line-height:1.5;letter-spacing:.01em;
+}
+.hero-image-map .hero-mobile-menu nav a:hover,
+.hero-image-map .hero-mobile-menu nav a:focus-visible{background:#a2e8eb;color:#084146}
+@media(min-width:761px) and (max-width:1100px){
+  .hero-image-map .hero-live-nav{display:none}
+  .hero-image-map .hero-mobile-menu{display:block;position:relative}
+  .hero-image-map .hero-live-header{height:84px}
+}
+@media(max-width:760px){
+  .hero-image-map .hero-live-header{padding-inline:20px;gap:12px}
+  .hero-image-map .hero-live-header:after{left:20px;width:164px;height:2px}
+  .hero-image-map .hero-live-brand{gap:11px}
+  .hero-image-map .hero-live-brand .guide-wordmark{font-size:9px;letter-spacing:.19em;gap:1px}
+  .hero-image-map .hero-live-brand .guide-wordmark em{font-size:34px}
+  .hero-image-map .hero-live-brand .guide-heart{flex-basis:39px;width:39px;height:39px;font-size:22px}
+  .hero-image-map .guide-heart:after{width:9px;height:9px}
+}
+@media(max-width:360px){
+  .hero-image-map .hero-live-header{padding-inline:15px}
+  .hero-image-map .hero-live-header:after{left:15px}
+}
+@media(prefers-reduced-motion:reduce){.hero-image-map .hero-live-nav a:after{transition:none}}
+.hero-image-map .hero-mobile-menu summary{position:relative;list-style:none}
+.hero-image-map .hero-mobile-menu summary::-webkit-details-marker{display:none}
+/* Keep the compact menu self-contained at tablet widths too. */
+.hero-image-map .hero-mobile-menu{position:relative;flex:0 0 auto}
+.hero-image-map .hero-mobile-menu nav{position:absolute;right:0;display:grid;grid-template-columns:1fr;gap:0;width:228px;overflow:hidden}
+.hero-image-map .hero-mobile-menu nav a{display:block;border:0;border-radius:9px;white-space:normal;box-shadow:none}
+
+/* Events section navigation, November 2026. Existing content remains intact. */
+.guide-section-menu{display:none}
+.site-nav .site-events[aria-current=page]{color:#c81c58;text-decoration:underline;text-underline-offset:6px}
+@media(max-width:760px){
+ .site-header .site-nav>a{display:none!important}
+ .site-header .site-nav{gap:0}
+ .guide-section-menu{display:block;position:relative}
+ .guide-section-menu summary{list-style:none;display:flex;align-items:center;gap:8px;border:1px solid #b7d8db;border-radius:100px;padding:9px 13px;color:#0b6e76;font-size:10px;font-weight:600;cursor:pointer;background:white}
+ .guide-section-menu summary::-webkit-details-marker{display:none}
+ .guide-section-menu summary span{font-size:13px}
+ .guide-section-menu nav{position:absolute;right:0;top:calc(100% + 12px);z-index:50;width:230px;max-width:calc(100vw - 34px);background:#faf8f5;border:1px solid #dce7e8;border-radius:16px;padding:8px;box-shadow:0 16px 35px #08414625;display:grid;gap:1px;max-height:70vh;overflow:auto}
+ .site-header .guide-section-menu nav a{display:block!important;color:#0b6e76;font-size:11px;line-height:1.5;letter-spacing:0;text-transform:none;padding:11px 12px;border-radius:9px;text-decoration:none}
+ .site-header .guide-section-menu nav a:hover,.site-header .guide-section-menu nav a:focus-visible{background:#a2e8eb;color:#084146}
+}

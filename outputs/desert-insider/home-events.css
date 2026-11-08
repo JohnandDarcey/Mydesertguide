@@ -1,0 +1,43 @@
+.home-month-events{background:#f4faf9;border-block:1px solid #d8e9e8;scroll-margin-top:108px;color:#0b5158}
+.home-events-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:30px}
+.home-events-heading .eyebrow{color:#c81c58;margin:0 0 12px}
+.home-events-heading h2{font-size:clamp(2rem,4vw,3.5rem);line-height:1.08;letter-spacing:-.045em;margin:0;color:#0b5158}
+.home-events-heading h2 span{color:#0b7a81}
+.home-events-heading p:last-child{margin:15px 0 0;color:#4c6769;font-size:15px}
+.home-events-month{flex-shrink:0;background:#fff;border:1px solid #c7dfe0;border-radius:100px;padding:12px 19px;color:#0b6e76;font-size:13px;font-weight:700}
+.home-events-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.home-event-card{background:#fff;border:1px solid #d8e6e6;border-radius:18px;padding:24px;min-width:0;display:flex;flex-direction:column;box-shadow:0 5px 18px #0b515805}
+.home-event-date{color:#c81c58;font-size:13px;font-weight:700;margin:0 0 17px}
+.home-event-date span{display:block;color:#657a7c;font-size:10px;font-weight:500;letter-spacing:.035em;margin-top:5px}
+.home-event-card h3{font-size:19px;line-height:1.35;letter-spacing:-.025em;margin:0 0 14px;color:#0b5158}
+.home-event-card h3 a:hover{color:#c81c58}
+.home-event-card h3 span{font-size:15px;white-space:nowrap}
+.home-event-place,.home-event-time{font-size:12px;line-height:1.6;color:#52686b;margin:0 0 5px}
+.home-event-source{font-size:10px;line-height:1.6;color:#667b7d;margin:auto 0 0;padding-top:20px}
+.home-event-source a{text-decoration:underline;text-underline-offset:3px}
+.home-events-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:25px}
+.home-events-bottom p{font-size:11px;line-height:1.8;color:#63777a;max-width:650px;margin:0}
+.home-events-more{flex-shrink:0;display:inline-flex;align-items:center;gap:20px;border-radius:100px;background:#0b6e76;color:white!important;padding:13px 21px;font-size:12px;font-weight:600;min-height:44px}
+.home-events-more:hover{background:#084e55}
+.home-month-events a:focus-visible{outline:3px solid #c81c58;outline-offset:5px}
+.home-events-empty{grid-column:1/-1;font-size:14px;color:#52686b;padding-block:16px}
+@media(max-width:1000px){.home-events-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.home-events-heading{display:block}.home-events-month{display:inline-block;margin-top:20px}.home-events-grid{grid-template-columns:1fr}.home-event-card{padding:21px}.home-events-bottom{align-items:flex-start;flex-direction:column;gap:18px}.home-events-heading p:last-child{font-size:13px}.home-events-heading h2{font-size:2.25rem}.home-month-events{scroll-margin-top:88px}}
+
+/* Same approved SolCal colors as the events page; no geometry changes. */
+.home-month-events{background:var(--brand-mist);border-color:var(--solcal-turquoise);color:var(--brand-ink)}
+.home-events-heading .eyebrow{color:#084146}
+.home-events-heading h2{color:var(--brand-teal)}
+.home-events-heading h2 span{color:var(--solcal-magenta)}
+.home-events-heading p:last-child,.home-events-bottom p,.home-events-empty{color:var(--brand-ink)}
+.home-events-month{background:var(--brand-action);border-color:var(--brand-action);color:white}
+.home-event-card{border-color:var(--solcal-turquoise);box-shadow:0 5px 18px #0b6e7605}
+.home-event-card:nth-child(3n+2){border-color:var(--solcal-magenta)}
+.home-event-card:nth-child(3n){border-color:var(--solcal-yellow)}
+.home-event-card h3{color:var(--brand-teal)}
+.home-event-date{color:#c81c58}
+.home-event-date span,.home-event-source{color:#6b7280}
+.home-event-place,.home-event-time{color:var(--brand-ink)}
+.home-events-more{background:var(--brand-action);color:white!important}
+.home-events-more:hover{background:#c81c58}
+.home-month-events a:focus-visible{outline-color:var(--brand-ink)}
