@@ -1,4 +1,4 @@
-import { monthSection, mountMonthEvents } from './home-events.mjs';
+import { upcomingSection, mountUpcomingEvents } from './home-events.mjs?v=20261108-next-days';
 import {
   assets,
   categories,
@@ -947,7 +947,7 @@ function render() {
         </a>
       </nav>
 
-      ${monthSection()}
+      ${upcomingSection()}
 
       <section class="section guide-categories" id="browse-guide" aria-label="Guide categories">
         <div class="category-heading">
@@ -1095,7 +1095,7 @@ const legacyCategoryRoute = legacyCategoryRoutes[window.location.hash.toLowerCas
 if (legacyCategoryRoute) window.location.replace(legacyCategoryRoute);
 else {
   render();
-  mountMonthEvents();
+  mountUpcomingEvents();
   const requestedSectionId = decodeURIComponent(window.location.hash.slice(1));
   if (requestedSectionId) {
     const scrollToRequestedSection = () => document.getElementById(requestedSectionId)?.scrollIntoView();

@@ -114,7 +114,7 @@ if (!homepageData.includes("SolCal Properties") || !homepageData.includes("CA DR
 if (!homepageData.includes("Curated by") || !homepageData.includes("Palm Springs & Coachella Valley Realtor®")) {
   throw new Error("Homepage Realtor identifier profile data is missing.");
 }
-if (!homepage.includes("app.js?v=20261107-solcal-events") || !homepageApp.includes("data.js?v=20261107-solcal-events")) {
+if (!homepage.includes("app.js?v=20261108-next-days") || !homepageApp.includes("data.js?v=20261107-solcal-events")) {
   throw new Error("Homepage lead-engine or Spa & Beauty cache-busting versions are missing.");
 }
 if (!homepage.includes("styles.css?v=20261107-solcal-events") || !homepageServiceWorker.includes("darceys-guide-v29-solcal-events")) {

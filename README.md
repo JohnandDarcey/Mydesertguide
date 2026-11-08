@@ -69,7 +69,14 @@ Production integration scripts and Netlify functions are not copied from preview
 The single public Events snapshot is
 `outputs/desert-insider/events/events-data.json`. Builds preserve this file.
 The calendar and homepage fetch it without cache, and the service worker excludes
-it. Refresh only its public event fields; do not publish credentials, source
+it. The homepage shows at most three distinct listings overlapping today and the
+next two calendar days in America/Los_Angeles, including events already in progress.
+It never fills gaps with later events. The date window rolls forward within a minute
+on a visible page and immediately when returning to the tab. It reloads the snapshot
+every 30 minutes and on reconnect; new listings still depend on the existing event
+refresh process publishing source-checked data. Empty or unavailable windows retain
+a full-calendar link. Run `npm run test:home-events` for boundary and refresh tests.
+Refresh only its public event fields; do not publish credentials, source
 maintenance records or private automation metadata. Calendar/PDF helpers are
 local browser modules under `outputs/desert-insider/events/`.
 
