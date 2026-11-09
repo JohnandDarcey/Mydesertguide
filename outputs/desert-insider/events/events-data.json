@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "timezone": "America/Los_Angeles",
   "mode": "public-readonly",
-  "revision": 11,
+  "revision": 12,
   "lastChecked": "2026-11-06",
   "sync": {
     "enabled": true
@@ -346,6 +346,20 @@
       "checkedAt": "2026-11-09",
       "timeLabel": "10 AM PST",
       "scheduleNote": "Free and open to the public.",
+      "status": "scheduled"
+    },
+    {
+      "id": "palm-springs-veterans-day-parade-20261111",
+      "title": "29th Annual Palm Springs Veterans Day Parade & Concert",
+      "startDate": "2026-11-11",
+      "city": "Palm Springs",
+      "venue": "Downtown Palm Springs",
+      "category": "Community",
+      "url": "https://www.psveteransday.com/",
+      "sourceName": "City of Palm Springs Veterans Day Parade",
+      "checkedAt": "2026-11-09",
+      "timeLabel": "3:30 PM PST; concert and fireworks follow",
+      "scheduleNote": "Parade lasts approximately one hour. Concert and fireworks follow at Palm Canyon Drive and Amado Road. Exact ending time is not published.",
       "status": "scheduled"
     },
     {
