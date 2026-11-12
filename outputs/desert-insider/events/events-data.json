@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "timezone": "America/Los_Angeles",
   "mode": "public-readonly",
-  "revision": 15,
+  "revision": 17,
   "lastChecked": "2026-11-06",
   "sync": {
     "enabled": true
@@ -486,6 +486,20 @@
       "status": "scheduled"
     },
     {
+      "id": "bereavement-support-group-20261112",
+      "title": "Bereavement Support Group",
+      "city": "Cathedral City",
+      "venue": "Cathedral City Senior Center",
+      "category": "Community",
+      "sourceName": "Discover Cathedral City",
+      "url": "https://www.discovercathedralcity.com/event/bereavement-support-group/2026-11-12/",
+      "startDate": "2026-11-12",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "10 AM–11 AM PST",
+      "scheduleNote": "Pre-registration requested; walk-ins depend on available space.",
+      "status": "scheduled"
+    },
+    {
       "id": "bird-walk-20261112",
       "title": "Free Guided Bird Walk",
       "city": "Rancho Mirage",
@@ -494,7 +508,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "startDate": "2026-11-12",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free. One occurrence of the Thursday series. No Thanksgiving Day session; venue closed Nov 26.",
       "status": "scheduled"
@@ -508,7 +522,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/community-sound-bath-6a9846aba984d268be569465/",
       "startDate": "2026-11-12",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "6 PM–7 PM PST",
       "status": "scheduled"
     },
@@ -521,7 +535,7 @@
       "sourceName": "Discover Cathedral City",
       "url": "https://www.discovercathedralcity.com/event/kiki-clay-club-grand-opening/",
       "startDate": "2026-11-12",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "11–11:30 AM PST",
       "scheduleNote": "Free admission. Venue name follows the official event listing.",
       "status": "scheduled"
@@ -550,7 +564,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/movement-and-mindfulness-nov2026/",
       "startDate": "2026-11-12",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10–11 AM PST",
       "scheduleNote": "Free; no registration. Arrive 30 minutes early. Outdoor schedule is weather-dependent.",
       "status": "scheduled"
@@ -564,8 +578,22 @@
       "sourceName": "Discover Cathedral City",
       "url": "https://www.discovercathedralcity.com/event/nice-n-easy/",
       "startDate": "2026-11-12",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "4:30 PM–6:30 PM PST",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261112",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-12",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -577,7 +605,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-12",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261112",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-12",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -591,7 +633,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/torres-martinez-creation-story-6ae12b75726dd87dfdca1a0e/",
       "startDate": "2026-11-12",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "2 PM–3:30 PM PST",
       "status": "scheduled"
     },
@@ -604,7 +646,7 @@
       "sourceName": "Discover Cathedral City",
       "url": "https://www.discovercathedralcity.com/event/device-advice-2/2026-11-13/",
       "startDate": "2026-11-13",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "2 PM–3 PM PST",
       "scheduleNote": "Appointment required. Public listing gives 2–3 PM, while its text also lists a 3 PM appointment; confirm the slot with the organizer.",
       "status": "scheduled"
@@ -618,7 +660,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/wellness-series-live-easy-mediation-nov-13-2026/",
       "startDate": "2026-11-13",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "9–10 AM PST",
       "scheduleNote": "Registration required; $11.91 per person, ages 12+. Outdoor session; check the official page for availability and weather changes.",
       "status": "scheduled"
@@ -632,7 +674,7 @@
       "sourceName": "Palm Springs Food & Wine Festival",
       "url": "https://palmspringsfoodandwine.org/event/2026-palm-springs-food-wine-festival/",
       "startDate": "2026-11-13",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Starts 5 PM PST; see organizer for schedule",
       "scheduleNote": "Opening reception is sold out. Organizer ticket details give Canopy 5–6:30 PM and Downtown Park Amphitheatre 6:30–8 PM; the home-page summary instead ends at 7 PM. Use the linked detailed schedule.",
       "status": "scheduled"
@@ -646,7 +688,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/fashion",
       "startDate": "2026-11-13",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7:30 PM PST",
       "scheduleNote": "Friday performance. Separate tickets for each performance; see official venue page.",
       "status": "scheduled"
@@ -666,6 +708,20 @@
       "status": "scheduled"
     },
     {
+      "id": "social-worker-at-ccsc-20261113",
+      "title": "Social Worker at CCSC",
+      "city": "Cathedral City",
+      "venue": "Cathedral City Senior Center",
+      "category": "Community",
+      "sourceName": "Discover Cathedral City",
+      "url": "https://www.discovercathedralcity.com/event/social-worker-at-ccsc/2026-11-13/",
+      "startDate": "2026-11-13",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "By appointment",
+      "scheduleNote": "Appointment required; contact the senior center for a time.",
+      "status": "scheduled"
+    },
+    {
       "id": "sunnylands-estate-birding-20261113",
       "title": "Birding on the Estate",
       "city": "Rancho Mirage",
@@ -674,9 +730,23 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-13",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261113",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-13",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -688,7 +758,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-13",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261113",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-13",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -728,7 +812,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/genealogy-meet-up--6ae12d4b726dd87dfdd121a1/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "1 PM–3 PM PST",
       "status": "scheduled"
     },
@@ -741,7 +825,7 @@
       "sourceName": "Discover Cathedral City",
       "url": "https://www.discovercathedralcity.com/event/hands-only-cpr-and-stop-the-bleed-2/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "9 AM–11 AM PST",
       "status": "scheduled"
     },
@@ -780,7 +864,7 @@
       "sourceName": "Palm Springs Food & Wine Festival",
       "url": "https://palmspringsfoodandwine.org/event/2026-palm-springs-food-wine-festival/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "General noon–4 PM; VIP 11 AM–4 PM PST",
       "scheduleNote": "Ages 21+. Separate date-specific tickets; no sold-out or cancellation notice shown for this day at verification.",
       "status": "scheduled"
@@ -794,7 +878,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/fashion",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "2 PM and 7:30 PM PST",
       "scheduleNote": "Two Saturday performances with separate tickets; see official venue page.",
       "status": "scheduled"
@@ -822,7 +906,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/art-workshop-sun-printing/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10 AM–noon PST",
       "scheduleNote": "Registration required. Ages 18+, or ages 8+ with an accompanying adult. Check organizer for availability.",
       "status": "scheduled"
@@ -836,9 +920,23 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261114",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-14",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -850,7 +948,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261114",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-14",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -864,7 +976,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -904,7 +1016,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/dance-in-the-gardens-nov2026/",
       "startDate": "2026-11-15",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "11 AM–12:15 PM PST",
       "scheduleNote": "Free. Audience moves through the gardens with the dancers; this is not a seated performance. Weather-dependent.",
       "status": "scheduled"
@@ -931,9 +1043,23 @@
       "sourceName": "Palm Springs Food & Wine Festival",
       "url": "https://palmspringsfoodandwine.org/event/2026-palm-springs-food-wine-festival/",
       "startDate": "2026-11-15",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "General noon–4 PM; VIP 11 AM–4 PM PST",
       "scheduleNote": "Ages 21+. Separate date-specific tickets; no sold-out or cancellation notice shown for this day at verification.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261115",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-15",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -945,7 +1071,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-15",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261115",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-15",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -964,17 +1104,57 @@
       "status": "scheduled"
     },
     {
+      "id": "english-class-for-beginners-20261116",
+      "title": "English Class for Beginners",
+      "city": "Cathedral City",
+      "venue": "Cathedral City Senior Center",
+      "category": "Community",
+      "sourceName": "Discover Cathedral City",
+      "url": "https://www.discovercathedralcity.com/event/english-class-for-beginners/2026-11-16/",
+      "startDate": "2026-11-16",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "10 AM–11 AM PST",
+      "status": "scheduled"
+    },
+    {
       "id": "la-quinta-culinary-kids-20261116",
       "title": "Culinary Kids (Ages 8–12)",
       "city": "La Quinta",
       "venue": "La Quinta Library, 78275 Calle Tampico",
       "category": "Family & festivals",
       "sourceName": "Play in La Quinta",
-      "url": "https://www.playinlaquinta.com/events/e/culinary-kids-ages-5-7-registration-required-6a3966e9958c48b6aaa34cc5/",
+      "url": "https://www.playinlaquinta.com/events/e/culinary-kids-ages-8-12-registration-required-6a427019ea51a493ce091201/",
       "startDate": "2026-11-16",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "11 AM–noon PST",
       "scheduleNote": "Registration required.",
+      "status": "scheduled"
+    },
+    {
+      "id": "minecraft-monday-ages-8-12-20261116",
+      "title": "Minecraft Monday (Ages 8–12)",
+      "city": "La Quinta",
+      "venue": "La Quinta Library, 78275 Calle Tampico",
+      "category": "Family & festivals",
+      "sourceName": "Play in La Quinta",
+      "url": "https://www.playinlaquinta.com/events/e/minecraft-monday-ages-8-12-6ae9d9a695bc3baede301534/",
+      "startDate": "2026-11-16",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "4:30 PM–5:30 PM PST",
+      "status": "scheduled"
+    },
+    {
+      "id": "notary-services-for-seniors-20261116",
+      "title": "Notary Services for Seniors",
+      "city": "Cathedral City",
+      "venue": "Cathedral City Senior Center",
+      "category": "Community",
+      "sourceName": "Discover Cathedral City",
+      "url": "https://www.discovercathedralcity.com/event/notary-services-for-seniors/2026-11-16/",
+      "startDate": "2026-11-16",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "9 AM–2 PM PST",
+      "scheduleNote": "Advance signup required; limited space.",
       "status": "scheduled"
     },
     {
@@ -986,7 +1166,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/state-of-the-city",
       "startDate": "2026-11-17",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "6 PM PST",
       "scheduleNote": "Free event. See official venue page for reservation details.",
       "status": "scheduled"
@@ -1000,7 +1180,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/take-a-break-with-huell-6ae12d8d726dd87dfdd21783/",
       "startDate": "2026-11-17",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "11 AM PST",
       "status": "scheduled"
     },
@@ -1013,7 +1193,7 @@
       "sourceName": "Discover Cathedral City",
       "url": "https://www.discovercathedralcity.com/event/tastes-sounds-shades-of-billy/",
       "startDate": "2026-11-17",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "5 PM–7:30 PM PST",
       "scheduleNote": "Doors open at 5 PM; show starts at 5:30 PM.",
       "status": "scheduled"
@@ -1027,7 +1207,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/collage-club-with-the-scrap-gallery-6ae12dd0726dd87dfdd3b267/",
       "startDate": "2026-11-18",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "2 PM–4 PM PST",
       "status": "scheduled"
     },
@@ -1040,7 +1220,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/japanese-culture-club-6ae9d9ac95bc3baede301cf4/",
       "startDate": "2026-11-18",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "5:30 PM–6:30 PM PST",
       "scheduleNote": "Ages 18 and older; supplies are limited.",
       "status": "scheduled"
@@ -1054,7 +1234,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/outdoor-storytime-6ae9d9a795bc3baede30153f/",
       "startDate": "2026-11-18",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10 AM–12 PM PST",
       "status": "scheduled"
     },
@@ -1067,7 +1247,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/rachael-vilray",
       "startDate": "2026-11-18",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7 PM PST",
       "scheduleNote": "See the official venue page for tickets. No end time is published.",
       "status": "scheduled"
@@ -1081,7 +1261,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-18",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
       "status": "scheduled"
@@ -1095,9 +1275,23 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/estate-tree-walk-series-dec-2-2026/",
       "startDate": "2026-11-18",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10 AM PST; confirm duration",
       "scheduleNote": "Registration required. Explicit date in the organizer’s series. The page lists both a one-hour duration and a 10–11:30 AM schedule; confirm the ending time.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261118",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-18",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -1109,7 +1303,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-18",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261118",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-18",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1123,7 +1331,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "startDate": "2026-11-19",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. No Thanksgiving session; outdoor programs may change with weather.",
       "status": "scheduled"
@@ -1137,7 +1345,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/good-books-in-the-gallery-6ae12e0e726dd87dfdd562e2/",
       "startDate": "2026-11-19",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "3 PM PST",
       "status": "scheduled"
     },
@@ -1150,7 +1358,7 @@
       "sourceName": "Discover Cathedral City",
       "url": "https://www.discovercathedralcity.com/event/love-letters/",
       "startDate": "2026-11-19",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7 PM–9 PM PST",
       "status": "scheduled"
     },
@@ -1163,7 +1371,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/page-turners-book-club-6ae9d9ac95bc3baede301cff/",
       "startDate": "2026-11-19",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10:30 AM–11:30 AM PST",
       "scheduleNote": "Register at the library information desk.",
       "status": "scheduled"
@@ -1177,9 +1385,36 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/salute-to-sinatra",
       "startDate": "2026-11-19",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7 PM PST",
       "scheduleNote": "With Gene Pietragallo and the Paul McDonald Big Band. See official venue page for tickets.",
+      "status": "scheduled"
+    },
+    {
+      "id": "ribbon-cutting-pinots-palette-20261119",
+      "title": "Ribbon Cutting: Pinot's Palette",
+      "city": "La Quinta",
+      "venue": "Pinot's Palette, 47120 Dune Palms Rd, Suite 103",
+      "category": "Community",
+      "sourceName": "Play in La Quinta",
+      "url": "https://www.playinlaquinta.com/events/e/ribbon-cutting-pinots-palette-6ae46c9b796309b0a3a5dce0/",
+      "startDate": "2026-11-19",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "4 PM–5 PM PST",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261119",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-19",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -1191,7 +1426,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-19",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261119",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-19",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1205,9 +1454,22 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/brian-ray-presents-desert-scene",
       "startDate": "2026-11-20",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7 PM PST",
       "scheduleNote": "See the official venue page for tickets. No end time is published.",
+      "status": "scheduled"
+    },
+    {
+      "id": "pokemon-club-ages-8-12-20261120",
+      "title": "Pokemon Club (Ages 8–12)",
+      "city": "La Quinta",
+      "venue": "La Quinta Library, 78275 Calle Tampico",
+      "category": "Family & festivals",
+      "sourceName": "Play in La Quinta",
+      "url": "https://www.playinlaquinta.com/events/e/pokemon-club-ages-8-12-6ae9d9b395bc3baede3024dd/",
+      "startDate": "2026-11-20",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "4 PM–5:30 PM PST",
       "status": "scheduled"
     },
     {
@@ -1219,7 +1481,7 @@
       "sourceName": "Cabot's Pueblo Museum",
       "url": "https://cabotsmuseum.org/events/",
       "startDate": "2026-11-20",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "6–10 PM PST",
       "status": "scheduled"
     },
@@ -1238,6 +1500,19 @@
       "status": "scheduled"
     },
     {
+      "id": "sensory-hour-pm-20261120",
+      "title": "Sensory Hour PM",
+      "city": "La Quinta",
+      "venue": "La Quinta Library, 78275 Calle Tampico",
+      "category": "Family & festivals",
+      "sourceName": "Play in La Quinta",
+      "url": "https://www.playinlaquinta.com/events/e/sensory-hour-pm-6ae9d99295bc3baede2ffea0/",
+      "startDate": "2026-11-20",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "3 PM–5:30 PM PST",
+      "status": "scheduled"
+    },
+    {
       "id": "sketchbook-journaling-20261120",
       "title": "Sketchbook Journaling",
       "city": "La Quinta",
@@ -1246,7 +1521,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/sketchbook-journaling-6ae12cbe726dd87dfdcf8218/",
       "startDate": "2026-11-20",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "1–3 PM PST",
       "scheduleNote": "Basic art supplies provided.",
       "status": "scheduled"
@@ -1260,9 +1535,23 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-20",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261120",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-20",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -1274,7 +1563,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-20",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261120",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-20",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1288,7 +1591,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/article/yoga-in-the-gardens-returns-with-a-new-monthly-schedule/",
       "startDate": "2026-11-20",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "9:00–10:00 AM PST",
       "scheduleNote": "Free. Date confirmed in the organizer’s program announcement.",
       "status": "scheduled"
@@ -1316,7 +1619,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/great-british-book-club-6ae9d9b595bc3baede3024e8/",
       "startDate": "2026-11-21",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10:30–11:30 AM PST",
       "status": "scheduled"
     },
@@ -1329,8 +1632,22 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/mindful-art-workshop-6ae12e44726dd87dfdd7667f/",
       "startDate": "2026-11-21",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "1 PM–3 PM PST",
+      "status": "scheduled"
+    },
+    {
+      "id": "morning-movie-showing-20261121",
+      "title": "Morning Movie Showing",
+      "city": "La Quinta",
+      "venue": "La Quinta Library, 78275 Calle Tampico",
+      "category": "Family & festivals",
+      "sourceName": "Play in La Quinta",
+      "url": "https://www.playinlaquinta.com/events/e/morning-movie-showing-6aec76f6cf0b057f5d40281d/",
+      "startDate": "2026-11-21",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "11 AM–1 PM PST",
+      "scheduleNote": "Limited seating.",
       "status": "scheduled"
     },
     {
@@ -1370,9 +1687,23 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-21",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261121",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-21",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -1384,7 +1715,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-21",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261121",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-21",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1398,7 +1743,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-11-21",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -1412,7 +1757,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/the-ephemera-vault-6ae9d9b995bc3baede302cc1/",
       "startDate": "2026-11-21",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "2:30 PM–4 PM PST",
       "status": "scheduled"
     },
@@ -1425,7 +1770,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/la-quinta-cove-full-moon-hike-6ae46ec7796309b0a3b31601/",
       "startDate": "2026-11-22",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7–9 PM PST",
       "scheduleNote": "Registration is required through the organizer. Reservations open one week before the hike.",
       "status": "scheduled"
@@ -1452,7 +1797,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/adopt-the-arts",
       "startDate": "2026-11-22",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7 PM PST",
       "scheduleNote": "Rescheduled from September 13 to November 22. The 7 PM screening and record release celebration is listed for general booking; a separate 3 PM community screening is described for PSUSD students, families and educators.",
       "status": "scheduled"
@@ -1466,9 +1811,23 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/star-gazing-under-a-desert-full-moon-6ae46ec6796309b0a3b315b2/",
       "startDate": "2026-11-22",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7 PM–10 PM PST",
       "scheduleNote": "Weather-dependent; check organizer for cancellation.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261122",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-22",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -1480,7 +1839,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-22",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261122",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-22",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1494,7 +1867,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/thunder-from-down-under",
       "startDate": "2026-11-23",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7 PM PST",
       "scheduleNote": "Ages 18+.",
       "status": "scheduled"
@@ -1508,7 +1881,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/coloring-book-night-for-adults-6ae9d9b995bc3baede302ccc/",
       "startDate": "2026-11-24",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "5 PM–6:30 PM PST",
       "status": "scheduled"
     },
@@ -1521,7 +1894,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/november-tour",
       "startDate": "2026-11-24",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10 AM and 1 PM PST",
       "status": "scheduled"
     },
@@ -1534,7 +1907,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/stitch-fiber-arts-group-6ae12d13726dd87dfdd096ca/",
       "startDate": "2026-11-24",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "1 PM–3 PM PST",
       "status": "scheduled"
     },
@@ -1561,9 +1934,23 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-25",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261125",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-25",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -1575,7 +1962,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-25",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261125",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-25",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1629,7 +2030,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/christmas-with-the-drifters-the-platters-cornell-gunters-coasters",
       "startDate": "2026-11-27",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7:30 PM PST",
       "status": "scheduled"
     },
@@ -1656,9 +2057,23 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-27",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261127",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-27",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -1670,7 +2085,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-27",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261127",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-27",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1736,9 +2165,9 @@
       "venue": "La Quinta Library, 78275 Calle Tampico",
       "category": "Family & festivals",
       "sourceName": "Play in La Quinta",
-      "url": "https://www.playinlaquinta.com/events/e/kids-of-the-arts-ages-5-7-6a42700fea51a493ce09110b/",
+      "url": "https://www.playinlaquinta.com/events/e/kids-of-the-arts-ages-8-12-6a42701dea51a493ce091247/",
       "startDate": "2026-11-28",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Noon–1 PM PST",
       "status": "scheduled"
     },
@@ -1777,7 +2206,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/pippi-longstocking-workshop-6ae12c69726dd87dfdcdd5c6/",
       "startDate": "2026-11-28",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10 AM–12 PM PST",
       "status": "scheduled"
     },
@@ -1790,7 +2219,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/maria-bamford",
       "startDate": "2026-11-28",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7:30 PM PST",
       "status": "scheduled"
     },
@@ -1817,9 +2246,23 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-28",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261128",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-28",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -1831,7 +2274,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-28",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261128",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-28",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1845,7 +2302,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-11-28",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -1873,8 +2330,22 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/big-bad-voodoo-daddy-wild-n-swinging-holiday-party",
       "startDate": "2026-11-29",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7:30 PM PST",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-historic-house-tour-20261129",
+      "title": "Historic House Tour",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Arts & culture",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
+      "startDate": "2026-11-29",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
     },
     {
@@ -1886,7 +2357,21 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-29",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "Tour times vary; check official tickets",
+      "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
+      "status": "scheduled"
+    },
+    {
+      "id": "sunnylands-open-air-experience-20261129",
+      "title": "Open-Air Experience",
+      "city": "Rancho Mirage",
+      "venue": "Sunnylands historic estate",
+      "category": "Wellness & outdoors",
+      "sourceName": "Sunnylands",
+      "url": "https://sunnylands.org/event/open-air-experience-november2026/",
+      "startDate": "2026-11-29",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1900,7 +2385,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/david-benoit",
       "startDate": "2026-11-30",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7:30 PM PST",
       "status": "scheduled"
     },
@@ -1927,7 +2412,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/open-house-meet-greet-6ad9e084fd35149a0e3b9279/",
       "startDate": "2026-12-01",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "5 PM PST",
       "status": "scheduled"
     },
@@ -1940,7 +2425,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/darren-criss",
       "startDate": "2026-12-01",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7 PM PST",
       "scheduleNote": "Sold out according to the official venue page.",
       "status": "scheduled"
@@ -1954,7 +2439,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/tween-game-night-6ae9d9a895bc3baede30154a/",
       "startDate": "2026-12-02",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "4–5 PM PST",
       "status": "scheduled"
     },
@@ -1967,7 +2452,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/estate-tree-walk-series-dec-2-2026/",
       "startDate": "2026-12-02",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10 AM PST; confirm duration",
       "scheduleNote": "Registration required. Explicit date in the organizer’s series. The page lists both a one-hour duration and a 10–11:30 AM schedule; confirm the ending time.",
       "status": "scheduled"
@@ -1981,7 +2466,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/meow-meows-feline-festive",
       "startDate": "2026-12-02",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7:30 PM PST",
       "status": "scheduled"
     },
@@ -1994,7 +2479,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/annual-holiday-casita-lighting-6ae12c18726dd87dfdcc640b/",
       "startDate": "2026-12-03",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "5–6 PM PST",
       "status": "scheduled"
     },
@@ -2007,7 +2492,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "startDate": "2026-12-03",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. No Thanksgiving session; outdoor programs may change with weather.",
       "status": "scheduled"
@@ -2021,7 +2506,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/chess-club-6ae9d9ad95bc3baede301d0c/",
       "startDate": "2026-12-03",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "4–6:30 PM PST",
       "status": "scheduled"
     },
@@ -2047,7 +2532,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/movement-and-mindfulness-nov2026/",
       "startDate": "2026-12-03",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10–11 AM PST",
       "scheduleNote": "Free; no registration. Arrive 30 minutes early. Outdoor schedule is weather-dependent.",
       "status": "scheduled"
@@ -2061,7 +2546,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/a-john-waters-christmas-1",
       "startDate": "2026-12-03",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8 PM PST",
       "status": "scheduled"
     },
@@ -2107,6 +2592,19 @@
       "status": "scheduled"
     },
     {
+      "id": "anime-cafe-20261205",
+      "title": "Anime Cafe",
+      "city": "La Quinta",
+      "venue": "La Quinta Library, 78275 Calle Tampico",
+      "category": "Family & festivals",
+      "sourceName": "Play in La Quinta",
+      "url": "https://www.playinlaquinta.com/events/e/anime-cafe-6a833acecc713a1adfc992e5/",
+      "startDate": "2026-12-05",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "12 PM–2 PM PST",
+      "status": "scheduled"
+    },
+    {
       "id": "community-shredding-event-20261205",
       "title": "Community Shredding Event",
       "city": "Cathedral City",
@@ -2115,7 +2613,7 @@
       "sourceName": "Discover Cathedral City",
       "url": "https://www.discovercathedralcity.com/event/community-shredding-event-3/2026-11-07/",
       "startDate": "2026-12-05",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8 AM–9 AM PST",
       "status": "scheduled"
     },
@@ -2128,7 +2626,7 @@
       "sourceName": "Discover Cathedral City",
       "url": "https://www.discovercathedralcity.com/event/feliz-navidog-2026/",
       "startDate": "2026-12-05",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "9 AM–10:30 AM PST",
       "scheduleNote": "Registration opens at 9 AM; contest begins at 9:30 AM.",
       "status": "scheduled"
@@ -2168,7 +2666,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/justin-willman",
       "startDate": "2026-12-05",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7 PM PST",
       "status": "scheduled"
     },
@@ -2181,7 +2679,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-12-05",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -2275,7 +2773,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/culinary-kids-ages-5-7-registration-required-6a3966e9958c48b6aaa34cc5/",
       "startDate": "2026-12-07",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10 AM–11 AM PST",
       "scheduleNote": "Ages 5–7. Registration required.",
       "status": "scheduled"
@@ -2289,7 +2787,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/whose-live-anyway",
       "startDate": "2026-12-07",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7:30 PM PST",
       "status": "scheduled"
     },
@@ -2302,7 +2800,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/kids-of-the-arts-ages-5-7-6a42700fea51a493ce09110b/",
       "startDate": "2026-12-08",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "12 PM–1 PM PST",
       "scheduleNote": "Registration required; ages 5–7.",
       "status": "scheduled"
@@ -2316,7 +2814,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/john-denver-christmas",
       "startDate": "2026-12-08",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7:30 PM PST",
       "status": "scheduled"
     },
@@ -2329,7 +2827,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "startDate": "2026-12-10",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. No Thanksgiving session; outdoor programs may change with weather.",
       "status": "scheduled"
@@ -2370,7 +2868,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/jingle-jangle-jazz-hands",
       "startDate": "2026-12-11",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7 PM PST",
       "scheduleNote": "Separate tickets apply for each performance.",
       "status": "scheduled"
@@ -2452,7 +2950,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/jingle-jangle-jazz-hands",
       "startDate": "2026-12-12",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7 PM PST",
       "scheduleNote": "Separate tickets apply for each performance.",
       "status": "scheduled"
@@ -2466,7 +2964,7 @@
       "sourceName": "Discover Cathedral City",
       "url": "https://www.discovercathedralcity.com/event/snowfest-2026/",
       "startDate": "2026-12-12",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "4 PM–8 PM PST",
       "status": "scheduled"
     },
@@ -2479,7 +2977,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-12-12",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -2507,7 +3005,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/jingle-jangle-jazz-hands",
       "startDate": "2026-12-13",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "2 PM PST",
       "scheduleNote": "Separate tickets apply for each performance.",
       "status": "scheduled"
@@ -2534,7 +3032,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/follies",
       "startDate": "2026-12-14",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "2 PM and 7 PM PST",
       "scheduleNote": "Two performances with separate tickets.",
       "status": "scheduled"
@@ -2548,7 +3046,20 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/janelynch2026",
       "startDate": "2026-12-15",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "7:30 PM PST",
+      "status": "scheduled"
+    },
+    {
+      "id": "plaza-janelynch2026-1-20261216",
+      "title": "Jane Lynch's A Swingin' Little Christmas",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Music & entertainment",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/janelynch2026-1",
+      "startDate": "2026-12-16",
+      "checkedAt": "2026-11-12",
       "timeLabel": "7:30 PM PST",
       "status": "scheduled"
     },
@@ -2561,7 +3072,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/estate-tree-walk-series-dec-2-2026/",
       "startDate": "2026-12-16",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10 AM PST; confirm duration",
       "scheduleNote": "Registration required. Explicit date in the organizer’s series. The page lists both a one-hour duration and a 10–11:30 AM schedule; confirm the ending time.",
       "status": "scheduled"
@@ -2575,7 +3086,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "startDate": "2026-12-17",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. No Thanksgiving session; outdoor programs may change with weather.",
       "status": "scheduled"
@@ -2603,9 +3114,23 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/article/yoga-in-the-gardens-returns-with-a-new-monthly-schedule/",
       "startDate": "2026-12-18",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "9:00–10:00 AM PST",
       "scheduleNote": "Free monthly session on the third Friday, as published for November–April.",
+      "status": "scheduled"
+    },
+    {
+      "id": "plaza-that-holiday-glow-20261219",
+      "title": "Modern Men Coachella Valley Men's Chorus: That Holiday Glow",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Music & entertainment",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/that-holiday-glow",
+      "startDate": "2026-12-19",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "7 PM PST",
+      "scheduleNote": "Separate tickets apply for each performance.",
       "status": "scheduled"
     },
     {
@@ -2617,7 +3142,7 @@
       "sourceName": "Cabot's Pueblo Museum",
       "url": "https://cabotsmuseum.org/events/",
       "startDate": "2026-12-19",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "6–10 PM PST",
       "status": "scheduled"
     },
@@ -2644,7 +3169,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/art-workshop-dream-container/",
       "startDate": "2026-12-19",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "9:30–11:30 AM PST",
       "scheduleNote": "Registration required. Ages 18+, or ages 12+ with an accompanying adult. Check official page for availability and weather changes.",
       "status": "scheduled"
@@ -2658,7 +3183,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-12-19",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -2678,6 +3203,20 @@
       "status": "scheduled"
     },
     {
+      "id": "plaza-that-holiday-glow-20261220",
+      "title": "Modern Men Coachella Valley Men's Chorus: That Holiday Glow",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Music & entertainment",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/that-holiday-glow",
+      "startDate": "2026-12-20",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "3 PM PST",
+      "scheduleNote": "Separate tickets apply for each performance.",
+      "status": "scheduled"
+    },
+    {
       "id": "sunnylands-bonsai-bar-20261220",
       "title": "Horticulture workshop: Bonsai Bar",
       "city": "Rancho Mirage",
@@ -2686,7 +3225,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/horticulture-workshop-bonsai-bar-dec2026/",
       "startDate": "2026-12-20",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "1–3 PM PST",
       "scheduleNote": "Registration required. Ages 18+, or ages 14+ with an accompanying adult. Check organizer for availability.",
       "status": "scheduled"
@@ -2712,11 +3251,24 @@
       "venue": "La Quinta Library, 78275 Calle Tampico",
       "category": "Family & festivals",
       "sourceName": "Play in La Quinta",
-      "url": "https://www.playinlaquinta.com/events/e/culinary-kids-ages-5-7-registration-required-6a3966e9958c48b6aaa34cc5/",
+      "url": "https://www.playinlaquinta.com/events/e/culinary-kids-ages-8-12-registration-required-6a427019ea51a493ce091201/",
       "startDate": "2026-12-21",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "11 AM–noon PST",
       "scheduleNote": "Registration required.",
+      "status": "scheduled"
+    },
+    {
+      "id": "plaza-a-very-broadway-christmas-20261221",
+      "title": "Musical Theatre University: A Very Broadway Christmas",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Music & entertainment",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/a-very-broadway-christmas",
+      "startDate": "2026-12-21",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "7:30 PM PST",
       "status": "scheduled"
     },
     {
@@ -2734,6 +3286,19 @@
       "status": "scheduled"
     },
     {
+      "id": "plaza-pops-holiday-20261222",
+      "title": "The Most Wonderful Time of the Year",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Music & entertainment",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/pops-holiday",
+      "startDate": "2026-12-22",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "7:30 PM PST",
+      "status": "scheduled"
+    },
+    {
       "id": "vgps-wildlights-18140-20261222",
       "title": "WildLights",
       "city": "Palm Desert",
@@ -2745,6 +3310,19 @@
       "checkedAt": "2026-11-07",
       "timeLabel": "6–9 PM PST",
       "scheduleNote": "One explicitly listed operating night. Confirm special-night admission rules before booking.",
+      "status": "scheduled"
+    },
+    {
+      "id": "plaza-dean-martin-christmas-20261223",
+      "title": "The Dean Martin Story Christmas Special",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Music & entertainment",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/dean-martin-christmas",
+      "startDate": "2026-12-23",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "7:30 PM PST",
       "status": "scheduled"
     },
     {
@@ -2783,9 +3361,22 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "startDate": "2026-12-24",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. No Thanksgiving session; outdoor programs may change with weather.",
+      "status": "scheduled"
+    },
+    {
+      "id": "plaza-white-christmas-sing-a-long-20261224",
+      "title": "White Christmas Sing-A-Long",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Arts & culture",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/white-christmas-sing-a-long",
+      "startDate": "2026-12-24",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "10 AM and 2 PM PST",
       "status": "scheduled"
     },
     {
@@ -2803,6 +3394,19 @@
       "status": "scheduled"
     },
     {
+      "id": "plaza-mariachi-divas-christmas-20261226",
+      "title": "The Mariachi Divas: A Holiday Celebration",
+      "city": "Palm Springs",
+      "venue": "The Plaza Theatre, 128 South Palm Canyon Drive",
+      "category": "Music & entertainment",
+      "sourceName": "Palm Springs Plaza Theatre",
+      "url": "https://www.palmspringsplazatheatre.com/events/detail/mariachi-divas-christmas",
+      "startDate": "2026-12-26",
+      "checkedAt": "2026-11-12",
+      "timeLabel": "7:30 PM PST",
+      "status": "scheduled"
+    },
+    {
       "id": "tai-chi-20261226",
       "title": "Tai Chi in the Gardens",
       "city": "Rancho Mirage",
@@ -2811,7 +3415,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-12-26",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -2908,7 +3512,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "startDate": "2026-12-31",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. No Thanksgiving session; outdoor programs may change with weather.",
       "status": "scheduled"
@@ -2922,7 +3526,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2027-01-02",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -2936,7 +3540,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/estate-tree-walk-series-dec-2-2026/",
       "startDate": "2027-01-06",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "10 AM PST; confirm duration",
       "scheduleNote": "Registration required. Explicit date in the organizer’s series. The page lists both a one-hour duration and a 10–11:30 AM schedule; confirm the ending time.",
       "status": "scheduled"
@@ -2950,7 +3554,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/free-guided-bird-walk-2026-2027/",
       "startDate": "2027-01-07",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "8:45–9:45 AM PST",
       "scheduleNote": "Free Thursday session in the published November–May series. Outdoor programs may change with weather.",
       "status": "scheduled"
@@ -2964,7 +3568,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2027-01-09",
-      "checkedAt": "2026-11-11",
+      "checkedAt": "2026-11-12",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
