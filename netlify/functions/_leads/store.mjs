@@ -17,9 +17,13 @@ export async function recentLeads(limit = 20) {
   const result = await store.list({ prefix: "leads/" });
   const keys = result.blobs
     .map((blob) => blob.key)
-    .sort((a, b) => b.localeCompare(a))
-    .slice(0, Math.max(1, Math.min(50, limit)));
-  const leads = await Promise.all(keys.map((key) => store.get(key, { type: "json" })));
+    .sort((a, b) => b.localeCompare(a));
+  // null requests the complete private dashboard dataset; other callers retain their limit.
+  const selectedKeys = limit === null ? keys : keys.slice(0, Math.max(1, Math.min(50, limit)));
+  const leads = [];
+  for (let offset = 0; offset < selectedKeys.length; offset += 20) {
+    leads.push(...await Promise.all(selectedKeys.slice(offset, offset + 20).map((key) => store.get(key, { type: "json" }))));
+  }
   return leads.filter(Boolean);
 }
 

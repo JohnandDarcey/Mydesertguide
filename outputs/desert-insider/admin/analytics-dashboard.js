@@ -23,14 +23,32 @@
   const contactTotal = (totals = {}) => Number(totals.darceyTextClicks || 0) + Number(totals.darceyCallClicks || 0) + Number(totals.darceyEmailClicks || 0);
   const imageUrl = (path = "") => path.startsWith("./") ? `/${path.slice(2)}` : path;
   const savedLeadsInRange = () => {
-    if (state.range === "all") return state.leads;
-    const milliseconds = state.range === "24h" ? 86400000 : Number(state.range || 30) * 86400000;
-    const cutoff = Date.now() - milliseconds;
-    return state.leads.filter((lead) => {
-      const submittedAt = new Date(lead.submittedAt).getTime();
-      return Number.isFinite(submittedAt) && submittedAt >= cutoff;
+    const snapshot = new Date(state.data?.generatedAt || Date.now()).getTime();
+    const validLeads = state.leads.filter((lead) => {
+      const time = new Date(lead.submittedAt).getTime();
+      return Number.isFinite(time) && time <= snapshot;
+    });
+    if (state.range === "all") return validLeads;
+    if (state.range === "24h") {
+      // The summary uses the current partial UTC hour and the preceding 23 hours.
+      const start = Math.floor(snapshot / 3600000) * 3600000 - 23 * 3600000;
+      return validLeads.filter((lead) => Date.parse(lead.submittedAt) >= start);
+    }
+    const pacificDate = (value) => new Intl.DateTimeFormat("en-CA", {
+      timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit"
+    }).format(new Date(value));
+    const today = state.data?.todayDate || pacificDate(snapshot);
+    const first = new Date(today + "T12:00:00Z");
+    first.setUTCDate(first.getUTCDate() - Number(state.range || 30) + 1);
+    const startDate = first.toISOString().slice(0, 10);
+    return validLeads.filter((lead) => {
+      const date = pacificDate(lead.submittedAt);
+      return date >= startDate && date <= today;
     });
   };
+  const leadsToContact = () => savedLeadsInRange().filter(
+    (lead) => !lead.status || String(lead.status).toLowerCase() === "new"
+  );
 
   function setStatus(message, error = false) {
     elements.status.textContent = message;
@@ -116,11 +134,12 @@
     const contributingPages = (current.realEstatePages || []).filter((page) => page.ctaClicks || page.leads).slice(0, 12);
     elements.leadPages.innerHTML = contributingPages.length ? `<div class="lead-pages-table-wrap"><table><thead><tr><th>Source Page</th><th>Ask Darcey Clicks</th><th>Confirmed Leads</th></tr></thead><tbody>${contributingPages.map((page) => `<tr><td><a href="${escapeHtml(page.name)}" target="_blank">${escapeHtml(page.name)}</a></td><td>${number(page.ctaClicks)}</td><td>${number(page.leads)}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty">Pages will appear here after visitors use an Ask Darcey link or submit an inquiry.</p>`;
 
-    if (!state.leads.length) {
-      elements.recentLeads.innerHTML = `<p class="empty">No confirmed inquiries yet. New leads will appear here and will also be emailed to John and Darcey.</p>`;
+    const pendingLeads = leadsToContact();
+    if (!pendingLeads.length) {
+      elements.recentLeads.innerHTML = `<p class="empty">No new inquiries need contact in the selected period. Contacted inquiries remain included in saved-lead totals.</p>`;
       return;
     }
-    elements.recentLeads.innerHTML = `<div class="lead-table-wrap"><table class="lead-table"><thead><tr><th>Date</th><th>Name & Email</th><th>Phone</th><th>Lead Type</th><th>Message</th><th>Source Page</th><th>Lead Source</th><th>Status</th></tr></thead><tbody>${state.leads.map((lead) => {
+    elements.recentLeads.innerHTML = `<div class="lead-table-wrap"><table class="lead-table"><thead><tr><th>Date</th><th>Name & Email</th><th>Phone</th><th>Lead Type</th><th>Message</th><th>Source Page</th><th>Lead Source</th><th>Status</th></tr></thead><tbody>${pendingLeads.map((lead) => {
       const source = [lead.attribution?.source, lead.attribution?.medium].filter(Boolean).join(" / ") || "Direct";
       const leadStatus = lead.status || "New";
       const phoneHref = String(lead.phone || "").replace(/[^+\d]/g, "");
@@ -212,10 +231,13 @@
       const data = await summaryResponse.json();
       if (!summaryResponse.ok || !data.ok) throw new Error(data.error || "Could not load analytics.");
       const leadData = await leadsResponse.json().catch(() => ({ ok: false }));
-      state.leads = leadsResponse.ok && leadData.ok ? leadData.leads || [] : [];
+      if (!leadsResponse.ok || !leadData.ok || !Array.isArray(leadData.leads)) {
+        throw new Error(leadData.error || "Saved leads could not be loaded. Counts are unavailable; this does not mean there are no leads.");
+      }
+      state.leads = leadData.leads;
       state.data = data; render(); elements.access.classList.add("authenticated");
       setStatus(`Updated ${new Date(data.generatedAt).toLocaleString()}.`);
-    } catch (error) { setStatus(error.message, true); }
+    } catch (error) { setStatus(`${error.message}${state.data ? " Previously displayed data has not been refreshed." : ""}`, true); }
   }
 
   async function previewReport() {
