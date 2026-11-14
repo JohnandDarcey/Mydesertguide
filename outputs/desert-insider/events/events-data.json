@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "timezone": "America/Los_Angeles",
   "mode": "public-readonly",
-  "revision": 18,
+  "revision": 19,
   "lastChecked": "2026-11-06",
   "sync": {
     "enabled": true
@@ -799,7 +799,7 @@
       "sourceName": "Discover Cathedral City",
       "url": "https://www.discovercathedralcity.com/public-arts-commission-invites-local-artists-to-showcase-talent-at-cathedral-city-librarys-2026-quarterly-art-exhibits/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "10 AM–3 PM PST",
       "status": "scheduled"
     },
@@ -812,7 +812,7 @@
       "sourceName": "Play in La Quinta",
       "url": "https://www.playinlaquinta.com/events/e/genealogy-meet-up--6ae12d4b726dd87dfdd121a1/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "1 PM–3 PM PST",
       "status": "scheduled"
     },
@@ -878,7 +878,7 @@
       "sourceName": "Palm Springs Plaza Theatre",
       "url": "https://www.palmspringsplazatheatre.com/events/detail/fashion",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "2 PM and 7:30 PM PST",
       "scheduleNote": "Two Saturday performances with separate tickets; see official venue page.",
       "status": "scheduled"
@@ -906,7 +906,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/art-workshop-sun-printing/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "10 AM–noon PST",
       "scheduleNote": "Registration required. Ages 18+, or ages 8+ with an accompanying adult. Check organizer for availability.",
       "status": "scheduled"
@@ -920,7 +920,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
       "status": "scheduled"
@@ -934,7 +934,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -948,7 +948,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -962,7 +962,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/open-air-experience-november2026/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -976,7 +976,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-11-14",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -1003,7 +1003,7 @@
       "sourceName": "Discover Cathedral City",
       "url": "https://www.discovercathedralcity.com/public-arts-commission-invites-local-artists-to-showcase-talent-at-cathedral-city-librarys-2026-quarterly-art-exhibits/",
       "startDate": "2026-11-15",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "10 AM–3 PM PST",
       "status": "scheduled"
     },
@@ -1016,7 +1016,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/dance-in-the-gardens-nov2026/",
       "startDate": "2026-11-15",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "11 AM–12:15 PM PST",
       "scheduleNote": "Free. Audience moves through the gardens with the dancers; this is not a seated performance. Weather-dependent.",
       "status": "scheduled"
@@ -1057,7 +1057,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
       "startDate": "2026-11-15",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1071,7 +1071,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-15",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1085,7 +1085,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/open-air-experience-november2026/",
       "startDate": "2026-11-15",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1261,7 +1261,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-18",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
       "status": "scheduled"
@@ -1289,7 +1289,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
       "startDate": "2026-11-18",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1303,7 +1303,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-18",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1317,7 +1317,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/open-air-experience-november2026/",
       "startDate": "2026-11-18",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1412,7 +1412,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
       "startDate": "2026-11-19",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1426,7 +1426,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-19",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1440,7 +1440,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/open-air-experience-november2026/",
       "startDate": "2026-11-19",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1481,7 +1481,7 @@
       "sourceName": "Cabot's Pueblo Museum",
       "url": "https://cabotsmuseum.org/events/",
       "startDate": "2026-11-20",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "6–10 PM PST",
       "status": "scheduled"
     },
@@ -1535,7 +1535,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-20",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
       "status": "scheduled"
@@ -1549,7 +1549,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
       "startDate": "2026-11-20",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1563,7 +1563,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-20",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1577,7 +1577,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/open-air-experience-november2026/",
       "startDate": "2026-11-20",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1687,7 +1687,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-21",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
       "status": "scheduled"
@@ -1701,7 +1701,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
       "startDate": "2026-11-21",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1715,7 +1715,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-21",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1729,7 +1729,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/open-air-experience-november2026/",
       "startDate": "2026-11-21",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1743,7 +1743,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-11-21",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -1825,7 +1825,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
       "startDate": "2026-11-22",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1839,7 +1839,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-22",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1853,7 +1853,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/open-air-experience-november2026/",
       "startDate": "2026-11-22",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1934,7 +1934,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-25",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
       "status": "scheduled"
@@ -1948,7 +1948,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
       "startDate": "2026-11-25",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1962,7 +1962,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-25",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -1976,7 +1976,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/open-air-experience-november2026/",
       "startDate": "2026-11-25",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -2057,7 +2057,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-27",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
       "status": "scheduled"
@@ -2071,7 +2071,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
       "startDate": "2026-11-27",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -2085,7 +2085,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-27",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -2099,7 +2099,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/open-air-experience-november2026/",
       "startDate": "2026-11-27",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -2246,7 +2246,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/birding-on-the-estate-nov2026/",
       "startDate": "2026-11-28",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "8:45 AM PST",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house.",
       "status": "scheduled"
@@ -2260,7 +2260,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
       "startDate": "2026-11-28",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -2274,7 +2274,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-28",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -2288,7 +2288,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/open-air-experience-november2026/",
       "startDate": "2026-11-28",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -2302,7 +2302,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-11-28",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -2343,7 +2343,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-house-tour-november2026/",
       "startDate": "2026-11-29",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -2357,7 +2357,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/historic-walk-nov2026/",
       "startDate": "2026-11-29",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -2371,7 +2371,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/open-air-experience-november2026/",
       "startDate": "2026-11-29",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Tour times vary; check official tickets",
       "scheduleNote": "Ticket required; availability is not guaranteed. One date in the published November series. Does not include the historic house. Venue closed Thanksgiving Day.",
       "status": "scheduled"
@@ -2679,7 +2679,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-12-05",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -2977,7 +2977,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-12-12",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -3142,7 +3142,7 @@
       "sourceName": "Cabot's Pueblo Museum",
       "url": "https://cabotsmuseum.org/events/",
       "startDate": "2026-12-19",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "6–10 PM PST",
       "status": "scheduled"
     },
@@ -3183,7 +3183,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-12-19",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -3415,7 +3415,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2026-12-26",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -3526,7 +3526,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2027-01-02",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
@@ -3607,7 +3607,7 @@
       "sourceName": "Sunnylands",
       "url": "https://sunnylands.org/event/tai-chi-in-the-gardens-2026-27/",
       "startDate": "2027-01-09",
-      "checkedAt": "2026-11-13",
+      "checkedAt": "2026-11-14",
       "timeLabel": "Confirm start time with organizer",
       "scheduleNote": "Free Saturday session in the published November–April series. Published start times differ; confirm the time with Sunnylands.",
       "status": "scheduled"
